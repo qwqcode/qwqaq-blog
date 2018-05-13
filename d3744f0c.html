@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Android 命名规则 | ZNEIAT 的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="命名规则包名   包名 此包中包含     com.xx.应用名称缩写.activity 页面用到的Activity类 (activitie层级名用户界面层)   com.xx.应用名称缩写.fragment 页面用到的fragment   com.xx.应用名称缩写.base 基础共享的类   com.xx.应用名称缩写.config 通用的配置   com.xx.应用名称缩写.global 全">
+<meta name="keywords" content="Android,命名规则,代码规范">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 命名规则">
+<meta property="og:url" content="http://www.qwqaq.com/d3744f0c.html">
+<meta property="og:site_name" content="ZNEIAT 的博客">
+<meta property="og:description" content="命名规则包名   包名 此包中包含     com.xx.应用名称缩写.activity 页面用到的Activity类 (activitie层级名用户界面层)   com.xx.应用名称缩写.fragment 页面用到的fragment   com.xx.应用名称缩写.base 基础共享的类   com.xx.应用名称缩写.config 通用的配置   com.xx.应用名称缩写.global 全">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.qwqaq.com/d3744f0c/banner.png">
+<meta property="og:updated_time" content="2018-04-22T11:45:10.444Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 命名规则">
+<meta name="twitter:description" content="命名规则包名   包名 此包中包含     com.xx.应用名称缩写.activity 页面用到的Activity类 (activitie层级名用户界面层)   com.xx.应用名称缩写.fragment 页面用到的fragment   com.xx.应用名称缩写.base 基础共享的类   com.xx.应用名称缩写.config 通用的配置   com.xx.应用名称缩写.global 全">
+<meta name="twitter:image" content="http://www.qwqaq.com/d3744f0c/banner.png">
+    
+
+    
+        <link rel="alternate" href="/" title="ZNEIAT 的博客" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/material-design-iconic-font/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <!--<span class="site-title">ZNEIAT 的博客</span>-->
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">主页</a>
+                
+                    <a class="main-nav-link" href="/categories">目录</a>
+                
+                    <a class="main-nav-link" href="/archives">时间轴</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/images/avatar.png" />
+                            <i class="zmdi zmdi-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="zmdi zmdi-close"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">主页</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">目录</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">时间轴</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <div class="profile-top-part">
+                <img id="avatar" src="/images/avatar.png" />
+                <div class="info-inner">
+                    <h2 id="name">ZNEIAT</h2>
+                    <h3 id="title">生命不止，折腾不息</h3>
+                </div>
+            </div>
+            <div class="profile-bg"></div>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                22
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                51
+                <span>标签</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            
+            
+            <div class="social-link-item">
+                <a href="https://github.com/Zneiat" target="_blank" title="github" class=tooltip>
+                    <i class="zmdi zmdi-github"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="/" target="_blank" title="twitter" class=tooltip>
+                    <i class="zmdi zmdi-twitter"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="/" target="_blank" title="rss" class=tooltip>
+                    <i class="zmdi zmdi-rss"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="/about/" target="_blank" title="more" class=tooltip>
+                    <i class="zmdi zmdi-more"></i>
+                </a>
+            </div>
+            
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-android-命名规则" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<img src="/d3744f0c/banner.png" class="article-banner" />
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Android 命名规则
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="zmdi zmdi-calendar"></i>
+        <a href="/d3744f0c.html">
+            <time datetime="2017-09-17T02:45:15.000Z" itemprop="datePublished">2017-09-17</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="zmdi zmdi-folder"></i>
+        <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h2><h4 id="包名"><a href="#包名" class="headerlink" title="包名"></a>包名</h4><table>
+<thead>
+<tr>
+<th>包名</th>
+<th>此包中包含</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>com.xx.应用名称缩写.activity</td>
+<td>页面用到的Activity类 (activitie层级名用户界面层)</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.fragment</td>
+<td>页面用到的fragment</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.base</td>
+<td>基础共享的类</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.config</td>
+<td>通用的配置</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.global</td>
+<td>全局的监听实现类等</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.adapter</td>
+<td>页面用到的Adapter类 (适配器的类)</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.util</td>
+<td>此包中包含：公共工具方法类（util模块名）命名与第三方的utils作区分</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.bean</td>
+<td>下面可分：vo(本地类)、bo（远程类）、dto（传递引用类）</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.model</td>
+<td>此包中包含：模型类</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.db</td>
+<td>数据库操作类</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.view</td>
+<td>自定义的View类等，可通用，与app业务无关的</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.widget</td>
+<td>自定义的View类等，与app业务相关的</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.service</td>
+<td>Service服务，后台服务</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.receiver</td>
+<td>BroadcastReceiver服务，接收通知</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<h4 id="类名"><a href="#类名" class="headerlink" title="类名"></a>类名</h4><table>
+<thead>
+<tr>
+<th>类</th>
+<th>描述</th>
+<th>例如</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Activity 类</td>
+<td>Activity为后缀标识</td>
+<td>欢迎页面类WelcomeActivity</td>
+</tr>
+<tr>
+<td>Adapter类</td>
+<td>Adapter 为后缀标识</td>
+<td>新闻详情适配器 NewDetailAdapter</td>
+</tr>
+<tr>
+<td>解析类</td>
+<td>Parser为后缀标识</td>
+<td>首页解析类HomePosterParser</td>
+</tr>
+<tr>
+<td>工具方法类</td>
+<td>Util或Manager为后缀标识（与系统或第三方的Utils区分）或功能+Util</td>
+<td>日志工具类： LogUtil（Logger也可）打印工具类：PrinterUtil</td>
+</tr>
+<tr>
+<td>管理类</td>
+<td>Manager为后缀标识</td>
+<td>ThreadPoolManager</td>
+</tr>
+<tr>
+<td>数据库类</td>
+<td>以DBHelper后缀标识</td>
+<td>新闻数据库：NewDBHelper</td>
+</tr>
+<tr>
+<td>Service类</td>
+<td>以Service为后缀标识</td>
+<td>时间服务TimeServiceBroadcast</td>
+</tr>
+<tr>
+<td>Receiver类</td>
+<td>以Receiver为后缀标识</td>
+<td>推送接收JPushReceiver</td>
+</tr>
+<tr>
+<td>ContentProvider</td>
+<td>以Provider为后缀标识</td>
+</tr>
+<tr>
+<td>自定义基类</td>
+<td>以Base开头</td>
+<td>BaseActivity,BaseFragment</td>
+</tr>
+<tr>
+<td>实体类</td>
+<td>模块 + 类型 + 后缀(BO/VO/DTO)</td>
+<td>例如：订单详情实体类及订单详情内的商品实体类 OrderDetailBO、OrderGoodsBO；例如：订单列表实体类及订单列表内的商品实体类 OrderBO/OrderItemBO、OrderGoodsBO/OrderItemGoodsBO；当然，如果订单详情和订单列表内的OrderGoodsBO一致，则可以单独提出来给2个实体类通用</td>
+</tr>
+<tr>
+<td>自定义view</td>
+<td>功能描述 + View</td>
+<td>例如：可以展开收缩的view，CollapsibleView</td>
+</tr>
+<tr>
+<td>自定义widget</td>
+<td>模块名 + 类型(List/Info) + Widget</td>
+<td>例如：订单详情内的商品列表，OrderDetailGoodsListWidget； 或者：在widget内新增order目录，放order目录下的GoodsListWidget</td>
+</tr>
+</tbody>
+</table>
+<h4 id="接口名"><a href="#接口名" class="headerlink" title="接口名"></a>接口名</h4><ul>
+<li>回调事件监听接口 On + 对象 + Click/Select，例如：OnItemClick/OnMenuSelect</li>
+<li>其他接口 功能描述 + Impl</li>
+</ul>
+<h4 id="方法名"><a href="#方法名" class="headerlink" title="方法名"></a>方法名</h4><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>initXX()</td>
+<td>初始化相关方法,使用init为前缀标识，如初始化布局initView()</td>
+</tr>
+<tr>
+<td>isXX() checkXX()</td>
+<td>方法返回值为boolean型的请使用is或check为前缀标识</td>
+</tr>
+<tr>
+<td>getXX()</td>
+<td>返回某个值的方法，使用get为前缀标识</td>
+</tr>
+<tr>
+<td>handleXX()</td>
+<td>对数据进行处理的方法，尽量使用handle为前缀标识</td>
+</tr>
+<tr>
+<td>displayXX()/showXX()</td>
+<td>弹出提示框和提示信息，使用display/show为前缀标识</td>
+</tr>
+<tr>
+<td>saveXX()</td>
+<td>与保存数据相关的，使用save为前缀标识</td>
+</tr>
+<tr>
+<td>resetXX()</td>
+<td>对数据重组的，使用reset前缀标识</td>
+</tr>
+<tr>
+<td>clearXX()</td>
+<td>清除数据相关的</td>
+</tr>
+<tr>
+<td>removeXXX()</td>
+<td>清除数据相关的</td>
+</tr>
+<tr>
+<td>drawXXX()</td>
+<td>绘制数据或效果相关的，使用draw前缀标识</td>
+</tr>
+</tbody>
+</table>
+<h4 id="类的属性命名"><a href="#类的属性命名" class="headerlink" title="类的属性命名"></a>类的属性命名</h4><h6 id="1-常量名"><a href="#1-常量名" class="headerlink" title="1.常量名"></a>1.常量名</h6><ul>
+<li>常量名命名模式为CONSTANT_CASE，全部字母大写，用下划线分隔单词</li>
+<li>常量一般统一放置在config目录下的AppConfig文件内</li>
+<li>同类型的常量，通常放置在同一个内部类中</li>
+<li>示例参考 com.xiaoq.sample.mylib.code包下面的Appconfig</li>
+</ul>
+<h6 id="2-非常量字段名"><a href="#2-非常量字段名" class="headerlink" title="2.非常量字段名"></a>2.非常量字段名</h6><ul>
+<li>非公有，非静态字段命名以m开头。<br><code>int mPackagePrivate;</code><br><code>private int mPrivate;</code><br><code>protected int mProtected;</code></li>
+<li>静态字段命名以s开头。<br><code>private static MyClass sSingleton;</code></li>
+<li>公有非静态字段命名以p开头。<br><code>public int pField;</code></li>
+<li>公有静态字段（全局变量）命名以g开头。<br><code>public static int gField;</code></li>
+<li>UI控件变量命名参考 附录的 UI控件缩写表</li>
+</ul>
+<h6 id="3-量词变量后缀"><a href="#3-量词变量后缀" class="headerlink" title="3.量词变量后缀"></a>3.量词变量后缀</h6><ul>
+<li>First 一组变量中的第一个</li>
+<li>Last 一组变量中的最后一个</li>
+<li>Next 一组变量中的下一个变量</li>
+<li>Prev 一组变量中的上一个</li>
+<li>Cur 一组变量中的当前变量。</li>
+<li>例如：mCustomerStrFirst mCustomerStrLast</li>
+</ul>
+<h6 id="4-集合添加如下后缀：List、Map、Set"><a href="#4-集合添加如下后缀：List、Map、Set" class="headerlink" title="4.集合添加如下后缀：List、Map、Set"></a>4.集合添加如下后缀：List、Map、Set</h6><h6 id="5-数组添加如下后缀：Arr"><a href="#5-数组添加如下后缀：Arr" class="headerlink" title="5.数组添加如下后缀：Arr"></a>5.数组添加如下后缀：Arr</h6><h6 id="6-临时变量"><a href="#6-临时变量" class="headerlink" title="6.临时变量"></a>6.临时变量</h6><ul>
+<li>临时变量通常被取名为i，j，k，m和n，它们一般用于整型；</li>
+<li>c，d，e，它们一般用于字符型；</li>
+</ul>
+<h4 id="资源文件命名规范"><a href="#资源文件命名规范" class="headerlink" title="资源文件命名规范"></a>资源文件命名规范</h4><h6 id="1-资源布局文件（XML文件（layout布局文件））："><a href="#1-资源布局文件（XML文件（layout布局文件））：" class="headerlink" title="1.资源布局文件（XML文件（layout布局文件））："></a>1.资源布局文件（XML文件（layout布局文件））：</h6><ul>
+<li><code>activity_main.xml</code></li>
+<li><code>frament_main.xml</code></li>
+<li>Dialog命名：<code>dialog_描述.xml，例如：dialog_hint.xml</code></li>
+<li>PopupWindow命名：<code>ppw_描述.xml，例如：ppw_info.xml</code></li>
+<li><p>列表项命名：<code>item_描述.xml</code></p>
+<ul>
+<li>通用列表项：<code>item_city.xml</code></li>
+<li>listview：<code>list_item_city.xml</code></li>
+<li>gridview：<code>grid_item_city.xml</code></li>
+<li>recyclerview：<code>recycler_item_city.xml</code></li>
+<li>自定义类似listview：TabLayout：<code>tab_item_city.xml</code></li>
+</ul>
+</li>
+<li><p>包含项命名：<code>模块_(位置).xml</code></p>
+<ul>
+<li>位置：top、 btm、 left、 right</li>
+<li><code>例如：activity_main_btm.xml、fragment_main_top.xml</code></li>
+<li>通用的包含项命名采用：<code>base_(位置)_项目名称缩写_描述.xml</code></li>
+<li>描述：title、 content、 header、 footer</li>
+<li>例如：<code>base_top_xxxx_title.xml、base_btm_xxxx_header.xml</code></li>
+<li>例如：<code>全项目通用 base_top.xml base_btm.xml</code></li>
+</ul>
+</li>
+<li><p>自定义Widget（布局命名）</p>
+<ul>
+<li><code>widget_ + View功能描述/模块 + 类型(list/info) + .xml</code></li>
+<li><code>例如:订单详情内的商品列表 widget_order_detail_goods_list.xml</code></li>
+</ul>
+</li>
+<li><p>特殊自定义组件/控件</p>
+<ul>
+<li>例如: com.xiaoq.widget.tips.TipsManager的loading布局/empty布局/重试布局</li>
+<li>通用：<code>base_tips_loading.xml、base_tips_empty、base_tips_retry</code></li>
+<li>各个activity内：<code>activity_描述_tips_loading.xml、activity_main_tips_loading.xml</code></li>
+<li>fragment：<code>fragment_main_tips_loading.xml</code></li>
+<li>view：<code>activity_main_xxx_view_tips_loading.xml、fragment_main_xxx_view_tips_loading.xml</code>，xxx 为view的描述</li>
+</ul>
+</li>
+</ul>
+<h6 id="2-资源文件（图片mipmap及drawable文件夹下）："><a href="#2-资源文件（图片mipmap及drawable文件夹下）：" class="headerlink" title="2.资源文件（图片mipmap及drawable文件夹下）："></a>2.资源文件（图片mipmap及drawable文件夹下）：</h6><ul>
+<li>全部小写，采用下划线命名法，加前缀区分</li>
+<li>通用规则</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bg_head</td>
+<td>背景图片使用bg_功能_说明</td>
+</tr>
+<tr>
+<td>def_search_cell</td>
+<td>默认图片使用def_功能_说明</td>
+</tr>
+<tr>
+<td>ic_more_help</td>
+<td>图标图片使用ic_功能_说明</td>
+</tr>
+<tr>
+<td>seg_list_line</td>
+<td>具有分隔特征的图片使用seg_功能_说明 (false)不可用效果</td>
+</tr>
+<tr>
+<td>sel_ok</td>
+<td>选择图标使用sel_功能_说明</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>命名模式：可加后缀 _small 表示小图, _big 表示大图，逻辑名称可由多个单词加下划线组成</li>
+<li>采用以下规则：</li>
+<li><code>用途_模块名_逻辑名称</code></li>
+<li><code>用途_模块名_颜色</code></li>
+<li><code>用途_逻辑名称</code></li>
+<li><code>用途_颜色</code></li>
+<li>说明：用途也指控件类型（具体见UI控件缩写表）</li>
+<li>例如：</li>
+<li><code>btn_main_home.png 按键</code></li>
+<li><code>divider_maket_white.png 分割线</code></li>
+<li><code>btn_red.png 红色按键</code></li>
+<li><code>btn_red_big.png 红色大按键</code></li>
+<li><code>divider_white.png 白色分割线</code></li>
+<li>如果有多种形态如按钮等除外如 btn_xx.xml（selector）</li>
+</ul>
+<ul>
+<li>normal、pressed、disbled、checked 较常用</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>btn_xx</td>
+<td>按钮图片使用btn_整体效果（selector）</td>
+</tr>
+<tr>
+<td>btn_xx_normal</td>
+<td>按钮图片使用btn_正常情况效果</td>
+</tr>
+<tr>
+<td>btn_xx_pressed</td>
+<td>按钮图片使用btn_点击时候效果</td>
+</tr>
+<tr>
+<td>btn_xx_focused</td>
+<td>state_focused聚焦效果</td>
+</tr>
+<tr>
+<td>btn_xx_disabled</td>
+<td>state_enabled (false)不可用效果</td>
+</tr>
+<tr>
+<td>btn_xx_checked</td>
+<td>state_checked选中效果</td>
+</tr>
+<tr>
+<td>btn_xx_selected</td>
+<td>state_selected选中效果</td>
+</tr>
+<tr>
+<td>btn_xx_hovered</td>
+<td>state_hovered悬停效果</td>
+</tr>
+<tr>
+<td>btn_xx_checkable</td>
+<td>state_checkable可选效果</td>
+</tr>
+<tr>
+<td>btn_xx_activated</td>
+<td>state_activated激活的</td>
+</tr>
+<tr>
+<td>btn_xx_windowfocused</td>
+<td>state_window_focused</td>
+</tr>
+</tbody>
+</table>
+<h6 id="3-动画文件（anim文件夹下）："><a href="#3-动画文件（anim文件夹下）：" class="headerlink" title="3.动画文件（anim文件夹下）："></a>3.动画文件（anim文件夹下）：</h6><ul>
+<li>全部小写，采用下划线命名法，加前缀区分。</li>
+<li><p>具体动画采用以下</p>
+<ul>
+<li>规则：<code>模块名_逻辑名称</code></li>
+<li><p>例如：</p>
+<pre><code>* `refresh_progress.xml`
+</code></pre><ul>
+<li><code>market_cart_add.xml</code></li>
+<li><code>market_cart_remove.xml</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>普通的tween动画采用如下表格中的命名方式，前面为动画的类型，后面为方向</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>动画命名例子</th>
+<th>规范写法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fade_in</td>
+<td>淡入</td>
+</tr>
+<tr>
+<td>fade_out</td>
+<td>淡出</td>
+</tr>
+<tr>
+<td>push_down_in</td>
+<td>从下方推入</td>
+</tr>
+<tr>
+<td>push_down_out</td>
+<td>从下方推出</td>
+</tr>
+<tr>
+<td>push_left</td>
+<td>推向左方</td>
+</tr>
+<tr>
+<td>slide_in_from_top</td>
+<td>从头部滑动进入</td>
+</tr>
+<tr>
+<td>zoom_enter</td>
+<td>变形进入</td>
+</tr>
+<tr>
+<td>slide_in</td>
+<td>滑动进入</td>
+</tr>
+<tr>
+<td>shrink_to_middle</td>
+<td>中间缩小</td>
+</tr>
+</tbody>
+</table>
+<h6 id="4-styles-xml文件的命名"><a href="#4-styles-xml文件的命名" class="headerlink" title="4.styles.xml文件的命名"></a>4.styles.xml文件的命名</h6><ul>
+<li><p>规则：模块名+逻辑名称</p>
+<ul>
+<li><code>main_tabBottom</code></li>
+<li><code>order_detail_goodsItem</code></li>
+<li><code>order_list_goodsImg</code></li>
+</ul>
+</li>
+</ul>
+<h6 id="5-layout中的id命名"><a href="#5-layout中的id命名" class="headerlink" title="5. layout中的id命名"></a>5. layout中的id命名</h6><ul>
+<li>命名模式为：<code>View缩写_view的逻辑名称</code>，可以使用AndroidStudio的插件Android Studio Prettify 自动生成findViewById</li>
+<li>例如：tv_Sender_Mobile（展示联系人手机的TextView）</li>
+<li>可参考 com.xiaoq.sample.mylib.code.CodeActivity</li>
+<li>当然，全部小写的命名是最标准的，不过为了要适应Prettify插件自动生成满足要求的局部变量，调整为小驼峰命名法，并用下划线分割</li>
+</ul>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h6 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h6><p><strong>其他未在文档内标准的规范则以AndroidStudio自动生成的为准</strong></p>
+<h6 id="UI控件缩写表"><a href="#UI控件缩写表" class="headerlink" title="UI控件缩写表"></a>UI控件缩写表</h6><table>
+<thead>
+<tr>
+<th>控件</th>
+<th>缩写</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LinearLayout</td>
+<td>ll</td>
+<td>llFriend或者mFriendLL</td>
+</tr>
+<tr>
+<td>RelativeLayout</td>
+<td>rl</td>
+<td>rlMessage或mMessageRL</td>
+</tr>
+<tr>
+<td>FrameLayout</td>
+<td>fl</td>
+<td>flCart或mCartFL</td>
+</tr>
+<tr>
+<td>TableLayout</td>
+<td>tl</td>
+<td>tlTab或mTabTL</td>
+</tr>
+<tr>
+<td>Button</td>
+<td>btn</td>
+<td>btnHome或mHomeBtn</td>
+</tr>
+<tr>
+<td>ImageButton</td>
+<td>ibtn</td>
+<td>btnPlay或mPlayIBtn</td>
+</tr>
+<tr>
+<td>TextView</td>
+<td>tv</td>
+<td>tvName或mNameTV</td>
+</tr>
+<tr>
+<td>EditText</td>
+<td>et</td>
+<td>etName或mNameET</td>
+</tr>
+<tr>
+<td>ListView</td>
+<td>lv</td>
+<td>lvCart或mCartLV</td>
+</tr>
+<tr>
+<td>ImageView</td>
+<td>iv</td>
+<td>ivHead或mHeadIV</td>
+</tr>
+<tr>
+<td>GridView</td>
+<td>gv</td>
+<td>gvPhoto或mPhotoGV</td>
+</tr>
+</tbody>
+</table>
+<h6 id="常见英文单词缩写"><a href="#常见英文单词缩写" class="headerlink" title="常见英文单词缩写"></a>常见英文单词缩写</h6><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>缩写</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>icon</td>
+<td>ic （主要用在app的图标）</td>
+</tr>
+<tr>
+<td>color</td>
+<td>cl（主要用于颜色值）</td>
+</tr>
+<tr>
+<td>divider</td>
+<td>di（主要用于分隔线，不仅包括Listview中的divider，还包括普通布局中的线）</td>
+</tr>
+<tr>
+<td>selector</td>
+<td>sl（主要用于某一view多种状态，不仅包括Listview中的selector，还包括按钮的selector）</td>
+</tr>
+<tr>
+<td>average</td>
+<td>avg</td>
+</tr>
+<tr>
+<td>background</td>
+<td>bg（主要用于布局和子布局的背景）</td>
+</tr>
+<tr>
+<td>buffer</td>
+<td>buf 缓冲</td>
+</tr>
+<tr>
+<td>control</td>
+<td>ctrl</td>
+</tr>
+<tr>
+<td>delete</td>
+<td>del</td>
+</tr>
+<tr>
+<td>document</td>
+<td>doc</td>
+</tr>
+<tr>
+<td>error</td>
+<td>err</td>
+</tr>
+<tr>
+<td>escape</td>
+<td>esc</td>
+</tr>
+<tr>
+<td>increment</td>
+<td>inc 增量</td>
+</tr>
+<tr>
+<td>infomation</td>
+<td>info</td>
+</tr>
+<tr>
+<td>initial</td>
+<td>init</td>
+</tr>
+<tr>
+<td>image</td>
+<td>img</td>
+</tr>
+<tr>
+<td>Internationalization</td>
+<td>I18N 国际化</td>
+</tr>
+<tr>
+<td>length</td>
+<td>len</td>
+</tr>
+<tr>
+<td>library</td>
+<td>lib</td>
+</tr>
+<tr>
+<td>message</td>
+<td>msg</td>
+</tr>
+<tr>
+<td>password</td>
+<td>pwd</td>
+</tr>
+<tr>
+<td>position</td>
+<td>pos</td>
+</tr>
+<tr>
+<td>server</td>
+<td>srv</td>
+</tr>
+<tr>
+<td>string</td>
+<td>str</td>
+</tr>
+<tr>
+<td>temp</td>
+<td>tmp</td>
+</tr>
+<tr>
+<td>window</td>
+<td>wnd(win)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>本文来自互联网</p>
+</blockquote>
+
+        
+        </div>
+        
+        
+<div class="article-tag-block">
+    <i class="zmdi zmdi-tag"></i>
+    <a class="tag-link" href="/tags/Android/">Android<span class="tag-count">2</span></a><a class="tag-link" href="/tags/代码规范/">代码规范<span class="tag-count">1</span></a><a class="tag-link" href="/tags/命名规则/">命名规则<span class="tag-count">1</span></a>
+</div>
+
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://www.qwqaq.com/d3744f0c.html" data-id="cjh4ctaza000jrcutk4xyn8ca" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="zmdi zmdi-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="zmdi zmdi-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="zmdi zmdi-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="zmdi zmdi-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://www.qwqaq.com/d3744f0c.html#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.qwqaq.com/d3744f0c.html">评论</a>
+    
+
+        </footer>
+        
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/f2f3b37c.html" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    关于指针
+                
+            </div>
+        </a>
+    
+    
+        <a href="/8bb3c5eb.html" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Android RecyclerView Item 点击/长按 事件</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/85cde401.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/85cde401/El-Capitan.png)" alt="ThinkPad T430 Hackintosh 10.11 El Capitan" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/日常/">日常</a></p>
+                            <p class="item-title"><a href="/85cde401.html" class="title">ThinkPad T430 Hackintosh 10.11 El Capitan</a></p>
+                            <p class="item-date"><time datetime="2018-03-14T13:11:55.000Z" itemprop="datePublished">2018-03-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/cd8b2a6d.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/cd8b2a6d/Git.png)" alt="Git 命令笔记" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Git/">Git</a></p>
+                            <p class="item-title"><a href="/cd8b2a6d.html" class="title">Git 命令笔记</a></p>
+                            <p class="item-date"><time datetime="2018-01-28T14:16:15.000Z" itemprop="datePublished">2018-01-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/b5448812.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/b5448812/Pxtin.png)" alt="项目 Pxtin 正在开发中..." class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/项目/">项目</a></p>
+                            <p class="item-title"><a href="/b5448812.html" class="title">项目 Pxtin 正在开发中...</a></p>
+                            <p class="item-date"><time datetime="2017-12-28T06:02:22.000Z" itemprop="datePublished">2017-12-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/1a7ca83a.html" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Linux/">Linux</a></p>
+                            <p class="item-title"><a href="/1a7ca83a.html" class="title">使用 nmap 扫描局域网下所有IP</a></p>
+                            <p class="item-date"><time datetime="2017-11-13T09:25:57.000Z" itemprop="datePublished">2017-11-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/27c9359e.html" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JS/">JS</a></p>
+                            <p class="item-title"><a href="/27c9359e.html" class="title">JS 复制变量值</a></p>
+                            <p class="item-date"><time datetime="2017-11-05T12:38:02.000Z" itemprop="datePublished">2017-11-05</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C#</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/实例/">实例</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/日常/">日常</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/项目/">项目</a><span class="category-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/10-13/">10.13</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ImageMagick/">ImageMagick</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS-sprintf/">JS sprintf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS从路径中提取文件名/">JS从路径中提取文件名</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS创建下载/">JS创建下载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OnClickListener/">OnClickListener</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OnLongClickListener/">OnLongClickListener</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP扩展/">PHP扩展</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pxtin/">Pxtin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspberry-Pi/">Raspberry Pi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RecyclerView/">RecyclerView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TimeNote/">TimeNote</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ViewHolder/">ViewHolder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hackintosh/">hackintosh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hdmi/">hdmi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/imagick/">imagick</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux权限/">linux权限</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/minidp/">minidp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nmap/">nmap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osx/">osx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php-root权限/">php root权限</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php7/">php7</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php7-Windows-安装教程/">php7 Windows 安装教程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php7-0-fpm-root/">php7.0-fpm root</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php7-0-fpm-权限/">php7.0-fpm 权限</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php-imagick/">php_imagick</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/t430/">t430</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/事件监听/">事件监听</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代理/">代理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码规范/">代码规范</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/命名规则/">命名规则</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/委托函数/">委托函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/时光笔记/">时光笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树莓派/">树莓派</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/环境变量/">环境变量</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自定义函数/">自定义函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面相对象/">面相对象</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/10-13/" style="font-size: 10px;">10.13</a> <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/ImageMagick/" style="font-size: 10px;">ImageMagick</a> <a href="/tags/JS-sprintf/" style="font-size: 10px;">JS sprintf</a> <a href="/tags/JS从路径中提取文件名/" style="font-size: 10px;">JS从路径中提取文件名</a> <a href="/tags/JS创建下载/" style="font-size: 10px;">JS创建下载</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/OnClickListener/" style="font-size: 10px;">OnClickListener</a> <a href="/tags/OnLongClickListener/" style="font-size: 10px;">OnLongClickListener</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/PHP扩展/" style="font-size: 10px;">PHP扩展</a> <a href="/tags/Pxtin/" style="font-size: 10px;">Pxtin</a> <a href="/tags/Raspberry-Pi/" style="font-size: 10px;">Raspberry Pi</a> <a href="/tags/RecyclerView/" style="font-size: 10px;">RecyclerView</a> <a href="/tags/TimeNote/" style="font-size: 10px;">TimeNote</a> <a href="/tags/ViewHolder/" style="font-size: 10px;">ViewHolder</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/dp/" style="font-size: 10px;">dp</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hackintosh/" style="font-size: 10px;">hackintosh</a> <a href="/tags/hdmi/" style="font-size: 10px;">hdmi</a> <a href="/tags/imagick/" style="font-size: 10px;">imagick</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/linux权限/" style="font-size: 10px;">linux权限</a> <a href="/tags/minidp/" style="font-size: 10px;">minidp</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nmap/" style="font-size: 10px;">nmap</a> <a href="/tags/osx/" style="font-size: 10px;">osx</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/php-root权限/" style="font-size: 10px;">php root权限</a> <a href="/tags/php7/" style="font-size: 10px;">php7</a> <a href="/tags/php7-Windows-安装教程/" style="font-size: 10px;">php7 Windows 安装教程</a> <a href="/tags/php7-0-fpm-root/" style="font-size: 10px;">php7.0-fpm root</a> <a href="/tags/php7-0-fpm-权限/" style="font-size: 10px;">php7.0-fpm 权限</a> <a href="/tags/php-imagick/" style="font-size: 10px;">php_imagick</a> <a href="/tags/t430/" style="font-size: 10px;">t430</a> <a href="/tags/事件监听/" style="font-size: 10px;">事件监听</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/代码规范/" style="font-size: 10px;">代码规范</a> <a href="/tags/命名规则/" style="font-size: 10px;">命名规则</a> <a href="/tags/委托函数/" style="font-size: 10px;">委托函数</a> <a href="/tags/指针/" style="font-size: 10px;">指针</a> <a href="/tags/时光笔记/" style="font-size: 10px;">时光笔记</a> <a href="/tags/树莓派/" style="font-size: 10px;">树莓派</a> <a href="/tags/环境变量/" style="font-size: 10px;">环境变量</a> <a href="/tags/自定义函数/" style="font-size: 20px;">自定义函数</a> <a href="/tags/面相对象/" style="font-size: 20px;">面相对象</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.carzyuncle.com">疯狂的大叔</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="zmdi zmdi-chevron-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 ZNEIAT<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/Zneiat/hexo-theme-icarus">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://www.qwqaq.com/d3744f0c.html';
+        
+        this.page.identifier = 'android-命名规则';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'qwqaq-com' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
