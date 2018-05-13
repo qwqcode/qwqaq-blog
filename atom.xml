@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>ZNEIAT 的博客</title>
+  
+  <subtitle>生命不止，折腾不惜</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://www.qwqaq.com/"/>
+  <updated>2018-04-21T15:36:20.095Z</updated>
+  <id>http://www.qwqaq.com/</id>
+  
+  <author>
+    <name>ZNEIAT</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ThinkPad T430 Hackintosh 10.11 El Capitan</title>
+    <link href="http://www.qwqaq.com/85cde401.html"/>
+    <id>http://www.qwqaq.com/85cde401.html</id>
+    <published>2018-03-14T13:11:55.000Z</published>
+    <updated>2018-04-21T15:36:20.095Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;ThinkPad T430 i7 3635QM NVS5400M. Mini-DP work. Clover EFI bootloader.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="日常" scheme="http://www.qwqaq.com/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+      <category term="10.13" scheme="http://www.qwqaq.com/tags/10-13/"/>
+    
+      <category term="dp" scheme="http://www.qwqaq.com/tags/dp/"/>
+    
+      <category term="hackintosh" scheme="http://www.qwqaq.com/tags/hackintosh/"/>
+    
+      <category term="hdmi" scheme="http://www.qwqaq.com/tags/hdmi/"/>
+    
+      <category term="minidp" scheme="http://www.qwqaq.com/tags/minidp/"/>
+    
+      <category term="osx" scheme="http://www.qwqaq.com/tags/osx/"/>
+    
+      <category term="t430" scheme="http://www.qwqaq.com/tags/t430/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git 命令笔记</title>
+    <link href="http://www.qwqaq.com/cd8b2a6d.html"/>
+    <id>http://www.qwqaq.com/cd8b2a6d.html</id>
+    <published>2018-01-28T14:16:15.000Z</published>
+    <updated>2018-04-21T15:46:58.496Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;搜集 Git 的各种操作于此&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Git" scheme="http://www.qwqaq.com/categories/Git/"/>
+    
+    
+      <category term="git" scheme="http://www.qwqaq.com/tags/git/"/>
+    
+      <category term="github" scheme="http://www.qwqaq.com/tags/github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>项目 Pxtin 正在开发中...</title>
+    <link href="http://www.qwqaq.com/b5448812.html"/>
+    <id>http://www.qwqaq.com/b5448812.html</id>
+    <published>2017-12-28T06:02:22.000Z</published>
+    <updated>2018-04-22T12:44:58.982Z</updated>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; SiteName = &lt;span class=&quot;string&quot;&gt;&#39;Pxtin 图罐头&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; SiteDesc = &lt;span class=&quot;string&quot;&gt;&#39;一个属于你的图片灵感库&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="项目" scheme="http://www.qwqaq.com/categories/%E9%A1%B9%E7%9B%AE/"/>
+    
+    
+      <category term="Pxtin" scheme="http://www.qwqaq.com/tags/Pxtin/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 nmap 扫描局域网下所有IP</title>
+    <link href="http://www.qwqaq.com/1a7ca83a.html"/>
+    <id>http://www.qwqaq.com/1a7ca83a.html</id>
+    <published>2017-11-13T09:25:57.000Z</published>
+    <updated>2018-04-22T06:45:54.738Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span
+        
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://www.qwqaq.com/categories/Linux/"/>
+    
+    
+      <category term="linux" scheme="http://www.qwqaq.com/tags/linux/"/>
+    
+      <category term="nmap" scheme="http://www.qwqaq.com/tags/nmap/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS 复制变量值</title>
+    <link href="http://www.qwqaq.com/27c9359e.html"/>
+    <id>http://www.qwqaq.com/27c9359e.html</id>
+    <published>2017-11-05T12:38:02.000Z</published>
+    <updated>2018-04-21T16:32:51.241Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;img src=&quot;/27c9359e/1.jpg&quot;&gt;
+&lt;blockquote&gt;
+&lt;p&gt;摘自《JavaScript高级程序设计》
+        
+      
+    
+    </summary>
+    
+      <category term="JS" scheme="http://www.qwqaq.com/categories/JS/"/>
+    
+    
+      <category term="JavaScript" scheme="http://www.qwqaq.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS 调用函数 得到对象 赋值</title>
+    <link href="http://www.qwqaq.com/41a187b6.html"/>
+    <id>http://www.qwqaq.com/41a187b6.html</id>
+    <published>2017-11-04T12:44:16.000Z</published>
+    <updated>2018-04-21T16:34:09.362Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span
+        
+      
+    
+    </summary>
+    
+      <category term="JS" scheme="http://www.qwqaq.com/categories/JS/"/>
+    
+    
+      <category term="JavaScript" scheme="http://www.qwqaq.com/tags/JavaScript/"/>
+    
+      <category term="面相对象" scheme="http://www.qwqaq.com/tags/%E9%9D%A2%E7%9B%B8%E5%AF%B9%E8%B1%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jQuery: fire click() before blur() event</title>
+    <link href="http://www.qwqaq.com/208e3be9.html"/>
+    <id>http://www.qwqaq.com/208e3be9.html</id>
+    <published>2017-10-26T14:52:14.000Z</published>
+    <updated>2018-04-21T16:36:19.666Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Solution-1&quot;&gt;&lt;a href=&quot;#Solution-1&quot; class=&quot;headerlink&quot; title=&quot;Solution 1&quot;&gt;&lt;/a&gt;Solution 1&lt;/h3&gt;&lt;p&gt;Listen to mousedown instead of click.&lt;/p&gt;
+&lt;p&gt;The mousedown and blur events occur one after another when you press the mouse button, but click only occurs when you release it.&lt;/p&gt;
+&lt;h3 id=&quot;Solution-2&quot;&gt;&lt;a href=&quot;#Solution-2&quot; class=&quot;headerlink&quot; title=&quot;Solution 2&quot;&gt;&lt;/a&gt;Solution 2&lt;/h3&gt;&lt;p&gt;You can preventDefault() in mousedown to block the dropdown from stealing focus. The slight advantage is that the value will be selected when the mouse button is released, which is how native select components work. JSFiddle&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="JS" scheme="http://www.qwqaq.com/categories/JS/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>关于指针</title>
+    <link href="http://www.qwqaq.com/f2f3b37c.html"/>
+    <id>http://www.qwqaq.com/f2f3b37c.html</id>
+    <published>2017-09-17T05:43:38.000Z</published>
+    <updated>2018-04-21T16:39:07.808Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;JAVA-的情况&quot;&gt;&lt;a href=&quot;#JAVA-的情况&quot; class=&quot;headerlink&quot; title=&quot;JAVA 的情况&quot;&gt;&lt;/a&gt;JAVA 的情况&lt;/h3&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;test&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String[] agrs)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; a();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		b classB = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; b();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		classB.init();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		classB.action();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		c classC = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; c();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		classC.cAction();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;a&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; String[] ha = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; String[&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;b&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; String mHa;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.mHa = a.ha;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.mHa[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;] = &lt;span class=&quot;string&quot;&gt;&quot;NONE0&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.mHa[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;] = &lt;span class=&quot;string&quot;&gt;&quot;NONE1&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.mHa[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;] = &lt;span class=&quot;string&quot;&gt;&quot;Hello0&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.mHa[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;] = &lt;span class=&quot;string&quot;&gt;&quot;Hello1&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;c&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;cAction&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (String item : a.ha) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				System.out.println(item + &lt;span class=&quot;string&quot;&gt;&quot;\n&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 结果为&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// Hello0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// Hello1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="实例" scheme="http://www.qwqaq.com/categories/%E5%AE%9E%E4%BE%8B/"/>
+    
+    
+      <category term="面相对象" scheme="http://www.qwqaq.com/tags/%E9%9D%A2%E7%9B%B8%E5%AF%B9%E8%B1%A1/"/>
+    
+      <category term="指针" scheme="http://www.qwqaq.com/tags/%E6%8C%87%E9%92%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android 命名规则</title>
+    <link href="http://www.qwqaq.com/d3744f0c.html"/>
+    <id>http://www.qwqaq.com/d3744f0c.html</id>
+    <published>2017-09-17T02:45:15.000Z</published>
+    <updated>2018-04-22T11:45:10.444Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;命名规则&quot;&gt;&lt;a href=&quot;#命名规则&quot; class=&quot;headerlink&quot; title=&quot;命名规则&quot;&gt;&lt;/a&gt;命名规则&lt;/h2&gt;&lt;h4 id=&quot;包名&quot;&gt;&lt;a href=&quot;#包名&quot; class=&quot;headerlink&quot; title=&quot;包名&quot;&gt;&lt;/a&gt;包名&lt;/h4&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;包名&lt;/th&gt;
+&lt;th&gt;此包中包含&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;com.xx.应用名称缩写.activity&lt;/td&gt;
+&lt;td&gt;页面用到的Activity类 (activitie层级名用户界面层)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;com.xx.应用名称缩写.fragment&lt;/td&gt;
+&lt;td&gt;页面用到的fragment&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;com.xx.应用名称缩写.base&lt;/td&gt;
+&lt;td&gt;基础共享的类&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;com.xx.应用名称缩写.config&lt;/td&gt;
+&lt;td&gt;通用的配置&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;com.xx.应用名称缩写.global&lt;/td&gt;
+&lt;td&gt;全局的监听实现类等&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;com.xx.应用名称缩写.adapter&lt;/td&gt;
+&lt;td&gt;页面用到的Adapter类 (适配器的类)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;com.xx.应用名称缩写.util&lt;/td&gt;
+&lt;td&gt;此包中包含：公共工具方法类（util模块名）命名与第三方的utils作区分&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;com.xx.应用名称缩写.bean&lt;/td&gt;
+&lt;td&gt;下面可分：vo(本地类)、bo（远程类）、dto（传递引用类）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;com.xx.应用名称缩写.model&lt;/td&gt;
+&lt;td&gt;此包中包含：模型类&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;com.xx.应用名称缩写.db&lt;/td&gt;
+&lt;td&gt;数据库操作类&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;com.xx.应用名称缩写.view&lt;/td&gt;
+&lt;td&gt;自定义的View类等，可通用，与app业务无关的&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;com.xx.应用名称缩写.widget&lt;/td&gt;
+&lt;td&gt;自定义的View类等，与app业务相关的&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;com.xx.应用名称缩写.service&lt;/td&gt;
+&lt;td&gt;Service服务，后台服务&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;com.xx.应用名称缩写.receiver&lt;/td&gt;
+&lt;td&gt;BroadcastReceiver服务，接收通知&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+    
+    </summary>
+    
+      <category term="Android" scheme="http://www.qwqaq.com/categories/Android/"/>
+    
+    
+      <category term="Android" scheme="http://www.qwqaq.com/tags/Android/"/>
+    
+      <category term="命名规则" scheme="http://www.qwqaq.com/tags/%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99/"/>
+    
+      <category term="代码规范" scheme="http://www.qwqaq.com/tags/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android RecyclerView Item 点击/长按 事件</title>
+    <link href="http://www.qwqaq.com/8bb3c5eb.html"/>
+    <id>http://www.qwqaq.com/8bb3c5eb.html</id>
+    <published>2017-09-16T09:20:03.000Z</published>
+    <updated>2018-04-22T12:33:45.390Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Android 列表控件 RecyclerView&lt;/p&gt;
+&lt;p&gt;在实例化 Adapter 类前写 Item 的 点击/长按 事件逻辑&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Android" scheme="http://www.qwqaq.com/categories/Android/"/>
+    
+    
+      <category term="Android" scheme="http://www.qwqaq.com/tags/Android/"/>
+    
+      <category term="事件监听" scheme="http://www.qwqaq.com/tags/%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC/"/>
+    
+      <category term="RecyclerView" scheme="http://www.qwqaq.com/tags/RecyclerView/"/>
+    
+      <category term="OnClickListener" scheme="http://www.qwqaq.com/tags/OnClickListener/"/>
+    
+      <category term="OnLongClickListener" scheme="http://www.qwqaq.com/tags/OnLongClickListener/"/>
+    
+      <category term="ViewHolder" scheme="http://www.qwqaq.com/tags/ViewHolder/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>时光笔记 COMING SOON</title>
+    <link href="http://www.qwqaq.com/ba7ff378.html"/>
+    <id>http://www.qwqaq.com/ba7ff378.html</id>
+    <published>2017-08-18T13:46:40.000Z</published>
+    <updated>2018-04-22T12:59:29.295Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录点滴，留住感动&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="项目" scheme="http://www.qwqaq.com/categories/%E9%A1%B9%E7%9B%AE/"/>
+    
+    
+      <category term="TimeNote" scheme="http://www.qwqaq.com/tags/TimeNote/"/>
+    
+      <category term="时光笔记" scheme="http://www.qwqaq.com/tags/%E6%97%B6%E5%85%89%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux 文件权限</title>
+    <link href="http://www.qwqaq.com/48844841.html"/>
+    <id>http://www.qwqaq.com/48844841.html</id>
+    <published>2017-08-15T07:19:08.000Z</published>
+    <updated>2018-04-22T13:14:02.337Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;4 = read (读取)&lt;br&gt;2 = write (写入)&lt;br&gt;1 = execute (执行)&lt;/p&gt;
+&lt;p&gt;0 (无权限), 4 (只读), 5 (4+1|读取+执行), 6 (4+2|读取+写入), 7 (4+2+1|读取+写入+执行)&lt;/p&gt;
+&lt;p&gt;文件权限
+        
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://www.qwqaq.com/categories/Linux/"/>
+    
+    
+      <category term="linux权限" scheme="http://www.qwqaq.com/tags/linux%E6%9D%83%E9%99%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux 临时设置代理 Proxy</title>
+    <link href="http://www.qwqaq.com/e6c62dbb.html"/>
+    <id>http://www.qwqaq.com/e6c62dbb.html</id>
+    <published>2017-08-15T06:59:07.000Z</published>
+    <updated>2018-04-22T13:15:06.226Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span
+        
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://www.qwqaq.com/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://www.qwqaq.com/tags/Linux/"/>
+    
+      <category term="环境变量" scheme="http://www.qwqaq.com/tags/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"/>
+    
+      <category term="代理" scheme="http://www.qwqaq.com/tags/%E4%BB%A3%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C#中 Thread，Task，Async/Await，IAsyncResult 的那些事儿！</title>
+    <link href="http://www.qwqaq.com/fd4db418.html"/>
+    <id>http://www.qwqaq.com/fd4db418.html</id>
+    <published>2017-08-06T08:22:03.000Z</published>
+    <updated>2018-04-22T13:08:06.326Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;说起异步，Thread，Task，async/await，IAsyncResult 这些东西肯定是绕不开的，今天就来依次聊聊他们&lt;/p&gt;
+&lt;h3 id=&quot;1-线程（Thread）&quot;&gt;&lt;a href=&quot;#1-线程（Thread）&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="C#" scheme="http://www.qwqaq.com/categories/C/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>JS 自定义函数：从路径中提取文件名</title>
+    <link href="http://www.qwqaq.com/504f1898.html"/>
+    <id>http://www.qwqaq.com/504f1898.html</id>
+    <published>2017-07-23T15:00:52.000Z</published>
+    <updated>2018-04-22T13:08:06.273Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span
+        
+      
+    
+    </summary>
+    
+      <category term="JS" scheme="http://www.qwqaq.com/categories/JS/"/>
+    
+    
+      <category term="自定义函数" scheme="http://www.qwqaq.com/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0/"/>
+    
+      <category term="JS从路径中提取文件名" scheme="http://www.qwqaq.com/tags/JS%E4%BB%8E%E8%B7%AF%E5%BE%84%E4%B8%AD%E6%8F%90%E5%8F%96%E6%96%87%E4%BB%B6%E5%90%8D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS 根据 URL 地址创建一个下载任务函数</title>
+    <link href="http://www.qwqaq.com/fbde9ee0.html"/>
+    <id>http://www.qwqaq.com/fbde9ee0.html</id>
+    <published>2017-07-21T03:00:51.000Z</published>
+    <updated>2018-04-22T13:09:45.189Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;浏览器中 JS 根据 URL 地址创建一个下载任务（弹出&lt;code&gt;另存为&lt;/code&gt;窗口）的自定义函数&lt;/p&gt;
+&lt;p&gt;效果等同于 右键 &amp;gt; 另存为&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="JS" scheme="http://www.qwqaq.com/categories/JS/"/>
+    
+    
+      <category term="JS创建下载" scheme="http://www.qwqaq.com/tags/JS%E5%88%9B%E5%BB%BA%E4%B8%8B%E8%BD%BD/"/>
+    
+      <category term="自定义函数" scheme="http://www.qwqaq.com/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C# 委托</title>
+    <link href="http://www.qwqaq.com/b6045c67.html"/>
+    <id>http://www.qwqaq.com/b6045c67.html</id>
+    <published>2017-07-21T02:51:28.000Z</published>
+    <updated>2018-04-22T13:13:26.888Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;img src=&quot;/b6045c67/Cdelegate1.png&quot;&gt;
+&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="C#" scheme="http://www.qwqaq.com/categories/C/"/>
+    
+    
+      <category term="C#" scheme="http://www.qwqaq.com/tags/C/"/>
+    
+      <category term="委托函数" scheme="http://www.qwqaq.com/tags/%E5%A7%94%E6%89%98%E5%87%BD%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS sprintf 自定义函数</title>
+    <link href="http://www.qwqaq.com/a75742fe.html"/>
+    <id>http://www.qwqaq.com/a75742fe.html</id>
+    <published>2017-07-20T06:08:59.000Z</published>
+    <updated>2018-04-22T13:16:12.292Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span
+        
+      
+    
+    </summary>
+    
+      <category term="JS" scheme="http://www.qwqaq.com/categories/JS/"/>
+    
+    
+      <category term="JS sprintf" scheme="http://www.qwqaq.com/tags/JS-sprintf/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>树莓派 Raspberry Pi 安装 Nginx + PHP7 + MySQL</title>
+    <link href="http://www.qwqaq.com/59c3971b.html"/>
+    <id>http://www.qwqaq.com/59c3971b.html</id>
+    <published>2017-06-13T16:50:48.000Z</published>
+    <updated>2018-04-22T13:28:45.861Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文讲述 树莓派 Raspberry Pi (Raspbian Stretch) 安装 Nginx PHP7 MySql 的步骤&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://www.qwqaq.com/categories/PHP/"/>
+    
+    
+      <category term="树莓派" scheme="http://www.qwqaq.com/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+    
+      <category term="Raspberry Pi" scheme="http://www.qwqaq.com/tags/Raspberry-Pi/"/>
+    
+      <category term="nginx" scheme="http://www.qwqaq.com/tags/nginx/"/>
+    
+      <category term="php" scheme="http://www.qwqaq.com/tags/php/"/>
+    
+      <category term="mysql" scheme="http://www.qwqaq.com/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux php7.0-fpm 以 root 的权限运行</title>
+    <link href="http://www.qwqaq.com/592e7e6b.html"/>
+    <id>http://www.qwqaq.com/592e7e6b.html</id>
+    <published>2017-06-13T16:38:02.000Z</published>
+    <updated>2018-04-22T13:32:43.811Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;解决如下图所示的问题：&lt;/p&gt;
+&lt;img src=&quot;/592e7e6b/20170614003836.png&quot;&gt;
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://www.qwqaq.com/categories/PHP/"/>
+    
+    
+      <category term="Linux" scheme="http://www.qwqaq.com/tags/Linux/"/>
+    
+      <category term="php root权限" scheme="http://www.qwqaq.com/tags/php-root%E6%9D%83%E9%99%90/"/>
+    
+      <category term="php7.0-fpm root" scheme="http://www.qwqaq.com/tags/php7-0-fpm-root/"/>
+    
+      <category term="php7.0-fpm 权限" scheme="http://www.qwqaq.com/tags/php7-0-fpm-%E6%9D%83%E9%99%90/"/>
+    
+  </entry>
+  
+</feed>
