@@ -882,7 +882,6 @@ code {
 }
 .article-header .article-title {
   display: block;
-  margin-bottom: 14px;
 }
 .article-title {
   font-size: 2em;
@@ -907,6 +906,7 @@ a.article-title:hover {
   }
 }
 .article-meta {
+  margin-top: 14px;
   line-height: 1.6em;
 }
 .article-meta:before,
