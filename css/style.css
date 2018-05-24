@@ -739,8 +739,6 @@ code {
   padding-bottom: 15px;
 }
 #profile .inner .article-info {
-  -webkit-box-shadow: 0 3px 8px 0 rgba(0,0,0,0.03);
-  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.03);
   padding: 20px 10px;
 }
 #profile .inner .article-info:before,
@@ -877,8 +875,6 @@ code {
 .article-header {
   padding: 20px 20px;
   border-bottom: 1px solid #f4f4f4;
-  -webkit-box-shadow: 0 3px 8px 0 rgba(0,0,0,0.03);
-  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.03);
 }
 .article-header .article-title {
   display: block;
@@ -1823,7 +1819,11 @@ a.article-title:hover {
   margin-right: 5px;
 }
 .widget-wrap {
-  margin: 20px 10px;
+  margin: 20px 0;
+  background: #fff;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 3px 8px 0 rgba(0,0,0,0.03);
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.03);
 }
 @media screen and (max-width: 559px) {
   .widget-wrap {
@@ -1831,11 +1831,24 @@ a.article-title:hover {
   }
 }
 .widget-title {
-  padding: 10px 0 0 0;
+  color: #565a5f;
+  padding: 15px;
   margin-bottom: 0;
+  border-bottom: 1px solid #f4f4f4;
+}
+.widget-title:before {
+  color: #03a9f4;
+  content: "\f2fb";
+  font-size: 12px;
+  margin-right: 10px;
+  font-family: Material-Design-Iconic-Font;
+  -webkit-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  -ms-transition: 0.2s ease;
+  transition: 0.2s ease;
 }
 .widget {
-  padding: 15px 5px;
+  padding: 5px 15px 15px 15px;
 }
 .widget a {
   color: #777;
