@@ -1026,7 +1026,7 @@ a.article-title:hover {
   font-family: Georgia, "Times New Roman", "Microsoft Yahei", serif;
   font-size: 1.1em;
   margin: 0 -20px 20px -20PX;
-  padding: 10px 20px 10px 54px;
+  padding: 10px 20px 10px 20px;
   background: #fcfcfc;
   border-left: 4px solid #eee;
 }
