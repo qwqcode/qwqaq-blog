@@ -71,7 +71,7 @@
     <link href="http://www.qwqaq.com/cd8b2a6d.html"/>
     <id>http://www.qwqaq.com/cd8b2a6d.html</id>
     <published>2018-01-28T14:16:15.000Z</published>
-    <updated>2018-05-21T14:32:54.041Z</updated>
+    <updated>2018-05-27T12:06:41.654Z</updated>
     
     <summary type="html">
     
@@ -82,9 +82,43 @@
       <category term="Git" scheme="http://www.qwqaq.com/categories/Git/"/>
     
     
+      <category term="笔记" scheme="http://www.qwqaq.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
       <category term="git" scheme="http://www.qwqaq.com/tags/git/"/>
     
       <category term="github" scheme="http://www.qwqaq.com/tags/github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux 命令笔记</title>
+    <link href="http://www.qwqaq.com/1d50ddd6.html"/>
+    <id>http://www.qwqaq.com/1d50ddd6.html</id>
+    <published>2018-01-27T11:59:59.000Z</published>
+    <updated>2018-05-27T12:06:37.124Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span
+        
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://www.qwqaq.com/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://www.qwqaq.com/tags/Linux/"/>
+    
+      <category term="Bash" scheme="http://www.qwqaq.com/tags/Bash/"/>
+    
+      <category term="Shell" scheme="http://www.qwqaq.com/tags/Shell/"/>
+    
+      <category term="笔记" scheme="http://www.qwqaq.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -481,9 +515,9 @@
       <category term="JS" scheme="http://www.qwqaq.com/categories/JS/"/>
     
     
-      <category term="自定义函数" scheme="http://www.qwqaq.com/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0/"/>
-    
       <category term="JS从路径中提取文件名" scheme="http://www.qwqaq.com/tags/JS%E4%BB%8E%E8%B7%AF%E5%BE%84%E4%B8%AD%E6%8F%90%E5%8F%96%E6%96%87%E4%BB%B6%E5%90%8D/"/>
+    
+      <category term="自定义函数" scheme="http://www.qwqaq.com/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0/"/>
     
   </entry>
   
@@ -504,9 +538,9 @@
       <category term="JS" scheme="http://www.qwqaq.com/categories/JS/"/>
     
     
-      <category term="JS创建下载" scheme="http://www.qwqaq.com/tags/JS%E5%88%9B%E5%BB%BA%E4%B8%8B%E8%BD%BD/"/>
-    
       <category term="自定义函数" scheme="http://www.qwqaq.com/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0/"/>
+    
+      <category term="JS创建下载" scheme="http://www.qwqaq.com/tags/JS%E5%88%9B%E5%BB%BA%E4%B8%8B%E8%BD%BD/"/>
     
   </entry>
   
@@ -562,34 +596,6 @@
     
     
       <category term="JS sprintf" scheme="http://www.qwqaq.com/tags/JS-sprintf/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>树莓派 Raspberry Pi 安装 Nginx + PHP7 + MySQL</title>
-    <link href="http://www.qwqaq.com/59c3971b.html"/>
-    <id>http://www.qwqaq.com/59c3971b.html</id>
-    <published>2017-06-13T16:50:48.000Z</published>
-    <updated>2018-05-19T09:45:49.996Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文讲述 树莓派 Raspberry Pi (Raspbian Stretch) 安装 Nginx PHP7 MySql 的步骤&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="PHP" scheme="http://www.qwqaq.com/categories/PHP/"/>
-    
-    
-      <category term="树莓派" scheme="http://www.qwqaq.com/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
-    
-      <category term="Raspberry Pi" scheme="http://www.qwqaq.com/tags/Raspberry-Pi/"/>
-    
-      <category term="nginx" scheme="http://www.qwqaq.com/tags/nginx/"/>
-    
-      <category term="php" scheme="http://www.qwqaq.com/tags/php/"/>
-    
-      <category term="mysql" scheme="http://www.qwqaq.com/tags/mysql/"/>
     
   </entry>
   

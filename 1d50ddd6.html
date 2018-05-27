@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Linux 命令笔记 | ZNEIAT 的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="12345678910111213141516sudo nano /etc/php/7.0/fpm/pool.d/www.confsudo nano /etc/nginx/sites-available/defaultsudo nano /etc/nginx/nginx.confsudo /etc/init.d/nginx restartsudo /etc/init.d/php7.0-fpm re">
+<meta name="keywords" content="Linux,Bash,Shell,笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 命令笔记">
+<meta property="og:url" content="http://www.qwqaq.com/1d50ddd6.html">
+<meta property="og:site_name" content="ZNEIAT 的博客">
+<meta property="og:description" content="12345678910111213141516sudo nano /etc/php/7.0/fpm/pool.d/www.confsudo nano /etc/nginx/sites-available/defaultsudo nano /etc/nginx/nginx.confsudo /etc/init.d/nginx restartsudo /etc/init.d/php7.0-fpm re">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-27T12:06:37.124Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux 命令笔记">
+<meta name="twitter:description" content="12345678910111213141516sudo nano /etc/php/7.0/fpm/pool.d/www.confsudo nano /etc/nginx/sites-available/defaultsudo nano /etc/nginx/nginx.confsudo /etc/init.d/nginx restartsudo /etc/init.d/php7.0-fpm re">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="ZNEIAT 的博客" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/material-design-iconic-font/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?785e1cdc938039c39a3b5f792ed1e829";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <!--<span class="site-title">ZNEIAT 的博客</span>-->
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">主页</a>
+                
+                    <a class="main-nav-link" href="/categories">目录</a>
+                
+                    <a class="main-nav-link" href="/archives">时间轴</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/images/avatar.png" />
+                            <i class="zmdi zmdi-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="zmdi zmdi-close"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">主页</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">目录</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">时间轴</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <div class="profile-top-part">
+                <img id="avatar" src="/images/avatar.png" />
+                <div class="info-inner">
+                    <h2 id="name">ZNEIAT</h2>
+                    <h3 id="title">不忘初心，方得始终</h3>
+                </div>
+            </div>
+            <div class="profile-bg"></div>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                <a href="/tags">
+                    25
+                    <span>文章</span>
+                </a>
+            </div>
+            <div class="article-info-block">
+                <a href="/archives">
+                    58
+                    <span>标签</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            
+            
+            <div class="social-link-item">
+                <a href="https://github.com/Zneiat" target="_blank" title="github" class=tooltip>
+                    <i class="zmdi zmdi-github"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="https://twitter.com/Kiroey" target="_blank" title="twitter" class=tooltip>
+                    <i class="zmdi zmdi-twitter"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                    <i class="zmdi zmdi-rss"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="/about/" target="_blank" title="more" class=tooltip>
+                    <i class="zmdi zmdi-more"></i>
+                </a>
+            </div>
+            
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-Linux-命令笔记" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+
+    
+        <h1 class="article-title" itemprop="name">
+            Linux 命令笔记
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="zmdi zmdi-calendar"></i>
+        <a href="/1d50ddd6.html">
+            <time datetime="2018-01-27T11:59:59.000Z" itemprop="datePublished">2018-01-27</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="zmdi zmdi-folder"></i>
+        <a class="article-category-link" href="/categories/Linux/">Linux</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            
+            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/php/7.0/fpm/pool.d/www.conf</span><br><span class="line">sudo nano /etc/nginx/sites-available/default</span><br><span class="line">sudo nano /etc/nginx/nginx.conf</span><br><span class="line"></span><br><span class="line">sudo /etc/init.d/nginx restart</span><br><span class="line">sudo /etc/init.d/php7.0-fpm restart</span><br><span class="line"></span><br><span class="line">sudo chmod 775 -R [FN]</span><br><span class="line">sudo chown -R root [FN]</span><br><span class="line">sudo chgrp -R root [FN]</span><br><span class="line">sudo vi /etc/php/7.0/fpm/pool.d/www.conf</span><br><span class="line"></span><br><span class="line">schtasks /create /tn 任务名 /tr 执行命令 /sc minute /mo 1</span><br><span class="line"></span><br><span class="line">sudo nano /etc/php/7.0/fpm/php-fpm.conf</span><br><span class="line">sudo nano /lib/systemd/system/php7.0-fpm.service</span><br></pre></td></tr></table></figure>
+
+        
+        </div>
+        
+        
+<div class="article-tag-block">
+    <i class="zmdi zmdi-tag"></i>
+    <a class="tag-link" href="/tags/Bash/">Bash</a><a class="tag-link" href="/tags/Linux/">Linux</a><a class="tag-link" href="/tags/Shell/">Shell</a><a class="tag-link" href="/tags/笔记/">笔记</a>
+</div>
+
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://www.qwqaq.com/1d50ddd6.html" data-id="cjhox72ow0003uwutrzn58dto" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="zmdi zmdi-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="zmdi zmdi-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="zmdi zmdi-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="zmdi zmdi-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://www.qwqaq.com/1d50ddd6.html#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.qwqaq.com/1d50ddd6.html">评论</a>
+    
+
+        </footer>
+        
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/cd8b2a6d.html" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    Git 命令笔记
+                
+            </div>
+        </a>
+    
+    
+        <a href="/b5448812.html" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">项目 Pxtin 正在开发中...</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/efdcce.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/efdcce/banner.jpg)" alt="中考倒计时" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/日常/">日常</a></p>
+                            <p class="item-title"><a href="/efdcce.html" class="title">中考倒计时</a></p>
+                            <p class="item-date"><time datetime="2018-05-21T14:24:07.000Z" itemprop="datePublished">2018-05-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/85cde401.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/85cde401/El-Capitan.png)" alt="ThinkPad T430 Hackintosh 10.11 El Capitan" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/日常/">日常</a></p>
+                            <p class="item-title"><a href="/85cde401.html" class="title">ThinkPad T430 Hackintosh 10.11 El Capitan</a></p>
+                            <p class="item-date"><time datetime="2018-03-14T13:11:55.000Z" itemprop="datePublished">2018-03-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/cd8b2a6d.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/cd8b2a6d/Git.png)" alt="Git 命令笔记" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Git/">Git</a></p>
+                            <p class="item-title"><a href="/cd8b2a6d.html" class="title">Git 命令笔记</a></p>
+                            <p class="item-date"><time datetime="2018-01-28T14:16:15.000Z" itemprop="datePublished">2018-01-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/1d50ddd6.html" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Linux/">Linux</a></p>
+                            <p class="item-title"><a href="/1d50ddd6.html" class="title">Linux 命令笔记</a></p>
+                            <p class="item-date"><time datetime="2018-01-27T11:59:59.000Z" itemprop="datePublished">2018-01-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/b5448812.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/b5448812/Pxtin.png)" alt="项目 Pxtin 正在开发中..." class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/项目/">项目</a></p>
+                            <p class="item-title"><a href="/b5448812.html" class="title">项目 Pxtin 正在开发中...</a></p>
+                            <p class="item-date"><time datetime="2017-12-28T06:02:22.000Z" itemprop="datePublished">2017-12-28</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Arduino/">Arduino</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C#</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/实例/">实例</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/日常/">日常</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/项目/">项目</a><span class="category-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/10-13/">10.13</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino/">Arduino</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino-Leonardo/">Arduino Leonardo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BadUSB/">BadUSB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bash/">Bash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ImageMagick/">ImageMagick</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS-sprintf/">JS sprintf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS从路径中提取文件名/">JS从路径中提取文件名</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS创建下载/">JS创建下载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OnClickListener/">OnClickListener</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OnLongClickListener/">OnLongClickListener</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP扩展/">PHP扩展</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pxtin/">Pxtin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspberry-Pi/">Raspberry Pi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RecyclerView/">RecyclerView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TimeNote/">TimeNote</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ViewHolder/">ViewHolder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hackintosh/">hackintosh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hdmi/">hdmi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/imagick/">imagick</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux权限/">linux权限</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/minidp/">minidp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nmap/">nmap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osx/">osx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php-root权限/">php root权限</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php7/">php7</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php7-Windows-安装教程/">php7 Windows 安装教程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php7-0-fpm-root/">php7.0-fpm root</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php7-0-fpm-权限/">php7.0-fpm 权限</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php-imagick/">php_imagick</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/t430/">t430</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/事件监听/">事件监听</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代理/">代理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码规范/">代码规范</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/命名规则/">命名规则</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/委托函数/">委托函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安防/">安防</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/时光笔记/">时光笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树莓派/">树莓派</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/环境变量/">环境变量</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自定义函数/">自定义函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面相对象/">面相对象</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/10-13/" style="font-size: 10px;">10.13</a> <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/Arduino/" style="font-size: 10px;">Arduino</a> <a href="/tags/Arduino-Leonardo/" style="font-size: 10px;">Arduino Leonardo</a> <a href="/tags/BadUSB/" style="font-size: 10px;">BadUSB</a> <a href="/tags/Bash/" style="font-size: 10px;">Bash</a> <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/ImageMagick/" style="font-size: 10px;">ImageMagick</a> <a href="/tags/JS-sprintf/" style="font-size: 10px;">JS sprintf</a> <a href="/tags/JS从路径中提取文件名/" style="font-size: 10px;">JS从路径中提取文件名</a> <a href="/tags/JS创建下载/" style="font-size: 10px;">JS创建下载</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/OnClickListener/" style="font-size: 10px;">OnClickListener</a> <a href="/tags/OnLongClickListener/" style="font-size: 10px;">OnLongClickListener</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/PHP扩展/" style="font-size: 10px;">PHP扩展</a> <a href="/tags/Pxtin/" style="font-size: 10px;">Pxtin</a> <a href="/tags/Raspberry-Pi/" style="font-size: 10px;">Raspberry Pi</a> <a href="/tags/RecyclerView/" style="font-size: 10px;">RecyclerView</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/TimeNote/" style="font-size: 10px;">TimeNote</a> <a href="/tags/ViewHolder/" style="font-size: 10px;">ViewHolder</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/dp/" style="font-size: 10px;">dp</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hackintosh/" style="font-size: 10px;">hackintosh</a> <a href="/tags/hdmi/" style="font-size: 10px;">hdmi</a> <a href="/tags/imagick/" style="font-size: 10px;">imagick</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/linux权限/" style="font-size: 10px;">linux权限</a> <a href="/tags/minidp/" style="font-size: 10px;">minidp</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nmap/" style="font-size: 10px;">nmap</a> <a href="/tags/osx/" style="font-size: 10px;">osx</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/php-root权限/" style="font-size: 10px;">php root权限</a> <a href="/tags/php7/" style="font-size: 10px;">php7</a> <a href="/tags/php7-Windows-安装教程/" style="font-size: 10px;">php7 Windows 安装教程</a> <a href="/tags/php7-0-fpm-root/" style="font-size: 10px;">php7.0-fpm root</a> <a href="/tags/php7-0-fpm-权限/" style="font-size: 10px;">php7.0-fpm 权限</a> <a href="/tags/php-imagick/" style="font-size: 10px;">php_imagick</a> <a href="/tags/t430/" style="font-size: 10px;">t430</a> <a href="/tags/事件监听/" style="font-size: 10px;">事件监听</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/代码规范/" style="font-size: 10px;">代码规范</a> <a href="/tags/命名规则/" style="font-size: 10px;">命名规则</a> <a href="/tags/委托函数/" style="font-size: 10px;">委托函数</a> <a href="/tags/安防/" style="font-size: 10px;">安防</a> <a href="/tags/指针/" style="font-size: 10px;">指针</a> <a href="/tags/时光笔记/" style="font-size: 10px;">时光笔记</a> <a href="/tags/树莓派/" style="font-size: 10px;">树莓派</a> <a href="/tags/环境变量/" style="font-size: 10px;">环境变量</a> <a href="/tags/笔记/" style="font-size: 15px;">笔记</a> <a href="/tags/自定义函数/" style="font-size: 15px;">自定义函数</a> <a href="/tags/面相对象/" style="font-size: 15px;">面相对象</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.carzyuncle.com">疯狂的大叔</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="zmdi zmdi-chevron-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 ZNEIAT<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/Zneiat/hexo-theme-icarus">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://www.qwqaq.com/1d50ddd6.html';
+        
+        this.page.identifier = 'Linux-命令笔记';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'qwqaq-com' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
