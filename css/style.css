@@ -248,8 +248,6 @@ code {
   background: #fff;
   border-radius: 4px;
   overflow: hidden;
-  -webkit-box-shadow: 0 3px 8px 0 rgba(0,0,0,0.03);
-  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.03);
 }
 .article-entry h1,
 .widget h1 {
@@ -695,8 +693,6 @@ code {
   height: 95px;
   background-image: url("/images/profile-cover.jpg");
   background-repeat: no-repeat;
-  -webkit-box-shadow: 0 1px 8px 0 rgba(0,0,0,0.03);
-  box-shadow: 0 1px 8px 0 rgba(0,0,0,0.03);
   -webkit-background-size: 100% 95px;
   -moz-background-size: 100% 95px;
   background-size: 100% 95px;
@@ -845,8 +841,6 @@ code {
 }
 #profile.card .profile-inner {
   position: relative;
-  -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 #profile.card .profile-inner:before,
 #profile.card .profile-inner:after {
@@ -872,8 +866,6 @@ code {
 .article-banner {
   width: 100%;
   height: auto;
-  -webkit-box-shadow: 0 3px 8px 0 rgba(0,0,0,0.03);
-  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.03);
 }
 .article-header {
   padding: 20px 20px;
@@ -1303,8 +1295,6 @@ a.article-title:hover {
   position: absolute;
   display: none;
   background: #fff;
-  -webkit-box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
-  box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
   border-radius: 3px;
   margin-left: -145px;
   overflow: hidden;
@@ -1880,8 +1870,6 @@ a.article-title:hover {
   margin: 20px 0;
   background: #fff;
   border-radius: 4px;
-  -webkit-box-shadow: 0 3px 8px 0 rgba(0,0,0,0.03);
-  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.03);
 }
 @media screen and (max-width: 559px) {
   .widget-wrap {
