@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.qwqaq.com/"/>
-  <updated>2018-05-30T14:45:25.975Z</updated>
+  <updated>2018-05-31T14:29:07.679Z</updated>
   <id>http://www.qwqaq.com/</id>
   
   <author>
@@ -20,12 +20,15 @@
     <title>Unbroken - Motivational Video 励志视频 中英字幕 超清</title>
     <link href="http://www.qwqaq.com/7b5628f7.html"/>
     <id>http://www.qwqaq.com/7b5628f7.html</id>
-    <published>2018-05-30T14:36:50.000Z</published>
-    <updated>2018-05-30T14:45:25.975Z</updated>
+    <published>2018-05-31T14:36:50.000Z</published>
+    <updated>2018-05-31T14:29:07.679Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;2016-06-04 -&amp;gt; 2018-05-30&lt;/p&gt;
+      &lt;p&gt;2016-06-04 制作字幕和上传 -&amp;gt; 2018-05-30 回放&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Everything will be OK.&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
@@ -40,8 +43,8 @@
     <title>中考倒计时</title>
     <link href="http://www.qwqaq.com/efdcce.html"/>
     <id>http://www.qwqaq.com/efdcce.html</id>
-    <published>2018-05-21T14:24:07.000Z</published>
-    <updated>2018-05-21T14:32:43.261Z</updated>
+    <published>2018-05-31T14:25:07.000Z</published>
+    <updated>2018-05-31T14:25:13.057Z</updated>
     
     <summary type="html">
     
@@ -51,6 +54,135 @@
     
       <category term="日常" scheme="http://www.qwqaq.com/categories/%E6%97%A5%E5%B8%B8/"/>
     
+    
+  </entry>
+  
+  <entry>
+    <title>开源项目：Nacollector</title>
+    <link href="http://www.qwqaq.com/65c99d88.html"/>
+    <id>http://www.qwqaq.com/65c99d88.html</id>
+    <published>2018-05-31T14:14:49.000Z</published>
+    <updated>2018-05-31T14:23:37.932Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;实用的电商工具箱 淘宝、天猫、苏宁、国美 图片采集 预览 邀请… 淘宝账号登录 多线程异步 任务管理器 下载内容管理器 Cookie 获取器 实时日志。C#, CefSharp, WebDriver, Material Design&lt;/p&gt;
+&lt;p&gt;暑假作品 Jul 24, 2017&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/Zneiat/Nacollector&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;前往 GitHub&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="项目" scheme="http://www.qwqaq.com/categories/%E9%A1%B9%E7%9B%AE/"/>
+    
+    
+      <category term="项目" scheme="http://www.qwqaq.com/tags/%E9%A1%B9%E7%9B%AE/"/>
+    
+      <category term="开源项目" scheme="http://www.qwqaq.com/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
+    
+      <category term="ZNEIAT" scheme="http://www.qwqaq.com/tags/ZNEIAT/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>开源项目：Book Register</title>
+    <link href="http://www.qwqaq.com/5f8469ca.html"/>
+    <id>http://www.qwqaq.com/5f8469ca.html</id>
+    <published>2018-05-31T14:07:07.000Z</published>
+    <updated>2018-05-31T14:26:07.622Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;JS+PHP 一个适用于图书室 多人协作共同完成图书录入任务 的在线工作站。附带实时弹幕功能，Material Design，练手初中为学校做的项目，2333&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/Zneiat/book-register&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;前往 GitHub&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="项目" scheme="http://www.qwqaq.com/categories/%E9%A1%B9%E7%9B%AE/"/>
+    
+    
+      <category term="项目" scheme="http://www.qwqaq.com/tags/%E9%A1%B9%E7%9B%AE/"/>
+    
+      <category term="开源项目" scheme="http://www.qwqaq.com/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
+    
+      <category term="ZNEIAT" scheme="http://www.qwqaq.com/tags/ZNEIAT/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>开源项目：QwQuery</title>
+    <link href="http://www.qwqaq.com/cbaf3368.html"/>
+    <id>http://www.qwqaq.com/cbaf3368.html</id>
+    <published>2018-05-31T13:54:52.000Z</published>
+    <updated>2018-05-31T14:24:34.681Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;QwQuery 是一个 Material Design 风格的学生考试成绩统计站，表格 / 统计图 / 字段排序 / 条件筛选 / 排名处理&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/Zneiat/QwQuery&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;前往 GitHub&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="项目" scheme="http://www.qwqaq.com/categories/%E9%A1%B9%E7%9B%AE/"/>
+    
+    
+      <category term="项目" scheme="http://www.qwqaq.com/tags/%E9%A1%B9%E7%9B%AE/"/>
+    
+      <category term="开源项目" scheme="http://www.qwqaq.com/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
+    
+      <category term="ZNEIAT" scheme="http://www.qwqaq.com/tags/ZNEIAT/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Lumen 添加没有的 key:generate 命令</title>
+    <link href="http://www.qwqaq.com/65f7d82e.html"/>
+    <id>http://www.qwqaq.com/65f7d82e.html</id>
+    <published>2018-05-31T13:17:16.000Z</published>
+    <updated>2018-05-31T14:06:02.194Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://lumen.laravel.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Lumen&lt;/a&gt; is a stunningly fast micro-framework by Laravel.&lt;/p&gt;
+&lt;p&gt;.env 文件中需要配置 &lt;code&gt;APP_KEY=&lt;/code&gt;，想通过和 Laravel 相同的方式随机生成一个 KEY，执行命令 &lt;code&gt;artisan key:generate&lt;/code&gt; 结果却是 &lt;code&gt;Command is not defined.&lt;/code&gt;，那就需要自己加一个 key:generate 功能&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://www.qwqaq.com/categories/PHP/"/>
+    
+    
+      <category term="php" scheme="http://www.qwqaq.com/tags/php/"/>
+    
+      <category term="lumen" scheme="http://www.qwqaq.com/tags/lumen/"/>
+    
+      <category term="key:generate" scheme="http://www.qwqaq.com/tags/key-generate/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Laravel 5.6 资源任务编译器 laravel-mix webpack.mix.js 配置参考</title>
+    <link href="http://www.qwqaq.com/4bba0df7.html"/>
+    <id>http://www.qwqaq.com/4bba0df7.html</id>
+    <published>2018-05-31T12:52:34.000Z</published>
+    <updated>2018-05-31T13:10:47.898Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://github.com/JeffreyWay/laravel-mix&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Laravel Mix&lt;/a&gt; provides a fluent API for defining Webpack build steps for your Laravel application using several common CSS and JavaScript pre-processors. Through simple method chaining, you can fluently define your asset pipeline.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://www.qwqaq.com/categories/PHP/"/>
+    
+    
+      <category term="Laravel" scheme="http://www.qwqaq.com/tags/Laravel/"/>
+    
+      <category term="laravel-mix" scheme="http://www.qwqaq.com/tags/laravel-mix/"/>
+    
+      <category term="webpack" scheme="http://www.qwqaq.com/tags/webpack/"/>
+    
+      <category term="php" scheme="http://www.qwqaq.com/tags/php/"/>
+    
+      <category term="js" scheme="http://www.qwqaq.com/tags/js/"/>
     
   </entry>
   
@@ -455,141 +587,6 @@
     
     
       <category term="linux权限" scheme="http://www.qwqaq.com/tags/linux%E6%9D%83%E9%99%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 临时设置代理 Proxy</title>
-    <link href="http://www.qwqaq.com/e6c62dbb.html"/>
-    <id>http://www.qwqaq.com/e6c62dbb.html</id>
-    <published>2017-08-15T06:59:07.000Z</published>
-    <updated>2018-04-22T13:15:06.226Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span
-        
-      
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://www.qwqaq.com/categories/Linux/"/>
-    
-    
-      <category term="Linux" scheme="http://www.qwqaq.com/tags/Linux/"/>
-    
-      <category term="环境变量" scheme="http://www.qwqaq.com/tags/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"/>
-    
-      <category term="代理" scheme="http://www.qwqaq.com/tags/%E4%BB%A3%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C#中 Thread，Task，Async/Await，IAsyncResult 的那些事儿！</title>
-    <link href="http://www.qwqaq.com/fd4db418.html"/>
-    <id>http://www.qwqaq.com/fd4db418.html</id>
-    <published>2017-08-06T08:22:03.000Z</published>
-    <updated>2018-04-22T13:08:06.326Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;说起异步，Thread，Task，async/await，IAsyncResult 这些东西肯定是绕不开的，今天就来依次聊聊他们&lt;/p&gt;
-&lt;h3 id=&quot;1-线程（Thread）&quot;&gt;&lt;a href=&quot;#1-线程（Thread）&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="C#" scheme="http://www.qwqaq.com/categories/C/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>JS 自定义函数：从路径中提取文件名</title>
-    <link href="http://www.qwqaq.com/504f1898.html"/>
-    <id>http://www.qwqaq.com/504f1898.html</id>
-    <published>2017-07-23T15:00:52.000Z</published>
-    <updated>2018-04-22T13:08:06.273Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span
-        
-      
-    
-    </summary>
-    
-      <category term="JS" scheme="http://www.qwqaq.com/categories/JS/"/>
-    
-    
-      <category term="JS从路径中提取文件名" scheme="http://www.qwqaq.com/tags/JS%E4%BB%8E%E8%B7%AF%E5%BE%84%E4%B8%AD%E6%8F%90%E5%8F%96%E6%96%87%E4%BB%B6%E5%90%8D/"/>
-    
-      <category term="自定义函数" scheme="http://www.qwqaq.com/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JS 根据 URL 地址创建一个下载任务函数</title>
-    <link href="http://www.qwqaq.com/fbde9ee0.html"/>
-    <id>http://www.qwqaq.com/fbde9ee0.html</id>
-    <published>2017-07-21T03:00:51.000Z</published>
-    <updated>2018-04-22T13:09:45.189Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;浏览器中 JS 根据 URL 地址创建一个下载任务（弹出&lt;code&gt;另存为&lt;/code&gt;窗口）的自定义函数&lt;/p&gt;
-&lt;p&gt;效果等同于 右键 &amp;gt; 另存为&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="JS" scheme="http://www.qwqaq.com/categories/JS/"/>
-    
-    
-      <category term="自定义函数" scheme="http://www.qwqaq.com/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0/"/>
-    
-      <category term="JS创建下载" scheme="http://www.qwqaq.com/tags/JS%E5%88%9B%E5%BB%BA%E4%B8%8B%E8%BD%BD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C# 委托</title>
-    <link href="http://www.qwqaq.com/b6045c67.html"/>
-    <id>http://www.qwqaq.com/b6045c67.html</id>
-    <published>2017-07-21T02:51:28.000Z</published>
-    <updated>2018-05-24T04:57:36.220Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;img src=&quot;/b6045c67/delegate1.png&quot;&gt;
-&lt;img
-        
-      
-    
-    </summary>
-    
-      <category term="C#" scheme="http://www.qwqaq.com/categories/C/"/>
-    
-    
-      <category term="C#" scheme="http://www.qwqaq.com/tags/C/"/>
-    
-      <category term="委托函数" scheme="http://www.qwqaq.com/tags/%E5%A7%94%E6%89%98%E5%87%BD%E6%95%B0/"/>
     
   </entry>
   
