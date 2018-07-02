@@ -725,14 +725,15 @@ code {
 }
 #profile .inner .base-info #name {
   color: #555;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   text-align: left;
   padding-top: 15px;
-  padding-bottom: 2px;
+  padding-bottom: 5px;
 }
 #profile .inner .base-info #title {
   color: #757e91;
+  font-size: 12px;
   padding-bottom: 15px;
 }
 #profile .inner .article-info {
