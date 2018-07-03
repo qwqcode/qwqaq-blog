@@ -5,9 +5,9 @@
   <subtitle>不忘初心，方得始终</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://www.qwqaq.com/"/>
-  <updated>2018-07-02T16:01:50.820Z</updated>
-  <id>http://www.qwqaq.com/</id>
+  <link href="http://qwqaq.com/"/>
+  <updated>2018-07-03T15:50:33.221Z</updated>
+  <id>http://qwqaq.com/</id>
   
   <author>
     <name>QWQAQ</name>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>JS 模块化规范：CommonJS, AMD, CMD, UMD, ESM</title>
+    <link href="http://qwqaq.com/b8fd304a.html"/>
+    <id>http://qwqaq.com/b8fd304a.html</id>
+    <published>2018-07-03T07:01:13.000Z</published>
+    <updated>2018-07-03T15:50:33.221Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;模块化开发就像工厂生产手机一样，用多个模块组成一个完整的应用程序。JS 模块化开发有比较长的历史，早期流行 命名空间 的开发思想，到后来有了一些模块化开发的规范，最先是 CommonJS （诞生于 NodeJS 社区，但这是在本地用的，并不适合浏览器端），后来 AMD、CMD、UMD、ESM 等规范相继诞生。因为 JS 并未提供一种原生的、语言级别的模块化开发模式，而是将模块化的方法交给开发者来实现，所以这些规范的诞生，让用 JS 进行模块化开发变得规范。这是我的学习笔记，记录各种 JS 模块化规范，它们之间有什么区别。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="前端" scheme="http://qwqaq.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="CommonJS" scheme="http://qwqaq.com/tags/CommonJS/"/>
+    
+      <category term="RequireJS" scheme="http://qwqaq.com/tags/RequireJS/"/>
+    
+      <category term="ES6" scheme="http://qwqaq.com/tags/ES6/"/>
+    
+      <category term="前端开发" scheme="http://qwqaq.com/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="学习笔记" scheme="http://qwqaq.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Vue 报错 「Failed to mount component」</title>
-    <link href="http://www.qwqaq.com/83cd7c12.html"/>
-    <id>http://www.qwqaq.com/83cd7c12.html</id>
+    <link href="http://qwqaq.com/83cd7c12.html"/>
+    <id>http://qwqaq.com/83cd7c12.html</id>
     <published>2018-07-02T14:33:22.000Z</published>
-    <updated>2018-07-02T16:01:50.820Z</updated>
+    <updated>2018-07-03T07:04:36.304Z</updated>
     
     <summary type="html">
     
@@ -30,25 +58,27 @@
     
     </summary>
     
-      <category term="Vue" scheme="http://www.qwqaq.com/categories/Vue/"/>
+      <category term="前端" scheme="http://qwqaq.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="Vue" scheme="http://qwqaq.com/categories/%E5%89%8D%E7%AB%AF/Vue/"/>
     
     
-      <category term="webpack" scheme="http://www.qwqaq.com/tags/webpack/"/>
+      <category term="webpack" scheme="http://qwqaq.com/tags/webpack/"/>
     
-      <category term="前端" scheme="http://www.qwqaq.com/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="http://qwqaq.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
-      <category term="Vue" scheme="http://www.qwqaq.com/tags/Vue/"/>
+      <category term="Vue" scheme="http://qwqaq.com/tags/Vue/"/>
     
-      <category term="vue-loader" scheme="http://www.qwqaq.com/tags/vue-loader/"/>
+      <category term="vue-loader" scheme="http://qwqaq.com/tags/vue-loader/"/>
     
-      <category term="错误处理" scheme="http://www.qwqaq.com/tags/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/"/>
+      <category term="错误处理" scheme="http://qwqaq.com/tags/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>Unbroken - Motivational Video 励志视频 中英字幕 超清</title>
-    <link href="http://www.qwqaq.com/7b5628f7.html"/>
-    <id>http://www.qwqaq.com/7b5628f7.html</id>
+    <link href="http://qwqaq.com/7b5628f7.html"/>
+    <id>http://qwqaq.com/7b5628f7.html</id>
     <published>2018-05-31T14:36:50.000Z</published>
     <updated>2018-07-02T15:22:41.235Z</updated>
     
@@ -61,17 +91,17 @@
     
     </summary>
     
-      <category term="日常" scheme="http://www.qwqaq.com/categories/%E6%97%A5%E5%B8%B8/"/>
+      <category term="日常" scheme="http://qwqaq.com/categories/%E6%97%A5%E5%B8%B8/"/>
     
     
-      <category term="日常" scheme="http://www.qwqaq.com/tags/%E6%97%A5%E5%B8%B8/"/>
+      <category term="日常" scheme="http://qwqaq.com/tags/%E6%97%A5%E5%B8%B8/"/>
     
   </entry>
   
   <entry>
     <title>中考倒计时</title>
-    <link href="http://www.qwqaq.com/efdcce.html"/>
-    <id>http://www.qwqaq.com/efdcce.html</id>
+    <link href="http://qwqaq.com/efdcce.html"/>
+    <id>http://qwqaq.com/efdcce.html</id>
     <published>2018-05-31T14:25:07.000Z</published>
     <updated>2018-07-02T15:24:45.848Z</updated>
     
@@ -81,15 +111,15 @@
     
     </summary>
     
-      <category term="日常" scheme="http://www.qwqaq.com/categories/%E6%97%A5%E5%B8%B8/"/>
+      <category term="日常" scheme="http://qwqaq.com/categories/%E6%97%A5%E5%B8%B8/"/>
     
     
   </entry>
   
   <entry>
     <title>开源项目：Nacollector</title>
-    <link href="http://www.qwqaq.com/65c99d88.html"/>
-    <id>http://www.qwqaq.com/65c99d88.html</id>
+    <link href="http://qwqaq.com/65c99d88.html"/>
+    <id>http://qwqaq.com/65c99d88.html</id>
     <published>2018-05-31T14:14:49.000Z</published>
     <updated>2018-07-02T15:09:30.552Z</updated>
     
@@ -101,21 +131,21 @@
     
     </summary>
     
-      <category term="项目" scheme="http://www.qwqaq.com/categories/%E9%A1%B9%E7%9B%AE/"/>
+      <category term="项目" scheme="http://qwqaq.com/categories/%E9%A1%B9%E7%9B%AE/"/>
     
     
-      <category term="项目" scheme="http://www.qwqaq.com/tags/%E9%A1%B9%E7%9B%AE/"/>
+      <category term="项目" scheme="http://qwqaq.com/tags/%E9%A1%B9%E7%9B%AE/"/>
     
-      <category term="开源项目" scheme="http://www.qwqaq.com/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
+      <category term="开源项目" scheme="http://qwqaq.com/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
     
-      <category term="ZNEIAT" scheme="http://www.qwqaq.com/tags/ZNEIAT/"/>
+      <category term="ZNEIAT" scheme="http://qwqaq.com/tags/ZNEIAT/"/>
     
   </entry>
   
   <entry>
     <title>开源项目：Book Register</title>
-    <link href="http://www.qwqaq.com/5f8469ca.html"/>
-    <id>http://www.qwqaq.com/5f8469ca.html</id>
+    <link href="http://qwqaq.com/5f8469ca.html"/>
+    <id>http://qwqaq.com/5f8469ca.html</id>
     <published>2018-05-31T14:07:07.000Z</published>
     <updated>2018-07-02T15:09:23.808Z</updated>
     
@@ -126,21 +156,21 @@
     
     </summary>
     
-      <category term="项目" scheme="http://www.qwqaq.com/categories/%E9%A1%B9%E7%9B%AE/"/>
+      <category term="项目" scheme="http://qwqaq.com/categories/%E9%A1%B9%E7%9B%AE/"/>
     
     
-      <category term="项目" scheme="http://www.qwqaq.com/tags/%E9%A1%B9%E7%9B%AE/"/>
+      <category term="项目" scheme="http://qwqaq.com/tags/%E9%A1%B9%E7%9B%AE/"/>
     
-      <category term="开源项目" scheme="http://www.qwqaq.com/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
+      <category term="开源项目" scheme="http://qwqaq.com/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
     
-      <category term="ZNEIAT" scheme="http://www.qwqaq.com/tags/ZNEIAT/"/>
+      <category term="ZNEIAT" scheme="http://qwqaq.com/tags/ZNEIAT/"/>
     
   </entry>
   
   <entry>
     <title>开源项目：QwQuery</title>
-    <link href="http://www.qwqaq.com/cbaf3368.html"/>
-    <id>http://www.qwqaq.com/cbaf3368.html</id>
+    <link href="http://qwqaq.com/cbaf3368.html"/>
+    <id>http://qwqaq.com/cbaf3368.html</id>
     <published>2018-05-31T13:54:52.000Z</published>
     <updated>2018-07-02T15:09:37.423Z</updated>
     
@@ -151,21 +181,21 @@
     
     </summary>
     
-      <category term="项目" scheme="http://www.qwqaq.com/categories/%E9%A1%B9%E7%9B%AE/"/>
+      <category term="项目" scheme="http://qwqaq.com/categories/%E9%A1%B9%E7%9B%AE/"/>
     
     
-      <category term="项目" scheme="http://www.qwqaq.com/tags/%E9%A1%B9%E7%9B%AE/"/>
+      <category term="项目" scheme="http://qwqaq.com/tags/%E9%A1%B9%E7%9B%AE/"/>
     
-      <category term="开源项目" scheme="http://www.qwqaq.com/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
+      <category term="开源项目" scheme="http://qwqaq.com/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
     
-      <category term="ZNEIAT" scheme="http://www.qwqaq.com/tags/ZNEIAT/"/>
+      <category term="ZNEIAT" scheme="http://qwqaq.com/tags/ZNEIAT/"/>
     
   </entry>
   
   <entry>
     <title>Lumen 添加没有的 key:generate 命令</title>
-    <link href="http://www.qwqaq.com/65f7d82e.html"/>
-    <id>http://www.qwqaq.com/65f7d82e.html</id>
+    <link href="http://qwqaq.com/65f7d82e.html"/>
+    <id>http://qwqaq.com/65f7d82e.html</id>
     <published>2018-05-31T13:17:16.000Z</published>
     <updated>2018-07-02T15:08:50.784Z</updated>
     
@@ -176,21 +206,21 @@
     
     </summary>
     
-      <category term="PHP" scheme="http://www.qwqaq.com/categories/PHP/"/>
+      <category term="PHP" scheme="http://qwqaq.com/categories/PHP/"/>
     
     
-      <category term="php" scheme="http://www.qwqaq.com/tags/php/"/>
+      <category term="lumen" scheme="http://qwqaq.com/tags/lumen/"/>
     
-      <category term="lumen" scheme="http://www.qwqaq.com/tags/lumen/"/>
+      <category term="php" scheme="http://qwqaq.com/tags/php/"/>
     
-      <category term="key:generate" scheme="http://www.qwqaq.com/tags/key-generate/"/>
+      <category term="key:generate" scheme="http://qwqaq.com/tags/key-generate/"/>
     
   </entry>
   
   <entry>
     <title>Laravel 5.6 资源任务编译器 laravel-mix webpack.mix.js 配置参考</title>
-    <link href="http://www.qwqaq.com/4bba0df7.html"/>
-    <id>http://www.qwqaq.com/4bba0df7.html</id>
+    <link href="http://qwqaq.com/4bba0df7.html"/>
+    <id>http://qwqaq.com/4bba0df7.html</id>
     <published>2018-05-31T12:52:34.000Z</published>
     <updated>2018-07-02T15:08:43.214Z</updated>
     
@@ -200,25 +230,25 @@
     
     </summary>
     
-      <category term="PHP" scheme="http://www.qwqaq.com/categories/PHP/"/>
+      <category term="PHP" scheme="http://qwqaq.com/categories/PHP/"/>
     
     
-      <category term="Laravel" scheme="http://www.qwqaq.com/tags/Laravel/"/>
+      <category term="php" scheme="http://qwqaq.com/tags/php/"/>
     
-      <category term="laravel-mix" scheme="http://www.qwqaq.com/tags/laravel-mix/"/>
+      <category term="Laravel" scheme="http://qwqaq.com/tags/Laravel/"/>
     
-      <category term="webpack" scheme="http://www.qwqaq.com/tags/webpack/"/>
+      <category term="laravel-mix" scheme="http://qwqaq.com/tags/laravel-mix/"/>
     
-      <category term="php" scheme="http://www.qwqaq.com/tags/php/"/>
+      <category term="webpack" scheme="http://qwqaq.com/tags/webpack/"/>
     
-      <category term="js" scheme="http://www.qwqaq.com/tags/js/"/>
+      <category term="js" scheme="http://qwqaq.com/tags/js/"/>
     
   </entry>
   
   <entry>
     <title>ThinkPad T430 Hackintosh 10.11 El Capitan</title>
-    <link href="http://www.qwqaq.com/85cde401.html"/>
-    <id>http://www.qwqaq.com/85cde401.html</id>
+    <link href="http://qwqaq.com/85cde401.html"/>
+    <id>http://qwqaq.com/85cde401.html</id>
     <published>2018-03-14T13:11:55.000Z</published>
     <updated>2018-07-02T15:18:34.722Z</updated>
     
@@ -228,31 +258,31 @@
     
     </summary>
     
-      <category term="日常" scheme="http://www.qwqaq.com/categories/%E6%97%A5%E5%B8%B8/"/>
+      <category term="日常" scheme="http://qwqaq.com/categories/%E6%97%A5%E5%B8%B8/"/>
     
     
-      <category term="10.13" scheme="http://www.qwqaq.com/tags/10-13/"/>
+      <category term="10.13" scheme="http://qwqaq.com/tags/10-13/"/>
     
-      <category term="dp" scheme="http://www.qwqaq.com/tags/dp/"/>
+      <category term="dp" scheme="http://qwqaq.com/tags/dp/"/>
     
-      <category term="hackintosh" scheme="http://www.qwqaq.com/tags/hackintosh/"/>
+      <category term="hackintosh" scheme="http://qwqaq.com/tags/hackintosh/"/>
     
-      <category term="hdmi" scheme="http://www.qwqaq.com/tags/hdmi/"/>
+      <category term="hdmi" scheme="http://qwqaq.com/tags/hdmi/"/>
     
-      <category term="minidp" scheme="http://www.qwqaq.com/tags/minidp/"/>
+      <category term="minidp" scheme="http://qwqaq.com/tags/minidp/"/>
     
-      <category term="osx" scheme="http://www.qwqaq.com/tags/osx/"/>
+      <category term="osx" scheme="http://qwqaq.com/tags/osx/"/>
     
-      <category term="t430" scheme="http://www.qwqaq.com/tags/t430/"/>
+      <category term="t430" scheme="http://qwqaq.com/tags/t430/"/>
     
   </entry>
   
   <entry>
     <title>Git 命令笔记</title>
-    <link href="http://www.qwqaq.com/cd8b2a6d.html"/>
-    <id>http://www.qwqaq.com/cd8b2a6d.html</id>
+    <link href="http://qwqaq.com/77685bde.html"/>
+    <id>http://qwqaq.com/77685bde.html</id>
     <published>2018-01-28T14:16:15.000Z</published>
-    <updated>2018-07-02T15:07:56.064Z</updated>
+    <updated>2018-07-03T07:56:40.745Z</updated>
     
     <summary type="html">
     
@@ -260,21 +290,23 @@
     
     </summary>
     
-      <category term="Git" scheme="http://www.qwqaq.com/categories/Git/"/>
+      <category term="开发工具" scheme="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="Git" scheme="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Git/"/>
     
     
-      <category term="笔记" scheme="http://www.qwqaq.com/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="http://qwqaq.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="git" scheme="http://www.qwqaq.com/tags/git/"/>
+      <category term="git" scheme="http://qwqaq.com/tags/git/"/>
     
-      <category term="github" scheme="http://www.qwqaq.com/tags/github/"/>
+      <category term="github" scheme="http://qwqaq.com/tags/github/"/>
     
   </entry>
   
   <entry>
     <title>Linux 命令笔记</title>
-    <link href="http://www.qwqaq.com/1d50ddd6.html"/>
-    <id>http://www.qwqaq.com/1d50ddd6.html</id>
+    <link href="http://qwqaq.com/1d50ddd6.html"/>
+    <id>http://qwqaq.com/1d50ddd6.html</id>
     <published>2018-01-27T11:59:59.000Z</published>
     <updated>2018-05-27T12:06:37.124Z</updated>
     
@@ -290,23 +322,23 @@
     
     </summary>
     
-      <category term="Linux" scheme="http://www.qwqaq.com/categories/Linux/"/>
+      <category term="Linux" scheme="http://qwqaq.com/categories/Linux/"/>
     
     
-      <category term="Linux" scheme="http://www.qwqaq.com/tags/Linux/"/>
+      <category term="Linux" scheme="http://qwqaq.com/tags/Linux/"/>
     
-      <category term="Bash" scheme="http://www.qwqaq.com/tags/Bash/"/>
+      <category term="Bash" scheme="http://qwqaq.com/tags/Bash/"/>
     
-      <category term="Shell" scheme="http://www.qwqaq.com/tags/Shell/"/>
+      <category term="Shell" scheme="http://qwqaq.com/tags/Shell/"/>
     
-      <category term="笔记" scheme="http://www.qwqaq.com/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="http://qwqaq.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>项目 Pxtin 正在开发中...</title>
-    <link href="http://www.qwqaq.com/b5448812.html"/>
-    <id>http://www.qwqaq.com/b5448812.html</id>
+    <link href="http://qwqaq.com/b5448812.html"/>
+    <id>http://qwqaq.com/b5448812.html</id>
     <published>2017-12-28T06:02:22.000Z</published>
     <updated>2018-07-02T15:27:27.734Z</updated>
     
@@ -316,17 +348,17 @@
     
     </summary>
     
-      <category term="项目" scheme="http://www.qwqaq.com/categories/%E9%A1%B9%E7%9B%AE/"/>
+      <category term="项目" scheme="http://qwqaq.com/categories/%E9%A1%B9%E7%9B%AE/"/>
     
     
-      <category term="Pxtin" scheme="http://www.qwqaq.com/tags/Pxtin/"/>
+      <category term="Pxtin" scheme="http://qwqaq.com/tags/Pxtin/"/>
     
   </entry>
   
   <entry>
     <title>使用 nmap 扫描局域网下所有IP</title>
-    <link href="http://www.qwqaq.com/1a7ca83a.html"/>
-    <id>http://www.qwqaq.com/1a7ca83a.html</id>
+    <link href="http://qwqaq.com/1a7ca83a.html"/>
+    <id>http://qwqaq.com/1a7ca83a.html</id>
     <published>2017-11-13T09:25:57.000Z</published>
     <updated>2018-04-22T06:45:54.738Z</updated>
     
@@ -342,19 +374,19 @@
     
     </summary>
     
-      <category term="Linux" scheme="http://www.qwqaq.com/categories/Linux/"/>
+      <category term="Linux" scheme="http://qwqaq.com/categories/Linux/"/>
     
     
-      <category term="linux" scheme="http://www.qwqaq.com/tags/linux/"/>
+      <category term="linux" scheme="http://qwqaq.com/tags/linux/"/>
     
-      <category term="nmap" scheme="http://www.qwqaq.com/tags/nmap/"/>
+      <category term="nmap" scheme="http://qwqaq.com/tags/nmap/"/>
     
   </entry>
   
   <entry>
     <title>JS 复制变量值</title>
-    <link href="http://www.qwqaq.com/27c9359e.html"/>
-    <id>http://www.qwqaq.com/27c9359e.html</id>
+    <link href="http://qwqaq.com/27c9359e.html"/>
+    <id>http://qwqaq.com/27c9359e.html</id>
     <published>2017-11-05T12:38:02.000Z</published>
     <updated>2018-07-02T15:31:00.492Z</updated>
     
@@ -372,17 +404,17 @@
     
     </summary>
     
-      <category term="JS" scheme="http://www.qwqaq.com/categories/JS/"/>
+      <category term="JS" scheme="http://qwqaq.com/categories/JS/"/>
     
     
-      <category term="JavaScript" scheme="http://www.qwqaq.com/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://qwqaq.com/tags/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title>JS 调用函数 得到对象 赋值</title>
-    <link href="http://www.qwqaq.com/41a187b6.html"/>
-    <id>http://www.qwqaq.com/41a187b6.html</id>
+    <link href="http://qwqaq.com/41a187b6.html"/>
+    <id>http://qwqaq.com/41a187b6.html</id>
     <published>2017-11-04T12:44:16.000Z</published>
     <updated>2018-04-21T16:34:09.362Z</updated>
     
@@ -398,21 +430,21 @@
     
     </summary>
     
-      <category term="JS" scheme="http://www.qwqaq.com/categories/JS/"/>
+      <category term="JS" scheme="http://qwqaq.com/categories/JS/"/>
     
     
-      <category term="JavaScript" scheme="http://www.qwqaq.com/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://qwqaq.com/tags/JavaScript/"/>
     
-      <category term="面相对象" scheme="http://www.qwqaq.com/tags/%E9%9D%A2%E7%9B%B8%E5%AF%B9%E8%B1%A1/"/>
+      <category term="面相对象" scheme="http://qwqaq.com/tags/%E9%9D%A2%E7%9B%B8%E5%AF%B9%E8%B1%A1/"/>
     
   </entry>
   
   <entry>
     <title>jQuery: fire click() before blur() event</title>
-    <link href="http://www.qwqaq.com/208e3be9.html"/>
-    <id>http://www.qwqaq.com/208e3be9.html</id>
+    <link href="http://qwqaq.com/208e3be9.html"/>
+    <id>http://qwqaq.com/208e3be9.html</id>
     <published>2017-10-26T14:52:14.000Z</published>
-    <updated>2018-04-21T16:36:19.666Z</updated>
+    <updated>2018-07-03T07:06:02.077Z</updated>
     
     <summary type="html">
     
@@ -422,17 +454,19 @@
     
     </summary>
     
-      <category term="JS" scheme="http://www.qwqaq.com/categories/JS/"/>
+      <category term="前端" scheme="http://qwqaq.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="jQuery" scheme="http://qwqaq.com/categories/%E5%89%8D%E7%AB%AF/jQuery/"/>
     
     
   </entry>
   
   <entry>
     <title>关于指针</title>
-    <link href="http://www.qwqaq.com/f2f3b37c.html"/>
-    <id>http://www.qwqaq.com/f2f3b37c.html</id>
+    <link href="http://qwqaq.com/f2f3b37c.html"/>
+    <id>http://qwqaq.com/f2f3b37c.html</id>
     <published>2017-09-17T05:43:38.000Z</published>
-    <updated>2018-04-21T16:39:07.808Z</updated>
+    <updated>2018-07-03T07:58:46.778Z</updated>
     
     <summary type="html">
     
@@ -440,19 +474,19 @@
     
     </summary>
     
-      <category term="实例" scheme="http://www.qwqaq.com/categories/%E5%AE%9E%E4%BE%8B/"/>
+      <category term="日常" scheme="http://qwqaq.com/categories/%E6%97%A5%E5%B8%B8/"/>
     
     
-      <category term="面相对象" scheme="http://www.qwqaq.com/tags/%E9%9D%A2%E7%9B%B8%E5%AF%B9%E8%B1%A1/"/>
+      <category term="面相对象" scheme="http://qwqaq.com/tags/%E9%9D%A2%E7%9B%B8%E5%AF%B9%E8%B1%A1/"/>
     
-      <category term="指针" scheme="http://www.qwqaq.com/tags/%E6%8C%87%E9%92%88/"/>
+      <category term="指针" scheme="http://qwqaq.com/tags/%E6%8C%87%E9%92%88/"/>
     
   </entry>
   
   <entry>
     <title>Android 命名规则</title>
-    <link href="http://www.qwqaq.com/d3744f0c.html"/>
-    <id>http://www.qwqaq.com/d3744f0c.html</id>
+    <link href="http://qwqaq.com/d3744f0c.html"/>
+    <id>http://qwqaq.com/d3744f0c.html</id>
     <published>2017-09-17T02:45:15.000Z</published>
     <updated>2018-07-02T15:07:38.391Z</updated>
     
@@ -527,21 +561,21 @@
     
     </summary>
     
-      <category term="Android" scheme="http://www.qwqaq.com/categories/Android/"/>
+      <category term="Android" scheme="http://qwqaq.com/categories/Android/"/>
     
     
-      <category term="Android" scheme="http://www.qwqaq.com/tags/Android/"/>
+      <category term="Android" scheme="http://qwqaq.com/tags/Android/"/>
     
-      <category term="命名规则" scheme="http://www.qwqaq.com/tags/%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99/"/>
+      <category term="命名规则" scheme="http://qwqaq.com/tags/%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99/"/>
     
-      <category term="代码规范" scheme="http://www.qwqaq.com/tags/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/"/>
+      <category term="代码规范" scheme="http://qwqaq.com/tags/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/"/>
     
   </entry>
   
   <entry>
     <title>Android RecyclerView Item 点击/长按 事件</title>
-    <link href="http://www.qwqaq.com/8bb3c5eb.html"/>
-    <id>http://www.qwqaq.com/8bb3c5eb.html</id>
+    <link href="http://qwqaq.com/8bb3c5eb.html"/>
+    <id>http://qwqaq.com/8bb3c5eb.html</id>
     <published>2017-09-16T09:20:03.000Z</published>
     <updated>2018-07-02T15:07:24.513Z</updated>
     
@@ -552,42 +586,20 @@
     
     </summary>
     
-      <category term="Android" scheme="http://www.qwqaq.com/categories/Android/"/>
+      <category term="Android" scheme="http://qwqaq.com/categories/Android/"/>
     
     
-      <category term="Android" scheme="http://www.qwqaq.com/tags/Android/"/>
+      <category term="Android" scheme="http://qwqaq.com/tags/Android/"/>
     
-      <category term="事件监听" scheme="http://www.qwqaq.com/tags/%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC/"/>
+      <category term="事件监听" scheme="http://qwqaq.com/tags/%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC/"/>
     
-      <category term="RecyclerView" scheme="http://www.qwqaq.com/tags/RecyclerView/"/>
+      <category term="RecyclerView" scheme="http://qwqaq.com/tags/RecyclerView/"/>
     
-      <category term="OnClickListener" scheme="http://www.qwqaq.com/tags/OnClickListener/"/>
+      <category term="OnClickListener" scheme="http://qwqaq.com/tags/OnClickListener/"/>
     
-      <category term="OnLongClickListener" scheme="http://www.qwqaq.com/tags/OnLongClickListener/"/>
+      <category term="OnLongClickListener" scheme="http://qwqaq.com/tags/OnLongClickListener/"/>
     
-      <category term="ViewHolder" scheme="http://www.qwqaq.com/tags/ViewHolder/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>时光笔记 COMING SOON</title>
-    <link href="http://www.qwqaq.com/ba7ff378.html"/>
-    <id>http://www.qwqaq.com/ba7ff378.html</id>
-    <published>2017-08-18T13:46:40.000Z</published>
-    <updated>2018-07-02T15:26:08.510Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;记录点滴，留住感动&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="项目" scheme="http://www.qwqaq.com/categories/%E9%A1%B9%E7%9B%AE/"/>
-    
-    
-      <category term="TimeNote" scheme="http://www.qwqaq.com/tags/TimeNote/"/>
-    
-      <category term="时光笔记" scheme="http://www.qwqaq.com/tags/%E6%97%B6%E5%85%89%E7%AC%94%E8%AE%B0/"/>
+      <category term="ViewHolder" scheme="http://qwqaq.com/tags/ViewHolder/"/>
     
   </entry>
   

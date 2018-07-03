@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>JS 模块化规范：CommonJS, AMD, CMD, UMD, ESM | QWQAQ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="模块化开发就像工厂生产手机一样，用多个模块组成一个完整的应用程序。JS 模块化开发有比较长的历史，早期流行 命名空间 的开发思想，到后来有了一些模块化开发的规范，最先是 CommonJS （诞生于 NodeJS 社区，但这是在本地用的，并不适合浏览器端），后来 AMD、CMD、UMD、ESM 等规范相继诞生。因为 JS 并未提供一种原生的、语言级别的模块化开发模式，而是将模块化的方法交给开发者来实">
+<meta name="keywords" content="CommonJS,RequireJS,ES6,前端开发,学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS 模块化规范：CommonJS, AMD, CMD, UMD, ESM">
+<meta property="og:url" content="http://qwqaq.com/b8fd304a.html">
+<meta property="og:site_name" content="QWQAQ">
+<meta property="og:description" content="模块化开发就像工厂生产手机一样，用多个模块组成一个完整的应用程序。JS 模块化开发有比较长的历史，早期流行 命名空间 的开发思想，到后来有了一些模块化开发的规范，最先是 CommonJS （诞生于 NodeJS 社区，但这是在本地用的，并不适合浏览器端），后来 AMD、CMD、UMD、ESM 等规范相继诞生。因为 JS 并未提供一种原生的、语言级别的模块化开发模式，而是将模块化的方法交给开发者来实">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://qwqaq.com/images/banner/webpack.png">
+<meta property="og:updated_time" content="2018-07-03T15:50:33.221Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS 模块化规范：CommonJS, AMD, CMD, UMD, ESM">
+<meta name="twitter:description" content="模块化开发就像工厂生产手机一样，用多个模块组成一个完整的应用程序。JS 模块化开发有比较长的历史，早期流行 命名空间 的开发思想，到后来有了一些模块化开发的规范，最先是 CommonJS （诞生于 NodeJS 社区，但这是在本地用的，并不适合浏览器端），后来 AMD、CMD、UMD、ESM 等规范相继诞生。因为 JS 并未提供一种原生的、语言级别的模块化开发模式，而是将模块化的方法交给开发者来实">
+<meta name="twitter:image" content="http://qwqaq.com/images/banner/webpack.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="QWQAQ" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/material-design-iconic-font/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?785e1cdc938039c39a3b5f792ed1e829";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <!--<span class="site-title">QWQAQ</span>-->
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">主页</a>
+                
+                    <a class="main-nav-link" href="/categories">目录</a>
+                
+                    <a class="main-nav-link" href="/archives">时间轴</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/images/avatar.png" />
+                            <i class="zmdi zmdi-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="zmdi zmdi-close"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">主页</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">目录</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">时间轴</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <div class="profile-top-part">
+                <img id="avatar" src="/images/avatar.png" />
+                <div class="info-inner">
+                    <h2 id="name">QWQAQ</h2>
+                    <h3 id="title">不忘初心，方得始终</h3>
+                </div>
+            </div>
+            <div class="profile-bg"></div>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                <a href="/tags">
+                    33
+                    <span>文章</span>
+                </a>
+            </div>
+            <div class="article-info-block">
+                <a href="/archives">
+                    77
+                    <span>标签</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            
+            
+            <div class="social-link-item">
+                <a href="https://github.com/Zneiat" target="_blank" title="github" class=tooltip>
+                    <i class="zmdi zmdi-github"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="https://twitter.com/Kiroey" target="_blank" title="twitter" class=tooltip>
+                    <i class="zmdi zmdi-twitter"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                    <i class="zmdi zmdi-rss"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="/about/" target="_blank" title="more" class=tooltip>
+                    <i class="zmdi zmdi-more"></i>
+                </a>
+            </div>
+            
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-JS-模块化规范：CommonJS-AMD-CMD-UMD-ESM" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<img src="/images/banner/webpack.png" class="article-banner" />
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+
+    
+        <h1 class="article-title" itemprop="name">
+            JS 模块化规范：CommonJS, AMD, CMD, UMD, ESM
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="zmdi zmdi-calendar"></i>
+        <a href="/b8fd304a.html">
+            <time datetime="2018-07-03T07:01:13.000Z" itemprop="datePublished">2018-07-03</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="zmdi zmdi-folder"></i>
+        <a class="article-category-link" href="/categories/前端/">前端</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            
+            <p>模块化开发就像工厂生产手机一样，用多个模块组成一个完整的应用程序。JS 模块化开发有比较长的历史，早期流行 命名空间 的开发思想，到后来有了一些模块化开发的规范，最先是 CommonJS （诞生于 NodeJS 社区，但这是在本地用的，并不适合浏览器端），后来 AMD、CMD、UMD、ESM 等规范相继诞生。因为 JS 并未提供一种原生的、语言级别的模块化开发模式，而是将模块化的方法交给开发者来实现，所以这些规范的诞生，让用 JS 进行模块化开发变得规范。这是我的学习笔记，记录各种 JS 模块化规范，它们之间有什么区别。</p>
+<a id="more"></a>
+<blockquote>
+<p>The Module Pattern，模块模式，也译为模组模式，是一种通用的对代码进行模块化组织与定义的方式。这里所说的模块（Modules），是指实现某特定功能的一组方法和代码。许多现代语言都定义了代码的模块化组织方式，比如 Golang 和 Java，它们都使用 package 与 import 来管理与使用模块，而目前版本的 JavaScript 并未提供一种原生的、语言级别的模块化组织模式，而是将模块化的方法交由开发者来实现。因此，出现了很多种 JavaScript 模块化的实现方式，比如，CommonJS Modules、AMD 等。</p>
+</blockquote>
+<h2 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h2><p>例如一个库，有 “库名.类别名.方法名”</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> NameSpace = &#123;&#125;;</span><br><span class="line">NameSpace.type = NameSpace.type || &#123;&#125;;</span><br><span class="line">NameSpace.type.method = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br></pre></td></tr></table></figure>
+<p>如代码所示，有一个 NameSpace 等于一个对象，在 NameSpace 下面有某一个类型，某一个类型也是一个对象，如果需要在这个类型里面添加一个方法的话，你就可以通过这种方式去定义。</p>
+<p>代码 <code>NameSpace.type = NameSpace.type || {};</code> 我们可以看到在定义 NameSpace.type 的时候，会判断 如果 NameSpace.type 已被定义，那么就继续是原来的，如果他没有被定义，那么就是新的对象。在一个项目开始前，团队可以约定，谁用哪些命名空间、总的命名空间，通过这种方式，就可以避免命名空间重复覆盖的问题。但如果命名空间被覆盖了，是检测不到的，这是弊端之一。另外一个弊端是，当你想调用某个方法时必须记住它完整的路径名，这样是非常不方便的，所以 命名空间 这种方式还是存在许多弊端的。</p>
+<p>例如：<code>MY_APP.IndexView.NavbarController.RightArea.UserProfile.UpdateUserName(&quot;...&quot;)</code></p>
+<p>YUI2 大量使用了 命名空间 的方式，后来 YUI3 推出了一种<a href="https://github.com/yui/yui3/wiki/Quick-Start" target="_blank" rel="noopener">沙箱机制(Sandbox)</a>，通过这种沙箱机制，暂时解决了命名空间路径很长的问题</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">YUI.add(<span class="string">'hello'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">Y</span>) </span>&#123;</span><br><span class="line">    Y.hello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        Y.log(<span class="string">'Hello World!'</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;, <span class="string">'3.4.0'</span>, &#123;</span><br><span class="line">    requires: [<span class="string">'harley-davidson'</span>, <span class="string">'mt-dew'</span>]</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">YUI().use(<span class="string">'hello'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">Y</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Module hello will be available here.</span></span><br><span class="line">    Y.hello();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>可以在 GitHub 上了解 <code>YUI.add</code> 这个方法：<a href="https://github.com/yui/yui3/blob/25264e3629b1c07fb779d203c4a25c0879ec862c/src/yui/js/yui.js#L643" target="_blank" rel="noopener">传送门</a></p>
+<h2 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h2><p>再后来 CommonJS 出现了</p>
+<h3 id="CommonJS-规定-Modules-1-1-1"><a href="#CommonJS-规定-Modules-1-1-1" class="headerlink" title="CommonJS 规定 (Modules/1.1.1)"></a>CommonJS 规定 (Modules/1.1.1)</h3><ul>
+<li>一个文件为一个模块</li>
+<li>使用 <code>exports.xxx = ...</code> 或 <code>module.exports = {...}</code> 暴露模块</li>
+</ul>
+<p>在一个模块内的变量是不能被另一个模块直接访问的。也就是说在一个文件中，定义的一个变量，在另一个文件中是不能直接访问的，如果需要访问这个变量，则需通过 module.exports 这个 API (暴露模块接口) 来暴露它，让外界能够访问这些东西</p>
+<ul>
+<li>使用 <code>require(...)</code> 方法来引入一个模块</li>
+<li><code>require(...)</code> 是同步执行</li>
+</ul>
+<p>CommonJS Modules/1.1.1 详细规范：<a href="http://wiki.commonjs.org/wiki/Modules/1.1.1" target="_blank" rel="noopener">传送门</a></p>
+<p>CommonJS 在 NodeJS 环境用，不适用于浏览器端</p>
+<h3 id="CommonJS-示例"><a href="#CommonJS-示例" class="headerlink" title="CommonJS 示例"></a>CommonJS 示例</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a.js</span></span><br><span class="line"><span class="keyword">let</span> myFunc = <span class="function"><span class="keyword">function</span> (<span class="params">msg</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Hello World! '</span> + msg);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">exports.helloWorld = myFunc;</span><br><span class="line"></span><br><span class="line"><span class="comment">// b.js</span></span><br><span class="line"><span class="keyword">const</span> a = <span class="built_in">require</span>(<span class="string">'./a.js'</span>);</span><br><span class="line">a.helloWorld(<span class="string">'Date: 2018/7/3'</span>);</span><br></pre></td></tr></table></figure>
+<p>命令行执行 <code>node b.js</code> 结果: <code>Hello World! Date: 2018/7/3</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// foo.js</span></span><br><span class="line">exports.a = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Hello World!'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;<span class="attr">a</span>: <span class="number">2</span>&#125;</span><br><span class="line">exports.a = <span class="number">1</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">// test.js</span></span><br><span class="line"><span class="keyword">let</span> x = <span class="built_in">require</span>(<span class="string">'./foo'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(x.a)</span><br></pre></td></tr></table></figure>
+<p>命令行执行 <code>node test.js</code> 结果: <code>2</code></p>
+<h2 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h2><p>全称 <a href="https://en.wikipedia.org/wiki/Asynchronous_module_definition" target="_blank" rel="noopener">Asynchronous module definition</a>（异步模块定义）</p>
+<h3 id="AMD-规定"><a href="#AMD-规定" class="headerlink" title="AMD 规定"></a>AMD 规定</h3><ul>
+<li>使用 <code>define(...)</code> 定义一个模块</li>
+<li>使用 <code>require(...)</code> 加载一个模块（和 CommonJS 规范是相同的方法名，注意区分 CommonJS 和 <strong>RequireJS</strong>）</li>
+<li>依赖前置，提前执行</li>
+</ul>
+<p>AMD 详细规范：<a href="https://github.com/amdjs/amdjs-api/wiki/AMD" target="_blank" rel="noopener">传送门</a></p>
+<p><a href="http://requirejs.org/" target="_blank" rel="noopener"><strong>RequireJS</strong></a> 是 CMD 的一种实现</p>
+<h3 id="AMD-示例"><a href="#AMD-示例" class="headerlink" title="AMD 示例"></a>AMD 示例</h3><p>因为 <strong>RequireJS</strong> 实现了 AMD 规范。所以下面的例子也借助 RequireJS 去实现。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">define(</span><br><span class="line">    <span class="comment">// 模块名</span></span><br><span class="line">    <span class="string">"alpha"</span>,</span><br><span class="line">    <span class="comment">// 依赖</span></span><br><span class="line">    [<span class="string">"require"</span>, <span class="string">"exports"</span>, <span class="string">"beta"</span>],</span><br><span class="line">    <span class="comment">// 模块输出</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> (<span class="params">require, exports, beta</span>) </span>&#123;</span><br><span class="line">        exports.verb = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> beta.verb();</span><br><span class="line">            <span class="comment">//Or:</span></span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">require</span>(<span class="string">"beta"</span>).verb();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>RequireJS 通过上面的方式定义一个模块，除此之外，还有另外一种方式：</p>
+<p><code>[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;]</code> 对应着 <code>function (a, b, c, d, e) {</code> 方法的参数，在这个方法中可以直接使用这些依赖</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">define(</span><br><span class="line">    [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>, <span class="string">"d"</span>, <span class="string">"e"</span>],</span><br><span class="line">    <span class="function"><span class="keyword">function</span> (<span class="params">a, b, c, d, e</span>) </span>&#123; <span class="comment">// 在最前面声明并初始化了要用到的所有模块</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="literal">false</span>) &#123; <span class="comment">// 即便不会调用到某个模块 c，但 c 还是被提前执行了</span></span><br><span class="line">            c.foo();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>另外，因为 AMD 和 CommonJS 规范拥有相同的方法名 require，所以容易将 RequireJS(AMD) 和 CommonJS 记混，注意区分。</p>
+<h2 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h2><p>全称 Common Module Definition（通用模块定义）</p>
+<h3 id="CMD-规定"><a href="#CMD-规定" class="headerlink" title="CMD 规定"></a>CMD 规定</h3><ul>
+<li>一个文件为一个模块</li>
+<li>使用 <code>define(...)</code> 定义一个模块（和 AMD 相似）</li>
+<li>使用 <code>require(...)</code> 加载一个模块（和 AMD 相似）</li>
+<li>尽可能懒执行（和 AMD 的不同点）</li>
+</ul>
+<p>CMD 详细规范：<a href="https://github.com/cmdjs/specification/blob/master/draft/module.md" target="_blank" rel="noopener">传送门</a></p>
+<p>SeaJS 是 CMD 的一种实现</p>
+<h3 id="CMD-示例"><a href="#CMD-示例" class="headerlink" title="CMD 示例"></a>CMD 示例</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> $ = <span class="built_in">require</span>(<span class="string">'jquery'</span>);</span><br><span class="line">    <span class="keyword">var</span> Spinning = <span class="built_in">require</span>(<span class="string">'./spinning'</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 通过 exports 对外提供接口</span></span><br><span class="line">    <span class="comment">// 注：不能直接对 exports 赋值，例如：exports = &#123;...&#125;</span></span><br><span class="line">    exports.doSomething = ...</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 或通过 module.exports 提供整个接口</span></span><br><span class="line">    <span class="built_in">module</span>.exports = ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="CMD-和-AMD-的最显著区别-“as-lazy-as-possible”"><a href="#CMD-和-AMD-的最显著区别-“as-lazy-as-possible”" class="headerlink" title="CMD 和 AMD 的最显著区别 “as lazy as possible”"></a>CMD 和 AMD 的最显著区别 “as lazy as possible”</h3><ol>
+<li>CMD 推崇 as lazy as possible（尽可能的懒加载，也称为延迟加载，即在需要的时候才加载）。</li>
+</ol>
+<p>对于依赖的模块，AMD 是提前执行，CMD 是延迟执行，两者执行方式不一样，AMD 执行过程中会将所有依赖前置执行，也就是在自己的代码逻辑开始前全部执行；而 CMD 如果 require 但 整个逻辑并未使用这个依赖 或 未执行到逻辑使用它的地方前 不会执行。<br>。</p>
+<p>不过 RequireJS 从 2.0 开始，也能改成延迟执行（根据写法不同，处理方式不同）</p>
+<ol start="2">
+<li>CMD 推崇依赖就近，AMD 推崇依赖前置。</li>
+</ol>
+<p>虽然 AMD 也支持 CMD 的写法，同时还支持将 require 作为依赖项传递，但 RequireJS 的作者默认是最喜欢上面的写法，也是官方文档里默认的模块定义写法。看代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// CMD</span></span><br><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="built_in">require</span>(<span class="string">'./a'</span>);</span><br><span class="line">    a.doSomething();</span><br><span class="line">    <span class="comment">// 此处略去 100 行</span></span><br><span class="line">    <span class="keyword">var</span> b = <span class="built_in">require</span>(<span class="string">'./b'</span>); <span class="comment">// 依赖可以就近书写</span></span><br><span class="line">    b.doSomething();</span><br><span class="line">    <span class="comment">// ... </span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// AMD 默认推荐的是</span></span><br><span class="line">define([<span class="string">'./a'</span>, <span class="string">'./b'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123; <span class="comment">// 依赖必须一开始就写好</span></span><br><span class="line">    a.doSomething();</span><br><span class="line">    <span class="comment">// 此处略去 100 行</span></span><br><span class="line">    b.doSomething();</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="UMD"><a href="#UMD" class="headerlink" title="UMD"></a>UMD</h2><p>全称 Universal Module Definition（万能模块定义），从名字就可以看出 UMD 做的是大一统的工作。Webpack 打包代码就有 UMD 这个选项。</p>
+<p>它会做三件事情：</p>
+<ul>
+<li>判断是否支持 AMD</li>
+<li>判断是否支持 CommonJS</li>
+<li>如果都不支持，使用全局变量</li>
+</ul>
+<p>There are many techniques under UMD. My favourite UMD technique is returnExports. Here is example code on how to create math module using returnExport pattern. Place this code in “math.js” file</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// if the module has no dependencies, the above pattern can be simplified to</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">root, factory</span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Environment Detection</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 对应上述的三个步骤</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> define === <span class="string">'function'</span> &amp;&amp; define.amd) &#123;</span><br><span class="line">        <span class="comment">// 1.判断是否支持 AMD</span></span><br><span class="line">        <span class="comment">// 如果 define 这个方法是被定义 并且 define 这个方法是 AMD 的规范，那就把 factory 这个模块实体用 define 方法以 AMD 的规范 定义</span></span><br><span class="line">        define([], factory); <span class="comment">// [] 是依赖，factory 是模块实体</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> exports === <span class="string">'object'</span>) &#123;</span><br><span class="line">        <span class="comment">// 2. 判断是否支持 CommonJS</span></span><br><span class="line">        <span class="comment">// 如果 exports 是等于一个对象，则表明是在 Node 环境中运行，则支持 CommonJS，那就用 module.exports 暴露整个模块实体</span></span><br><span class="line">        <span class="built_in">module</span>.exports = factory();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 3. 如果都不支持，使用全局变量</span></span><br><span class="line">        <span class="comment">// Browser globals (root 即是 window)</span></span><br><span class="line">        root.returnExports = factory();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;(<span class="keyword">this</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Module Defination</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x + y;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> sub = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x - y;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> math = &#123;</span><br><span class="line">        findSum: <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> sum(a,b);</span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        findSub: <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> sub(a, b);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> math;</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+<h2 id="ES-Module-ESM"><a href="#ES-Module-ESM" class="headerlink" title="ES Module (ESM)"></a>ES Module (ESM)</h2><p>全称 ECMAScript Module</p>
+<p>ESM 现在比较流行，随着 ESM 规范的普及，开发过程越来越多地中使用 ESM 的模块化规范，例如： <a href="https://github.com/vuejs/vue-loader/releases/tag/v13.0.0" target="_blank" rel="noopener">vue-loader v13.0.0</a> <code>Now uses ES modules internally to take advantage of webpack 3 scope hoisting.</code></p>
+<h3 id="ESM-规定"><a href="#ESM-规定" class="headerlink" title="ESM 规定"></a>ESM 规定</h3><ul>
+<li>一个文件为一个模块</li>
+<li>引入模块用 <code>import</code> 关键字 或 <code>import(...)</code> 方法</li>
+<li>暴露模块用 <code>export</code> 关键字（没有 s，注意和 CommonJS 的 <code>exports.xxx = ...</code> 或 <code>module.exports = {}</code> 区分）</li>
+</ul>
+<h3 id="ESM-示例"><a href="#ESM-示例" class="headerlink" title="ESM 示例"></a>ESM 示例</h3><h4 id="import"><a href="#import" class="headerlink" title="import"></a>import</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Default exports and named exports</span></span><br><span class="line"><span class="keyword">import</span> theDefault, &#123; named1, named2 &#125; <span class="keyword">from</span> <span class="string">'src/mylib'</span>;</span><br><span class="line"><span class="keyword">import</span> theDefault <span class="keyword">from</span> <span class="string">'src/mylib'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; named1, named2 &#125; <span class="keyword">from</span> <span class="string">'src/mylib'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Renaming: import named1 as myNamed1</span></span><br><span class="line"><span class="keyword">import</span> &#123; named1 <span class="keyword">as</span> myNamed1, named2 &#125; <span class="keyword">from</span> <span class="string">'src/mylib'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Importing the module as an object</span></span><br><span class="line"><span class="comment">// (with one property per named export)</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> mylib <span class="keyword">from</span> <span class="string">'src/mylib'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Only load the module, don't import anything</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'src/mylib'</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="export"><a href="#export" class="headerlink" title="export"></a>export</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> myVar1 = <span class="string">''</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">let</span> myVar2 = <span class="string">''</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> MY_CONST = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">myFunc</span>(<span class="params"></span>) </span>&#123; &#125;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span>* <span class="title">myGeneratorFunc</span>(<span class="params"></span>) </span>&#123; &#125;</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123; &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> MY_CONST = <span class="string">''</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunc</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123; MY_CONST, myFunc &#125;;</span><br><span class="line"><span class="keyword">export</span> &#123; MY_CONST <span class="keyword">as</span> THE_CONST, myFunc <span class="keyword">as</span> theFun &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> * <span class="keyword">from</span> <span class="string">'src/other_module'</span>;</span><br><span class="line"><span class="keyword">export</span> &#123; foo, bar &#125; <span class="keyword">from</span> <span class="string">'src/other_module'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Export other_module's foo as myFoo</span></span><br><span class="line"><span class="keyword">export</span> &#123; foo <span class="keyword">as</span> myFoo, bar &#125; <span class="keyword">from</span> <span class="string">'src/other_module'</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="export-default"><a href="#export-default" class="headerlink" title="export default"></a>export default</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="number">123</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> x =&gt; x;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(x, y) &#123;</span><br><span class="line">        <span class="keyword">this</span>.x = x;</span><br><span class="line">        <span class="keyword">this</span>.y = y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a.js</span></span><br><span class="line"><span class="keyword">let</span> helloWorld = <span class="function"><span class="keyword">function</span> (<span class="params">msg</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Hello World! '</span> + msg);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123;helloWorld&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// b.js</span></span><br><span class="line"><span class="keyword">import</span> &#123;helloWorld&#125; <span class="keyword">from</span> <span class="string">'./a.js'</span>;</span><br><span class="line">helloWorld(<span class="string">'Date: 2018/7/3'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// b.js</span></span><br><span class="line"><span class="keyword">import</span> &#123;helloWorld <span class="keyword">as</span> myTool&#125; <span class="keyword">from</span> <span class="string">'./a.js'</span>;</span><br><span class="line">myTool(<span class="string">'Date: 2018/7/3'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// b.js</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> a <span class="keyword">from</span> <span class="string">'./a.js'</span>;</span><br><span class="line">a.helloWorld(<span class="string">'Date: 2018/7/3'</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a.js</span></span><br><span class="line"><span class="keyword">let</span> helloWorld = <span class="function"><span class="keyword">function</span> (<span class="params">msg</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Hello World! '</span> + msg);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> helloWorld;</span><br><span class="line"></span><br><span class="line"><span class="comment">// b.js</span></span><br><span class="line"><span class="keyword">import</span> helloWorld <span class="keyword">from</span> <span class="string">'./a.js'</span>;</span><br><span class="line"></span><br><span class="line">helloWorld(<span class="string">'Date: 2018/7/3'</span>);</span><br></pre></td></tr></table></figure>
+<p>执行上面的 b.js 都会输出相同的结果 <code>Hello World! Date: 2018/7/3</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// my-lib.js</span></span><br><span class="line"><span class="keyword">let</span> helloWorld = <span class="function"><span class="keyword">function</span> (<span class="params">msg</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Hello World! '</span> + msg);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> sayHello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Hello!'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> sayBye = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Bye'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123;sayHello, sayBye&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> helloWorld;</span><br><span class="line"></span><br><span class="line"><span class="comment">// action.js</span></span><br><span class="line"><span class="keyword">import</span> helloWorld, &#123;sayHello <span class="keyword">as</span> afterHelloWorld, sayBye&#125; <span class="keyword">from</span> <span class="string">'./my-lib.js'</span>;</span><br><span class="line"></span><br><span class="line">helloWorld(<span class="string">'Date: 2018/7/3'</span>);</span><br><span class="line">afterHelloWorld();</span><br><span class="line">sayBye();</span><br></pre></td></tr></table></figure>
+<p>执行上面的 action.js：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ babel-node action.js</span><br><span class="line">Hello World! Date: 2018/7/3</span><br><span class="line">Hello!</span><br><span class="line">Bye</span><br></pre></td></tr></table></figure>
+<h3 id="让-Node-环境支持-ESM"><a href="#让-Node-环境支持-ESM" class="headerlink" title="让 Node 环境支持 ESM"></a>让 Node 环境支持 ESM</h3><p>使用 Node v8.11.3</p>
+<p>例如上面示例代码中，直接命令行 <code>node action.js</code> 会报错：<code>SyntaxError: Unexpected token import</code></p>
+<p>命令行执行 <code>node --experimental-modules action.js</code> 会出现提示 <code>ExperimentalWarning: The ESM module loader is experimental.</code></p>
+<p>可以使用 <a href="http://babeljs.io/" target="_blank" rel="noopener">babel</a> 让 Node 环境支持 ESM 语法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> [项目目录]</span><br><span class="line"></span><br><span class="line">$ npm init</span><br><span class="line">$ npm install --save babel-preset-latest babel-cli</span><br><span class="line">$ touch .babelrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编辑 .babelrc</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"presets"</span>: [<span class="string">"latest"</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$ npm install babel-cli -g</span><br><span class="line">$ babel-node action.js</span><br></pre></td></tr></table></figure>
+<h3 id="动态-import"><a href="#动态-import" class="headerlink" title="动态 import()"></a>动态 import()</h3><p><a href="https://hospodarets.com/native-ecmascript-modules-dynamic-import" target="_blank" rel="noopener">传送门：Native ECMAScript modules: dynamic import()</a></p>
+<blockquote>
+<p>Dynamic import() brings us the additional power to use the ES modules in an asynchronous way. To load them dynamically or conditionally depending on our needs, which gives us the ability to create even more advantage apps faster and better.</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// STATIC</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'./a.js'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> b <span class="keyword">from</span> <span class="string">'./b.js'</span>;</span><br><span class="line">b();</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123;c&#125; <span class="keyword">from</span> <span class="string">'./c.js'</span>;</span><br><span class="line">c();</span><br><span class="line"></span><br><span class="line"><span class="comment">// DYNAMIC</span></span><br><span class="line"><span class="keyword">import</span>(<span class="string">'./a.js'</span>).then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'a.js is loaded dynamically'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span>(<span class="string">'./b.js'</span>).then(<span class="function">(<span class="params"><span class="built_in">module</span></span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> b = <span class="built_in">module</span>.default;</span><br><span class="line">  b(<span class="string">'isDynamic'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span>(<span class="string">'./c.js'</span>).then(<span class="function">(<span class="params">&#123;c&#125;</span>)=&gt;</span>&#123;</span><br><span class="line">  c(<span class="string">'isDynamic'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="webpack-支持"><a href="#webpack-支持" class="headerlink" title="webpack 支持"></a>webpack 支持</h2><ul>
+<li>AMD (RequireJS)</li>
+<li>ES Module（推荐的）</li>
+<li>CommonJS</li>
+</ul>
+<p>虽然模块化规范有很多，但是只要掌握了 ES Module 和 CommonJS 这两种规范，那么使用 webpack 就基本没什么问题了，至于 AMD, CMD, UMD 了解一下足矣。</p>
+
+        
+        </div>
+        
+            
+            <div class="article-copyright">本站文章除注明转载外均为原创，版权为 <a href="http://qwqaq.com">QWQAQ</a> 所有，未经允许不得转载. http://qwqaq.com/b8fd304a.html</div>
+            
+        
+<div class="article-tag-block">
+    <i class="zmdi zmdi-tag"></i>
+    <a class="tag-link" href="/tags/CommonJS/">CommonJS</a><a class="tag-link" href="/tags/ES6/">ES6</a><a class="tag-link" href="/tags/RequireJS/">RequireJS</a><a class="tag-link" href="/tags/前端开发/">前端开发</a><a class="tag-link" href="/tags/学习笔记/">学习笔记</a>
+</div>
+
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://qwqaq.com/b8fd304a.html" data-id="cjj5wombh0001pow3vserl2b8" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="zmdi zmdi-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="zmdi zmdi-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="zmdi zmdi-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="zmdi zmdi-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://qwqaq.com/b8fd304a.html#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://qwqaq.com/b8fd304a.html">评论</a>
+    
+
+        </footer>
+        
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/83cd7c12.html" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Vue 报错 「Failed to mount component」</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/b8fd304a.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/banner/webpack.png)" alt="JS 模块化规范：CommonJS, AMD, CMD, UMD, ESM" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/前端/">前端</a></p>
+                            <p class="item-title"><a href="/b8fd304a.html" class="title">JS 模块化规范：CommonJS, AMD, CMD, UMD, ESM</a></p>
+                            <p class="item-date"><time datetime="2018-07-03T07:01:13.000Z" itemprop="datePublished">2018-07-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/83cd7c12.html" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/前端/">前端</a><i class="zmdi zmdi-chevron-right"></i><a class="article-category-link" href="/categories/前端/Vue/">Vue</a></p>
+                            <p class="item-title"><a href="/83cd7c12.html" class="title">Vue 报错 「Failed to mount component」</a></p>
+                            <p class="item-date"><time datetime="2018-07-02T14:33:22.000Z" itemprop="datePublished">2018-07-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/7b5628f7.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/banner/2016-06-04.png)" alt="Unbroken - Motivational Video 励志视频 中英字幕 超清" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/日常/">日常</a></p>
+                            <p class="item-title"><a href="/7b5628f7.html" class="title">Unbroken - Motivational Video 励志视频 中英字幕 超清</a></p>
+                            <p class="item-date"><time datetime="2018-05-31T14:36:50.000Z" itemprop="datePublished">2018-05-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/efdcce.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/banner/20150608-school-sport-day.jpg)" alt="中考倒计时" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/日常/">日常</a></p>
+                            <p class="item-title"><a href="/efdcce.html" class="title">中考倒计时</a></p>
+                            <p class="item-date"><time datetime="2018-05-31T14:25:07.000Z" itemprop="datePublished">2018-05-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/65c99d88.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/banner/Nacollector.png)" alt="开源项目：Nacollector" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/项目/">项目</a></p>
+                            <p class="item-title"><a href="/65c99d88.html" class="title">开源项目：Nacollector</a></p>
+                            <p class="item-date"><time datetime="2018-05-31T14:14:49.000Z" itemprop="datePublished">2018-05-31</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C#</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/Vue/">Vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/">开发工具</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/Git/">Git</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/日常/">日常</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/硬件/">硬件</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/硬件/Arduino/">Arduino</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/项目/">项目</a><span class="category-list-count">5</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/10-13/">10.13</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino/">Arduino</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino-Leonardo/">Arduino Leonardo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BadUSB/">BadUSB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bash/">Bash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CommonJS/">CommonJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ImageMagick/">ImageMagick</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS-sprintf/">JS sprintf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS从路径中提取文件名/">JS从路径中提取文件名</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Laravel/">Laravel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OnClickListener/">OnClickListener</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OnLongClickListener/">OnLongClickListener</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP扩展/">PHP扩展</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pxtin/">Pxtin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspberry-Pi/">Raspberry Pi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RecyclerView/">RecyclerView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RequireJS/">RequireJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TimeNote/">TimeNote</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ViewHolder/">ViewHolder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZNEIAT/">ZNEIAT</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hackintosh/">hackintosh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hdmi/">hdmi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/imagick/">imagick</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/key-generate/">key:generate</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel-mix/">laravel-mix</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux权限/">linux权限</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lumen/">lumen</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/minidp/">minidp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nmap/">nmap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osx/">osx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php-root权限/">php root权限</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php7/">php7</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php7-Windows-安装教程/">php7 Windows 安装教程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php7-0-fpm-root/">php7.0-fpm root</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php7-0-fpm-权限/">php7.0-fpm 权限</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php-imagick/">php_imagick</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/t430/">t430</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-loader/">vue-loader</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/事件监听/">事件监听</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代理/">代理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码规范/">代码规范</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端开发/">前端开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/命名规则/">命名规则</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/委托函数/">委托函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安防/">安防</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开源项目/">开源项目</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日常/">日常</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/时光笔记/">时光笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树莓派/">树莓派</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器创建下载/">浏览器创建下载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/环境变量/">环境变量</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自定义函数/">自定义函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/错误处理/">错误处理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面相对象/">面相对象</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/项目/">项目</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/10-13/" style="font-size: 10px;">10.13</a> <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/Arduino/" style="font-size: 10px;">Arduino</a> <a href="/tags/Arduino-Leonardo/" style="font-size: 10px;">Arduino Leonardo</a> <a href="/tags/BadUSB/" style="font-size: 10px;">BadUSB</a> <a href="/tags/Bash/" style="font-size: 10px;">Bash</a> <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/CommonJS/" style="font-size: 10px;">CommonJS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/ImageMagick/" style="font-size: 10px;">ImageMagick</a> <a href="/tags/JS-sprintf/" style="font-size: 10px;">JS sprintf</a> <a href="/tags/JS从路径中提取文件名/" style="font-size: 10px;">JS从路径中提取文件名</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/OnClickListener/" style="font-size: 10px;">OnClickListener</a> <a href="/tags/OnLongClickListener/" style="font-size: 10px;">OnLongClickListener</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/PHP扩展/" style="font-size: 10px;">PHP扩展</a> <a href="/tags/Pxtin/" style="font-size: 10px;">Pxtin</a> <a href="/tags/Raspberry-Pi/" style="font-size: 10px;">Raspberry Pi</a> <a href="/tags/RecyclerView/" style="font-size: 10px;">RecyclerView</a> <a href="/tags/RequireJS/" style="font-size: 10px;">RequireJS</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/TimeNote/" style="font-size: 10px;">TimeNote</a> <a href="/tags/ViewHolder/" style="font-size: 10px;">ViewHolder</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/ZNEIAT/" style="font-size: 20px;">ZNEIAT</a> <a href="/tags/dp/" style="font-size: 10px;">dp</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hackintosh/" style="font-size: 10px;">hackintosh</a> <a href="/tags/hdmi/" style="font-size: 10px;">hdmi</a> <a href="/tags/imagick/" style="font-size: 10px;">imagick</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/key-generate/" style="font-size: 10px;">key:generate</a> <a href="/tags/laravel-mix/" style="font-size: 10px;">laravel-mix</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/linux权限/" style="font-size: 10px;">linux权限</a> <a href="/tags/lumen/" style="font-size: 10px;">lumen</a> <a href="/tags/minidp/" style="font-size: 10px;">minidp</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nmap/" style="font-size: 10px;">nmap</a> <a href="/tags/osx/" style="font-size: 10px;">osx</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/php-root权限/" style="font-size: 10px;">php root权限</a> <a href="/tags/php7/" style="font-size: 10px;">php7</a> <a href="/tags/php7-Windows-安装教程/" style="font-size: 10px;">php7 Windows 安装教程</a> <a href="/tags/php7-0-fpm-root/" style="font-size: 10px;">php7.0-fpm root</a> <a href="/tags/php7-0-fpm-权限/" style="font-size: 10px;">php7.0-fpm 权限</a> <a href="/tags/php-imagick/" style="font-size: 10px;">php_imagick</a> <a href="/tags/t430/" style="font-size: 10px;">t430</a> <a href="/tags/vue-loader/" style="font-size: 10px;">vue-loader</a> <a href="/tags/webpack/" style="font-size: 15px;">webpack</a> <a href="/tags/事件监听/" style="font-size: 10px;">事件监听</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/代码规范/" style="font-size: 10px;">代码规范</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/前端开发/" style="font-size: 10px;">前端开发</a> <a href="/tags/命名规则/" style="font-size: 10px;">命名规则</a> <a href="/tags/委托函数/" style="font-size: 10px;">委托函数</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/安防/" style="font-size: 10px;">安防</a> <a href="/tags/开源项目/" style="font-size: 20px;">开源项目</a> <a href="/tags/指针/" style="font-size: 10px;">指针</a> <a href="/tags/日常/" style="font-size: 10px;">日常</a> <a href="/tags/时光笔记/" style="font-size: 10px;">时光笔记</a> <a href="/tags/树莓派/" style="font-size: 10px;">树莓派</a> <a href="/tags/浏览器创建下载/" style="font-size: 10px;">浏览器创建下载</a> <a href="/tags/环境变量/" style="font-size: 10px;">环境变量</a> <a href="/tags/笔记/" style="font-size: 15px;">笔记</a> <a href="/tags/自定义函数/" style="font-size: 15px;">自定义函数</a> <a href="/tags/错误处理/" style="font-size: 10px;">错误处理</a> <a href="/tags/面相对象/" style="font-size: 15px;">面相对象</a> <a href="/tags/项目/" style="font-size: 20px;">项目</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.carzyuncle.com">疯狂的大叔</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="zmdi zmdi-chevron-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 QWQAQ<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/Zneiat/hexo-theme-icarus">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://qwqaq.com/b8fd304a.html';
+        
+        this.page.identifier = 'JS-模块化规范：CommonJS-AMD-CMD-UMD-ESM';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'qwqaq-com' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
