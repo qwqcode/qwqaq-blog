@@ -986,6 +986,26 @@ a.article-title:hover {
   line-height: 1.3em;
   margin: 0 0 1.3em 0;
 }
+.article-entry h2 {
+  font-size: 24px;
+  margin: 0 -20px 20px -20PX;
+  padding: 10px 25px 10px 25px;
+  color: #03a9f4;
+  border-left: 4px solid #03a9f4;
+  background: #fcfcfc;
+}
+.article-entry h3 {
+  font-size: 22px;
+}
+.article-entry h4 {
+  font-size: 20px;
+}
+.article-entry h5 {
+  font-size: 18px;
+}
+.article-entry h6 {
+  font-size: 16px;
+}
 .article-entry a {
   color: #03a9f4;
   text-decoration: none;
@@ -1144,10 +1164,16 @@ a.article-title:hover {
 .article-more-link a:hover i {
   opacity: 1;
 }
+.article-copyright {
+  font-size: 12px;
+  line-height: 25px;
+  color: #999;
+  padding: 10px 20px 0;
+  padding-bottom: 15px;
+}
 .article-tag-block {
-  padding: 20px 20px 0;
+  padding: 5px 20px;
   line-height: 1.6em;
-  padding-bottom: 5px;
 }
 .article-tag-block:before,
 .article-tag-block:after {
@@ -1620,7 +1646,7 @@ a.article-title:hover {
 }
 .layout-categories .layout-wrap-inner ul li a:hover,
 .layout-categories .layout-wrap-inner ul category-list-child a:hover {
-  background: #f4f4f4;
+  color: #03a9f4;
 }
 .layout-categories .layout-wrap-inner ul li .category-list-count,
 .layout-categories .layout-wrap-inner ul category-list-child .category-list-count {
@@ -1639,16 +1665,16 @@ a.article-title:hover {
 }
 .layout-categories .layout-wrap-inner ul ul li:last-child,
 .layout-categories .layout-wrap-inner ul ol li:last-child {
-  padding-bottom: 0px;
+  padding-bottom: 0;
 }
 .layout-categories .layout-wrap-inner li a {
   background: #fff;
 }
 .layout-categories .layout-wrap-inner li a:before {
   color: #ccc;
-  content: "\f2f6";
+  content: "\f2fb";
   font-size: 12px;
-  margin-right: 6px;
+  margin-right: 15px;
   font-family: Material-Design-Iconic-Font;
   -webkit-transition: 0.2s ease;
   -moz-transition: 0.2s ease;
@@ -1656,7 +1682,13 @@ a.article-title:hover {
   transition: 0.2s ease;
 }
 .layout-categories .layout-wrap-inner li a:hover:before {
-  color: #333;
+  color: #03a9f4;
+}
+.layout-categories .layout-wrap-inner li > ul li a {
+  padding-left: 40px;
+}
+.layout-categories .layout-wrap-inner li > ul li a:before {
+  content: none;
 }
 #page-nav {
   margin: 20px auto;
@@ -1887,7 +1919,7 @@ a.article-title:hover {
   color: #03a9f4;
   content: "\f2fb";
   font-size: 12px;
-  margin-right: 10px;
+  margin-right: 15px;
   font-family: Material-Design-Iconic-Font;
   -webkit-transition: 0.2s ease;
   -moz-transition: 0.2s ease;
@@ -1957,7 +1989,7 @@ a.article-title:hover {
   color: #ccc;
   content: "\f2f6";
   font-size: 12px;
-  margin-right: 6px;
+  margin-right: 15px;
   font-family: Material-Design-Iconic-Font;
   -webkit-transition: 0.2s ease;
   -moz-transition: 0.2s ease;
