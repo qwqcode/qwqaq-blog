@@ -942,7 +942,6 @@ a.article-title:hover {
 .article-entry {
   color: #565a5f;
   padding: 25px 20px 20px 20px;
-  word-break: break-all;
   line-height: 1.6em;
 }
 .article-entry:before,
@@ -1035,7 +1034,6 @@ a.article-title:hover {
   border: none;
 }
 .article-entry table {
-  word-break: initial;
   border-collapse: collapse;
   border-spacing: 0;
   border: 1px solid #f4f4f4;
