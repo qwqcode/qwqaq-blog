@@ -942,6 +942,7 @@ a.article-title:hover {
 .article-entry {
   color: #565a5f;
   padding: 25px 20px 20px 20px;
+  word-break: break-all;
   line-height: 1.6em;
 }
 .article-entry:before,
