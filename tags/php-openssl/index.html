@@ -3,20 +3,19 @@
 <head>
     <meta charset="utf-8">
     
-    <title>浏览器根据 URL 地址创建一个下载任务函数 | QWQAQ</title>
+    <title>标签: php_openssl | QWQAQ</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="浏览器中用 JS 代码根据 URL 地址创建一个下载任务（弹出另存为窗口）的自定义函数 效果等同于 右键 &amp;gt; 另存为">
-<meta name="keywords" content="自定义函数,浏览器创建下载">
-<meta property="og:type" content="article">
-<meta property="og:title" content="浏览器根据 URL 地址创建一个下载任务函数">
-<meta property="og:url" content="http://qwqaq.com/e8febe.html">
+    <meta name="description" content="这是 QWQAQ... A Coder, a Programmer, a Developer...">
+<meta name="keywords" content="QWQAQ, QWQAQ 博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="QWQAQ">
+<meta property="og:url" content="http://qwqaq.com/tags/php-openssl/index.html">
 <meta property="og:site_name" content="QWQAQ">
-<meta property="og:description" content="浏览器中用 JS 代码根据 URL 地址创建一个下载任务（弹出另存为窗口）的自定义函数 效果等同于 右键 &amp;gt; 另存为">
+<meta property="og:description" content="这是 QWQAQ... A Coder, a Programmer, a Developer...">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-03T07:07:41.256Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浏览器根据 URL 地址创建一个下载任务函数">
-<meta name="twitter:description" content="浏览器中用 JS 代码根据 URL 地址创建一个下载任务（弹出另存为窗口）的自定义函数 效果等同于 右键 &amp;gt; 另存为">
+<meta name="twitter:title" content="QWQAQ">
+<meta name="twitter:description" content="这是 QWQAQ... A Coder, a Programmer, a Developer...">
     
 
     
@@ -74,7 +73,7 @@ var _hmt = _hmt || [];
                 
                     <a class="main-nav-link" href="/archives">时间轴</a>
                 
-                    <a class="main-nav-link" href="/tags">标签</a>
+                    <a class="main-nav-link active" href="/tags">标签</a>
                 
                     <a class="main-nav-link" href="/about">关于</a>
                 
@@ -139,7 +138,7 @@ var _hmt = _hmt || [];
                 
                     <td><a class="main-nav-link" href="/archives">时间轴</a></td>
                 
-                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                    <td><a class="main-nav-link active" href="/tags">标签</a></td>
                 
                     <td><a class="main-nav-link" href="/about">关于</a></td>
                 
@@ -219,181 +218,51 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><article id="post-浏览器-根据-url-地址创建一个下载任务函数" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
+            <section id="main">
+<div class="timeline timeline-wrap">
+    <div class="timeline-row timeline-row-major">
+        <span class="node"><i class="zmdi zmdi-tag"></i></span>
+        <h1 class="title">#php_openssl</h1>
+    </div>
+    
+        <div class="timeline-row">
+            <span class="node"></span>
+            <div class="content">
                 
 
     
-        <h1 class="article-title" itemprop="name">
-            浏览器根据 URL 地址创建一个下载任务函数
+        <h1 itemprop="name">
+            <a class="timeline-article-title" href="/cf5f6a0e.html">解决 Unable to find the wrapper https</a>
         </h1>
     
 
-                
-                    <div class="article-meta">
-                        
+                <div class="article-meta">
+                    
     <div class="article-date">
         <i class="zmdi zmdi-calendar"></i>
-        <a href="/e8febe.html">
-            <time datetime="2017-07-21T03:00:51.000Z" itemprop="datePublished">2017-07-21</time>
+        <a href="/cf5f6a0e.html">
+            <time datetime="2018-07-15T16:55:41.000Z" itemprop="datePublished">2018-07-16</time>
         </a>
     </div>
 
 
-                        
+                    
     <div class="article-category">
     	<i class="zmdi zmdi-folder"></i>
-        <a class="article-category-link" href="/categories/前端/">前端</a>
+        <a class="article-category-link" href="/categories/PHP/">PHP</a>
     </div>
 
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            
-            <p>浏览器中用 JS 代码根据 URL 地址创建一个下载任务（弹出<code>另存为</code>窗口）的自定义函数</p>
-<p>效果等同于 右键 &gt; 另存为</p>
-<a id="more"></a>
-<p>Chrome 浏览器测试可用</p>
-<h3 id="原生"><a href="#原生" class="headerlink" title="原生"></a>原生</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">downloadFileJS</span>(<span class="params">srcUrl</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>);</span><br><span class="line">    a.setAttribute(<span class="string">'href'</span>, srcUrl);</span><br><span class="line">    a.setAttribute(<span class="string">'download'</span>,<span class="string">''</span>);</span><br><span class="line">    a.click();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">downloadFile</span>(<span class="params">srcUrl</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> $a = $(<span class="string">"&amp;lt;a&amp;gt;&amp;lt;/a&amp;gt;"</span>).attr(<span class="string">"href"</span>, srcUrl).attr(<span class="string">"download"</span>, <span class="string">""</span>);</span><br><span class="line">    $a[<span class="number">0</span>].click();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.w3schools.com/tags/att_a_download.asp" target="_blank" rel="noopener">参考 https://www.w3schools.com/tags/att_a_download.asp</a></p>
-
-        
-        </div>
-        
-            
-            <div class="article-copyright">本站文章除注明转载外均为原创，版权为 <a href="http://qwqaq.com">QWQAQ</a> 所有，未经允许不得转载. http://qwqaq.com/e8febe.html</div>
-            
-        
-<div class="article-tag-block">
-    <i class="zmdi zmdi-tag"></i>
-    <a class="tag-link" href="/tags/浏览器创建下载/">浏览器创建下载</a><a class="tag-link" href="/tags/自定义函数/">自定义函数</a>
-</div>
-
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://qwqaq.com/e8febe.html" data-id="cjjn38pgq004lnsw36zuvotec" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="zmdi zmdi-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="zmdi zmdi-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="zmdi zmdi-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="zmdi zmdi-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://qwqaq.com/e8febe.html#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://qwqaq.com/e8febe.html">评论</a>
-    
-
-        </footer>
-        
+                    
+    <div class="article-tag">
+        <i class="zmdi zmdi-tag"></i>
+        <a class="tag-link" href="/tags/php-openssl/">php_openssl</a>, <a class="tag-link" href="/tags/错误处理/">错误处理</a>
     </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/504f1898.html" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    JS 自定义函数：从路径中提取文件名
-                
+
+                </div>
             </div>
-        </a>
+        </div>
     
-    
-        <a href="/b6045c67.html" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">C# 委托</div>
-        </a>
-    
-</nav>
-
-
-    
-</article>
-
-
-    
-    
-        <section id="comments">
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
-</section>
-    
-
+</div>
 </section>
             
                 
@@ -579,13 +448,11 @@ var _hmt = _hmt || [];
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://qwqaq.com/e8febe.html';
-        
-        this.page.identifier = '浏览器-根据-url-地址创建一个下载任务函数';
+        this.page.identifier = '';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'qwqaq-com' + '.disqus.com/embed.js';
+        s.src = '//' + 'qwqaq-com' + '.disqus.com/count.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
