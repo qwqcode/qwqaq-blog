@@ -4,6 +4,55 @@
 
     
   <url>
+    <loc>http://qwqaq.com/78f87e97.html</loc>
+    <lastmod>2018-07-24T13:03:30.895Z</lastmod>
+    <data>
+        <display>
+        <title>类中的静态变量赋值和调用</title>
+        <pubTime>2017-09-17T05:43:38.000Z</pubTime>
+        
+        <tag>面相对象</tag>
+         
+        <tag>静态变量</tag>
+         
+         
+           
+             
+              <breadCrumb title="日常" url="http://qwqaq.com/categories/%E6%97%A5%E5%B8%B8/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://qwqaq.com/77685bde.html</loc>
+    <lastmod>2018-07-24T08:52:07.984Z</lastmod>
+    <data>
+        <display>
+        <title>Git 命令笔记</title>
+        <pubTime>2018-01-28T14:16:15.000Z</pubTime>
+        
+        <tag>Git</tag>
+         
+        <tag>GitHub</tag>
+         
+        <tag>笔记</tag>
+         
+         
+           
+             
+              <breadCrumb title="开发工具" url="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+          
+             
+              <breadCrumb title="Git" url="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Git/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://qwqaq.com/dd592165.html</loc>
     <lastmod>2018-07-24T08:47:55.857Z</lastmod>
     <data>
@@ -104,55 +153,6 @@
           
              
               <breadCrumb title="Arduino" url="http://qwqaq.com/categories/%E7%A1%AC%E4%BB%B6/Arduino/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://qwqaq.com/f2f3b37c.html</loc>
-    <lastmod>2018-07-03T07:58:46.778Z</lastmod>
-    <data>
-        <display>
-        <title>关于指针</title>
-        <pubTime>2017-09-17T05:43:38.000Z</pubTime>
-        
-        <tag>面相对象</tag>
-         
-        <tag>指针</tag>
-         
-         
-           
-             
-              <breadCrumb title="日常" url="http://qwqaq.com/categories/%E6%97%A5%E5%B8%B8/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://qwqaq.com/77685bde.html</loc>
-    <lastmod>2018-07-03T07:56:40.745Z</lastmod>
-    <data>
-        <display>
-        <title>Git 命令笔记</title>
-        <pubTime>2018-01-28T14:16:15.000Z</pubTime>
-        
-        <tag>笔记</tag>
-         
-        <tag>git</tag>
-         
-        <tag>github</tag>
-         
-         
-           
-             
-              <breadCrumb title="开发工具" url="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
-          
-             
-              <breadCrumb title="Git" url="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Git/"/>
           
         </display>
     </data>
@@ -511,9 +511,9 @@
         <title>Lumen 添加没有的 key:generate 命令</title>
         <pubTime>2018-05-31T13:17:16.000Z</pubTime>
         
-        <tag>php</tag>
-         
         <tag>lumen</tag>
+         
+        <tag>php</tag>
          
         <tag>key:generate</tag>
          
@@ -535,13 +535,13 @@
         <title>Laravel 5.6 资源任务编译器 laravel-mix webpack.mix.js 配置参考</title>
         <pubTime>2018-05-31T12:52:34.000Z</pubTime>
         
+        <tag>php</tag>
+         
         <tag>Laravel</tag>
          
         <tag>laravel-mix</tag>
          
         <tag>webpack</tag>
-         
-        <tag>php</tag>
          
         <tag>js</tag>
          
