@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qwqaq.com/"/>
-  <updated>2018-07-15T17:02:29.695Z</updated>
+  <updated>2018-07-24T08:45:10.144Z</updated>
   <id>http://qwqaq.com/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GitHub 社会化编程</title>
+    <link href="http://qwqaq.com/dd592165.html"/>
+    <id>http://qwqaq.com/dd592165.html</id>
+    <published>2018-07-24T01:18:58.000Z</published>
+    <updated>2018-07-24T08:45:10.144Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;GitHub 是为开发者提供 Git 仓库的托管服务。这是一个让开发者与朋友、同事、同学及陌生人共享代码的完美场所。&lt;/p&gt;
+&lt;p&gt;GitHub
+        
+      
+    
+    </summary>
+    
+      <category term="开发工具" scheme="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="Git" scheme="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Git/"/>
+    
+    
+      <category term="Git" scheme="http://qwqaq.com/tags/Git/"/>
+    
+      <category term="GitHub" scheme="http://qwqaq.com/tags/GitHub/"/>
+    
+      <category term="社会化编程" scheme="http://qwqaq.com/tags/%E7%A4%BE%E4%BC%9A%E5%8C%96%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>解决 Unable to find the wrapper https</title>
@@ -504,95 +537,6 @@
       <category term="面相对象" scheme="http://qwqaq.com/tags/%E9%9D%A2%E7%9B%B8%E5%AF%B9%E8%B1%A1/"/>
     
       <category term="指针" scheme="http://qwqaq.com/tags/%E6%8C%87%E9%92%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android 命名规则</title>
-    <link href="http://qwqaq.com/d3744f0c.html"/>
-    <id>http://qwqaq.com/d3744f0c.html</id>
-    <published>2017-09-17T02:45:15.000Z</published>
-    <updated>2018-07-02T15:07:38.391Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;命名规则&quot;&gt;&lt;a href=&quot;#命名规则&quot; class=&quot;headerlink&quot; title=&quot;命名规则&quot;&gt;&lt;/a&gt;命名规则&lt;/h2&gt;&lt;h4 id=&quot;包名&quot;&gt;&lt;a href=&quot;#包名&quot; class=&quot;headerlink&quot; title=&quot;包名&quot;&gt;&lt;/a&gt;包名&lt;/h4&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;包名&lt;/th&gt;
-&lt;th&gt;此包中包含&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;com.xx.应用名称缩写.activity&lt;/td&gt;
-&lt;td&gt;页面用到的Activity类 (activitie层级名用户界面层)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;com.xx.应用名称缩写.fragment&lt;/td&gt;
-&lt;td&gt;页面用到的fragment&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;com.xx.应用名称缩写.base&lt;/td&gt;
-&lt;td&gt;基础共享的类&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;com.xx.应用名称缩写.config&lt;/td&gt;
-&lt;td&gt;通用的配置&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;com.xx.应用名称缩写.global&lt;/td&gt;
-&lt;td&gt;全局的监听实现类等&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;com.xx.应用名称缩写.adapter&lt;/td&gt;
-&lt;td&gt;页面用到的Adapter类 (适配器的类)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;com.xx.应用名称缩写.util&lt;/td&gt;
-&lt;td&gt;此包中包含：公共工具方法类（util模块名）命名与第三方的utils作区分&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;com.xx.应用名称缩写.bean&lt;/td&gt;
-&lt;td&gt;下面可分：vo(本地类)、bo（远程类）、dto（传递引用类）&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;com.xx.应用名称缩写.model&lt;/td&gt;
-&lt;td&gt;此包中包含：模型类&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;com.xx.应用名称缩写.db&lt;/td&gt;
-&lt;td&gt;数据库操作类&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;com.xx.应用名称缩写.view&lt;/td&gt;
-&lt;td&gt;自定义的View类等，可通用，与app业务无关的&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;com.xx.应用名称缩写.widget&lt;/td&gt;
-&lt;td&gt;自定义的View类等，与app业务相关的&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;com.xx.应用名称缩写.service&lt;/td&gt;
-&lt;td&gt;Service服务，后台服务&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;com.xx.应用名称缩写.receiver&lt;/td&gt;
-&lt;td&gt;BroadcastReceiver服务，接收通知&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-    
-    </summary>
-    
-      <category term="Android" scheme="http://qwqaq.com/categories/Android/"/>
-    
-    
-      <category term="Android" scheme="http://qwqaq.com/tags/Android/"/>
-    
-      <category term="命名规则" scheme="http://qwqaq.com/tags/%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99/"/>
-    
-      <category term="代码规范" scheme="http://qwqaq.com/tags/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/"/>
     
   </entry>
   
