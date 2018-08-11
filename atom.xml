@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qwqaq.com/"/>
-  <updated>2018-07-26T07:54:52.249Z</updated>
+  <updated>2018-08-11T14:19:45.581Z</updated>
   <id>http://qwqaq.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我站在巨人的肩膀上发现这个巨人也站在神仙的肩膀上</title>
+    <link href="http://qwqaq.com/94b80ac2.html"/>
+    <id>http://qwqaq.com/94b80ac2.html</id>
+    <published>2018-08-11T14:19:07.000Z</published>
+    <updated>2018-08-11T14:19:45.581Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;我站在巨人的肩膀上发现这个巨人也站在神仙的肩膀上&lt;/p&gt;
+&lt;/blockquote&gt;
+
+        
+      
+    
+    </summary>
+    
+      <category term="日常" scheme="http://qwqaq.com/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>0.1+0.2!=0.3 引发的思考</title>
@@ -510,28 +537,6 @@
       <category term="JavaScript" scheme="http://qwqaq.com/tags/JavaScript/"/>
     
       <category term="面相对象" scheme="http://qwqaq.com/tags/%E9%9D%A2%E7%9B%B8%E5%AF%B9%E8%B1%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jQuery: fire click() before blur() event</title>
-    <link href="http://qwqaq.com/208e3be9.html"/>
-    <id>http://qwqaq.com/208e3be9.html</id>
-    <published>2017-10-26T14:52:14.000Z</published>
-    <updated>2018-07-03T07:06:02.077Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;Solution-1&quot;&gt;&lt;a href=&quot;#Solution-1&quot; class=&quot;headerlink&quot; title=&quot;Solution 1&quot;&gt;&lt;/a&gt;Solution 1&lt;/h3&gt;&lt;p&gt;Listen to mousedown instead of click.&lt;/p&gt;
-&lt;p&gt;The mousedown and blur events occur one after another when you press the mouse button, but click only occurs when you release it.&lt;/p&gt;
-&lt;h3 id=&quot;Solution-2&quot;&gt;&lt;a href=&quot;#Solution-2&quot; class=&quot;headerlink&quot; title=&quot;Solution 2&quot;&gt;&lt;/a&gt;Solution 2&lt;/h3&gt;&lt;p&gt;You can preventDefault() in mousedown to block the dropdown from stealing focus. The slight advantage is that the value will be selected when the mouse button is released, which is how native select components work. JSFiddle&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="前端" scheme="http://qwqaq.com/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="jQuery" scheme="http://qwqaq.com/categories/%E5%89%8D%E7%AB%AF/jQuery/"/>
-    
     
   </entry>
   
