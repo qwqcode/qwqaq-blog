@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://qwqaq.com/about/index.html</loc>
+    
+    <lastmod>2018-08-16T13:57:56.940Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://qwqaq.com/d7c5728b.html</loc>
     
-    <lastmod>2018-08-14T11:12:47.749Z</lastmod>
+    <lastmod>2018-08-14T11:12:57.105Z</lastmod>
     
   </url>
   
@@ -19,13 +26,6 @@
     <loc>http://qwqaq.com/json/nacollector-updare.json</loc>
     
     <lastmod>2018-08-02T03:12:22.429Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://qwqaq.com/about/index.html</loc>
-    
-    <lastmod>2018-08-02T03:11:57.761Z</lastmod>
     
   </url>
   
