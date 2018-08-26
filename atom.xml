@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qwqaq.com/"/>
-  <updated>2018-08-26T08:45:28.156Z</updated>
+  <updated>2018-08-26T08:46:55.980Z</updated>
   <id>http://qwqaq.com/</id>
   
   <author>
@@ -21,11 +21,11 @@
     <link href="http://qwqaq.com/4cd79212.html"/>
     <id>http://qwqaq.com/4cd79212.html</id>
     <published>2018-08-26T08:13:24.000Z</published>
-    <updated>2018-08-26T08:45:28.156Z</updated>
+    <updated>2018-08-26T08:46:55.980Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;a href=&quot;https://code.visualstudio.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Visual Studio Code&lt;/a&gt;（简称VSCode）是由微软开发的一个轻量且强大的代码编辑器。&lt;/p&gt;
+      &lt;p&gt;&lt;a href=&quot;https://code.visualstudio.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Visual Studio Code&lt;/a&gt;（简称 VSCode）是由微软开发的一个轻量且强大的代码编辑器。&lt;/p&gt;
 &lt;p&gt;最近在学 C++，调试需要配置 launch.json，所以参阅相关文档配置后，发现每次调试启动 exe 都会单独打开一个窗口，每个 .cpp 文件里都要加上 &lt;code&gt;system(&amp;quot;pause&amp;quot;);&lt;/code&gt; 才能保证窗口不会一闪而过。所以… 如果能在 VSCode 自带的 Terminal 里面运行 exe岂不是美滋滋？
     
     </summary>
