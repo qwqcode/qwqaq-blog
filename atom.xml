@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qwqaq.com/"/>
-  <updated>2018-08-11T14:20:02.307Z</updated>
+  <updated>2018-08-26T08:45:28.156Z</updated>
   <id>http://qwqaq.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VSCode 配置不让 C++ 程序运行一闪而过</title>
+    <link href="http://qwqaq.com/4cd79212.html"/>
+    <id>http://qwqaq.com/4cd79212.html</id>
+    <published>2018-08-26T08:13:24.000Z</published>
+    <updated>2018-08-26T08:45:28.156Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://code.visualstudio.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Visual Studio Code&lt;/a&gt;（简称VSCode）是由微软开发的一个轻量且强大的代码编辑器。&lt;/p&gt;
+&lt;p&gt;最近在学 C++，调试需要配置 launch.json，所以参阅相关文档配置后，发现每次调试启动 exe 都会单独打开一个窗口，每个 .cpp 文件里都要加上 &lt;code&gt;system(&amp;quot;pause&amp;quot;);&lt;/code&gt; 才能保证窗口不会一闪而过。所以… 如果能在 VSCode 自带的 Terminal 里面运行 exe岂不是美滋滋？
+    
+    </summary>
+    
+      <category term="Cpp" scheme="http://qwqaq.com/categories/Cpp/"/>
+    
+    
+      <category term="VSCode" scheme="http://qwqaq.com/tags/VSCode/"/>
+    
+      <category term="Cpp" scheme="http://qwqaq.com/tags/Cpp/"/>
+    
+  </entry>
   
   <entry>
     <title>我站在巨人的肩膀上发现这个巨人也站在神仙的肩膀上</title>
@@ -243,7 +266,7 @@
     <link href="http://qwqaq.com/65c99d88.html"/>
     <id>http://qwqaq.com/65c99d88.html</id>
     <published>2018-05-31T14:14:49.000Z</published>
-    <updated>2018-08-02T03:11:13.329Z</updated>
+    <updated>2018-08-26T08:22:04.889Z</updated>
     
     <summary type="html">
     
@@ -255,6 +278,8 @@
     
       <category term="项目" scheme="http://qwqaq.com/categories/%E9%A1%B9%E7%9B%AE/"/>
     
+    
+      <category term="CSharp" scheme="http://qwqaq.com/tags/CSharp/"/>
     
       <category term="项目" scheme="http://qwqaq.com/tags/%E9%A1%B9%E7%9B%AE/"/>
     
@@ -502,34 +527,6 @@
       <category term="linux" scheme="http://qwqaq.com/tags/linux/"/>
     
       <category term="nmap" scheme="http://qwqaq.com/tags/nmap/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JS 复制变量值</title>
-    <link href="http://qwqaq.com/27c9359e.html"/>
-    <id>http://qwqaq.com/27c9359e.html</id>
-    <published>2017-11-05T12:38:02.000Z</published>
-    <updated>2018-07-02T15:31:00.492Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;img src=&quot;/images/post/201806171047.jpg&quot; alt=&quot;《JavaScript高级程序设计》 4.1.2 复制变量值&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;摘自《JavaScript高级程序设计》
-        
-      
-    
-    </summary>
-    
-      <category term="JS" scheme="http://qwqaq.com/categories/JS/"/>
-    
-    
-      <category term="JavaScript" scheme="http://qwqaq.com/tags/JavaScript/"/>
     
   </entry>
   
