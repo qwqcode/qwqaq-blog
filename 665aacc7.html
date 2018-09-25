@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="QWQAQ 的博客">
 <meta property="og:description" content="自从 Socket.IO 1.0 (May 2014) 开始, 所有的 connection 都以一个 HTTP polling request 开始 (more info here) 这就意味着除了转发 WebSocket 之外，你还需要转发 任何 transport=polling 的 HTTP 请求。 下面的解决方案能正确地重定向所有 socket 流量，而不会重定向其他不需要的流量。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-25T16:24:22.695Z">
+<meta property="og:updated_time" content="2018-09-25T16:28:10.290Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Apache 反向代理 Http+WebSocket">
 <meta name="twitter:description" content="自从 Socket.IO 1.0 (May 2014) 开始, 所有的 connection 都以一个 HTTP polling request 开始 (more info here) 这就意味着除了转发 WebSocket 之外，你还需要转发 任何 transport=polling 的 HTTP 请求。 下面的解决方案能正确地重定向所有 socket 流量，而不会重定向其他不需要的流量。">
@@ -277,21 +277,14 @@ var _hmt = _hmt || [];
 <p>这就意味着除了转发 WebSocket 之外，你还需要转发 任何 transport=polling 的 HTTP 请求。</p>
 <p>下面的解决方案能正确地重定向所有 socket 流量，而不会重定向其他不需要的流量。</p>
 <a id="more"></a>
-<ol>
-<li>开启需要的 Apache2 mods:</li>
-</ol>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo a2enmod rewrite proxy proxy_http proxy_wstunnel</span><br></pre></td></tr></table></figure>
-<p>or 修改 httpd.conf</p>
+<h3 id="1-开启-mods"><a href="#1-开启-mods" class="headerlink" title="1. 开启 mods"></a>1. 开启 mods</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo a2enmod rewrite proxy proxy_http proxy_wstunnel</span><br></pre></td></tr></table></figure>
+<p>或修改 httpd.conf</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 找到下面的这些行，并去除开头的 # 注释符号</span></span><br><span class="line">LoadModule rewrite_module modules/mod_rewrite.so</span><br><span class="line">LoadModule proxy_module modules/mod_proxy.so</span><br><span class="line">LoadModule proxy_http_module modules/mod_proxy_http.so</span><br><span class="line">LoadModule proxy_wstunnel_module modules/mod_proxy_wstunnel.so</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>在你网站的 *.conf 文件中使用下面的配置 (e.g. /etc/apache2/sites-available/mysite.com.conf).</li>
-</ol>
+<h3 id="2-对网站-conf-文件进行以下配置"><a href="#2-对网站-conf-文件进行以下配置" class="headerlink" title="2. 对网站 *.conf 文件进行以下配置"></a>2. 对网站 *.conf 文件进行以下配置</h3><p>例如：<code>/etc/apache2/sites-available/mysite.com.conf</code></p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost *:80&gt;</span><br><span class="line">    ServerName www.mydomain.com</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Enable the rewrite engine</span></span><br><span class="line">    <span class="comment"># Requires: sudo a2enmod rewrite proxy proxy_http proxy_wstunnel</span></span><br><span class="line">    <span class="comment"># In the rules/conds, [NC] means case-insensitve, [P] means proxy</span></span><br><span class="line">    RewriteEngine On</span><br><span class="line"></span><br><span class="line">    <span class="comment"># socket.io 1.0+ starts all connections with an HTTP polling request</span></span><br><span class="line">    RewriteCond %&#123;QUERY_STRING&#125; transport=polling       [NC]</span><br><span class="line">    RewriteRule /(.*)           http://localhost:3001/<span class="variable">$1</span> [P]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># When socket.io wants to initiate a WebSocket connection, it sends an</span></span><br><span class="line">    <span class="comment"># "upgrade: websocket" request that should be transferred to ws://</span></span><br><span class="line">    RewriteCond %&#123;HTTP:Upgrade&#125; websocket               [NC]</span><br><span class="line">    RewriteRule /(.*)           ws://localhost:3001/<span class="variable">$1</span>  [P]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># OPTIONAL: Route all HTTP traffic at /node to port 3001</span></span><br><span class="line">    ProxyRequests Off</span><br><span class="line">    ProxyPass           /node   http://localhost:3001</span><br><span class="line">    ProxyPassReverse    /node   http://localhost:3001</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>I’ve included an extra section for routing /node traffic that I find handy, see <a href="https://stackoverflow.com/questions/9831594/apache-and-node-js-on-the-same-server/18604082#18604082" target="_blank" rel="noopener">here</a> for more info.</li>
-</ol>
+<p>I’ve included an extra section for routing /node traffic that I find handy, see <a href="https://stackoverflow.com/questions/9831594/apache-and-node-js-on-the-same-server/18604082#18604082" target="_blank" rel="noopener">here</a> for more info.</p>
 <blockquote>
-<p>来自 (stackoverflow.com)[<a href="https://stackoverflow.com/a/41685748]" target="_blank" rel="noopener">https://stackoverflow.com/a/41685748]</a></p>
+<p>来自 <a href="https://stackoverflow.com/a/41685748" target="_blank" rel="noopener">stackoverflow.com</a></p>
 </blockquote>
 
         
@@ -313,7 +306,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://qwqaq.com/665aacc7.html" data-id="cjmhxljnx0000ugw3kc5pkp4l" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
+    <a data-url="http://qwqaq.com/665aacc7.html" data-id="cjmhxq68e0000qww3syglit5k" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
