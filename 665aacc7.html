@@ -5,18 +5,18 @@
     
     <title>Apache 反向代理 Http+WebSocket | QWQAQ 的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="自从 Socket.IO 1.0 (May 2014) 开始, 所有的 connection 都以一个 HTTP polling request 开始 (more info here) 这就意味着除了转发 WebSocket 之外，你还需要转发 任何 transport=polling 的 HTTP 请求。 下面的解决方案能正确地重定向所有 socket 流量，而不会重定向其他不需要的流量。">
+    <meta name="description" content="自从 Socket.IO 1.0 (May 2014) 开始, 所有的 Connection 都以一个 HTTP polling Request 开始 (more info here) 这就意味着除了转发 WebSocket 之外，你还需要转发 任何 transport=polling 的 HTTP 请求。 下面的解决方案能正确地重定向所有 socket 流量，而不会重定向其他不关于 Socket">
 <meta name="keywords" content="反向代理,Apache">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Apache 反向代理 Http+WebSocket">
 <meta property="og:url" content="http://qwqaq.com/665aacc7.html">
 <meta property="og:site_name" content="QWQAQ 的博客">
-<meta property="og:description" content="自从 Socket.IO 1.0 (May 2014) 开始, 所有的 connection 都以一个 HTTP polling request 开始 (more info here) 这就意味着除了转发 WebSocket 之外，你还需要转发 任何 transport=polling 的 HTTP 请求。 下面的解决方案能正确地重定向所有 socket 流量，而不会重定向其他不需要的流量。">
+<meta property="og:description" content="自从 Socket.IO 1.0 (May 2014) 开始, 所有的 Connection 都以一个 HTTP polling Request 开始 (more info here) 这就意味着除了转发 WebSocket 之外，你还需要转发 任何 transport=polling 的 HTTP 请求。 下面的解决方案能正确地重定向所有 socket 流量，而不会重定向其他不关于 Socket">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-25T16:34:00.033Z">
+<meta property="og:updated_time" content="2018-09-25T16:35:48.616Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Apache 反向代理 Http+WebSocket">
-<meta name="twitter:description" content="自从 Socket.IO 1.0 (May 2014) 开始, 所有的 connection 都以一个 HTTP polling request 开始 (more info here) 这就意味着除了转发 WebSocket 之外，你还需要转发 任何 transport=polling 的 HTTP 请求。 下面的解决方案能正确地重定向所有 socket 流量，而不会重定向其他不需要的流量。">
+<meta name="twitter:description" content="自从 Socket.IO 1.0 (May 2014) 开始, 所有的 Connection 都以一个 HTTP polling Request 开始 (more info here) 这就意味着除了转发 WebSocket 之外，你还需要转发 任何 transport=polling 的 HTTP 请求。 下面的解决方案能正确地重定向所有 socket 流量，而不会重定向其他不关于 Socket">
     
 
     
@@ -273,9 +273,9 @@ var _hmt = _hmt || [];
         
             
             
-            <p>自从 Socket.IO 1.0 (May 2014) 开始, 所有的 connection 都以一个 HTTP polling request 开始 (more info <a href="https://stackoverflow.com/questions/28238628/socket-io-1-x-use-websockets-only/28240802#28240802" target="_blank" rel="noopener">here</a>)</p>
-<p>这就意味着除了转发 WebSocket 之外，你还需要转发 任何 transport=polling 的 HTTP 请求。</p>
-<p>下面的解决方案能正确地重定向所有 socket 流量，而不会重定向其他不需要的流量。</p>
+            <p>自从 Socket.IO 1.0 (May 2014) 开始, 所有的 Connection 都以一个 HTTP polling Request 开始 (more info <a href="https://stackoverflow.com/questions/28238628/socket-io-1-x-use-websockets-only/28240802#28240802" target="_blank" rel="noopener">here</a>)</p>
+<p>这就意味着除了转发 WebSocket 之外，你还需要转发 任何 <code>transport=polling</code> 的 HTTP 请求。</p>
+<p>下面的解决方案能正确地重定向所有 socket 流量，而不会重定向其他不关于 Socket 的流量。</p>
 <a id="more"></a>
 <h3 id="1-开启-mods"><a href="#1-开启-mods" class="headerlink" title="1. 开启 mods"></a>1. 开启 mods</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo a2enmod rewrite proxy proxy_http proxy_wstunnel</span><br></pre></td></tr></table></figure>
 <p>或修改 httpd.conf</p>
@@ -308,7 +308,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://qwqaq.com/665aacc7.html" data-id="cjmhxxjii0000k0w3jq9sj1z0" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
+    <a data-url="http://qwqaq.com/665aacc7.html" data-id="cjmhxzvar00010cw3hj1ongtt" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding

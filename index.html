@@ -271,9 +271,9 @@ var _hmt = _hmt || [];
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p>自从 Socket.IO 1.0 (May 2014) 开始, 所有的 connection 都以一个 HTTP polling request 开始 (more info <a href="https://stackoverflow.com/questions/28238628/socket-io-1-x-use-websockets-only/28240802#28240802" target="_blank" rel="noopener">here</a>)</p>
-<p>这就意味着除了转发 WebSocket 之外，你还需要转发 任何 transport=polling 的 HTTP 请求。</p>
-<p>下面的解决方案能正确地重定向所有 socket 流量，而不会重定向其他不需要的流量。</p>
+            <p>自从 Socket.IO 1.0 (May 2014) 开始, 所有的 Connection 都以一个 HTTP polling Request 开始 (more info <a href="https://stackoverflow.com/questions/28238628/socket-io-1-x-use-websockets-only/28240802#28240802" target="_blank" rel="noopener">here</a>)</p>
+<p>这就意味着除了转发 WebSocket 之外，你还需要转发 任何 <code>transport=polling</code> 的 HTTP 请求。</p>
+<p>下面的解决方案能正确地重定向所有 socket 流量，而不会重定向其他不关于 Socket 的流量。</p>
             <p class="article-more-link">
                 <a href="/665aacc7.html">继续阅览 <i class="zmdi zmdi-chevron-right"></i></a>
             </p>
