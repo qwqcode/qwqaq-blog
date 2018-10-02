@@ -379,9 +379,9 @@
       <category term="PHP" scheme="http://qwqaq.com/categories/PHP/"/>
     
     
-      <category term="php" scheme="http://qwqaq.com/tags/php/"/>
-    
       <category term="lumen" scheme="http://qwqaq.com/tags/lumen/"/>
+    
+      <category term="php" scheme="http://qwqaq.com/tags/php/"/>
     
       <category term="key:generate" scheme="http://qwqaq.com/tags/key-generate/"/>
     
@@ -403,13 +403,13 @@
       <category term="PHP" scheme="http://qwqaq.com/categories/PHP/"/>
     
     
+      <category term="php" scheme="http://qwqaq.com/tags/php/"/>
+    
       <category term="Laravel" scheme="http://qwqaq.com/tags/Laravel/"/>
     
       <category term="laravel-mix" scheme="http://qwqaq.com/tags/laravel-mix/"/>
     
       <category term="webpack" scheme="http://qwqaq.com/tags/webpack/"/>
-    
-      <category term="php" scheme="http://qwqaq.com/tags/php/"/>
     
       <category term="js" scheme="http://qwqaq.com/tags/js/"/>
     
@@ -465,11 +465,11 @@
       <category term="Git" scheme="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Git/"/>
     
     
+      <category term="笔记" scheme="http://qwqaq.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
       <category term="Git" scheme="http://qwqaq.com/tags/Git/"/>
     
       <category term="GitHub" scheme="http://qwqaq.com/tags/GitHub/"/>
-    
-      <category term="笔记" scheme="http://qwqaq.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
