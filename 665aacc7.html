@@ -5,18 +5,18 @@
     
     <title>Apache 反向代理 Http+WebSocket | QWQAQ 的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="自从 Socket.IO 1.0 (May 2014) 开始, 所有的 Connection 都以一个 HTTP polling Request 开始 (more info here) 这就意味着除了转发 WebSocket 之外，你还需要转发 任何 transport=polling 的 HTTP 请求。 下面的解决方案能正确地重定向所有 socket 流量，而不会重定向其他不关于 Socket">
+    <meta name="description" content="自从 Socket.IO 1.0 (May 2014) 开始, 所有的 Connection 都以一个 HTTP polling Request 开始 (more info here) 这就意味着除了转发 WebSocket 之外，你还需要转发 任何 transport=polling 的 HTTP 请求。 下面的解决方案能正确地重定向所有 Socket 流量，而不会重定向其他不关于 Socket">
 <meta name="keywords" content="反向代理,Apache">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Apache 反向代理 Http+WebSocket">
 <meta property="og:url" content="http://qwqaq.com/665aacc7.html">
 <meta property="og:site_name" content="QWQAQ 的博客">
-<meta property="og:description" content="自从 Socket.IO 1.0 (May 2014) 开始, 所有的 Connection 都以一个 HTTP polling Request 开始 (more info here) 这就意味着除了转发 WebSocket 之外，你还需要转发 任何 transport=polling 的 HTTP 请求。 下面的解决方案能正确地重定向所有 socket 流量，而不会重定向其他不关于 Socket">
+<meta property="og:description" content="自从 Socket.IO 1.0 (May 2014) 开始, 所有的 Connection 都以一个 HTTP polling Request 开始 (more info here) 这就意味着除了转发 WebSocket 之外，你还需要转发 任何 transport=polling 的 HTTP 请求。 下面的解决方案能正确地重定向所有 Socket 流量，而不会重定向其他不关于 Socket">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-25T16:35:48.616Z">
+<meta property="og:updated_time" content="2018-10-02T06:59:52.889Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Apache 反向代理 Http+WebSocket">
-<meta name="twitter:description" content="自从 Socket.IO 1.0 (May 2014) 开始, 所有的 Connection 都以一个 HTTP polling Request 开始 (more info here) 这就意味着除了转发 WebSocket 之外，你还需要转发 任何 transport=polling 的 HTTP 请求。 下面的解决方案能正确地重定向所有 socket 流量，而不会重定向其他不关于 Socket">
+<meta name="twitter:description" content="自从 Socket.IO 1.0 (May 2014) 开始, 所有的 Connection 都以一个 HTTP polling Request 开始 (more info here) 这就意味着除了转发 WebSocket 之外，你还需要转发 任何 transport=polling 的 HTTP 请求。 下面的解决方案能正确地重定向所有 Socket 流量，而不会重定向其他不关于 Socket">
     
 
     
@@ -76,7 +76,9 @@ var _hmt = _hmt || [];
                 
                     <a class="main-nav-link" href="/tags">标签</a>
                 
-                    <a class="main-nav-link" href="/about">关于</a>
+                    <a class="main-nav-link" href="/links">友链</a>
+                
+                    <a class="main-nav-link" href="/about">关于我</a>
                 
             </nav>
             
@@ -140,7 +142,9 @@ var _hmt = _hmt || [];
                 
                     <td><a class="main-nav-link" href="/tags">标签</a></td>
                 
-                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                    <td><a class="main-nav-link" href="/links">友链</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于我</a></td>
                 
                 <td>
                     
@@ -275,7 +279,7 @@ var _hmt = _hmt || [];
             
             <p>自从 Socket.IO 1.0 (May 2014) 开始, 所有的 Connection 都以一个 HTTP polling Request 开始 (more info <a href="https://stackoverflow.com/questions/28238628/socket-io-1-x-use-websockets-only/28240802#28240802" target="_blank" rel="noopener">here</a>)</p>
 <p>这就意味着除了转发 WebSocket 之外，你还需要转发 任何 <code>transport=polling</code> 的 HTTP 请求。</p>
-<p>下面的解决方案能正确地重定向所有 socket 流量，而不会重定向其他不关于 Socket 的流量。</p>
+<p>下面的解决方案能正确地重定向所有 Socket 流量，而不会重定向其他不关于 Socket 的流量。</p>
 <a id="more"></a>
 <h3 id="1-开启-mods"><a href="#1-开启-mods" class="headerlink" title="1. 开启 mods"></a>1. 开启 mods</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo a2enmod rewrite proxy proxy_http proxy_wstunnel</span><br></pre></td></tr></table></figure>
 <p>或修改 httpd.conf</p>
@@ -293,7 +297,7 @@ var _hmt = _hmt || [];
         </div>
         
             
-            <div class="article-copyright">本站文章除注明转载外均为原创，版权为 <a href="http://qwqaq.com">QWQAQ</a> 所有，未经允许不得转载. http://qwqaq.com/665aacc7.html</div>
+            <div class="article-copyright">本站文章除注明转载外均为原创，未经允许不要转载哇. ヾ(ﾟｰﾟヾ) http://qwqaq.com/665aacc7.html</div>
             
         
 <div class="article-tag-block">
@@ -308,7 +312,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://qwqaq.com/665aacc7.html" data-id="cjmp25oj50005e0w3dkzr0ji2" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
+    <a data-url="http://qwqaq.com/665aacc7.html" data-id="cjmre3txv000618w3d5wbxx7n" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -408,6 +412,8 @@ var _hmt = _hmt || [];
 </section>
     
 
+
+
 </section>
             
 <aside id="sidebar">
@@ -470,7 +476,7 @@ var _hmt = _hmt || [];
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/日常/">日常</a></p>
-                            <p class="item-title"><a href="/94b80ac2.html" class="title">我站在巨人的肩膀上发现这个巨人也站在神仙的肩膀上</a></p>
+                            <p class="item-title"><a href="/94b80ac2.html" class="title">我站在巨人的肩膀上发现这个巨人也站在神的肩膀上</a></p>
                             <p class="item-date"><time datetime="2018-08-11T14:19:07.000Z" itemprop="datePublished">2018-08-11</time></p>
                         </div>
                     </li>
@@ -536,26 +542,6 @@ var _hmt = _hmt || [];
     </div>
 
     
-        
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">链接</h3>
-        <div class="widget">
-            <ul>
-                
-                    <li>
-                        <a href="http://hexo.io">Hexo</a>
-                    </li>
-                
-                    <li>
-                        <a href="https://www.carzyuncle.com">疯狂的大叔</a>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-
-
-    
     <div id="toTop" class="zmdi zmdi-chevron-up"></div>
 </aside>
 
@@ -564,10 +550,11 @@ var _hmt = _hmt || [];
     <div class="outer">
         <div id="footer-info" class="inner">
             &copy; 2018 QWQAQ<br>
-            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/qwqcode/hexo-theme-icarus">PPOffice</a>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme <a href="https://github.com/qwqcode/hexo-theme-icarus">icarus</a>
         </div>
     </div>
 </footer>
+
         
     
     <script>

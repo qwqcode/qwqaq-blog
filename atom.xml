@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qwqaq.com/"/>
-  <updated>2018-09-25T16:35:48.616Z</updated>
+  <updated>2018-10-02T06:59:52.889Z</updated>
   <id>http://qwqaq.com/</id>
   
   <author>
@@ -21,13 +21,13 @@
     <link href="http://qwqaq.com/665aacc7.html"/>
     <id>http://qwqaq.com/665aacc7.html</id>
     <published>2018-09-25T16:06:54.000Z</published>
-    <updated>2018-09-25T16:35:48.616Z</updated>
+    <updated>2018-10-02T06:59:52.889Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;自从 Socket.IO 1.0 (May 2014) 开始, 所有的 Connection 都以一个 HTTP polling Request 开始 (more info &lt;a href=&quot;https://stackoverflow.com/questions/28238628/socket-io-1-x-use-websockets-only/28240802#28240802&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;here&lt;/a&gt;)&lt;/p&gt;
 &lt;p&gt;这就意味着除了转发 WebSocket 之外，你还需要转发 任何 &lt;code&gt;transport=polling&lt;/code&gt; 的 HTTP 请求。&lt;/p&gt;
-&lt;p&gt;下面的解决方案能正确地重定向所有 socket 流量，而不会重定向其他不关于 Socket 的流量。&lt;/p&gt;
+&lt;p&gt;下面的解决方案能正确地重定向所有 Socket 流量，而不会重定向其他不关于 Socket 的流量。&lt;/p&gt;
     
     </summary>
     
@@ -47,12 +47,12 @@
     <link href="http://qwqaq.com/4cd79212.html"/>
     <id>http://qwqaq.com/4cd79212.html</id>
     <published>2018-08-26T08:13:24.000Z</published>
-    <updated>2018-08-26T08:46:55.980Z</updated>
+    <updated>2018-10-02T07:00:06.590Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;&lt;a href=&quot;https://code.visualstudio.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Visual Studio Code&lt;/a&gt;（简称 VSCode）是由微软开发的一个轻量且强大的代码编辑器。&lt;/p&gt;
-&lt;p&gt;最近在学 C++，调试需要配置 launch.json，所以参阅相关文档配置后，发现每次调试启动 exe 都会单独打开一个窗口，每个 .cpp 文件里都要加上 &lt;code&gt;system(&amp;quot;pause&amp;quot;);&lt;/code&gt; 才能保证窗口不会一闪而过。所以… 如果能在 VSCode 自带的 Terminal 里面运行 exe岂不是美滋滋？
+&lt;p&gt;最近在学 C++，调试需要配置 launch.json，所以参阅相关文档配置后，发现每次调试启动 exe 都会单独打开一个窗口，每个 .cpp 文件里都要加上 &lt;code&gt;system(&amp;quot;pause&amp;quot;);&lt;/code&gt; 才能保证窗口不会一闪而过。所以… 如果能在 VSCode 自带的 Terminal 里面运行 exe 岂不是美滋滋？
     
     </summary>
     
@@ -66,11 +66,11 @@
   </entry>
   
   <entry>
-    <title>我站在巨人的肩膀上发现这个巨人也站在神仙的肩膀上</title>
+    <title>我站在巨人的肩膀上发现这个巨人也站在神的肩膀上</title>
     <link href="http://qwqaq.com/94b80ac2.html"/>
     <id>http://qwqaq.com/94b80ac2.html</id>
     <published>2018-08-11T14:19:07.000Z</published>
-    <updated>2018-08-11T14:20:02.307Z</updated>
+    <updated>2018-10-02T06:57:52.780Z</updated>
     
     <summary type="html">
     
@@ -79,7 +79,7 @@
         
         
           &lt;blockquote&gt;
-&lt;p&gt;我站在巨人的肩膀上发现这个巨人也站在神仙的肩膀上&lt;/p&gt;
+&lt;p&gt;我站在巨人的肩膀上发现这个巨人也站在神的肩膀上&lt;/p&gt;
 &lt;/blockquote&gt;
 
         
@@ -251,14 +251,11 @@
     <link href="http://qwqaq.com/7b5628f7.html"/>
     <id>http://qwqaq.com/7b5628f7.html</id>
     <published>2018-05-31T14:36:50.000Z</published>
-    <updated>2018-07-02T15:22:41.235Z</updated>
+    <updated>2018-10-02T07:04:01.229Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;2016-06-04 制作字幕和上传 -&amp;gt; 2018-05-30 回放&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Everything will be OK.&lt;/p&gt;
-&lt;/blockquote&gt;
+      &lt;p&gt;2016-06-04 制作字幕 &amp;amp; 上传 -&amp;gt; 回放&lt;/p&gt;
     
     </summary>
     
