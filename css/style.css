@@ -1010,12 +1010,14 @@ a.article-title:hover {
 .share-container {
   float: left;
 }
-.article-share-link {
+.article-share-link,
+.article-pv-link {
   float: right;
   cursor: pointer;
   margin-left: 20px;
 }
-.article-share-link i {
+.article-share-link i,
+.article-pv-link i {
   margin-right: 5px;
 }
 #article-nav {
