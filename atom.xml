@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qwqaq.com/"/>
-  <updated>2018-10-02T06:59:52.889Z</updated>
+  <updated>2018-10-16T09:15:51.706Z</updated>
   <id>http://qwqaq.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VSCode 配置不让 C++ 程序运行一闪而过</title>
+    <link href="http://qwqaq.com/4cd79212.html"/>
+    <id>http://qwqaq.com/4cd79212.html</id>
+    <published>2018-10-16T09:15:10.000Z</published>
+    <updated>2018-10-16T09:15:51.706Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://code.visualstudio.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Visual Studio Code&lt;/a&gt;（简称 VSCode）是由微软开发的一个轻量且强大的代码编辑器。&lt;/p&gt;
+&lt;p&gt;最近在学 C++，调试需要配置 launch.json，所以参阅相关文档配置后，发现每次调试启动 exe 都会单独打开一个窗口，每个 .cpp 文件里都要加上 &lt;code&gt;system(&amp;quot;pause&amp;quot;);&lt;/code&gt; 才能保证窗口不会一闪而过。所以… 如果能在 VSCode 自带的 Terminal 里面运行 exe 岂不是美滋滋？
+    
+    </summary>
+    
+      <category term="Cpp" scheme="http://qwqaq.com/categories/Cpp/"/>
+    
+    
+      <category term="VSCode" scheme="http://qwqaq.com/tags/VSCode/"/>
+    
+      <category term="Cpp" scheme="http://qwqaq.com/tags/Cpp/"/>
+    
+  </entry>
   
   <entry>
     <title>Apache 反向代理 Http+WebSocket</title>
@@ -39,29 +62,6 @@
       <category term="反向代理" scheme="http://qwqaq.com/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/"/>
     
       <category term="Apache" scheme="http://qwqaq.com/tags/Apache/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VSCode 配置不让 C++ 程序运行一闪而过</title>
-    <link href="http://qwqaq.com/4cd79212.html"/>
-    <id>http://qwqaq.com/4cd79212.html</id>
-    <published>2018-08-26T08:13:24.000Z</published>
-    <updated>2018-10-02T07:00:06.590Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;https://code.visualstudio.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Visual Studio Code&lt;/a&gt;（简称 VSCode）是由微软开发的一个轻量且强大的代码编辑器。&lt;/p&gt;
-&lt;p&gt;最近在学 C++，调试需要配置 launch.json，所以参阅相关文档配置后，发现每次调试启动 exe 都会单独打开一个窗口，每个 .cpp 文件里都要加上 &lt;code&gt;system(&amp;quot;pause&amp;quot;);&lt;/code&gt; 才能保证窗口不会一闪而过。所以… 如果能在 VSCode 自带的 Terminal 里面运行 exe 岂不是美滋滋？
-    
-    </summary>
-    
-      <category term="Cpp" scheme="http://qwqaq.com/categories/Cpp/"/>
-    
-    
-      <category term="VSCode" scheme="http://qwqaq.com/tags/VSCode/"/>
-    
-      <category term="Cpp" scheme="http://qwqaq.com/tags/Cpp/"/>
     
   </entry>
   
