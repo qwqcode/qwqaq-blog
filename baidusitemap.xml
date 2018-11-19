@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://qwqaq.com/a845bac.html</loc>
-    <lastmod>2018-11-19T18:04:51.715Z</lastmod>
+    <lastmod>2018-11-19T18:08:32.692Z</lastmod>
     <data>
         <display>
         <title>记录一次去除 Chrome 扩展程序激活验证的过程</title>
@@ -690,9 +690,9 @@
         <title>Lumen 添加没有的 key:generate 命令</title>
         <pubTime>2018-05-31T13:17:16.000Z</pubTime>
         
-        <tag>lumen</tag>
-         
         <tag>php</tag>
+         
+        <tag>lumen</tag>
          
         <tag>key:generate</tag>
          
@@ -714,13 +714,13 @@
         <title>Laravel 5.6 资源任务编译器 laravel-mix webpack.mix.js 配置参考</title>
         <pubTime>2018-05-31T12:52:34.000Z</pubTime>
         
-        <tag>php</tag>
-         
         <tag>Laravel</tag>
          
         <tag>laravel-mix</tag>
          
         <tag>webpack</tag>
+         
+        <tag>php</tag>
          
         <tag>js</tag>
          
