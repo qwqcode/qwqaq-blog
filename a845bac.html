@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://qwqaq.com/images/post/ChromeExtCrack_7.png">
 <meta property="og:image" content="http://qwqaq.com/images/post/ChromeExtCrack_8.png">
 <meta property="og:image" content="http://qwqaq.com/images/post/ChromeExtCrack_9.png">
-<meta property="og:updated_time" content="2018-11-19T18:00:57.403Z">
+<meta property="og:updated_time" content="2018-11-19T18:04:51.715Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记录一次去除 Chrome 扩展程序激活验证的过程">
 <meta name="twitter:description" content="某位骚年说是想喊我帮忙看看一个 Chrome 的扩展程序是否可以破解，去除激活验证。虽然这有些缺德，但是你要深深地明白穷*高中生的痛。我抱着试试看的心态，拿到了这个 crx 文件后，开始一步一步搞事情。Well, Here We Go…">
@@ -297,7 +297,7 @@ var _hmt = _hmt || [];
 <h2 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h2><p>加载这个扩展，并用 DevTools 找到和激活验证相关的 JS 文件。</p>
 <p><img src="../images/post/ChromeExtCrack_3.png" alt=""></p>
 <p>然后找到和激活验证相关的代码写在 <code>\scripts\popup.js</code> 里</p>
-<p>使用工具，尝试还原已混淆的文件，例如：<a href="http://jsnice.org/" target="_blank" rel="noopener">jsnice</a></p>
+<p>使用工具（我用 <a href="http://jsnice.org/" target="_blank" rel="noopener">jsnice</a>） 尝试还原已混淆的文件</p>
 <p><img src="../images/post/ChromeExtCrack_4.png" alt=""></p>
 <h2 id="Step-3"><a href="#Step-3" class="headerlink" title="Step 3"></a>Step 3</h2><p>观察 popup.js 代码，发现有很多地方都使用了变量 <code>_$_ad16</code>，并且这个变量是一个数组</p>
 <p><img src="../images/post/ChromeExtCrack_5.png" alt=""></p>
@@ -307,14 +307,14 @@ var _hmt = _hmt || [];
 <p>所以，我写了下面这段 JS，通过替换字符串，来达到想要的效果</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> code = <span class="string">`</span></span><br><span class="line"><span class="string">// popup.js 代码放到这里</span></span><br><span class="line"><span class="string">`</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="built_in">Object</span>.keys(_$_ad16).length; i++) &#123;</span><br><span class="line">  code = code.replace(<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"_\\$_ad16\\["</span> + i + <span class="string">"\\]"</span>,<span class="string">'g'</span>) , <span class="string">"\""</span> + _$_ad16[i].replace(<span class="regexp">/"/g</span>, <span class="string">"\\\""</span>) + <span class="string">"\""</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(code);</span><br></pre></td></tr></table></figure>
 <p>注意处理 popup.js 代码中斜杠（替换为两个斜杠），因为放到上面的引号中会被视为转义字符</p>
-<p>得到可读代码：</p>
+<p>lol 得到可读代码：</p>
 <p><img src="../images/post/ChromeExtCrack_7.png" alt=""></p>
-<h2 id="Step-4"><a href="#Step-4" class="headerlink" title="Step 4"></a>Step 4</h2><p>直接将原来验证激活的代码注释了，然后把下图红框中的代码移到前面</p>
+<h2 id="Step-4"><a href="#Step-4" class="headerlink" title="Step 4"></a>Step 4</h2><p>直接将原来验证激活的代码注释了，然后把下图红框中的代码移到前面 23333</p>
 <p><img src="../images/post/ChromeExtCrack_8.png" alt=""></p>
 <p>完成破解</p>
 <p><img src="../images/post/ChromeExtCrack_9.png" alt=""></p>
-<h2 id="LAST"><a href="#LAST" class="headerlink" title="LAST"></a>LAST</h2><p>其实搞这种不难，并没有什么技术含量。</p>
-<p>最重要的是，我又水了一帖。</p>
+<h2 id="LAST"><a href="#LAST" class="headerlink" title="LAST"></a>LAST</h2><p>其实搞这种不难，并没有什么技术含量</p>
+<p>最重要的是，我又水了一帖 #(滑稽)</p>
 
         
         </div>
@@ -335,7 +335,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://qwqaq.com/a845bac.html" data-id="cjoomaqh9003b7gw38zcwsn5g" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
+    <a data-url="http://qwqaq.com/a845bac.html" data-id="cjoomfajs003az4w3h4hf8ddk" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding

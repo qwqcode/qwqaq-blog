@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qwqaq.com/"/>
-  <updated>2018-11-19T18:00:57.403Z</updated>
+  <updated>2018-11-19T18:04:51.715Z</updated>
   <id>http://qwqaq.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://qwqaq.com/a845bac.html"/>
     <id>http://qwqaq.com/a845bac.html</id>
     <published>2018-11-19T17:18:39.000Z</published>
-    <updated>2018-11-19T18:00:57.403Z</updated>
+    <updated>2018-11-19T18:04:51.715Z</updated>
     
     <summary type="html">
     
@@ -407,9 +407,9 @@
       <category term="PHP" scheme="http://qwqaq.com/categories/PHP/"/>
     
     
-      <category term="php" scheme="http://qwqaq.com/tags/php/"/>
-    
       <category term="lumen" scheme="http://qwqaq.com/tags/lumen/"/>
+    
+      <category term="php" scheme="http://qwqaq.com/tags/php/"/>
     
       <category term="key:generate" scheme="http://qwqaq.com/tags/key-generate/"/>
     
@@ -431,13 +431,13 @@
       <category term="PHP" scheme="http://qwqaq.com/categories/PHP/"/>
     
     
+      <category term="php" scheme="http://qwqaq.com/tags/php/"/>
+    
       <category term="Laravel" scheme="http://qwqaq.com/tags/Laravel/"/>
     
       <category term="laravel-mix" scheme="http://qwqaq.com/tags/laravel-mix/"/>
     
       <category term="webpack" scheme="http://qwqaq.com/tags/webpack/"/>
-    
-      <category term="php" scheme="http://qwqaq.com/tags/php/"/>
     
       <category term="js" scheme="http://qwqaq.com/tags/js/"/>
     
