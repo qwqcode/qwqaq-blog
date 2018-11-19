@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://qwqaq.com/a845bac.html</loc>
-    <lastmod>2018-11-19T18:00:32.127Z</lastmod>
+    <lastmod>2018-11-19T18:00:57.403Z</lastmod>
     <data>
         <display>
         <title>记录一次去除 Chrome 扩展程序激活验证的过程</title>
@@ -26,21 +26,6 @@
              
               <breadCrumb title="JS" url="http://qwqaq.com/categories/JS/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://qwqaq.com/0.html</loc>
-    <lastmod>2018-11-19T17:53:04.422Z</lastmod>
-    <data>
-        <display>
-        <title></title>
-        <pubTime>2018-11-19T17:31:21.303Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>
@@ -705,9 +690,9 @@
         <title>Lumen 添加没有的 key:generate 命令</title>
         <pubTime>2018-05-31T13:17:16.000Z</pubTime>
         
-        <tag>lumen</tag>
-         
         <tag>php</tag>
+         
+        <tag>lumen</tag>
          
         <tag>key:generate</tag>
          
@@ -729,13 +714,13 @@
         <title>Laravel 5.6 资源任务编译器 laravel-mix webpack.mix.js 配置参考</title>
         <pubTime>2018-05-31T12:52:34.000Z</pubTime>
         
-        <tag>php</tag>
-         
         <tag>Laravel</tag>
          
         <tag>laravel-mix</tag>
          
         <tag>webpack</tag>
+         
+        <tag>php</tag>
          
         <tag>js</tag>
          

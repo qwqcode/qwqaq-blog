@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qwqaq.com/"/>
-  <updated>2018-11-19T17:53:04.422Z</updated>
+  <updated>2018-11-19T18:00:57.403Z</updated>
   <id>http://qwqaq.com/</id>
   
   <author>
@@ -17,35 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://qwqaq.com/0.html"/>
-    <id>http://qwqaq.com/0.html</id>
-    <published>2018-11-19T17:31:21.303Z</published>
-    <updated>2018-11-19T17:53:04.422Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &#39;use strict&#39;;
-/** @type {!Array} */
-var _$_ad16 = [&quot;skill-&quot;, &quot;-&quot;, &quot;getItem&quot;, &quot;localStorage&quot;, &quot;0&quot;, &quot;&quot;, &quot;push&quot;, &quot;summon-&quot;, &quot;,&quot;, &quot;join&quot;,
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>记录一次去除 Chrome 扩展程序激活验证的过程</title>
     <link href="http://qwqaq.com/a845bac.html"/>
     <id>http://qwqaq.com/a845bac.html</id>
     <published>2018-11-19T17:18:39.000Z</published>
-    <updated>2018-11-19T18:00:32.127Z</updated>
+    <updated>2018-11-19T18:00:57.403Z</updated>
     
     <summary type="html">
     
@@ -431,9 +407,9 @@ var _$_ad16 = [&quot;skill-&quot;, &quot;-&quot;, &quot;getItem&quot;, &quot;loc
       <category term="PHP" scheme="http://qwqaq.com/categories/PHP/"/>
     
     
-      <category term="lumen" scheme="http://qwqaq.com/tags/lumen/"/>
-    
       <category term="php" scheme="http://qwqaq.com/tags/php/"/>
+    
+      <category term="lumen" scheme="http://qwqaq.com/tags/lumen/"/>
     
       <category term="key:generate" scheme="http://qwqaq.com/tags/key-generate/"/>
     
@@ -455,13 +431,13 @@ var _$_ad16 = [&quot;skill-&quot;, &quot;-&quot;, &quot;getItem&quot;, &quot;loc
       <category term="PHP" scheme="http://qwqaq.com/categories/PHP/"/>
     
     
-      <category term="php" scheme="http://qwqaq.com/tags/php/"/>
-    
       <category term="Laravel" scheme="http://qwqaq.com/tags/Laravel/"/>
     
       <category term="laravel-mix" scheme="http://qwqaq.com/tags/laravel-mix/"/>
     
       <category term="webpack" scheme="http://qwqaq.com/tags/webpack/"/>
+    
+      <category term="php" scheme="http://qwqaq.com/tags/php/"/>
     
       <category term="js" scheme="http://qwqaq.com/tags/js/"/>
     
@@ -520,6 +496,38 @@ var _$_ad16 = [&quot;skill-&quot;, &quot;-&quot;, &quot;getItem&quot;, &quot;loc
       <category term="Git" scheme="http://qwqaq.com/tags/Git/"/>
     
       <category term="GitHub" scheme="http://qwqaq.com/tags/GitHub/"/>
+    
+      <category term="笔记" scheme="http://qwqaq.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux 命令笔记</title>
+    <link href="http://qwqaq.com/1d50ddd6.html"/>
+    <id>http://qwqaq.com/1d50ddd6.html</id>
+    <published>2018-01-27T11:59:59.000Z</published>
+    <updated>2018-05-27T12:06:37.124Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span
+        
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://qwqaq.com/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://qwqaq.com/tags/Linux/"/>
+    
+      <category term="Bash" scheme="http://qwqaq.com/tags/Bash/"/>
+    
+      <category term="Shell" scheme="http://qwqaq.com/tags/Shell/"/>
     
       <category term="笔记" scheme="http://qwqaq.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
