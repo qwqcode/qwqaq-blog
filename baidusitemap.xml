@@ -3,10 +3,115 @@
 
 
     
+  <url>
+    <loc>http://qwqaq.com/b8fd304a.html</loc>
+    <lastmod>2018-11-24T16:04:10.660Z</lastmod>
+    <data>
+        <display>
+        <title>JS 模块化规范：CommonJS, AMD, CMD, UMD, ESM</title>
+        <pubTime>2018-07-03T07:01:13.000Z</pubTime>
+        
+        <tag>CommonJS</tag>
+         
+        <tag>RequireJS</tag>
+         
+        <tag>ES6</tag>
+         
+        <tag>前端开发</tag>
+         
+        <tag>学习笔记</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="http://qwqaq.com/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://qwqaq.com/59c3971b.html</loc>
+    <lastmod>2018-11-24T16:03:43.199Z</lastmod>
+    <data>
+        <display>
+        <title>树莓派 Raspberry Pi 安装 Nginx + PHP7 + MySQL</title>
+        <pubTime>2017-06-13T16:50:48.000Z</pubTime>
+        
+        <tag>php</tag>
+         
+        <tag>树莓派</tag>
+         
+        <tag>Raspberry Pi</tag>
+         
+        <tag>nginx</tag>
+         
+        <tag>mysql</tag>
+         
+         
+           
+             
+              <breadCrumb title="PHP" url="http://qwqaq.com/categories/PHP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://qwqaq.com/e6c62dbb.html</loc>
+    <lastmod>2018-11-24T16:03:23.919Z</lastmod>
+    <data>
+        <display>
+        <title>Linux 临时设置代理 Proxy</title>
+        <pubTime>2017-08-15T06:59:07.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>环境变量</tag>
+         
+        <tag>代理</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://qwqaq.com/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://qwqaq.com/592e7e6b.html</loc>
+    <lastmod>2018-11-24T16:03:12.441Z</lastmod>
+    <data>
+        <display>
+        <title>Linux php7.0-fpm 以 root 的权限运行</title>
+        <pubTime>2017-06-13T16:38:02.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>php root权限</tag>
+         
+        <tag>php7.0-fpm root</tag>
+         
+        <tag>php7.0-fpm 权限</tag>
+         
+         
+           
+             
+              <breadCrumb title="PHP" url="http://qwqaq.com/categories/PHP/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
   <url>
     <loc>http://qwqaq.com/a845bac.html</loc>
-    <lastmod>2018-11-19T18:08:32.692Z</lastmod>
+    <lastmod>2018-11-24T16:02:27.715Z</lastmod>
     <data>
         <display>
         <title>记录一次去除 Chrome 扩展程序激活验证的过程</title>
@@ -31,6 +136,7 @@
     </data>
     </url>
 
+    
     
     
   <url>
@@ -450,34 +556,6 @@
 
     
   <url>
-    <loc>http://qwqaq.com/b8fd304a.html</loc>
-    <lastmod>2018-07-04T01:02:35.197Z</lastmod>
-    <data>
-        <display>
-        <title>JS 模块化规范：CommonJS, AMD, CMD, UMD, ESM</title>
-        <pubTime>2018-07-03T07:01:13.000Z</pubTime>
-        
-        <tag>CommonJS</tag>
-         
-        <tag>RequireJS</tag>
-         
-        <tag>ES6</tag>
-         
-        <tag>前端开发</tag>
-         
-        <tag>学习笔记</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端" url="http://qwqaq.com/categories/%E5%89%8D%E7%AB%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://qwqaq.com/c47492ae.html</loc>
     <lastmod>2018-07-03T08:00:57.316Z</lastmod>
     <data>
@@ -657,32 +735,6 @@
 
     
   <url>
-    <loc>http://qwqaq.com/592e7e6b.html</loc>
-    <lastmod>2018-07-02T15:22:00.250Z</lastmod>
-    <data>
-        <display>
-        <title>Linux php7.0-fpm 以 root 的权限运行</title>
-        <pubTime>2017-06-13T16:38:02.000Z</pubTime>
-        
-        <tag>Linux</tag>
-         
-        <tag>php root权限</tag>
-         
-        <tag>php7.0-fpm root</tag>
-         
-        <tag>php7.0-fpm 权限</tag>
-         
-         
-           
-             
-              <breadCrumb title="PHP" url="http://qwqaq.com/categories/PHP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://qwqaq.com/65f7d82e.html</loc>
     <lastmod>2018-07-02T15:08:50.784Z</lastmod>
     <data>
@@ -816,34 +868,6 @@
     
     
   <url>
-    <loc>http://qwqaq.com/59c3971b.html</loc>
-    <lastmod>2018-05-19T09:45:49.996Z</lastmod>
-    <data>
-        <display>
-        <title>树莓派 Raspberry Pi 安装 Nginx + PHP7 + MySQL</title>
-        <pubTime>2017-06-13T16:50:48.000Z</pubTime>
-        
-        <tag>php</tag>
-         
-        <tag>树莓派</tag>
-         
-        <tag>Raspberry Pi</tag>
-         
-        <tag>nginx</tag>
-         
-        <tag>mysql</tag>
-         
-         
-           
-             
-              <breadCrumb title="PHP" url="http://qwqaq.com/categories/PHP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://qwqaq.com/48844841.html</loc>
     <lastmod>2018-05-19T06:14:04.010Z</lastmod>
     <data>
@@ -911,30 +935,6 @@
            
              
               <breadCrumb title="JS" url="http://qwqaq.com/categories/JS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://qwqaq.com/e6c62dbb.html</loc>
-    <lastmod>2018-04-22T13:15:06.226Z</lastmod>
-    <data>
-        <display>
-        <title>Linux 临时设置代理 Proxy</title>
-        <pubTime>2017-08-15T06:59:07.000Z</pubTime>
-        
-        <tag>Linux</tag>
-         
-        <tag>环境变量</tag>
-         
-        <tag>代理</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="http://qwqaq.com/categories/Linux/"/>
           
         </display>
     </data>

@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://qwqaq.com/images/post/ChromeExtCrack_7.png">
 <meta property="og:image" content="http://qwqaq.com/images/post/ChromeExtCrack_8.png">
 <meta property="og:image" content="http://qwqaq.com/images/post/ChromeExtCrack_9.png">
-<meta property="og:updated_time" content="2018-11-19T18:08:32.692Z">
+<meta property="og:updated_time" content="2018-11-24T16:02:27.715Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记录一次去除 Chrome 扩展程序激活验证的过程">
 <meta name="twitter:description" content="某位骚年说是想喊我帮忙看看一个 Chrome 的扩展程序是否可以破解，去除激活验证。虽然这有些缺德，但是你要深深地明白穷*高中生的痛。我抱着试试看的心态，拿到了这个 crx 文件后，开始一步一步搞事情。Well, Here We Go…">
@@ -293,9 +293,9 @@ var _hmt = _hmt || [];
 <p><img src="../images/post/ChromeExtCrack_1.png" alt=""></p>
 <p>然后你会看到这个 Chrome 扩展程序的目录结构是这样的</p>
 <p><img src="../images/post/ChromeExtCrack_2.png" alt=""></p>
-<h2 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h2><p>加载这个扩展，并用 DevTools 找到和激活验证相关的 JS 文件。</p>
+<h2 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h2><p>加载这个扩展，使用 DevTools 进行观察</p>
 <p><img src="../images/post/ChromeExtCrack_3.png" alt=""></p>
-<p>然后找到和激活验证相关的代码写在 <code>\scripts\popup.js</code> 里</p>
+<p>找到了和激活验证相关的代码写在 <code>\scripts\popup.js</code> 里</p>
 <p>使用工具（我用 <a href="http://jsnice.org/" target="_blank" rel="noopener">jsnice</a>） 尝试还原已混淆的文件</p>
 <p><img src="../images/post/ChromeExtCrack_4.png" alt=""></p>
 <h2 id="Step-3"><a href="#Step-3" class="headerlink" title="Step 3"></a>Step 3</h2><p>观察 popup.js 代码，发现有很多地方都使用了变量 <code>_$_ad16</code>，并且这个变量是一个数组</p>
@@ -334,7 +334,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://qwqaq.com/a845bac.html" data-id="cjosxvjbf003abow38ghazs8h" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
+    <a data-url="http://qwqaq.com/a845bac.html" data-id="cjovnb4620036ssw3nfzz3snt" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
