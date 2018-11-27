@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qwqaq.com/"/>
-  <updated>2018-11-24T16:02:27.715Z</updated>
+  <updated>2018-11-27T10:06:34.841Z</updated>
   <id>http://qwqaq.com/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>JS 定义字符串，强制不处理转义字符</title>
+    <link href="http://qwqaq.com/24a771e4.html"/>
+    <id>http://qwqaq.com/24a771e4.html</id>
+    <published>2018-11-27T09:48:27.000Z</published>
+    <updated>2018-11-27T10:06:34.841Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;假如你想用 JS 定义一个含有路径字符串，目前在 Windows 上是用的 反斜杠 \ 作为路径分隔符，直接复制粘贴到 “ “ 内，JS 会将 \ 的部分视为转义字符，所以每次都要将 \ 替换为 \\，麻烦啊。所以，怎么才能让 JS 强制不处理转义字符呢？使用 String.raw() 即可让 “\” 在字符串当中不再起到转义特殊字符的作用。&lt;/p&gt;
+&lt;p&gt;MDN 是这样说的：String.raw() 是一个模板字符串的标签函数，它的作用类似于 Python 中的字符串前缀 r 和 C# 中的字符串前缀 @，是用来获取一个模板字符串的原始字面量值的。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="JS" scheme="http://qwqaq.com/categories/JS/"/>
+    
+    
+      <category term="ECMAScript6" scheme="http://qwqaq.com/tags/ECMAScript6/"/>
+    
+      <category term="Experimental" scheme="http://qwqaq.com/tags/Experimental/"/>
+    
+      <category term="JavaScript" scheme="http://qwqaq.com/tags/JavaScript/"/>
+    
+      <category term="Method" scheme="http://qwqaq.com/tags/Method/"/>
+    
+      <category term="String" scheme="http://qwqaq.com/tags/String/"/>
+    
+      <category term="转义字符" scheme="http://qwqaq.com/tags/%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>记录一次去除 Chrome 扩展程序激活验证的过程</title>
     <link href="http://qwqaq.com/a845bac.html"/>
     <id>http://qwqaq.com/a845bac.html</id>
     <published>2018-11-19T17:18:39.000Z</published>
-    <updated>2018-11-24T16:02:27.715Z</updated>
+    <updated>2018-11-27T16:29:28.086Z</updated>
     
     <summary type="html">
     
@@ -496,38 +527,6 @@
       <category term="Git" scheme="http://qwqaq.com/tags/Git/"/>
     
       <category term="GitHub" scheme="http://qwqaq.com/tags/GitHub/"/>
-    
-      <category term="笔记" scheme="http://qwqaq.com/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 命令笔记</title>
-    <link href="http://qwqaq.com/1d50ddd6.html"/>
-    <id>http://qwqaq.com/1d50ddd6.html</id>
-    <published>2018-01-27T11:59:59.000Z</published>
-    <updated>2018-05-27T12:06:37.124Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span
-        
-      
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://qwqaq.com/categories/Linux/"/>
-    
-    
-      <category term="Linux" scheme="http://qwqaq.com/tags/Linux/"/>
-    
-      <category term="Bash" scheme="http://qwqaq.com/tags/Bash/"/>
-    
-      <category term="Shell" scheme="http://qwqaq.com/tags/Shell/"/>
     
       <category term="笔记" scheme="http://qwqaq.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
