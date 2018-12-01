@@ -3,20 +3,19 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     
-    <title>C#中 Thread，Task，Async/Await，IAsyncResult 的那些事儿！ | QWQAQ 的博客</title>
+    <title>归档: 2018/2 | QWQAQ 的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="说起异步，Thread，Task，async/await，IAsyncResult 这些东西肯定是绕不开的，今天就来依次聊聊他们 1.线程（Thread）多线程的意义在于一个应用程序中，有多个执行部分可以同时执行；对于比较耗时的操作(例如io，数据库操作)，或者等待响应(如WCF通信)的操作，可以单独开启后台线程来执行，这样主线程就不会阻塞，可以继续往下执行；等到后台线程执行完毕，再通知主线程，然">
+    <meta name="description" content="这里是 QWQAQ 的博客。这里将记录一名苦逼学生开发者各种各种有趣的事情... 也许你能在这里找到许多欢乐... 来啊，快活啊 ( ゜- ゜)">
 <meta name="keywords" content="QWQAQ, QWQAQ 的博客">
-<meta property="og:type" content="article">
-<meta property="og:title" content="C#中 Thread，Task，Async&#x2F;Await，IAsyncResult 的那些事儿！">
-<meta property="og:url" content="http://qwqaq.com/fd4db418.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="QWQAQ 的博客">
+<meta property="og:url" content="http://qwqaq.com/archives/2018/02/index.html">
 <meta property="og:site_name" content="QWQAQ 的博客">
-<meta property="og:description" content="说起异步，Thread，Task，async/await，IAsyncResult 这些东西肯定是绕不开的，今天就来依次聊聊他们 1.线程（Thread）多线程的意义在于一个应用程序中，有多个执行部分可以同时执行；对于比较耗时的操作(例如io，数据库操作)，或者等待响应(如WCF通信)的操作，可以单独开启后台线程来执行，这样主线程就不会阻塞，可以继续往下执行；等到后台线程执行完毕，再通知主线程，然">
+<meta property="og:description" content="这里是 QWQAQ 的博客。这里将记录一名苦逼学生开发者各种各种有趣的事情... 也许你能在这里找到许多欢乐... 来啊，快活啊 ( ゜- ゜)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-26T08:21:55.687Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C#中 Thread，Task，Async&#x2F;Await，IAsyncResult 的那些事儿！">
-<meta name="twitter:description" content="说起异步，Thread，Task，async/await，IAsyncResult 这些东西肯定是绕不开的，今天就来依次聊聊他们 1.线程（Thread）多线程的意义在于一个应用程序中，有多个执行部分可以同时执行；对于比较耗时的操作(例如io，数据库操作)，或者等待响应(如WCF通信)的操作，可以单独开启后台线程来执行，这样主线程就不会阻塞，可以继续往下执行；等到后台线程执行完毕，再通知主线程，然">
+<meta name="twitter:title" content="QWQAQ 的博客">
+<meta name="twitter:description" content="这里是 QWQAQ 的博客。这里将记录一名苦逼学生开发者各种各种有趣的事情... 也许你能在这里找到许多欢乐... 来啊，快活啊 ( ゜- ゜)">
     
 
     
@@ -72,7 +71,7 @@ var _hmt = _hmt || [];
                 
                     <a class="main-nav-link" href="/categories">目录</a>
                 
-                    <a class="main-nav-link" href="/archives">时间轴</a>
+                    <a class="main-nav-link active" href="/archives">时间轴</a>
                 
                     <a class="main-nav-link" href="/tags">标签</a>
                 
@@ -138,7 +137,7 @@ var _hmt = _hmt || [];
                 
                     <td><a class="main-nav-link" href="/categories">目录</a></td>
                 
-                    <td><a class="main-nav-link" href="/archives">时间轴</a></td>
+                    <td><a class="main-nav-link active" href="/archives">时间轴</a></td>
                 
                     <td><a class="main-nav-link" href="/tags">标签</a></td>
                 
@@ -238,181 +237,51 @@ var _hmt = _hmt || [];
 
 </aside>
 
-            <section id="main"><article id="post-c中-thread，task，asyncawait，iasyncresult-的那些事儿！" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
+            <section id="main"><div class="timeline timeline-wrap">
+    
+            <div class="timeline-row timeline-row-major">
+                <span class="node"><i class="zmdi zmdi-calendar-note"></i></span>
+                <h1 class="title">2018</h1>
+            </div>
         
-        
-            <header class="article-header">
+        <div class="timeline-row">
+            <span class="node"></span>
+            <div class="content">
                 
 
     
-        <h1 class="article-title" itemprop="name">
-            C#中 Thread，Task，Async/Await，IAsyncResult 的那些事儿！
+        <h1 itemprop="name">
+            <a class="timeline-article-title" href="/a68df31c.html">C# 可配合 Costura.Fody 使用的 SevenZipExtractor</a>
         </h1>
     
 
-                
-                    <div class="article-meta">
-                        
+                <div class="article-meta">
+                    
     <div class="article-date">
         <i class="zmdi zmdi-calendar"></i>
-        <a href="/fd4db418.html">
-            <time datetime="2017-08-06T08:22:03.000Z" itemprop="datePublished">2017-08-06</time>
+        <a href="/a68df31c.html">
+            <time datetime="2018-02-06T06:49:43.000Z" itemprop="datePublished">2018-02-06</time>
         </a>
     </div>
 
 
-                        
+                    
     <div class="article-category">
     	<i class="zmdi zmdi-folder"></i>
         <a class="article-category-link" href="/categories/CSharp/">CSharp</a>
     </div>
 
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            
-            <p>说起异步，Thread，Task，async/await，IAsyncResult 这些东西肯定是绕不开的，今天就来依次聊聊他们</p>
-<h3 id="1-线程（Thread）"><a href="#1-线程（Thread）" class="headerlink" title="1.线程（Thread）"></a>1.线程（Thread）</h3><p>多线程的意义在于一个应用程序中，有多个执行部分可以同时执行；对于比较耗时的操作(例如io，数据库操作)，或者等待响应(如WCF通信)的操作，可以单独开启后台线程来执行，这样主线程就不会阻塞，可以继续往下执行；等到后台线程执行完毕，再通知主线程，然后做出对应操作！</p>
-<p><a href="http://www.cnblogs.com/doforfuture/p/6293926.html）" target="_blank" rel="noopener">全文传送门</a></p>
-
-        
-        </div>
-        
-            
-            <div class="article-copyright">本站文章除注明转载外均为原创，未经允许不要转载哇. ヾ(ﾟｰﾟヾ) http://qwqaq.com/fd4db418.html</div>
-            
-        
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://qwqaq.com/fd4db418.html" data-id="cjp5k3iuo001fgkw3qy59otbs" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="zmdi zmdi-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="zmdi zmdi-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="zmdi zmdi-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="zmdi zmdi-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-
-
-        </footer>
-        
+                    
+    <div class="article-tag">
+        <i class="zmdi zmdi-tag"></i>
+        <a class="tag-link" href="/tags/7z-dll/">7z.dll</a>, <a class="tag-link" href="/tags/CSharp/">CSharp</a>, <a class="tag-link" href="/tags/Costura-Fody/">Costura.Fody</a>, <a class="tag-link" href="/tags/SevenZipExtractor/">SevenZipExtractor</a>, <a class="tag-link" href="/tags/解压缩/">解压缩</a>
     </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/6015b045.html" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    拼多多自动回复代码
-                
+
+                </div>
             </div>
-        </a>
+        </div>
     
-    
-        <a href="/504f1898.html" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">JS 自定义函数：从路径中提取文件名</div>
-        </a>
-    
-</nav>
-
-
-    
-</article>
-
-
-    
-    
-        <section id="comments"><script src="/libs/artalk/Artalk.js"></script>
-<div id="ArtalkComments"></div>
-<script>
-  var artalk = new Artalk({
-    el: '#ArtalkComments',
-    placeholder: '来啊，快活啊 (/ω＼)',
-    defaultAvatar: 'mp',
-    pageSize: 50,
-    pageKey: 'http://qwqaq.com/fd4db418.html',
-    serverUrl: 'https://qwqaq.com/Artalk/index.php'
-  })
-</script>
-</section>
-    
-
-
-
+</div>
 </section>
             
 <aside id="sidebar">

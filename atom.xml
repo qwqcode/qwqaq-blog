@@ -64,34 +64,6 @@
   </entry>
   
   <entry>
-    <title>C# 可配合 Costura.Fody 使用的 SevenZipExtractor</title>
-    <link href="http://qwqaq.com/a68df31c.html"/>
-    <id>http://qwqaq.com/a68df31c.html</id>
-    <published>2018-12-01T11:51:43.000Z</published>
-    <updated>2018-12-01T12:23:16.113Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;https://github.com/adoconnection/SevenZipExtractor&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SevenZipExtractor&lt;/a&gt; 可以很方便地拿 C# 调用 7z.dll 对文件进行解压缩，对于引用多出来的 .dll 文件，如果能将这一堆文件合并成一个，岂不是美滋滋？！最后，我找到了 &lt;a href=&quot;https://github.com/Fody/Costura&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Costura.Fody&lt;/a&gt;（一个可以将源 .dll 合并到目标 exe 中的引用）目录瞬间整洁无比哇~ 如题，本文将讲述 SevenZipExtractor + Costura.Fody 的具体配置操作。 C# SevenZipExtractor with Costura.Fody&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="CSharp" scheme="http://qwqaq.com/categories/CSharp/"/>
-    
-    
-      <category term="CSharp" scheme="http://qwqaq.com/tags/CSharp/"/>
-    
-      <category term="Costura.Fody" scheme="http://qwqaq.com/tags/Costura-Fody/"/>
-    
-      <category term="SevenZipExtractor" scheme="http://qwqaq.com/tags/SevenZipExtractor/"/>
-    
-      <category term="7z.dll" scheme="http://qwqaq.com/tags/7z-dll/"/>
-    
-      <category term="解压缩" scheme="http://qwqaq.com/tags/%E8%A7%A3%E5%8E%8B%E7%BC%A9/"/>
-    
-  </entry>
-  
-  <entry>
     <title>MinecraftPE 已入正</title>
     <link href="http://qwqaq.com/c8008149.html"/>
     <id>http://qwqaq.com/c8008149.html</id>
@@ -515,6 +487,31 @@
       <category term="开源项目" scheme="http://qwqaq.com/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
     
       <category term="QWQCODE" scheme="http://qwqaq.com/tags/QWQCODE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Lumen 添加没有的 key:generate 命令</title>
+    <link href="http://qwqaq.com/65f7d82e.html"/>
+    <id>http://qwqaq.com/65f7d82e.html</id>
+    <published>2018-05-31T13:17:16.000Z</published>
+    <updated>2018-07-02T15:08:50.784Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://lumen.laravel.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Lumen&lt;/a&gt; is a stunningly fast micro-framework by Laravel.&lt;/p&gt;
+&lt;p&gt;.env 文件中需要配置 &lt;code&gt;APP_KEY=&lt;/code&gt;，想通过和 Laravel 相同的方式随机生成一个 KEY，执行命令 &lt;code&gt;artisan key:generate&lt;/code&gt; 结果却是 &lt;code&gt;Command is not defined.&lt;/code&gt;，那就需要自己加一个 key:generate 功能&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://qwqaq.com/categories/PHP/"/>
+    
+    
+      <category term="php" scheme="http://qwqaq.com/tags/php/"/>
+    
+      <category term="lumen" scheme="http://qwqaq.com/tags/lumen/"/>
+    
+      <category term="key:generate" scheme="http://qwqaq.com/tags/key-generate/"/>
     
   </entry>
   
