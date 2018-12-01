@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qwqaq.com/"/>
-  <updated>2018-12-01T12:23:16.113Z</updated>
+  <updated>2018-12-01T13:29:35.038Z</updated>
   <id>http://qwqaq.com/</id>
   
   <author>
@@ -15,6 +15,53 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Lazer-Database PHP使用JSON文件做数据库</title>
+    <link href="http://qwqaq.com/50b0de2d.html"/>
+    <id>http://qwqaq.com/50b0de2d.html</id>
+    <published>2018-12-01T13:05:57.000Z</published>
+    <updated>2018-12-01T13:29:35.038Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://github.com/Greg0/Lazer-Database&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Greg0/Lazer-Database&lt;/a&gt; 是一个 PHP 库，你能将 JSON 作为数据库进行增删改查等操作，丢掉 MySQL，这对小型项目很友好。&lt;/p&gt;
+&lt;p&gt;PHP flat-file database to store data with JSON&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="GitHub Star" scheme="http://qwqaq.com/categories/GitHub-Star/"/>
+    
+    
+      <category term="GitHub Star" scheme="http://qwqaq.com/tags/GitHub-Star/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BaiduPCS-Go 全速下载百度云文件</title>
+    <link href="http://qwqaq.com/c3c8f6d1.html"/>
+    <id>http://qwqaq.com/c3c8f6d1.html</id>
+    <published>2018-12-01T12:46:27.000Z</published>
+    <updated>2018-12-01T13:00:24.402Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://github.com/iikira/BaiduPCS-Go&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;iikira/BaiduPCS-Go&lt;/a&gt; 是一款 Go 语言编写的仿 Linux shell 文件处理命令的百度网盘客户端，你可以用它来全速下载文件。除此之外，还可以上传文件、添加离线下载任务、获取下载直链、搜索文件…&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="GitHub Star" scheme="http://qwqaq.com/categories/GitHub-Star/"/>
+    
+    
+      <category term="GitHub Star" scheme="http://qwqaq.com/tags/GitHub-Star/"/>
+    
+      <category term="BaiduPCS-Go" scheme="http://qwqaq.com/tags/BaiduPCS-Go/"/>
+    
+      <category term="百度云限速" scheme="http://qwqaq.com/tags/%E7%99%BE%E5%BA%A6%E4%BA%91%E9%99%90%E9%80%9F/"/>
+    
+      <category term="百度云客户端" scheme="http://qwqaq.com/tags/%E7%99%BE%E5%BA%A6%E4%BA%91%E5%AE%A2%E6%88%B7%E7%AB%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>C# 可配合 Costura.Fody 使用的 SevenZipExtractor</title>
@@ -41,6 +88,28 @@
       <category term="7z.dll" scheme="http://qwqaq.com/tags/7z-dll/"/>
     
       <category term="解压缩" scheme="http://qwqaq.com/tags/%E8%A7%A3%E5%8E%8B%E7%BC%A9/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MinecraftPE 已入正</title>
+    <link href="http://qwqaq.com/c8008149.html"/>
+    <id>http://qwqaq.com/c8008149.html</id>
+    <published>2018-11-30T15:42:20.000Z</published>
+    <updated>2018-12-01T14:26:06.897Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如今 2018，光阴飞逝，可能有 4 年没关注 MCPE。还记得每次更新，Mojang 不断跳票 + Twitter 散布各种虚假新闻，贴吧疯狂找资源，破解安卓 2.3… 的那一个个日日夜夜，入坑 MCPE 这些年，欢声笑语中流逝。想回忆一下小学时的那种感jio，Google Play 买了正版。欠了多年的债，今天终于还了 #(滑稽)&lt;br&gt;
+    
+    </summary>
+    
+      <category term="日常" scheme="http://qwqaq.com/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+      <category term="MinecraftPE" scheme="http://qwqaq.com/tags/MinecraftPE/"/>
+    
+      <category term="MCPE" scheme="http://qwqaq.com/tags/MCPE/"/>
     
   </entry>
   
@@ -446,91 +515,6 @@
       <category term="开源项目" scheme="http://qwqaq.com/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
     
       <category term="QWQCODE" scheme="http://qwqaq.com/tags/QWQCODE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Lumen 添加没有的 key:generate 命令</title>
-    <link href="http://qwqaq.com/65f7d82e.html"/>
-    <id>http://qwqaq.com/65f7d82e.html</id>
-    <published>2018-05-31T13:17:16.000Z</published>
-    <updated>2018-07-02T15:08:50.784Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;https://lumen.laravel.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Lumen&lt;/a&gt; is a stunningly fast micro-framework by Laravel.&lt;/p&gt;
-&lt;p&gt;.env 文件中需要配置 &lt;code&gt;APP_KEY=&lt;/code&gt;，想通过和 Laravel 相同的方式随机生成一个 KEY，执行命令 &lt;code&gt;artisan key:generate&lt;/code&gt; 结果却是 &lt;code&gt;Command is not defined.&lt;/code&gt;，那就需要自己加一个 key:generate 功能&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="PHP" scheme="http://qwqaq.com/categories/PHP/"/>
-    
-    
-      <category term="php" scheme="http://qwqaq.com/tags/php/"/>
-    
-      <category term="lumen" scheme="http://qwqaq.com/tags/lumen/"/>
-    
-      <category term="key:generate" scheme="http://qwqaq.com/tags/key-generate/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Laravel 5.6 资源任务编译器 laravel-mix webpack.mix.js 配置参考</title>
-    <link href="http://qwqaq.com/4bba0df7.html"/>
-    <id>http://qwqaq.com/4bba0df7.html</id>
-    <published>2018-05-31T12:52:34.000Z</published>
-    <updated>2018-07-02T15:08:43.214Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;https://github.com/JeffreyWay/laravel-mix&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Laravel Mix&lt;/a&gt; provides a fluent API for defining Webpack build steps for your Laravel application using several common CSS and JavaScript pre-processors. Through simple method chaining, you can fluently define your asset pipeline.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="PHP" scheme="http://qwqaq.com/categories/PHP/"/>
-    
-    
-      <category term="Laravel" scheme="http://qwqaq.com/tags/Laravel/"/>
-    
-      <category term="laravel-mix" scheme="http://qwqaq.com/tags/laravel-mix/"/>
-    
-      <category term="webpack" scheme="http://qwqaq.com/tags/webpack/"/>
-    
-      <category term="php" scheme="http://qwqaq.com/tags/php/"/>
-    
-      <category term="js" scheme="http://qwqaq.com/tags/js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ThinkPad T430 Hackintosh 10.11 El Capitan</title>
-    <link href="http://qwqaq.com/85cde401.html"/>
-    <id>http://qwqaq.com/85cde401.html</id>
-    <published>2018-03-14T13:11:55.000Z</published>
-    <updated>2018-08-02T03:09:45.890Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;ThinkPad T430 i7 3635QM NVS5400M. Mini-DP work. Clover EFI bootloader.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="日常" scheme="http://qwqaq.com/categories/%E6%97%A5%E5%B8%B8/"/>
-    
-    
-      <category term="10.13" scheme="http://qwqaq.com/tags/10-13/"/>
-    
-      <category term="dp" scheme="http://qwqaq.com/tags/dp/"/>
-    
-      <category term="hackintosh" scheme="http://qwqaq.com/tags/hackintosh/"/>
-    
-      <category term="hdmi" scheme="http://qwqaq.com/tags/hdmi/"/>
-    
-      <category term="minidp" scheme="http://qwqaq.com/tags/minidp/"/>
-    
-      <category term="osx" scheme="http://qwqaq.com/tags/osx/"/>
-    
-      <category term="t430" scheme="http://qwqaq.com/tags/t430/"/>
     
   </entry>
   
