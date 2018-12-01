@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qwqaq.com/"/>
-  <updated>2018-11-27T16:32:48.044Z</updated>
+  <updated>2018-12-01T12:23:16.113Z</updated>
   <id>http://qwqaq.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C# 可配合 Costura.Fody 使用的 SevenZipExtractor</title>
+    <link href="http://qwqaq.com/a68df31c.html"/>
+    <id>http://qwqaq.com/a68df31c.html</id>
+    <published>2018-12-01T11:51:43.000Z</published>
+    <updated>2018-12-01T12:23:16.113Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://github.com/adoconnection/SevenZipExtractor&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SevenZipExtractor&lt;/a&gt; 可以很方便地拿 C# 调用 7z.dll 对文件进行解压缩，对于引用多出来的 .dll 文件，如果能将这一堆文件合并成一个，岂不是美滋滋？！最后，我找到了 &lt;a href=&quot;https://github.com/Fody/Costura&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Costura.Fody&lt;/a&gt;（一个可以将源 .dll 合并到目标 exe 中的引用）目录瞬间整洁无比哇~ 如题，本文将讲述 SevenZipExtractor + Costura.Fody 的具体配置操作。 C# SevenZipExtractor with Costura.Fody&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="CSharp" scheme="http://qwqaq.com/categories/CSharp/"/>
+    
+    
+      <category term="CSharp" scheme="http://qwqaq.com/tags/CSharp/"/>
+    
+      <category term="Costura.Fody" scheme="http://qwqaq.com/tags/Costura-Fody/"/>
+    
+      <category term="SevenZipExtractor" scheme="http://qwqaq.com/tags/SevenZipExtractor/"/>
+    
+      <category term="7z.dll" scheme="http://qwqaq.com/tags/7z-dll/"/>
+    
+      <category term="解压缩" scheme="http://qwqaq.com/tags/%E8%A7%A3%E5%8E%8B%E7%BC%A9/"/>
+    
+  </entry>
   
   <entry>
     <title>JS 定义字符串，强制不处理转义字符</title>
@@ -503,32 +531,6 @@
       <category term="osx" scheme="http://qwqaq.com/tags/osx/"/>
     
       <category term="t430" scheme="http://qwqaq.com/tags/t430/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git 命令笔记</title>
-    <link href="http://qwqaq.com/77685bde.html"/>
-    <id>http://qwqaq.com/77685bde.html</id>
-    <published>2018-01-28T14:16:15.000Z</published>
-    <updated>2018-07-24T08:52:07.984Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;搜集 Git 的各种操作于此&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="开发工具" scheme="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="Git" scheme="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Git/"/>
-    
-    
-      <category term="Git" scheme="http://qwqaq.com/tags/Git/"/>
-    
-      <category term="GitHub" scheme="http://qwqaq.com/tags/GitHub/"/>
-    
-      <category term="笔记" scheme="http://qwqaq.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   

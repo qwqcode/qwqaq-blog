@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>C# 可配合 Costura.Fody 使用的 SevenZipExtractor | QWQAQ 的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="SevenZipExtractor 可以很方便地拿 C# 调用 7z.dll 对文件进行解压缩，对于引用多出来的 .dll 文件，如果能将这一堆文件合并成一个，岂不是美滋滋？！最后，我找到了 Costura.Fody（一个可以将源 .dll 合并到目标 exe 中的引用）目录瞬间整洁无比哇~ 如题，本文将讲述 SevenZipExtractor + Costura.Fody 的具体配置操作。 C#">
+<meta name="keywords" content="CSharp,Costura.Fody,SevenZipExtractor,7z.dll,解压缩">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C# 可配合 Costura.Fody 使用的 SevenZipExtractor">
+<meta property="og:url" content="http://qwqaq.com/a68df31c.html">
+<meta property="og:site_name" content="QWQAQ 的博客">
+<meta property="og:description" content="SevenZipExtractor 可以很方便地拿 C# 调用 7z.dll 对文件进行解压缩，对于引用多出来的 .dll 文件，如果能将这一堆文件合并成一个，岂不是美滋滋？！最后，我找到了 Costura.Fody（一个可以将源 .dll 合并到目标 exe 中的引用）目录瞬间整洁无比哇~ 如题，本文将讲述 SevenZipExtractor + Costura.Fody 的具体配置操作。 C#">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://qwqaq.com/images/post/Costura.Fody+SevenZipExtractor_1.png">
+<meta property="og:image" content="http://qwqaq.com/images/post/Costura.Fody+SevenZipExtractor_2.png">
+<meta property="og:image" content="http://qwqaq.com/images/post/Costura.Fody+SevenZipExtractor_3.png">
+<meta property="og:image" content="http://qwqaq.com/images/post/Costura.Fody+SevenZipExtractor_4.png">
+<meta property="og:image" content="http://qwqaq.com/images/post/Costura.Fody+SevenZipExtractor_5.png">
+<meta property="og:updated_time" content="2018-12-01T12:23:16.113Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C# 可配合 Costura.Fody 使用的 SevenZipExtractor">
+<meta name="twitter:description" content="SevenZipExtractor 可以很方便地拿 C# 调用 7z.dll 对文件进行解压缩，对于引用多出来的 .dll 文件，如果能将这一堆文件合并成一个，岂不是美滋滋？！最后，我找到了 Costura.Fody（一个可以将源 .dll 合并到目标 exe 中的引用）目录瞬间整洁无比哇~ 如题，本文将讲述 SevenZipExtractor + Costura.Fody 的具体配置操作。 C#">
+<meta name="twitter:image" content="http://qwqaq.com/images/post/Costura.Fody+SevenZipExtractor_1.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="QWQAQ 的博客" type="application/atom+xml">
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/material-design-iconic-font/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?785e1cdc938039c39a3b5f792ed1e829";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <!--<span class="site-title">QWQAQ 的博客</span>-->
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">HOME</a>
+                
+                    <a class="main-nav-link" href="/categories">目录</a>
+                
+                    <a class="main-nav-link" href="/archives">时间轴</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/links">友链</a>
+                
+                    <a class="main-nav-link" href="/about">关于我</a>
+                
+            </nav>
+            
+            
+            <nav id="sub-nav">
+                <div class="profile" id="profile-nav">
+                    <a id="profile-anchor" href="javascript:;">
+                        <img class="avatar" src="/images/avatar.png">
+                        <i class="zmdi zmdi-caret-down"></i>
+                    </a>
+                </div>
+            </nav>
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
+            <span class="ins-close ins-selectable"><i class="zmdi zmdi-close"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">HOME</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">目录</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">时间轴</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/links">友链</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于我</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            <aside id="sidebar-left">
+
+    <div class="sidebar-fixed">
+        <div class="sidebar-fixed-inner">
+            
+
+<div id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <div class="profile-top-part">
+                <img id="avatar" src="/images/avatar.png">
+                <div class="info-inner">
+                    <h2 id="name">QWQAQ</h2>
+                    <h3 id="title">不忘初心，方得始终</h3>
+                </div>
+            </div>
+            <div class="profile-bg"></div>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                <a href="/tags">
+                    43
+                    <span>文章</span>
+                </a>
+            </div>
+            <div class="article-info-block">
+                <a href="/archives">
+                    98
+                    <span>标签</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            
+            
+            <div class="social-link-item">
+                <a href="https://github.com/qwqcode" target="_blank" title="github" class="tooltip">
+                    <i class="zmdi zmdi-github"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="https://twitter.com/Kiroey" target="_blank" title="twitter" class="tooltip">
+                    <i class="zmdi zmdi-twitter"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="/atom.xml" target="_blank" title="rss" class="tooltip">
+                    <i class="zmdi zmdi-rss"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="/about/" target="_blank" title="more" class="tooltip">
+                    <i class="zmdi zmdi-more"></i>
+                </a>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+            
+            <div id="article-content-index" class="anim-fade-in" style="display: none">
+    <div class="widget-wrap">
+        <h3 class="widget-title">内容索引</h3>
+        <div class="widget">
+            <div class="index-list"></div>
+        </div>
+    </div>
+</div>
+            
+        </div>
+    </div>
+
+</aside>
+
+            <section id="main"><article id="post-CS-可配合-Costura-Fody-使用的-SevenZipExtractor" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+
+    
+        <h1 class="article-title" itemprop="name">
+            C# 可配合 Costura.Fody 使用的 SevenZipExtractor
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="zmdi zmdi-calendar"></i>
+        <a href="/a68df31c.html">
+            <time datetime="2018-12-01T11:51:43.000Z" itemprop="datePublished">2018-12-01</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="zmdi zmdi-folder"></i>
+        <a class="article-category-link" href="/categories/CSharp/">CSharp</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            
+            <p><a href="https://github.com/adoconnection/SevenZipExtractor" target="_blank" rel="noopener">SevenZipExtractor</a> 可以很方便地拿 C# 调用 7z.dll 对文件进行解压缩，对于引用多出来的 .dll 文件，如果能将这一堆文件合并成一个，岂不是美滋滋？！最后，我找到了 <a href="https://github.com/Fody/Costura" target="_blank" rel="noopener">Costura.Fody</a>（一个可以将源 .dll 合并到目标 exe 中的引用）目录瞬间整洁无比哇~ 如题，本文将讲述 SevenZipExtractor + Costura.Fody 的具体配置操作。 C# SevenZipExtractor with Costura.Fody</p>
+<a id="more"></a>
+<p>注：下文中的 A = 当前的 SevenZipExtractor 项目，B = 目标项目 将调用 SevenZipExtractor（已引用 Costura.Fody）</p>
+<p>在此之前 B 先 NeGet 搜索引用 <code>Costura.Fody</code>，B 目录中将出现 <code>FodyWeavers.xml</code></p>
+<ol>
+<li><p><code>git clone https://github.com/qwqcode/SevenZipExtractor</code> 并打开解决方案，解决方案资源管理器 选中 <code>SevenZipExtractor</code> 右键 生成，SevenZipExtractor.dll 将会出现在 <code>A/bin/Release/</code> 中</p>
+<ul>
+<li>跳过此步骤，可直接下载 <a href="https://github.com/qwqcode/SevenZipExtractor/releases" target="_blank" rel="noopener">SevenZipExtractor.dll</a></li>
+</ul>
+</li>
+<li><p>复制 <code>A 目录/bin/Release/SevenZipExtractor.dll</code> 到 <code>B 目录</code> 中</p>
+</li>
+<li><p><code>B</code> 中引用 SevenZipExtractor.dll 并配置 <code>复制本地=False</code> 如图</p>
+<p> <img src="../images/post/Costura.Fody+SevenZipExtractor_1.png" alt="20180206134927"></p>
+<p> <img src="../images/post/Costura.Fody+SevenZipExtractor_2.png" alt="20180206135034"></p>
+</li>
+<li><p><code>B</code> 中创建目录 <code>Costura32</code> 和 <code>Costura64</code> 并将 <code>A 目录/bin/Release/(x86|x64)/7z.dll</code> 对应放入其中，对 .dll 文件进行配置 <code>生成操作=嵌入的资源, 复制到输出目录=不复制</code> 如图所示</p>
+<p> <img src="../images/post/Costura.Fody+SevenZipExtractor_3.png" alt="20180206135058"></p>
+</li>
+<li><p>配置 <code>FodyWeavers.xml</code></p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Weavers</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Costura</span> <span class="attr">CreateTemporaryAssemblies</span>=<span class="string">'true'</span></span></span><br><span class="line"><span class="tag">           <span class="attr">Unmanaged32Assemblies</span>=<span class="string">'7z|SevenZipExtractor'</span></span></span><br><span class="line"><span class="tag">           <span class="attr">Unmanaged64Assemblies</span>=<span class="string">'7z|SevenZipExtractor'</span></span></span><br><span class="line"><span class="tag">           <span class="attr">IncludeAssemblies</span>=<span class="string">'SevenZipExtractor'</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Weavers</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p> <img src="../images/post/Costura.Fody+SevenZipExtractor_4.png" alt="20180206135305"></p>
+</li>
+<li><p>好啦好啦 清理 再 生成 B 即可。现在就只有一个文件了，<code>7z.dll</code> 和 <code>SevenZipExtractor.dll</code> 都已嵌入单个 <code>.exe</code> 中</p>
+<p> <img src="../images/post/Costura.Fody+SevenZipExtractor_5.png" alt="20180206135433"></p>
+</li>
+</ol>
+
+        
+        </div>
+        
+            
+            <div class="article-copyright">本站文章除注明转载外均为原创，未经允许不要转载哇. ヾ(ﾟｰﾟヾ) http://qwqaq.com/a68df31c.html</div>
+            
+        
+<div class="article-tag-block">
+    <i class="zmdi zmdi-tag"></i>
+    <a class="tag-link" href="/tags/7z-dll/">7z.dll</a><a class="tag-link" href="/tags/CSharp/">CSharp</a><a class="tag-link" href="/tags/Costura-Fody/">Costura.Fody</a><a class="tag-link" href="/tags/SevenZipExtractor/">SevenZipExtractor</a><a class="tag-link" href="/tags/解压缩/">解压缩</a>
+</div>
+
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://qwqaq.com/a68df31c.html" data-id="cjp5ecgsy009pcww3gru1syst" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="zmdi zmdi-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="zmdi zmdi-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="zmdi zmdi-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="zmdi zmdi-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+
+        </footer>
+        
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/24a771e4.html" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">JS 定义字符串，强制不处理转义字符</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments"><script src="/libs/artalk/Artalk.js"></script>
+<div id="ArtalkComments"></div>
+<script>
+  var artalk = new Artalk({
+    el: '#ArtalkComments',
+    placeholder: '来啊，快活啊 (/ω＼)',
+    defaultAvatar: 'mp',
+    pageSize: 50,
+    pageKey: 'http://qwqaq.com/a68df31c.html',
+    serverUrl: 'https://qwqaq.com/Artalk/index.php'
+  })
+</script>
+</section>
+    
+
+
+
+</section>
+            
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/a68df31c.html" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/CSharp/">CSharp</a></p>
+                            <p class="item-title"><a href="/a68df31c.html" class="title">C# 可配合 Costura.Fody 使用的 SevenZipExtractor</a></p>
+                            <p class="item-date"><time datetime="2018-12-01T11:51:43.000Z" itemprop="datePublished">2018-12-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/24a771e4.html" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JS/">JS</a></p>
+                            <p class="item-title"><a href="/24a771e4.html" class="title">JS 定义字符串，强制不处理转义字符</a></p>
+                            <p class="item-date"><time datetime="2018-11-27T09:48:27.000Z" itemprop="datePublished">2018-11-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/a845bac.html" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JS/">JS</a></p>
+                            <p class="item-title"><a href="/a845bac.html" class="title">记录一次去除 Chrome 扩展程序激活验证的过程</a></p>
+                            <p class="item-date"><time datetime="2018-11-19T17:18:39.000Z" itemprop="datePublished">2018-11-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/4cd79212.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/banner/VSCodeLaunch.png)" alt="VSCode 配置不让 C++ 程序运行一闪而过" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Cpp/">Cpp</a></p>
+                            <p class="item-title"><a href="/4cd79212.html" class="title">VSCode 配置不让 C++ 程序运行一闪而过</a></p>
+                            <p class="item-date"><time datetime="2018-10-16T09:15:10.000Z" itemprop="datePublished">2018-10-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/665aacc7.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/banner/Apache.png)" alt="Apache 反向代理 Http+WebSocket" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/生产环境/">生产环境</a><i class="zmdi zmdi-chevron-right"></i><a class="article-category-link" href="/categories/生产环境/Apache/">Apache</a></p>
+                            <p class="item-title"><a href="/665aacc7.html" class="title">Apache 反向代理 Http+WebSocket</a></p>
+                            <p class="item-date"><time datetime="2018-09-25T16:06:54.000Z" itemprop="datePublished">2018-09-26</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CSharp/">CSharp</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Cpp/">Cpp</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/Vue/">Vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/">开发工具</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/Git/">Git</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/日常/">日常</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生产环境/">生产环境</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/生产环境/Apache/">Apache</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/硬件/">硬件</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/硬件/Arduino/">Arduino</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/项目/">项目</a><span class="category-list-count">5</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="zmdi zmdi-chevron-up"></div>
+</aside>
+
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 QWQAQ<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme <a href="https://github.com/qwqcode/hexo-theme-icarus">icarus</a>
+        </div>
+    </div>
+</footer>
+
+        
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+</body>
+</html>
