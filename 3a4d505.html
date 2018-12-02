@@ -5,18 +5,18 @@
     
     <title>英语周报 APP 扫码答案获取 API 分析 | QWQAQ 的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="TAT 英语老师布置的周报题真是太多了… 所以决定折腾折腾，嘿嘿嘿">
+    <meta name="description" content="TAT 英语老师布置的周报题真是太多了… 老师复印给我们，一般都会把二维码遮掉，有人问我能不能不用二维码，获取任意某期的答案 23333 所以我决定折腾折腾，实现了这个想法，嘿嘿嘿">
 <meta name="keywords" content="API,采集,爬虫,英语周报,抓包">
 <meta property="og:type" content="article">
 <meta property="og:title" content="英语周报 APP 扫码答案获取 API 分析">
 <meta property="og:url" content="http://qwqaq.com/3a4d505.html">
 <meta property="og:site_name" content="QWQAQ 的博客">
-<meta property="og:description" content="TAT 英语老师布置的周报题真是太多了… 所以决定折腾折腾，嘿嘿嘿">
+<meta property="og:description" content="TAT 英语老师布置的周报题真是太多了… 老师复印给我们，一般都会把二维码遮掉，有人问我能不能不用二维码，获取任意某期的答案 23333 所以我决定折腾折腾，实现了这个想法，嘿嘿嘿">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-02T16:12:51.488Z">
+<meta property="og:updated_time" content="2018-12-02T16:21:22.086Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="英语周报 APP 扫码答案获取 API 分析">
-<meta name="twitter:description" content="TAT 英语老师布置的周报题真是太多了… 所以决定折腾折腾，嘿嘿嘿">
+<meta name="twitter:description" content="TAT 英语老师布置的周报题真是太多了… 老师复印给我们，一般都会把二维码遮掉，有人问我能不能不用二维码，获取任意某期的答案 23333 所以我决定折腾折腾，实现了这个想法，嘿嘿嘿">
     
 
     
@@ -277,8 +277,7 @@ var _hmt = _hmt || [];
         
             
             
-            <p>TAT 英语老师布置的周报题真是太多了…</p>
-<p>所以决定折腾折腾，嘿嘿嘿</p>
+            <p>TAT 英语老师布置的周报题真是太多了… 老师复印给我们，一般都会把二维码遮掉，有人问我能不能不用二维码，获取任意某期的答案 23333 所以我决定折腾折腾，实现了这个想法，嘿嘿嘿</p>
 <a id="more"></a>
 <p>首先将任意一张周报上的二维码转为可读的 URL，然后将 URL 扔进浏览器，调用打开英语周报的 APP</p>
 <p>通过抓包，得到了 APP 扫码后的第一个请求的地址 <code>http://app.ew.com.cn/Weekly/index.php?c=ResourceController&amp;a=getResourceById&amp;id=00538023X80&amp;from=true</code> 方法为 <code>POST</code></p>
@@ -291,6 +290,7 @@ var _hmt = _hmt || [];
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$getResourcePath = $firstReq[<span class="string">'result'</span>][<span class="number">0</span>][<span class="string">'resource_path'</span>];</span><br></pre></td></tr></table></figure>
 <p>通过组合 <code>根路径+/question.txt</code> 再次请求得到答案 txt</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Curl 二次请求</span></span><br><span class="line">$secondReq = downloadPage($getResourcePath . <span class="string">'/question.txt'</span>);</span><br></pre></td></tr></table></figure>
+<p>这样就可以不用二维码，获取任意某期的答案</p>
 <p>最后，为了加快答案查询速度，防止重复请求，写了缓存的代码将已请求的数据下载下来</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 判断是否有缓存文件</span></span><br><span class="line">$cacheContent = @json_decode(file_get_contents($cacheFile), <span class="keyword">true</span>);</span><br><span class="line"><span class="keyword">if</span> (file_exists($cacheFile) &amp;&amp; !<span class="keyword">empty</span>($cacheContent[<span class="string">"AS"</span>.$how]))</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">return</span> [<span class="string">'content'</span> =&gt; trim($cacheContent[<span class="string">"AS"</span>.$how])];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行远程下载</span></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 写入缓存</span></span><br><span class="line">$cacheContent = array_merge($cacheContent, [<span class="string">"AS$how"</span> =&gt; $secondReq]);</span><br><span class="line">@file_put_contents($cacheFile, json_encode($cacheContent));</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> [<span class="string">'content'</span>=&gt; trim($secondReq)];</span><br></pre></td></tr></table></figure>
 <p>做成了 PHP 和 C# 版供小伙伴们享用 吼吼吼</p>
@@ -316,7 +316,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://qwqaq.com/3a4d505.html" data-id="cjp7356rd003pskw3t8i5oc4x" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
+    <a data-url="http://qwqaq.com/3a4d505.html" data-id="cjp73fea0003rgow3i1oz1puy" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
