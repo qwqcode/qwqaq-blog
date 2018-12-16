@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qwqaq.com/"/>
-  <updated>2018-12-13T09:46:20.603Z</updated>
+  <updated>2018-12-16T05:29:22.211Z</updated>
   <id>http://qwqaq.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>坚果 Pro 2 保留数据线刷救砖包</title>
+    <link href="http://qwqaq.com/4c3dd4c7.html"/>
+    <id>http://qwqaq.com/4c3dd4c7.html</id>
+    <published>2018-12-16T05:12:04.000Z</published>
+    <updated>2018-12-16T05:29:22.211Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如题，本文内容是关于保留原有数据线刷救砖包的方法。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="日常" scheme="http://qwqaq.com/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+      <category term="osborn" scheme="http://qwqaq.com/tags/osborn/"/>
+    
+      <category term="救砖" scheme="http://qwqaq.com/tags/%E6%95%91%E7%A0%96/"/>
+    
+  </entry>
   
   <entry>
     <title>解决 Hyper + bash.exe 执行 clear 显示问题</title>
@@ -492,31 +514,6 @@
     
     
       <category term="CSharp" scheme="http://qwqaq.com/tags/CSharp/"/>
-    
-      <category term="项目" scheme="http://qwqaq.com/tags/%E9%A1%B9%E7%9B%AE/"/>
-    
-      <category term="开源项目" scheme="http://qwqaq.com/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
-    
-      <category term="QWQCODE" scheme="http://qwqaq.com/tags/QWQCODE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>开源项目：Book Register</title>
-    <link href="http://qwqaq.com/5f8469ca.html"/>
-    <id>http://qwqaq.com/5f8469ca.html</id>
-    <published>2018-05-31T14:07:07.000Z</published>
-    <updated>2018-08-02T03:10:32.974Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;JS+PHP 一个适用于图书室 多人协作共同完成图书录入任务 的在线工作站。附带实时弹幕功能，Material Design，练手初中为学校做的项目，2333&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/qwqcode/book-register&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;前往 GitHub&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="项目" scheme="http://qwqaq.com/categories/%E9%A1%B9%E7%9B%AE/"/>
-    
     
       <category term="项目" scheme="http://qwqaq.com/tags/%E9%A1%B9%E7%9B%AE/"/>
     
