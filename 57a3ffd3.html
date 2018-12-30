@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>CefSharp 实现类似 Electron 可拖拽区功能 | QWQAQ 的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="在 Electron 文档 中这样写道：  可拖拽区：默认情况下, 无边框窗口是不可拖拽的。 应用程序需要在 CSS 中指定 -webkit-app-region: drag 来告诉 Electron 哪些区域是可拖拽的（如操作系统的标准标题栏），在可拖拽区域内部使用 -webkit-app-region: no-drag 则可以将其中部分区域排除。 请注意, 当前只支持矩形形状。  如果能让 C">
+<meta name="keywords" content="CSharp,CefSharp,Electron,无边框,可拖拽区,监听鼠标事件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CefSharp 实现类似 Electron 可拖拽区功能">
+<meta property="og:url" content="http://qwqaq.com/57a3ffd3.html">
+<meta property="og:site_name" content="QWQAQ 的博客">
+<meta property="og:description" content="在 Electron 文档 中这样写道：  可拖拽区：默认情况下, 无边框窗口是不可拖拽的。 应用程序需要在 CSS 中指定 -webkit-app-region: drag 来告诉 Electron 哪些区域是可拖拽的（如操作系统的标准标题栏），在可拖拽区域内部使用 -webkit-app-region: no-drag 则可以将其中部分区域排除。 请注意, 当前只支持矩形形状。  如果能让 C">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-30T08:29:26.743Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CefSharp 实现类似 Electron 可拖拽区功能">
+<meta name="twitter:description" content="在 Electron 文档 中这样写道：  可拖拽区：默认情况下, 无边框窗口是不可拖拽的。 应用程序需要在 CSS 中指定 -webkit-app-region: drag 来告诉 Electron 哪些区域是可拖拽的（如操作系统的标准标题栏），在可拖拽区域内部使用 -webkit-app-region: no-drag 则可以将其中部分区域排除。 请注意, 当前只支持矩形形状。  如果能让 C">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="QWQAQ 的博客" type="application/atom+xml">
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/material-design-iconic-font/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?785e1cdc938039c39a3b5f792ed1e829";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <!--<span class="site-title">QWQAQ 的博客</span>-->
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">HOME</a>
+                
+                    <a class="main-nav-link" href="/categories">目录</a>
+                
+                    <a class="main-nav-link" href="/archives">时间轴</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/links">友链</a>
+                
+                    <a class="main-nav-link" href="/about">关于我</a>
+                
+            </nav>
+            
+            
+            <nav id="sub-nav">
+                <div class="profile" id="profile-nav">
+                    <a id="profile-anchor" href="javascript:;">
+                        <img class="avatar" src="/images/avatar.png">
+                        <i class="zmdi zmdi-caret-down"></i>
+                    </a>
+                </div>
+            </nav>
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
+            <span class="ins-close ins-selectable"><i class="zmdi zmdi-close"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">HOME</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">目录</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">时间轴</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/links">友链</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于我</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            <aside id="sidebar-left">
+
+    <div class="sidebar-fixed">
+        <div class="sidebar-fixed-inner">
+            
+
+<div id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <div class="profile-top-part">
+                <img id="avatar" src="/images/avatar.png">
+                <div class="info-inner">
+                    <h2 id="name">QWQAQ</h2>
+                    <h3 id="title">不忘初心，方得始终</h3>
+                </div>
+            </div>
+            <div class="profile-bg"></div>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                <a href="/archives">
+                    53
+                    <span>文章</span>
+                </a>
+            </div>
+            <div class="article-info-block">
+                <a href="/tags">
+                    125
+                    <span>标签</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            
+            
+            <div class="social-link-item">
+                <a href="https://github.com/qwqcode" target="_blank" title="github" class="tooltip">
+                    <i class="zmdi zmdi-github"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="https://twitter.com/Kiroey" target="_blank" title="twitter" class="tooltip">
+                    <i class="zmdi zmdi-twitter"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="/atom.xml" target="_blank" title="rss" class="tooltip">
+                    <i class="zmdi zmdi-rss"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="/about/" target="_blank" title="more" class="tooltip">
+                    <i class="zmdi zmdi-more"></i>
+                </a>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+
+            
+            <div id="article-content-index" class="anim-fade-in" style="display: none">
+    <div class="widget-wrap">
+        <h3 class="widget-title">内容索引</h3>
+        <div class="widget">
+            <div class="index-list"></div>
+        </div>
+    </div>
+</div>
+            
+        </div>
+    </div>
+
+</aside>
+
+            <section id="main"><article id="post-CefSharp-实现类似-Electron-可拖拽区功能" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+
+    
+        <h1 class="article-title" itemprop="name">
+            CefSharp 实现类似 Electron 可拖拽区功能
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="zmdi zmdi-calendar"></i>
+        <a href="/57a3ffd3.html">
+            <time datetime="2018-12-30T01:52:15.000Z" itemprop="datePublished">2018-12-30</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="zmdi zmdi-folder"></i>
+        <a class="article-category-link" href="/categories/CSharp/">CSharp</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            
+            <p>在 <a href="https://electronjs.org/docs/api/frameless-window" target="_blank" rel="noopener">Electron 文档</a> 中这样写道：</p>
+<blockquote>
+<p>可拖拽区：默认情况下, 无边框窗口是不可拖拽的。 应用程序需要在 CSS 中指定 <code>-webkit-app-region: drag</code> 来告诉 Electron 哪些区域是可拖拽的（如操作系统的标准标题栏），在可拖拽区域内部使用 <code>-webkit-app-region: no-drag</code> 则可以将其中部分区域排除。 请注意, 当前只支持矩形形状。</p>
+</blockquote>
+<p>如果能让 CefSharp 实现像 Electron 这样的功能，那我就能在设置了无边框的窗体上美滋滋地自定义标题栏，例如：Material Design, Fluent Design… 而不仅仅是 WinForm 自带的风格。</p>
+<a id="more"></a>
+<h2 id="成品-Example"><a href="#成品-Example" class="headerlink" title="成品 Example"></a>成品 Example</h2><p><a href="https://github.com/qwqcode/CefSharpDraggableRegion" target="_blank" rel="noopener">传送到 GitHub</a></p>
+<h2 id="Why-CefSharp"><a href="#Why-CefSharp" class="headerlink" title="Why CefSharp?"></a>Why CefSharp?</h2><blockquote>
+<p>Why should you consider CEF as an alternative to Electron? Because it is more flexible and allows very powerful combinations of different technologies. – 来源于网络</p>
+</blockquote>
+<p>个人觉得 CefSharp 是直接上 CEF，后端是 C#，你想干嘛就干嘛，这点很爽。</p>
+<p>其次是做的 APP 体积会比 Electron 小，占用内存也会比较小。</p>
+<p>参见：<a href="https://www.reddit.com/r/node/comments/7twfse/is_there_a_lighter_weight_alternative_to_electron/" target="_blank" rel="noopener">传送门</a></p>
+<h2 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h2><p>你可以选择跳过这里，来节约时间，直接看源码：<a href="https://github.com/qwqcode/CefSharpDraggableRegion/blob/master/CefTest/Form1.cs" target="_blank" rel="noopener">Form1.cs</a></p>
+<p>思路是这样的：监听鼠标点击事件，当鼠标左键按下的时候，判断是否在 设置了 CSS <code>-webkit-app-region: drag;</code> 的区域内，若 True 则执行像操作系统的标准标题栏那样的拖拽。</p>
+<h4 id="鼠标点击事件"><a href="#鼠标点击事件" class="headerlink" title="鼠标点击事件"></a>鼠标点击事件</h4><p>首先我尝试直接用 <code>Control.MouseDown += ...</code>，但这是不行的，作为一名 <code>Ctrl+C</code> <code>Ctrl+V</code> 开发者，疯狂翻资料，打开一溜选项卡，知道了原因是：<a href="https://github.com/cefsharp/CefSharp/issues/1098#issuecomment-116912566" target="_blank" rel="noopener">传送门</a></p>
+<blockquote>
+<p>The underlying CEF library captures all mouse events and does not bubble them up to WinForms. There’s no way around this for WinForms - if you want to handle mouse events you need to do so in JavaScript.</p>
+<p>Your alternative is to use the WPF CefSharp control, as this uses the underlying CEF library’s OSR (Off Screen Rendering) mode, in which WPF is in charge of all keyboard and mouse events, and it passes them onto CEF. This would give you an opportunity to intercept whatever events you wanted.</p>
+</blockquote>
+<p>CefSharp 监听鼠标事件需要这样写：<a href="https://github.com/cefsharp/CefSharp/issues/1098#issuecomment-118208651" target="_blank" rel="noopener">传送门</a></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">ChromeWidgetMessageInterceptor</span> : <span class="title">NativeWindow</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">ChromeWidgetMessageInterceptor</span>(<span class="params">IntPtr chromeWidgetHostHandle</span>)</span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    AssignHandle(chromeWidgetHostHandle);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">int</span> WM_MOUSEMOVE = <span class="number">0x0200</span>;</span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">int</span> WM_MOUSELEAVE = <span class="number">0x02A3</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">protected</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">WndProc</span>(<span class="params"><span class="keyword">ref</span> Message m</span>)</span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    <span class="keyword">base</span>.WndProc(<span class="keyword">ref</span> m);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span> (m.Msg) &#123;</span><br><span class="line">      <span class="keyword">case</span> WM_MOUSEMOVE:</span><br><span class="line">        Console.WriteLine(<span class="string">"WM_MOUSEMOVE"</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> WM_MOUSELEAVE:</span><br><span class="line">        Console.WriteLine(<span class="string">"WM_MOUSELEAVE"</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://stackoverflow.com/questions/17608477/c-sharp-detecting-a-click-in-wndproc-and-calling-a-function-after-click-happened" target="_blank" rel="noopener">Stackoverflow: C# Detecting a Click in WndProc and calling a function after click happened</a></p>
+<blockquote>
+<p>WndProc 函数作用：主要在程序中拦截并处理系统消息和自定义消息</p>
+<p>比如：Windows 程序会产生很多消息，比如你单击鼠标，移动窗口都会产生消息。这个函数就是默认的消息处理函数。你可以重载这个函数来制定自己的消息处理流程.</p>
+<p>在 CS 中，可以重写 WndProc 函数，来捕捉所有发生有窗口消息。这样，我们就可以”篡改”传入的消息，而人为的让窗口改变行为。</p>
+</blockquote>
+<p>参见：<a href="https://blog.csdn.net/xinyoulingxi/article/details/17682387" target="_blank" rel="noopener">传送门</a></p>
+<p>WndProc 函数可以监听到这个窗体的任何鼠标事件，也就是说在任何 Control 上的鼠标事件都会触发 WndProc 函数。</p>
+<p>通过重写 WndProc 函数，则可实现当鼠标左键按下 (WM_LBUTTONDOWN = 0x0201) 执行 拖动系统的标准标题栏 操作。</p>
+<p>附：<a href="https://referencesource.microsoft.com/#System.Windows.Forms/winforms/Managed/System/WinForms/NativeMethods.cs" target="_blank" rel="noopener">WindProc 各种 Message 的常量定义代码</a> / <a href="https://docs.microsoft.com/en-us/windows/desktop/inputdev/mouse-input-notifications" target="_blank" rel="noopener">各种 Message 的具体解释文档</a></p>
+<p>我们需要的 Message 是 WM_LBUTTONDOWN，<a href="https://docs.microsoft.com/en-us/windows/desktop/inputdev/wm-lbuttondown" target="_blank" rel="noopener">文档传送门</a></p>
+<blockquote>
+<p>Posted when the user presses the left mouse button while the cursor is in the client area of a window. If the mouse is not captured, the message is posted to the window beneath the cursor. Otherwise, the message is posted to the window that has captured the mouse.</p>
+<p>A window receives this message through its WindowProc function.</p>
+</blockquote>
+<p>所以，监听鼠标点击事件问题就解决了。</p>
+<h4 id="模拟-WinForm-标题栏拖动"><a href="#模拟-WinForm-标题栏拖动" class="headerlink" title="模拟 WinForm 标题栏拖动"></a>模拟 WinForm 标题栏拖动</h4><p>至于 拖动系统的标准标题栏 的操作代码怎么写，我又逛起了 Google</p>
+<p>找到了：<a href="https://stackoverflow.com/questions/1592876/make-a-borderless-form-movable/1592899#1592899" target="_blank" rel="noopener">传送门：Make a borderless form movable?</a></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">const</span> <span class="keyword">int</span> WM_NCLBUTTONDOWN = <span class="number">0xA1</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">const</span> <span class="keyword">int</span> HT_CAPTION = <span class="number">0x2</span>;</span><br><span class="line"></span><br><span class="line">[<span class="meta">System.Runtime.InteropServices.DllImportAttribute(<span class="meta-string">"user32.dll"</span>)</span>]</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">extern</span> <span class="keyword">int</span> <span class="title">SendMessage</span>(<span class="params">IntPtr hWnd, <span class="keyword">int</span> Msg, <span class="keyword">int</span> wParam, <span class="keyword">int</span> lParam</span>)</span>;</span><br><span class="line">[<span class="meta">System.Runtime.InteropServices.DllImportAttribute(<span class="meta-string">"user32.dll"</span>)</span>]</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">extern</span> <span class="keyword">bool</span> <span class="title">ReleaseCapture</span>(<span class="params"></span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Form1_MouseDown</span>(<span class="params"><span class="keyword">object</span> sender, System.Windows.Forms.MouseEventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (e.Button == MouseButtons.Left)</span><br><span class="line">    &#123;</span><br><span class="line">        ReleaseCapture();</span><br><span class="line">        SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, <span class="number">0</span>); <span class="comment">// 关键，这行代码必须在 UI 线程中执行</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This essentially does exactly the same as grabbing the title bar of a window, from the window manager’s point of view.</p>
+<p>这样，当鼠标拖动到屏幕边界最大化窗口的功能也有了。</p>
+<h4 id="得到设置-CSS-webkit-app-region-drag-的区域"><a href="#得到设置-CSS-webkit-app-region-drag-的区域" class="headerlink" title="得到设置 CSS -webkit-app-region: drag 的区域"></a>得到设置 CSS -webkit-app-region: drag 的区域</h4><p>CefSharp 项目中的 CefSharp.Wpf.Example 写过 Handle</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Copyright © 2016 The CefSharp Authors. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Drawing;</span><br><span class="line"><span class="keyword">using</span> CefSharp.Enums;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">CefSharp.Wpf.Example.Handlers</span></span><br><span class="line">&#123;</span><br><span class="line">    public class DragHandler : IDragHandler, IDisposable</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">event</span> Action&lt;Region&gt; RegionsChanged;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> Region draggableRegion; <span class="comment">// 需要在当按下鼠标左键时判断指针是否正处于该区域中</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">bool</span> IDragHandler.OnDragEnter(IWebBrowser browserControl, IBrowser browser, IDragData dragData, DragOperationsMask mask)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">void</span> IDragHandler.OnDraggableRegionsChanged(IWebBrowser browserControl, IBrowser browser, IList&lt;DraggableRegion&gt; regions)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//By default popup browers are native windows in WPF so we cannot handle their drag using this method</span></span><br><span class="line">            <span class="keyword">if</span> (browser.IsPopup == <span class="literal">false</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//<span class="doctag">NOTE:</span> I haven't tested with dynamically adding removing regions so this may need some tweaking</span></span><br><span class="line">                draggableRegion = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (regions.Count &gt; <span class="number">0</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="comment">//Take the individual Region and construct a complex Region that represents them all.</span></span><br><span class="line">                    <span class="comment">// 得到设置了 CSS -webkit-app-region 的所有区域</span></span><br><span class="line">                    <span class="keyword">foreach</span> (<span class="keyword">var</span> region <span class="keyword">in</span> regions)</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="keyword">var</span> rect = <span class="keyword">new</span> Rectangle(region.X, region.Y, region.Width, region.Height);</span><br><span class="line"></span><br><span class="line">                        <span class="keyword">if</span> (draggableRegion == <span class="literal">null</span>)</span><br><span class="line">                        &#123;</span><br><span class="line">                            draggableRegion = <span class="keyword">new</span> Region(rect);</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">else</span></span><br><span class="line">                        &#123;</span><br><span class="line">                            <span class="keyword">if</span> (region.Draggable) <span class="comment">// -webkit-app-region: drag</span></span><br><span class="line">                            &#123;</span><br><span class="line">                                draggableRegion.Union(rect);</span><br><span class="line">                            &#125;</span><br><span class="line">                            <span class="keyword">else</span> <span class="comment">// -webkit-app-region: no-drag</span></span><br><span class="line">                            &#123;</span><br><span class="line">                                <span class="comment">//In the scenario where we have an outer region, that is draggable and it has</span></span><br><span class="line">                                <span class="comment">// an inner region that's not, we must exclude the non draggable.</span></span><br><span class="line">                                <span class="comment">// Not all scenarios are covered in this example.</span></span><br><span class="line">                                draggableRegion.Exclude(rect);</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">var</span> handler = RegionsChanged;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (handler != <span class="literal">null</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    handler(draggableRegion);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Dispose</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            RegionsChanged = <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="判断指针坐标是否在-Region-内"><a href="#判断指针坐标是否在-Region-内" class="headerlink" title="判断指针坐标是否在 Region 内"></a>判断指针坐标是否在 Region 内</h4><p>通过上面的代码，我们得到了 <code>Region draggableRegion</code>。</p>
+<p>如何判断鼠标指针 (x, y) 是否处于 <code>draggableRegion</code> 区域中？</p>
+<p><a href="https://stackoverflow.com/questions/4816297/how-to-know-if-a-graphicspath-contains-a-point-in-c-sharp" target="_blank" rel="noopener">参阅 Stackoverflow：How to know if a GraphicsPath contains a point in C#</a></p>
+<p>A GraphicsPath has the IsVisible method to check if a point is in the path.</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> isInPath = draggableRegion.IsVisible(x, y)</span><br><span class="line"><span class="comment">// 或</span></span><br><span class="line"><span class="keyword">bool</span> isInPath = draggableRegion.IsVisible(Point)</span><br></pre></td></tr></table></figure>
+<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.drawing.region.isvisible" target="_blank" rel="noopener">官方文档：Region.IsVisible Method</a></p>
+<h4 id="WndProc-函数，如何获取鼠标指针坐标-x-y-？"><a href="#WndProc-函数，如何获取鼠标指针坐标-x-y-？" class="headerlink" title="WndProc 函数，如何获取鼠标指针坐标 (x, y) ？"></a>WndProc 函数，如何获取鼠标指针坐标 (x, y) ？</h4><p><strong>方法一</strong></p>
+<p>处理 message.LParam 得到 x, y</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ushort</span> x = LOWORD((<span class="keyword">uint</span>)message.LParam);</span><br><span class="line"><span class="keyword">ushort</span> y = HIWORD((<span class="keyword">uint</span>)message.LParam);</span><br></pre></td></tr></table></figure>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">ushort</span> <span class="title">LOWORD</span>(<span class="params"><span class="keyword">uint</span> <span class="keyword">value</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (<span class="keyword">ushort</span>)(<span class="keyword">value</span> &amp; <span class="number">0xFFFF</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">ushort</span> <span class="title">HIWORD</span>(<span class="params"><span class="keyword">uint</span> <span class="keyword">value</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (<span class="keyword">ushort</span>)(<span class="keyword">value</span> &gt;&gt; <span class="number">16</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">byte</span> <span class="title">LOWBYTE</span>(<span class="params"><span class="keyword">ushort</span> <span class="keyword">value</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (<span class="keyword">byte</span>)(<span class="keyword">value</span> &amp; <span class="number">0xFF</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">byte</span> <span class="title">HIGHBYTE</span>(<span class="params"><span class="keyword">ushort</span> <span class="keyword">value</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (<span class="keyword">byte</span>)(<span class="keyword">value</span> &gt;&gt; <span class="number">8</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>方法二</strong></p>
+<p>直接 new 一个 Point</p>
+<p><a href="https://stackoverflow.com/questions/9748754/wndproc-hook-lparam-to-xy-cords" target="_blank" rel="noopener">Stackoverflow: WndProc Hook lParam to xy cords?</a></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Point point = <span class="keyword">new</span> Point(message.LParam.ToInt32());</span><br></pre></td></tr></table></figure>
+<p>选择方法二，简单直接。</p>
+<h4 id="委托在-UI-线程中执行"><a href="#委托在-UI-线程中执行" class="headerlink" title="委托在 UI 线程中执行"></a>委托在 UI 线程中执行</h4><p>执行 SendMessage 必须在 UI 线程中，否则无效。</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SendHandleMessage</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (InvokeRequired) &#123; Invoke(<span class="keyword">new</span> SendHandleMessageDelegate(SendHandleMessage), <span class="keyword">new</span> <span class="keyword">object</span>[] &#123; &#125;); <span class="keyword">return</span>; &#125;</span><br><span class="line"></span><br><span class="line">  SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">SendHandleMessageDelegate</span>(<span class="params"></span>)</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="Ending"><a href="#Ending" class="headerlink" title="Ending"></a>Ending</h4><p>觉得其他有用的链接：</p>
+<p><a href="https://github.com/cefsharp/CefSharp/blob/2153c51d156a9891cfd380554abd2a1263be4f3b/CefSharp.WinForms.Example/BrowserTabUserControl.cs" target="_blank" rel="noopener">GitHub: /CefSharp.WinForms.Example/BrowserTabUserControl.cs</a></p>
+<p><a href="https://github.com/cefsharp/CefSharp/blob/72c1babab90283d4f3108699cb0818e720d51b04/CefSharp.Example/Resources/DraggableRegionTest.html" target="_blank" rel="noopener">GitHub: /CefSharp.Example/Resources/DraggableRegionTest.html</a></p>
+<p><a href="https://github.com/cefsharp/CefSharp/blob/30ee538ce0e0d1d33ed838665758ec2061165224/CefSharp.Wpf.Example/Handlers/DragHandler.cs" target="_blank" rel="noopener">GitHub: /CefSharp.Wpf.Example/Handlers/DragHandler.cs)</a></p>
+<p><a href="https://stackoverflow.com/questions/10355286/programmatically-mouse-click-in-another-window" target="_blank" rel="noopener">Stackoverflow： programmatically mouse click in another window</a></p>
+<p><a href="https://www.cnblogs.com/lanmiao/articles/2238239.html" target="_blank" rel="noopener">C# 重写WndProc 拦截 发送 系统消息 + windows消息常量值（2）</a></p>
+<p><a href="https://blog.csdn.net/tonggen7135/article/details/78748067" target="_blank" rel="noopener">C# 利用委托跨线程调用UI控件完整使用方法</a></p>
+<p><a href="https://stackoverflow.com/questions/7061531/rendering-controls-on-glass-solution-found-needs-double-buffering-perfecting" target="_blank" rel="noopener">Stackoverflow C# – 在玻璃上渲染控件：发现解决方案,需要双缓冲/完善</a></p>
+
+        
+        </div>
+        
+            
+            <div class="article-copyright">本站文章除注明转载外均为原创，未经允许不要转载哇. ヾ(ﾟｰﾟヾ) http://qwqaq.com/57a3ffd3.html</div>
+            
+        
+<div class="article-tag-block">
+    <i class="zmdi zmdi-tag"></i>
+    <a class="tag-link" href="/tags/CSharp/">CSharp</a><a class="tag-link" href="/tags/CefSharp/">CefSharp</a><a class="tag-link" href="/tags/Electron/">Electron</a><a class="tag-link" href="/tags/可拖拽区/">可拖拽区</a><a class="tag-link" href="/tags/无边框/">无边框</a><a class="tag-link" href="/tags/监听鼠标事件/">监听鼠标事件</a>
+</div>
+
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://qwqaq.com/57a3ffd3.html" data-id="cjqamww7x00bpm4w3ps716nss" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="zmdi zmdi-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="zmdi zmdi-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="zmdi zmdi-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="zmdi zmdi-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+
+        </footer>
+        
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/4c3dd4c7.html" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">坚果 Pro 2 保留数据线刷救砖包</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments"><script src="/libs/artalk/Artalk.js"></script>
+<div id="ArtalkComments"></div>
+<script>
+  var artalk = new Artalk({
+    el: '#ArtalkComments',
+    placeholder: '来啊，快活啊 (/ω＼)',
+    defaultAvatar: 'mp',
+    pageSize: 50,
+    pageKey: 'http://qwqaq.com/57a3ffd3.html',
+    serverUrl: 'https://qwqaq.com/Artalk/index.php'
+  })
+</script>
+</section>
+    
+
+
+
+</section>
+            
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/57a3ffd3.html" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/CSharp/">CSharp</a></p>
+                            <p class="item-title"><a href="/57a3ffd3.html" class="title">CefSharp 实现类似 Electron 可拖拽区功能</a></p>
+                            <p class="item-date"><time datetime="2018-12-30T01:52:15.000Z" itemprop="datePublished">2018-12-30</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/4c3dd4c7.html" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/日常/">日常</a></p>
+                            <p class="item-title"><a href="/4c3dd4c7.html" class="title">坚果 Pro 2 保留数据线刷救砖包</a></p>
+                            <p class="item-date"><time datetime="2018-12-16T05:12:04.000Z" itemprop="datePublished">2018-12-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/e3b3237d.html" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/开发工具/">开发工具</a><i class="zmdi zmdi-chevron-right"></i><a class="article-category-link" href="/categories/开发工具/Hyper/">Hyper</a></p>
+                            <p class="item-title"><a href="/e3b3237d.html" class="title">解决 Hyper + bash.exe 执行 clear 显示问题</a></p>
+                            <p class="item-date"><time datetime="2018-12-13T09:19:26.000Z" itemprop="datePublished">2018-12-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/50b0de2d.html" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/GitHub-Star/">GitHub Star</a></p>
+                            <p class="item-title"><a href="/50b0de2d.html" class="title">Lazer-Database PHP使用JSON文件做数据库</a></p>
+                            <p class="item-date"><time datetime="2018-12-01T13:05:57.000Z" itemprop="datePublished">2018-12-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/c3c8f6d1.html" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/GitHub-Star/">GitHub Star</a></p>
+                            <p class="item-title"><a href="/c3c8f6d1.html" class="title">BaiduPCS-Go 全速下载百度云文件</a></p>
+                            <p class="item-date"><time datetime="2018-12-01T12:46:27.000Z" itemprop="datePublished">2018-12-01</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CSharp/">CSharp</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-Star/">GitHub Star</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/Vue/">Vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/">开发工具</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/Hyper/">Hyper</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/VSCode/">VSCode</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/日常/">日常</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/爬虫/">爬虫</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生产环境/">生产环境</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/生产环境/Apache/">Apache</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/硬件/">硬件</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/硬件/Arduino/">Arduino</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/项目/">项目</a><span class="category-list-count">6</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="zmdi zmdi-chevron-up"></div>
+</aside>
+
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 QWQAQ<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme <a href="https://github.com/qwqcode/hexo-theme-icarus">icarus</a>
+        </div>
+    </div>
+</footer>
+
+        
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+</body>
+</html>

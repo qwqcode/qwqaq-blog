@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qwqaq.com/"/>
-  <updated>2018-12-16T05:29:38.673Z</updated>
+  <updated>2018-12-30T08:29:26.743Z</updated>
   <id>http://qwqaq.com/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CefSharp 实现类似 Electron 可拖拽区功能</title>
+    <link href="http://qwqaq.com/57a3ffd3.html"/>
+    <id>http://qwqaq.com/57a3ffd3.html</id>
+    <published>2018-12-30T01:52:15.000Z</published>
+    <updated>2018-12-30T08:29:26.743Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在 &lt;a href=&quot;https://electronjs.org/docs/api/frameless-window&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Electron 文档&lt;/a&gt; 中这样写道：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;可拖拽区：默认情况下, 无边框窗口是不可拖拽的。 应用程序需要在 CSS 中指定 &lt;code&gt;-webkit-app-region: drag&lt;/code&gt; 来告诉 Electron 哪些区域是可拖拽的（如操作系统的标准标题栏），在可拖拽区域内部使用 &lt;code&gt;-webkit-app-region: no-drag&lt;/code&gt; 则可以将其中部分区域排除。 请注意, 当前只支持矩形形状。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如果能让 CefSharp 实现像 Electron 这样的功能，那我就能在设置了无边框的窗体上美滋滋地自定义标题栏，例如：Material Design, Fluent Design… 而不仅仅是 WinForm 自带的风格。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="CSharp" scheme="http://qwqaq.com/categories/CSharp/"/>
+    
+    
+      <category term="CSharp" scheme="http://qwqaq.com/tags/CSharp/"/>
+    
+      <category term="CefSharp" scheme="http://qwqaq.com/tags/CefSharp/"/>
+    
+      <category term="Electron" scheme="http://qwqaq.com/tags/Electron/"/>
+    
+      <category term="无边框" scheme="http://qwqaq.com/tags/%E6%97%A0%E8%BE%B9%E6%A1%86/"/>
+    
+      <category term="可拖拽区" scheme="http://qwqaq.com/tags/%E5%8F%AF%E6%8B%96%E6%8B%BD%E5%8C%BA/"/>
+    
+      <category term="监听鼠标事件" scheme="http://qwqaq.com/tags/%E7%9B%91%E5%90%AC%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>坚果 Pro 2 保留数据线刷救砖包</title>
@@ -492,34 +526,6 @@
     
       <category term="日常" scheme="http://qwqaq.com/categories/%E6%97%A5%E5%B8%B8/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>开源项目：Nacollector</title>
-    <link href="http://qwqaq.com/65c99d88.html"/>
-    <id>http://qwqaq.com/65c99d88.html</id>
-    <published>2018-05-31T14:14:49.000Z</published>
-    <updated>2018-08-26T08:22:04.889Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;实用的电商工具箱 淘宝、天猫、苏宁、国美 图片采集 预览 邀请… 淘宝账号登录 多线程异步 任务管理器 下载内容管理器 Cookie 获取器 实时日志。C#, CefSharp, WebDriver, Material Design&lt;/p&gt;
-&lt;p&gt;暑假作品 Jul 24, 2017&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/qwqcode/Nacollector&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;前往 GitHub&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="项目" scheme="http://qwqaq.com/categories/%E9%A1%B9%E7%9B%AE/"/>
-    
-    
-      <category term="CSharp" scheme="http://qwqaq.com/tags/CSharp/"/>
-    
-      <category term="项目" scheme="http://qwqaq.com/tags/%E9%A1%B9%E7%9B%AE/"/>
-    
-      <category term="开源项目" scheme="http://qwqaq.com/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
-    
-      <category term="QWQCODE" scheme="http://qwqaq.com/tags/QWQCODE/"/>
     
   </entry>
   
