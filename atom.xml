@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qwqaq.com/"/>
-  <updated>2018-12-31T16:08:02.369Z</updated>
+  <updated>2019-01-18T10:33:31.929Z</updated>
   <id>http://qwqaq.com/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>201901 快乐寒假作业</title>
+    <link href="http://qwqaq.com/5a8e07f0.html"/>
+    <id>http://qwqaq.com/5a8e07f0.html</id>
+    <published>2019-01-18T10:00:07.000Z</published>
+    <updated>2019-01-18T10:33:31.929Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;I know, U know, We all know…&lt;/p&gt;
+&lt;p&gt;WocWocWocWoc*∞&lt;/p&gt;
+&lt;h2 id=&quot;语文&quot;&gt;&lt;a href=&quot;#语文&quot; class=&quot;headerlink&quot; title=&quot;语文&quot;&gt;&lt;/a&gt;语文&lt;/h2&gt;&lt;ul&gt;
+&lt;li
+        
+      
+    
+    </summary>
+    
+      <category term="日常" scheme="http://qwqaq.com/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+      <category term="作业" scheme="http://qwqaq.com/tags/%E4%BD%9C%E4%B8%9A/"/>
+    
+      <category term="快乐寒假" scheme="http://qwqaq.com/tags/%E5%BF%AB%E4%B9%90%E5%AF%92%E5%81%87/"/>
+    
+  </entry>
   
   <entry>
     <title>Nacollector v1.3.0.0 发布</title>
@@ -507,37 +538,6 @@
       <category term="前端开发" scheme="http://qwqaq.com/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
       <category term="学习笔记" scheme="http://qwqaq.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue 报错 「Failed to mount component」</title>
-    <link href="http://qwqaq.com/83cd7c12.html"/>
-    <id>http://qwqaq.com/83cd7c12.html</id>
-    <published>2018-07-02T14:33:22.000Z</published>
-    <updated>2018-07-03T07:04:36.304Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;/images/post/201807022323.png&quot; alt=&quot;201807022323.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;vue-loader 更新导致&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="前端" scheme="http://qwqaq.com/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="Vue" scheme="http://qwqaq.com/categories/%E5%89%8D%E7%AB%AF/Vue/"/>
-    
-    
-      <category term="webpack" scheme="http://qwqaq.com/tags/webpack/"/>
-    
-      <category term="前端" scheme="http://qwqaq.com/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="Vue" scheme="http://qwqaq.com/tags/Vue/"/>
-    
-      <category term="vue-loader" scheme="http://qwqaq.com/tags/vue-loader/"/>
-    
-      <category term="错误处理" scheme="http://qwqaq.com/tags/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/"/>
     
   </entry>
   
