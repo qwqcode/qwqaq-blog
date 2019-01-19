@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qwqaq.com/"/>
-  <updated>2019-01-18T10:38:27.445Z</updated>
+  <updated>2019-01-19T14:13:13.016Z</updated>
   <id>http://qwqaq.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>网易云音乐 模拟真实操作 一键清除每天 99+ 的私信角标</title>
+    <link href="http://qwqaq.com/fe2cece5.html"/>
+    <id>http://qwqaq.com/fe2cece5.html</id>
+    <published>2019-01-18T11:20:00.000Z</published>
+    <updated>2019-01-19T14:13:13.016Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;强迫症患者受不了每天 99+ 的角标，然而网易云音乐迟迟不做一键全部标为已读按钮，所以决定自己实现这个功能。本文将讲述：通过模拟真实操作，在云音乐网页版私信页面（使用 iframe 局部刷新的页面）连续查看私信并返回列表来实现一键清除角标的功能。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="JS" scheme="http://qwqaq.com/categories/JS/"/>
+    
+    
+      <category term="网易云音乐" scheme="http://qwqaq.com/tags/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/"/>
+    
+      <category term="消除角标" scheme="http://qwqaq.com/tags/%E6%B6%88%E9%99%A4%E8%A7%92%E6%A0%87/"/>
+    
+      <category term="强迫症" scheme="http://qwqaq.com/tags/%E5%BC%BA%E8%BF%AB%E7%97%87/"/>
+    
+  </entry>
   
   <entry>
     <title>201901 快乐寒假的作业</title>
@@ -502,34 +526,6 @@
       <category term="错误处理" scheme="http://qwqaq.com/tags/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/"/>
     
       <category term="php_openssl" scheme="http://qwqaq.com/tags/php-openssl/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JS 模块化规范：CommonJS, AMD, CMD, UMD, ESM</title>
-    <link href="http://qwqaq.com/b8fd304a.html"/>
-    <id>http://qwqaq.com/b8fd304a.html</id>
-    <published>2018-07-03T07:01:13.000Z</published>
-    <updated>2018-11-24T16:04:10.660Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;模块化开发就像工厂生产手机一样，用多个模块组成一个完整的应用程序。JS 模块化开发有比较长的历史，早期流行 命名空间 的开发思想，到后来有了一些模块化开发的规范，最先是 CommonJS （诞生于 NodeJS 社区，但这是在本地用的，并不适合浏览器端），后来 AMD、CMD、UMD、ESM 等规范相继诞生。因为 JS 并未提供一种原生的、语言级别的模块化开发模式，而是将模块化的方法交给开发者来实现，所以这些规范的诞生，让用 JS 进行模块化开发变得规范。这是我的学习笔记，记录各种 JS 模块化规范，它们之间有什么区别。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="前端" scheme="http://qwqaq.com/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="CommonJS" scheme="http://qwqaq.com/tags/CommonJS/"/>
-    
-      <category term="RequireJS" scheme="http://qwqaq.com/tags/RequireJS/"/>
-    
-      <category term="ES6" scheme="http://qwqaq.com/tags/ES6/"/>
-    
-      <category term="前端开发" scheme="http://qwqaq.com/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="学习笔记" scheme="http://qwqaq.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
