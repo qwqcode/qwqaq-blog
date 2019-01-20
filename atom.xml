@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qwqaq.com/"/>
-  <updated>2019-01-19T14:13:29.286Z</updated>
+  <updated>2019-01-20T15:57:17.416Z</updated>
   <id>http://qwqaq.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>纯 CSS 自写一个 刀剑神域 SAO UI 的 HP Bar</title>
+    <link href="http://qwqaq.com/e90e2cd7.html"/>
+    <id>http://qwqaq.com/e90e2cd7.html</id>
+    <published>2019-01-20T14:48:07.000Z</published>
+    <updated>2019-01-20T15:57:17.416Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;觉得刀剑神域序这部神番的 SAO UI 好好看呀～～ 哇哇哇～～～ 想尝试着用 CSS 自己写一个（虽然想着就麻烦），就当练习一下 CSS，看看我能不能写的出来。结果受尽折磨，虽然还有点意思。。。CSS 来做嘛，效果不是很好，仔细看能看出中间边框那里有一点点瑕疵，斜切的效果比较难搞。。特别是血量的中间部分（喷血&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="前端" scheme="http://qwqaq.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="CSS" scheme="http://qwqaq.com/categories/%E5%89%8D%E7%AB%AF/CSS/"/>
+    
+    
+      <category term="刀剑神域" scheme="http://qwqaq.com/tags/%E5%88%80%E5%89%91%E7%A5%9E%E5%9F%9F/"/>
+    
+      <category term="SAO" scheme="http://qwqaq.com/tags/SAO/"/>
+    
+      <category term="UI" scheme="http://qwqaq.com/tags/UI/"/>
+    
+      <category term="CSS" scheme="http://qwqaq.com/tags/CSS/"/>
+    
+  </entry>
   
   <entry>
     <title>网易云音乐 模拟真实操作 一键清除每天 99+ 的私信角标</title>
@@ -501,30 +529,6 @@
       <category term="GitHub" scheme="http://qwqaq.com/tags/GitHub/"/>
     
       <category term="社会化编程" scheme="http://qwqaq.com/tags/%E7%A4%BE%E4%BC%9A%E5%8C%96%E7%BC%96%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决 Unable to find the wrapper https</title>
-    <link href="http://qwqaq.com/cf5f6a0e.html"/>
-    <id>http://qwqaq.com/cf5f6a0e.html</id>
-    <published>2018-07-15T16:55:41.000Z</published>
-    <updated>2018-07-15T17:02:29.695Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;Error creating resource: [message] fopen(): Unable to find the wrapper “https” - did you forget to enable it when you configured PHP?&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="PHP" scheme="http://qwqaq.com/categories/PHP/"/>
-    
-    
-      <category term="错误处理" scheme="http://qwqaq.com/tags/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/"/>
-    
-      <category term="php_openssl" scheme="http://qwqaq.com/tags/php-openssl/"/>
     
   </entry>
   
