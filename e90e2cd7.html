@@ -14,7 +14,7 @@
 <meta property="og:description" content="觉得刀剑神域序这部神番的 SAO UI 好好看呀～～ 哇哇哇～～～ 想尝试着用 CSS 自己写一个（虽然想着就麻烦），就当练习一下 CSS，看看我能不能写的出来。结果受尽折磨，虽然还有点意思。。。CSS 来做嘛，效果不是很好，仔细看能看出中间边框那里有一点点瑕疵，斜切的效果比较难搞。。特别是血量的中间部分（喷血">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://qwqaq.com/images/banner/SAO_UI_HP_BAR.jpg">
-<meta property="og:updated_time" content="2019-01-20T16:59:37.758Z">
+<meta property="og:updated_time" content="2019-01-23T02:57:14.820Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="纯 CSS 自写一个 刀剑神域 SAO UI 的 HP Bar">
 <meta name="twitter:description" content="觉得刀剑神域序这部神番的 SAO UI 好好看呀～～ 哇哇哇～～～ 想尝试着用 CSS 自己写一个（虽然想着就麻烦），就当练习一下 CSS，看看我能不能写的出来。结果受尽折磨，虽然还有点意思。。。CSS 来做嘛，效果不是很好，仔细看能看出中间边框那里有一点点瑕疵，斜切的效果比较难搞。。特别是血量的中间部分（喷血">
@@ -307,6 +307,7 @@ var _hmt = _hmt || [];
 <p>实现效果：</p>
 <p><img src="../images/post/SAO_UI_HP_BAR_3.gif" alt=""></p>
 <p>最后将血量拆分为 4 个 div 部分（正 + 斜 + 正 + 斜），用 <code>position: absolute</code> 的方法一个一个拼起来</p>
+<p>P.S. 其实可以拆分为 3 个部分（正 + 斜 + 斜）… 算了… 懒得改了</p>
 <p><img src="../images/post/SAO_UI_HP_BAR_4.png" alt=""></p>
 <p>我把边框做成单独的一层，<code>position: absolute</code>，然后 <code>z-index</code> 设置为最大（置顶），同理和血量一起倾斜</p>
 <p>HTML 结构是这样的。。。</p>
@@ -342,7 +343,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://qwqaq.com/e90e2cd7.html" data-id="cjr5r3wsl0040zow3h8en3g5u" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
+    <a data-url="http://qwqaq.com/e90e2cd7.html" data-id="cjr8llod3003oj4w3zggix5c8" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
