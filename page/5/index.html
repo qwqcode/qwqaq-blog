@@ -276,7 +276,7 @@ var _hmt = _hmt || [];
         
         <div class="article-entry" itemprop="articleBody">
         
-            <h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] agrs)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">new</span> a();</span><br><span class="line">		b classB = <span class="keyword">new</span> b();</span><br><span class="line">		classB.init();</span><br><span class="line">		classB.action();</span><br><span class="line">		c classC = <span class="keyword">new</span> c();</span><br><span class="line">		classC.cAction();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">a</span> </span>&#123;</span><br><span class="line">		<span class="keyword">public</span> <span class="keyword">static</span> String[] ha = <span class="keyword">new</span> String[<span class="number">2</span>];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">b</span> </span>&#123;</span><br><span class="line">		<span class="keyword">private</span> String mHa;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="keyword">this</span>.mHa = a.ha;</span><br><span class="line">			<span class="keyword">this</span>.mHa[<span class="number">0</span>] = <span class="string">"NONE0"</span>;</span><br><span class="line">			<span class="keyword">this</span>.mHa[<span class="number">1</span>] = <span class="string">"NONE1"</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">action</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="keyword">this</span>.mHa[<span class="number">0</span>] = <span class="string">"Hello0"</span>;</span><br><span class="line">			<span class="keyword">this</span>.mHa[<span class="number">1</span>] = <span class="string">"Hello1"</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">c</span> </span>&#123;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">cAction</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="keyword">for</span> (String item : a.ha) &#123;</span><br><span class="line">				System.out.println(item + <span class="string">"\n"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 结果为</span></span><br><span class="line"><span class="comment">// Hello0</span></span><br><span class="line"><span class="comment">// Hello1</span></span><br></pre></td></tr></table></figure>
+            <p>静态变量（Static Variable）在计算机编程领域指在程序执行前系统就为之静态分配（也即在运行时中不再改变分配情况）存储空间的一类变量。与之相对应的是在运行时只暂时存在的自动变量（即局部变量）与以动态分配方式获取存储空间的一些对象，其中自动变量的存储空间在调用栈上分配与释放。 <a href="https://zh.wikipedia.org/wiki/%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F" target="_blank" rel="noopener">Wikipedia</a></p>
             <p class="article-more-link">
                 <a href="/78f87e97.html">继续阅览 <i class="zmdi zmdi-chevron-right"></i></a>
             </p>
@@ -337,72 +337,7 @@ var _hmt = _hmt || [];
         
         <div class="article-entry" itemprop="articleBody">
         
-            <h2 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h2><h4 id="包名"><a href="#包名" class="headerlink" title="包名"></a>包名</h4><table>
-<thead>
-<tr>
-<th>包名</th>
-<th>此包中包含</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>com.xx.应用名称缩写.activity</td>
-<td>页面用到的Activity类 (activitie层级名用户界面层)</td>
-</tr>
-<tr>
-<td>com.xx.应用名称缩写.fragment</td>
-<td>页面用到的fragment</td>
-</tr>
-<tr>
-<td>com.xx.应用名称缩写.base</td>
-<td>基础共享的类</td>
-</tr>
-<tr>
-<td>com.xx.应用名称缩写.config</td>
-<td>通用的配置</td>
-</tr>
-<tr>
-<td>com.xx.应用名称缩写.global</td>
-<td>全局的监听实现类等</td>
-</tr>
-<tr>
-<td>com.xx.应用名称缩写.adapter</td>
-<td>页面用到的Adapter类 (适配器的类)</td>
-</tr>
-<tr>
-<td>com.xx.应用名称缩写.util</td>
-<td>此包中包含：公共工具方法类（util模块名）命名与第三方的utils作区分</td>
-</tr>
-<tr>
-<td>com.xx.应用名称缩写.bean</td>
-<td>下面可分：vo(本地类)、bo（远程类）、dto（传递引用类）</td>
-</tr>
-<tr>
-<td>com.xx.应用名称缩写.model</td>
-<td>此包中包含：模型类</td>
-</tr>
-<tr>
-<td>com.xx.应用名称缩写.db</td>
-<td>数据库操作类</td>
-</tr>
-<tr>
-<td>com.xx.应用名称缩写.view</td>
-<td>自定义的View类等，可通用，与app业务无关的</td>
-</tr>
-<tr>
-<td>com.xx.应用名称缩写.widget</td>
-<td>自定义的View类等，与app业务相关的</td>
-</tr>
-<tr>
-<td>com.xx.应用名称缩写.service</td>
-<td>Service服务，后台服务</td>
-</tr>
-<tr>
-<td>com.xx.应用名称缩写.receiver</td>
-<td>BroadcastReceiver服务，接收通知</td>
-</tr>
-</tbody>
-</table>
+            <p>常用的 Android 命名规则</p>
             <p class="article-more-link">
                 <a href="/d3744f0c.html">继续阅览 <i class="zmdi zmdi-chevron-right"></i></a>
             </p>
@@ -652,6 +587,16 @@ var _hmt = _hmt || [];
     <article id="post-拼多多自动回复代码" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
+            
+	
+		<a href="/6015b045.html" itemprop="url">
+            <img src="/images/banner/Pinduoduo.png" class="article-banner">
+        </a>
+	
+
+
+
+        
         
             <header class="article-header">
                 
@@ -700,7 +645,7 @@ var _hmt = _hmt || [];
 
 
 
-    <article id="post-c中-thread，task，asyncawait，iasyncresult-的那些事儿！" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-cs中-thread，task，asyncawait，iasyncresult-的那些事儿！" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -740,8 +685,8 @@ var _hmt = _hmt || [];
             
             
             <p>说起异步，Thread，Task，async/await，IAsyncResult 这些东西肯定是绕不开的，今天就来依次聊聊他们</p>
-<h3 id="1-线程（Thread）"><a href="#1-线程（Thread）" class="headerlink" title="1.线程（Thread）"></a>1.线程（Thread）</h3><p>多线程的意义在于一个应用程序中，有多个执行部分可以同时执行；对于比较耗时的操作(例如io，数据库操作)，或者等待响应(如WCF通信)的操作，可以单独开启后台线程来执行，这样主线程就不会阻塞，可以继续往下执行；等到后台线程执行完毕，再通知主线程，然后做出对应操作！</p>
-<p><a href="http://www.cnblogs.com/doforfuture/p/6293926.html）" target="_blank" rel="noopener">全文传送门</a></p>
+<p>多线程的意义在于一个应用程序中，有多个执行部分可以同时执行；对于比较耗时的操作(例如io，数据库操作)，或者等待响应(如WCF通信)的操作，可以单独开启后台线程来执行，这样主线程就不会阻塞，可以继续往下执行；等到后台线程执行完毕，再通知主线程，然后做出对应操作！</p>
+<p><a href="http://www.cnblogs.com/doforfuture/p/6293926.html）" target="_blank" rel="noopener">传送门</a></p>
 
         
         </div>
@@ -790,9 +735,10 @@ var _hmt = _hmt || [];
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            
-            <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 路径中提取文件名</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">extractFilename</span> (<span class="params">path</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> lastSlash = <span class="built_in">Math</span>.max(path.lastIndexOf(<span class="string">'\\'</span>), path.lastIndexOf(<span class="string">'/'</span>));</span><br><span class="line">    <span class="keyword">return</span> path.substring(lastSlash + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <p>这是一个可以用来提取出路径字符串中的文件名的 JS 自定义函数</p>
+            <p class="article-more-link">
+                <a href="/504f1898.html">继续阅览 <i class="zmdi zmdi-chevron-right"></i></a>
+            </p>
         
         </div>
         
@@ -805,6 +751,16 @@ var _hmt = _hmt || [];
 
     <article id="post-浏览器-根据-url-地址创建一个下载任务函数" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
+        
+            
+	
+		<a href="/e8febe.html" itemprop="url">
+            <img src="/images/banner/download.png" class="article-banner">
+        </a>
+	
+
+
+
         
         
             <header class="article-header">

@@ -13,10 +13,12 @@
 <meta property="og:site_name" content="QWQAQ 的博客">
 <meta property="og:description" content="浏览器中用 JS 代码根据 URL 地址创建一个下载任务（弹出另存为窗口）的自定义函数 效果等同于 右键 &amp;gt; 另存为">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-02T06:59:11.514Z">
+<meta property="og:image" content="http://qwqaq.com/images/banner/download.png">
+<meta property="og:updated_time" content="2019-01-24T05:48:53.796Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器根据 URL 地址创建一个下载任务函数">
 <meta name="twitter:description" content="浏览器中用 JS 代码根据 URL 地址创建一个下载任务（弹出另存为窗口）的自定义函数 效果等同于 右键 &amp;gt; 另存为">
+<meta name="twitter:image" content="http://qwqaq.com/images/banner/download.png">
     
 
     
@@ -242,6 +244,14 @@ var _hmt = _hmt || [];
             <section id="main"><article id="post-浏览器-根据-url-地址创建一个下载任务函数" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
+            
+	
+		<img src="/images/banner/download.png" class="article-banner">
+	
+
+
+
+        
         
             <header class="article-header">
                 
@@ -281,7 +291,8 @@ var _hmt = _hmt || [];
             <p>浏览器中用 JS 代码根据 URL 地址创建一个下载任务（弹出<code>另存为</code>窗口）的自定义函数</p>
 <p>效果等同于 右键 &gt; 另存为</p>
 <a id="more"></a>
-<p>Chrome 浏览器测试可用</p>
+<p><del>Chrome 浏览器测试可用</del></p>
+<p>2019/12 更新：Chrome v69 已不能使用这个方法来创建指定的下载。</p>
 <h3 id="原生"><a href="#原生" class="headerlink" title="原生"></a>原生</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">downloadFileJS</span>(<span class="params">srcUrl</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>);</span><br><span class="line">    a.setAttribute(<span class="string">'href'</span>, srcUrl);</span><br><span class="line">    a.setAttribute(<span class="string">'download'</span>,<span class="string">''</span>);</span><br><span class="line">    a.click();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">downloadFile</span>(<span class="params">srcUrl</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> $a = $(<span class="string">"&lt;a&gt;&lt;/a&gt;"</span>).attr(<span class="string">"href"</span>, srcUrl).attr(<span class="string">"download"</span>, <span class="string">""</span>);</span><br><span class="line">    $a[<span class="number">0</span>].click();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><a href="https://www.w3schools.com/tags/att_a_download.asp" target="_blank" rel="noopener">参考 https://www.w3schools.com/tags/att_a_download.asp</a></p>
@@ -305,7 +316,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://qwqaq.com/e8febe.html" data-id="cjra3jw3t005nn8w3ufzygcfd" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
+    <a data-url="http://qwqaq.com/e8febe.html" data-id="cjra3q9fl003nxow3ovt7je3u" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding

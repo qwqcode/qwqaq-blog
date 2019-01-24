@@ -5,18 +5,18 @@
     
     <title>C#中 Thread，Task，Async/Await，IAsyncResult 的那些事儿！ | QWQAQ 的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="说起异步，Thread，Task，async/await，IAsyncResult 这些东西肯定是绕不开的，今天就来依次聊聊他们 1.线程（Thread）多线程的意义在于一个应用程序中，有多个执行部分可以同时执行；对于比较耗时的操作(例如io，数据库操作)，或者等待响应(如WCF通信)的操作，可以单独开启后台线程来执行，这样主线程就不会阻塞，可以继续往下执行；等到后台线程执行完毕，再通知主线程，然">
+    <meta name="description" content="说起异步，Thread，Task，async/await，IAsyncResult 这些东西肯定是绕不开的，今天就来依次聊聊他们 多线程的意义在于一个应用程序中，有多个执行部分可以同时执行；对于比较耗时的操作(例如io，数据库操作)，或者等待响应(如WCF通信)的操作，可以单独开启后台线程来执行，这样主线程就不会阻塞，可以继续往下执行；等到后台线程执行完毕，再通知主线程，然后做出对应操作！ 传送门">
 <meta name="keywords" content="QWQAQ, QWQAQ 的博客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C#中 Thread，Task，Async&#x2F;Await，IAsyncResult 的那些事儿！">
 <meta property="og:url" content="http://qwqaq.com/fd4db418.html">
 <meta property="og:site_name" content="QWQAQ 的博客">
-<meta property="og:description" content="说起异步，Thread，Task，async/await，IAsyncResult 这些东西肯定是绕不开的，今天就来依次聊聊他们 1.线程（Thread）多线程的意义在于一个应用程序中，有多个执行部分可以同时执行；对于比较耗时的操作(例如io，数据库操作)，或者等待响应(如WCF通信)的操作，可以单独开启后台线程来执行，这样主线程就不会阻塞，可以继续往下执行；等到后台线程执行完毕，再通知主线程，然">
+<meta property="og:description" content="说起异步，Thread，Task，async/await，IAsyncResult 这些东西肯定是绕不开的，今天就来依次聊聊他们 多线程的意义在于一个应用程序中，有多个执行部分可以同时执行；对于比较耗时的操作(例如io，数据库操作)，或者等待响应(如WCF通信)的操作，可以单独开启后台线程来执行，这样主线程就不会阻塞，可以继续往下执行；等到后台线程执行完毕，再通知主线程，然后做出对应操作！ 传送门">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-26T08:21:55.687Z">
+<meta property="og:updated_time" content="2019-01-24T05:59:01.060Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C#中 Thread，Task，Async&#x2F;Await，IAsyncResult 的那些事儿！">
-<meta name="twitter:description" content="说起异步，Thread，Task，async/await，IAsyncResult 这些东西肯定是绕不开的，今天就来依次聊聊他们 1.线程（Thread）多线程的意义在于一个应用程序中，有多个执行部分可以同时执行；对于比较耗时的操作(例如io，数据库操作)，或者等待响应(如WCF通信)的操作，可以单独开启后台线程来执行，这样主线程就不会阻塞，可以继续往下执行；等到后台线程执行完毕，再通知主线程，然">
+<meta name="twitter:description" content="说起异步，Thread，Task，async/await，IAsyncResult 这些东西肯定是绕不开的，今天就来依次聊聊他们 多线程的意义在于一个应用程序中，有多个执行部分可以同时执行；对于比较耗时的操作(例如io，数据库操作)，或者等待响应(如WCF通信)的操作，可以单独开启后台线程来执行，这样主线程就不会阻塞，可以继续往下执行；等到后台线程执行完毕，再通知主线程，然后做出对应操作！ 传送门">
     
 
     
@@ -239,7 +239,7 @@ var _hmt = _hmt || [];
 
 </aside>
 
-            <section id="main"><article id="post-c中-thread，task，asyncawait，iasyncresult-的那些事儿！" class="article article-type-post" itemscope="" itemprop="blogPost">
+            <section id="main"><article id="post-cs中-thread，task，asyncawait，iasyncresult-的那些事儿！" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -279,8 +279,8 @@ var _hmt = _hmt || [];
             
             
             <p>说起异步，Thread，Task，async/await，IAsyncResult 这些东西肯定是绕不开的，今天就来依次聊聊他们</p>
-<h3 id="1-线程（Thread）"><a href="#1-线程（Thread）" class="headerlink" title="1.线程（Thread）"></a>1.线程（Thread）</h3><p>多线程的意义在于一个应用程序中，有多个执行部分可以同时执行；对于比较耗时的操作(例如io，数据库操作)，或者等待响应(如WCF通信)的操作，可以单独开启后台线程来执行，这样主线程就不会阻塞，可以继续往下执行；等到后台线程执行完毕，再通知主线程，然后做出对应操作！</p>
-<p><a href="http://www.cnblogs.com/doforfuture/p/6293926.html）" target="_blank" rel="noopener">全文传送门</a></p>
+<p>多线程的意义在于一个应用程序中，有多个执行部分可以同时执行；对于比较耗时的操作(例如io，数据库操作)，或者等待响应(如WCF通信)的操作，可以单独开启后台线程来执行，这样主线程就不会阻塞，可以继续往下执行；等到后台线程执行完毕，再通知主线程，然后做出对应操作！</p>
+<p><a href="http://www.cnblogs.com/doforfuture/p/6293926.html）" target="_blank" rel="noopener">传送门</a></p>
 
         
         </div>
@@ -296,7 +296,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://qwqaq.com/fd4db418.html" data-id="cjra3jw0v0031n8w3f3vr889k" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
+    <a data-url="http://qwqaq.com/fd4db418.html" data-id="cjra7ineh00edxow3n8fcml1h" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding

@@ -777,9 +777,7 @@ var _hmt = _hmt || [];
         
         <div class="article-entry" itemprop="articleBody">
         
-            <h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h3><p>Listen to mousedown instead of click.</p>
-<p>The mousedown and blur events occur one after another when you press the mouse button, but click only occurs when you release it.</p>
-<h3 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h3><p>You can preventDefault() in mousedown to block the dropdown from stealing focus. The slight advantage is that the value will be selected when the mouse button is released, which is how native select components work. JSFiddle</p>
+            <p>解决 click 事件和 blur 事件被触发先后顺序问题。输入框自动补全功能的实现 (Select Components, Dropdown, Autocomplete)</p>
             <p class="article-more-link">
                 <a href="/208e3be9.html">继续阅览 <i class="zmdi zmdi-chevron-right"></i></a>
             </p>

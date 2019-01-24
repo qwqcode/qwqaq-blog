@@ -5,18 +5,18 @@
     
     <title>jQuery: fire click() before blur() event | QWQAQ 的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Solution 1Listen to mousedown instead of click. The mousedown and blur events occur one after another when you press the mouse button, but click only occurs when you release it. Solution 2You can prev">
+    <meta name="description" content="解决 click 事件和 blur 事件被触发先后顺序问题。输入框自动补全功能的实现 (Select Components, Dropdown, Autocomplete)">
 <meta name="keywords" content="QWQAQ, QWQAQ 的博客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jQuery: fire click() before blur() event">
 <meta property="og:url" content="http://qwqaq.com/208e3be9.html">
 <meta property="og:site_name" content="QWQAQ 的博客">
-<meta property="og:description" content="Solution 1Listen to mousedown instead of click. The mousedown and blur events occur one after another when you press the mouse button, but click only occurs when you release it. Solution 2You can prev">
+<meta property="og:description" content="解决 click 事件和 blur 事件被触发先后顺序问题。输入框自动补全功能的实现 (Select Components, Dropdown, Autocomplete)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-03T07:06:02.077Z">
+<meta property="og:updated_time" content="2019-01-24T06:32:00.037Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery: fire click() before blur() event">
-<meta name="twitter:description" content="Solution 1Listen to mousedown instead of click. The mousedown and blur events occur one after another when you press the mouse button, but click only occurs when you release it. Solution 2You can prev">
+<meta name="twitter:description" content="解决 click 事件和 blur 事件被触发先后顺序问题。输入框自动补全功能的实现 (Select Components, Dropdown, Autocomplete)">
     
 
     
@@ -278,13 +278,33 @@ var _hmt = _hmt || [];
         
             
             
-            <h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h3><p>Listen to mousedown instead of click.</p>
-<p>The mousedown and blur events occur one after another when you press the mouse button, but click only occurs when you release it.</p>
-<h3 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h3><p>You can preventDefault() in mousedown to block the dropdown from stealing focus. The slight advantage is that the value will be selected when the mouse button is released, which is how native select components work. JSFiddle</p>
+            <p>解决 click 事件和 blur 事件被触发先后顺序问题。输入框自动补全功能的实现 (Select Components, Dropdown, Autocomplete)</p>
 <a id="more"></a>
+<h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>I have an input field, where I try to make autocomplete suggestion. Code looks like</p>
+<p>这里有一个 <code>input</code>，我想让这个 <code>input</code> 拥有 自动补全 (autocomplete) 功能。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"myinput"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"myresults"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>On input’s blur() event I want to hide results’ div:</p>
+<p>当 <code>input</code> 的 <code>blur()</code> 事件触发时，我想执行隐藏 自动补全候选结果 的 div：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#myinput"</span>).live(<span class="string">'blur'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     $(<span class="string">"#myresults"</span>).hide();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>When I write something into my input I send request to server and get json response, parse it into ul-&gt;li structure and put this ul to my #myresults div.</p>
+<p>当我输入了一些东西到 <code>input</code> 里，JS 会请求服务器并获取 json 响应数据，并将其解析成 <code>ul-&gt;li</code> 的结构，放入 <code>#myresults</code> div 中。</p>
+<p>When I click to this parsed li element I want to set value from li to input and hide #myresults div</p>
+<p>当我点击 <code>li</code> 元素时，我想根据 <code>li</code> 来设置 <code>input</code> 的值，并且隐藏 <code>#myresults</code> div</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#myresults ul li"</span>).live(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     $(<span class="string">"#myinput"</span>).val($(<span class="keyword">this</span>).html());</span><br><span class="line">     $(<span class="string">"#myresults"</span>).hide();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Everything is going good, but when I click to my li blur() event fires before click() and input’s value don’t get li’s html.</p>
+<p>但是当我点击 <code>li</code> 元素时，<code>blur()</code> 事件比 <code>click()</code> 事件先被触发，所以没办法获取 <code>li</code> 的值并填入 <code>input</code>。</p>
+<p>How can I set up click() event before blur()?</p>
+<p>怎么才能让 <code>click()</code> 事件比 <code>blur()</code> 先被触发？</p>
+<h2 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h2><h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h3><p>Listen to mousedown instead of click.</p>
+<p>监听 <code>mousedown</code> 事件，而不是 <code>click</code></p>
+<p>The mousedown and blur events occur one after another when you press the mouse button, but click only occurs when you release it.</p>
+<p>当您按下鼠标时，<code>mousedown</code> 和 <code>blur</code> 事件会一个接一个地被触发，但 <code>click</code> 事件只有在释放鼠标时它才会被触发。</p>
+<h3 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h3><p>You can preventDefault() in mousedown to block the dropdown from stealing focus. The slight advantage is that the value will be selected when the mouse button is released, which is how native select components work.</p>
+<p>你可以在 <code>mousedown</code> 中使用 <code>preventDefault()</code> 来阻止 dropdown 获取焦点。 这样做微小的优势是，当鼠标按键释放时，值就能被选中，原生的 Select Components 就是这样工作的。</p>
+<!-- more -->
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'input'</span>).on(<span class="string">'focus'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="string">'ul'</span>).show();</span><br><span class="line">&#125;).on(<span class="string">'blur'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="string">'ul'</span>).hide();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'ul'</span>).on(<span class="string">'mousedown'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">    event.preventDefault();</span><br><span class="line">&#125;).on(<span class="string">'click'</span>, <span class="string">'li'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="string">'input'</span>).val(<span class="keyword">this</span>.textContent).blur();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p><a href="https://stackoverflow.com/questions/10652852/jquery-fire-click-before-blur-event" target="_blank" rel="noopener">From StackOverflow</a></p>
+<p><a href="https://stackoverflow.com/questions/10652852/jquery-fire-click-before-blur-event" target="_blank" rel="noopener">StackOverflow</a></p>
 
         
         </div>
@@ -300,7 +320,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://qwqaq.com/208e3be9.html" data-id="cjra3jw1k003pn8w39rflfder" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
+    <a data-url="http://qwqaq.com/208e3be9.html" data-id="cjra3q9ds001uxow3gj1oz3je" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
