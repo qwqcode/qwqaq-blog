@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qwqaq.com/"/>
-  <updated>2019-01-23T02:57:14.820Z</updated>
+  <updated>2019-01-23T18:16:01.640Z</updated>
   <id>http://qwqaq.com/</id>
   
   <author>
@@ -17,11 +17,43 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>HTML5 Canvas 真香！刀剑神域 HP Bar 第二弹</title>
+    <link href="http://qwqaq.com/db974054.html"/>
+    <id>http://qwqaq.com/db974054.html</id>
+    <published>2019-01-23T16:43:04.000Z</published>
+    <updated>2019-01-23T18:16:01.640Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;从此踏上了一条 Canvas 的不归路，正是这样折腾，选项卡再一次刷炸浏览器，Chrome 又一次挤爆内存…… 这次，用 Canvas 可能是最大程度地复刻了 TV 截图中的血量条吧，比起拿 CSS 来写完美得多，CSS 拿来做这个太脑残。所以，“Canvas 真香！”，“只是搞这个，头有点凉”。这篇文章的内容可能算是入门 Canvas 的粗略知识汇总。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="前端" scheme="http://qwqaq.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="Canvas" scheme="http://qwqaq.com/categories/%E5%89%8D%E7%AB%AF/Canvas/"/>
+    
+    
+      <category term="刀剑神域" scheme="http://qwqaq.com/tags/%E5%88%80%E5%89%91%E7%A5%9E%E5%9F%9F/"/>
+    
+      <category term="SAO" scheme="http://qwqaq.com/tags/SAO/"/>
+    
+      <category term="UI" scheme="http://qwqaq.com/tags/UI/"/>
+    
+      <category term="HTML5" scheme="http://qwqaq.com/tags/HTML5/"/>
+    
+      <category term="Canvas" scheme="http://qwqaq.com/tags/Canvas/"/>
+    
+      <category term="JS" scheme="http://qwqaq.com/tags/JS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>纯 CSS 自写一个 刀剑神域 SAO UI 的 HP Bar</title>
     <link href="http://qwqaq.com/e90e2cd7.html"/>
     <id>http://qwqaq.com/e90e2cd7.html</id>
     <published>2019-01-20T14:48:07.000Z</published>
-    <updated>2019-01-23T02:57:14.820Z</updated>
+    <updated>2019-01-23T16:43:38.401Z</updated>
     
     <summary type="html">
     
@@ -41,6 +73,8 @@
       <category term="UI" scheme="http://qwqaq.com/tags/UI/"/>
     
       <category term="CSS" scheme="http://qwqaq.com/tags/CSS/"/>
+    
+      <category term="HTML5" scheme="http://qwqaq.com/tags/HTML5/"/>
     
   </entry>
   
@@ -502,33 +536,6 @@
       <category term="问题" scheme="http://qwqaq.com/tags/%E9%97%AE%E9%A2%98/"/>
     
       <category term="精度" scheme="http://qwqaq.com/tags/%E7%B2%BE%E5%BA%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GitHub 社会化编程</title>
-    <link href="http://qwqaq.com/dd592165.html"/>
-    <id>http://qwqaq.com/dd592165.html</id>
-    <published>2018-07-24T01:18:58.000Z</published>
-    <updated>2018-07-24T08:47:55.857Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;GitHub 是为开发者提供 Git 仓库的托管服务。这是一个让开发者与朋友、同事、同学及陌生人共享代码的完美场所。&lt;/p&gt;
-&lt;p&gt;GitHub 这一服务，为开源世界带来了社会化编程的概念。这一概念影响了全世界众多的程序员，说其是软件开发方法的一次革命都不为过。在这里，我们将详细解说社会化编程概念。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="开发工具" scheme="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="Git" scheme="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Git/"/>
-    
-    
-      <category term="Git" scheme="http://qwqaq.com/tags/Git/"/>
-    
-      <category term="GitHub" scheme="http://qwqaq.com/tags/GitHub/"/>
-    
-      <category term="社会化编程" scheme="http://qwqaq.com/tags/%E7%A4%BE%E4%BC%9A%E5%8C%96%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
