@@ -5,18 +5,18 @@
     
     <title>Linux 文件权限 | QWQAQ 的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="4 = read (读取)2 = write (写入)1 = execute (执行) 0 (无权限), 4 (只读), 5 (4+1|读取+执行), 6 (4+2|读取+写入), 7 (4+2+1|读取+写入+执行) 文件权限 765 含义：7 (User权限: 执行+写入+读取=1+2+4)6 (Group权限: 写入+读取=2+4)5 (执行+读取=1+4) -rw-r–r– 的含义：第一个">
+    <meta name="description" content="Linux 的权限分为 r w x 三种：r (Read，读取)：对文件而言，具有读取文件内容的权限；对目录来说，具有浏览目录的权限。w (Write,写入)：对文件而言，具有新增,修改,删除文件内容的权限；对目录来说，具有新建，删除，修改，移动目录内文件的权限。x (eXecute，执行)：文件而言，具有执行文件的权限；对目录了来说该用户具有进入目录的权限。">
 <meta name="keywords" content="linux权限">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 文件权限">
 <meta property="og:url" content="http://qwqaq.com/48844841.html">
 <meta property="og:site_name" content="QWQAQ 的博客">
-<meta property="og:description" content="4 = read (读取)2 = write (写入)1 = execute (执行) 0 (无权限), 4 (只读), 5 (4+1|读取+执行), 6 (4+2|读取+写入), 7 (4+2+1|读取+写入+执行) 文件权限 765 含义：7 (User权限: 执行+写入+读取=1+2+4)6 (Group权限: 写入+读取=2+4)5 (执行+读取=1+4) -rw-r–r– 的含义：第一个">
+<meta property="og:description" content="Linux 的权限分为 r w x 三种：r (Read，读取)：对文件而言，具有读取文件内容的权限；对目录来说，具有浏览目录的权限。w (Write,写入)：对文件而言，具有新增,修改,删除文件内容的权限；对目录来说，具有新建，删除，修改，移动目录内文件的权限。x (eXecute，执行)：文件而言，具有执行文件的权限；对目录了来说该用户具有进入目录的权限。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-19T06:14:04.010Z">
+<meta property="og:updated_time" content="2019-01-28T14:15:57.409Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 文件权限">
-<meta name="twitter:description" content="4 = read (读取)2 = write (写入)1 = execute (执行) 0 (无权限), 4 (只读), 5 (4+1|读取+执行), 6 (4+2|读取+写入), 7 (4+2+1|读取+写入+执行) 文件权限 765 含义：7 (User权限: 执行+写入+读取=1+2+4)6 (Group权限: 写入+读取=2+4)5 (执行+读取=1+4) -rw-r–r– 的含义：第一个">
+<meta name="twitter:description" content="Linux 的权限分为 r w x 三种：r (Read，读取)：对文件而言，具有读取文件内容的权限；对目录来说，具有浏览目录的权限。w (Write,写入)：对文件而言，具有新增,修改,删除文件内容的权限；对目录来说，具有新建，删除，修改，移动目录内文件的权限。x (eXecute，执行)：文件而言，具有执行文件的权限；对目录了来说该用户具有进入目录的权限。">
     
 
     
@@ -278,7 +278,10 @@ var _hmt = _hmt || [];
         
             
             
-            <p>4 = read (读取)<br>2 = write (写入)<br>1 = execute (执行)</p>
+            <p>Linux 的权限分为 r w x 三种：<br>r (Read，读取)：对文件而言，具有读取文件内容的权限；对目录来说，具有浏览目录的权限。<br>w (Write,写入)：对文件而言，具有新增,修改,删除文件内容的权限；对目录来说，具有新建，删除，修改，移动目录内文件的权限。<br>x (eXecute，执行)：文件而言，具有执行文件的权限；对目录了来说该用户具有进入目录的权限。</p>
+<a id="more"></a>
+<p>1、目录的只读访问不允许使用cd进入目录，必须要有执行的权限才能进入。<br>2、只有执行权限只能进入目录，不能看到目录下的内容，要想看到目录下的文件名和目录名，需要可读权限。<br>3、一个文件能不能被删除，主要看该文件所在的目录对用户是否具有写权限，如果目录对用户没有写权限，则该目录下的所有文件都不能被删除，文件所有者除外<br>4、目录的w位不设置，即使你拥有目录中某文件的w权限也不能写该文件</p>
+<p>4 = read (读取)<br>2 = write (写入)<br>1 = execute (执行)</p>
 <p>0 (无权限), 4 (只读), 5 (4+1|读取+执行), 6 (4+2|读取+写入), 7 (4+2+1|读取+写入+执行)</p>
 <p>文件权限 765 含义：<br>7 (User权限: 执行+写入+读取=1+2+4)<br>6 (Group权限: 写入+读取=2+4)<br>5 (执行+读取=1+4)</p>
 <p>-rw-r–r– 的含义：<br>第一个字符 - 表明这是一个文件<br>往右 rw- 表明 Owner/User 的权限为 可读 可写 但不可执行<br>往右 r– 表明 Group 的权限为 可读 不可写 不可执行<br>往右 r– 表明 Others 的权限为 可读 不可写和执行</p>
@@ -286,7 +289,7 @@ var _hmt = _hmt || [];
 <p>常用命令：<br>chmod 777 fileName.xxx<br>chmod u=rwx,g=rwx,o=rwx fileName.xxx<br>chmod u+x fileName.xxx<br>chmod o-r fileName.xxx<br>chown root fileName.xxx<br>chgrp root fileName.xxx</p>
 <p>chmod -R 777 dirName # 递归改权</p>
 <p>常见权限：<br>444 r–r–r–<br>600 rw——-<br>644 rw-r–r–<br>666 rw-rw-rw-<br>700 rwx——<br>744 rwxr–r–<br>755 rwxr-xr-x<br>777 rwxrwxrwx</p>
-<p>这样文件是可删除的：目录(777) &lt;=&gt; 文件(000) &lt;=&gt; 内容</p>
+<p>这样的文件是可删除的：目录(777) &lt;=&gt; 文件(000) &lt;=&gt; 内容</p>
 
         
         </div>
@@ -307,7 +310,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://qwqaq.com/48844841.html" data-id="cjra3q9e8002cxow38wrxnsek" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
+    <a data-url="http://qwqaq.com/48844841.html" data-id="cjrk8zuju00270yvobgz4yw2n" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
