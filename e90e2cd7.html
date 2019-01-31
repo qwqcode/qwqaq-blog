@@ -6,7 +6,7 @@
     <title>纯 CSS 自写一个 刀剑神域 SAO UI 的 HP Bar | QWQAQ 的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="觉得刀剑神域序这部神番的 SAO UI 好好看呀～～ 哇哇哇～～～ 想尝试着用 CSS 自己写一个（虽然想着就麻烦），就当练习一下 CSS，看看我能不能写的出来。结果受尽折磨，虽然还有点意思。。。CSS 来做嘛，效果不是很好，仔细看能看出中间边框那里有一点点瑕疵，斜切的效果比较难搞。。特别是血量的中间部分（喷血">
-<meta name="keywords" content="刀剑神域,SAO,UI,CSS,HTML5">
+<meta name="keywords" content="刀剑神域,SAO,UI,HTML5,CSS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="纯 CSS 自写一个 刀剑神域 SAO UI 的 HP Bar">
 <meta property="og:url" content="http://qwqaq.com/e90e2cd7.html">
@@ -14,7 +14,7 @@
 <meta property="og:description" content="觉得刀剑神域序这部神番的 SAO UI 好好看呀～～ 哇哇哇～～～ 想尝试着用 CSS 自己写一个（虽然想着就麻烦），就当练习一下 CSS，看看我能不能写的出来。结果受尽折磨，虽然还有点意思。。。CSS 来做嘛，效果不是很好，仔细看能看出中间边框那里有一点点瑕疵，斜切的效果比较难搞。。特别是血量的中间部分（喷血">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://qwqaq.com/images/banner/SAO_UI_HP_BAR.jpg">
-<meta property="og:updated_time" content="2019-01-28T14:15:57.427Z">
+<meta property="og:updated_time" content="2019-01-31T13:24:58.279Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="纯 CSS 自写一个 刀剑神域 SAO UI 的 HP Bar">
 <meta name="twitter:description" content="觉得刀剑神域序这部神番的 SAO UI 好好看呀～～ 哇哇哇～～～ 想尝试着用 CSS 自己写一个（虽然想着就麻烦），就当练习一下 CSS，看看我能不能写的出来。结果受尽折磨，虽然还有点意思。。。CSS 来做嘛，效果不是很好，仔细看能看出中间边框那里有一点点瑕疵，斜切的效果比较难搞。。特别是血量的中间部分（喷血">
@@ -320,7 +320,7 @@ var _hmt = _hmt || [];
 <p>闪电图标块外发光： <code>box-shadow: 0 0 3px #f3f315;</code></p>
 <p>血量上的阴影 遮罩层 <code>&lt;div class=&quot;hp-value-mask&quot;&gt;&lt;/div&gt;</code>：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.hp-value-mask</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">3</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(rgba(74, 74, 74, 0.5), <span class="built_in">rgba</span>(74, 74, 74, 0.24), <span class="built_in">rgba</span>(74, 74, 74, 0));</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">99%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">13px</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h2><p><a href="https://qwqcode.github.io/SAO-UI/SAO_HP_Bar.html" target="_blank" rel="noopener">qwqcode.github.io/SAO-UI/SAO_HP_Bar.html</a></p>
+<h2 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h2><p><a href="https://qwqcode.github.io/SAO-UI/SAO_HP_Bar_CSS.html" target="_blank" rel="noopener">qwqcode.github.io/SAO-UI/SAO_HP_Bar_CSS.html</a></p>
 <p><img src="../images/post/hp-bar-canvas-css/css-hp-bar.png" alt=""></p>
 <p>开了一个 GayHub 仓库 -&gt; <a href="https://github.com/qwqcode/SAO-UI" target="_blank" rel="noopener">传送门</a>，以后自写的 SAO UI 就都放这里面啦 ٩(ˊᗜˋ*)و</p>
 
@@ -343,7 +343,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://qwqaq.com/e90e2cd7.html" data-id="cjrkazb2v003qw4voepv8bfom" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
+    <a data-url="http://qwqaq.com/e90e2cd7.html" data-id="cjrkt6afl009yx2vo2hah4e5v" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
