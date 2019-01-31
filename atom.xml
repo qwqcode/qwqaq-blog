@@ -42,9 +42,9 @@
     
       <category term="UI" scheme="http://qwqaq.com/tags/UI/"/>
     
-      <category term="Canvas" scheme="http://qwqaq.com/tags/Canvas/"/>
-    
       <category term="HTML5" scheme="http://qwqaq.com/tags/HTML5/"/>
+    
+      <category term="Canvas" scheme="http://qwqaq.com/tags/Canvas/"/>
     
   </entry>
   
@@ -72,9 +72,9 @@
     
       <category term="UI" scheme="http://qwqaq.com/tags/UI/"/>
     
-      <category term="HTML5" scheme="http://qwqaq.com/tags/HTML5/"/>
-    
       <category term="CSS" scheme="http://qwqaq.com/tags/CSS/"/>
+    
+      <category term="HTML5" scheme="http://qwqaq.com/tags/HTML5/"/>
     
   </entry>
   
@@ -347,11 +347,11 @@
       <category term="JS" scheme="http://qwqaq.com/categories/JS/"/>
     
     
-      <category term="JavaScript" scheme="http://qwqaq.com/tags/JavaScript/"/>
-    
       <category term="ECMAScript6" scheme="http://qwqaq.com/tags/ECMAScript6/"/>
     
       <category term="Experimental" scheme="http://qwqaq.com/tags/Experimental/"/>
+    
+      <category term="JavaScript" scheme="http://qwqaq.com/tags/JavaScript/"/>
     
       <category term="Method" scheme="http://qwqaq.com/tags/Method/"/>
     
