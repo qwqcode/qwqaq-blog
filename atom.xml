@@ -34,17 +34,17 @@
       <category term="Canvas" scheme="http://qwqaq.com/categories/%E5%89%8D%E7%AB%AF/Canvas/"/>
     
     
-      <category term="JS" scheme="http://qwqaq.com/tags/JS/"/>
-    
       <category term="刀剑神域" scheme="http://qwqaq.com/tags/%E5%88%80%E5%89%91%E7%A5%9E%E5%9F%9F/"/>
     
       <category term="SAO" scheme="http://qwqaq.com/tags/SAO/"/>
     
       <category term="UI" scheme="http://qwqaq.com/tags/UI/"/>
     
-      <category term="Canvas" scheme="http://qwqaq.com/tags/Canvas/"/>
-    
       <category term="HTML5" scheme="http://qwqaq.com/tags/HTML5/"/>
+    
+      <category term="JS" scheme="http://qwqaq.com/tags/JS/"/>
+    
+      <category term="Canvas" scheme="http://qwqaq.com/tags/Canvas/"/>
     
   </entry>
   
@@ -72,9 +72,9 @@
     
       <category term="UI" scheme="http://qwqaq.com/tags/UI/"/>
     
-      <category term="HTML5" scheme="http://qwqaq.com/tags/HTML5/"/>
-    
       <category term="CSS" scheme="http://qwqaq.com/tags/CSS/"/>
+    
+      <category term="HTML5" scheme="http://qwqaq.com/tags/HTML5/"/>
     
   </entry>
   
