@@ -4,6 +4,7 @@
 
     
     
+    
   <url>
     <loc>http://qwqaq.com/e90e2cd7.html</loc>
     <lastmod>2019-01-31T13:24:58.279Z</lastmod>
@@ -18,9 +19,9 @@
          
         <tag>UI</tag>
          
-        <tag>CSS</tag>
-         
         <tag>HTML5</tag>
+         
+        <tag>CSS</tag>
          
          
            
@@ -34,7 +35,6 @@
     </data>
     </url>
 
-    
     
     
     
@@ -662,11 +662,11 @@
          
         <tag>UI</tag>
          
+        <tag>Canvas</tag>
+         
         <tag>HTML5</tag>
          
         <tag>JS</tag>
-         
-        <tag>Canvas</tag>
          
          
            
@@ -1337,9 +1337,9 @@
         <title>Lumen 添加没有的 key:generate 命令</title>
         <pubTime>2018-05-31T13:17:16.000Z</pubTime>
         
-        <tag>lumen</tag>
-         
         <tag>php</tag>
+         
+        <tag>lumen</tag>
          
         <tag>key:generate</tag>
          
@@ -1361,13 +1361,13 @@
         <title>Laravel 5.6 资源任务编译器 laravel-mix webpack.mix.js 配置参考</title>
         <pubTime>2018-05-31T12:52:34.000Z</pubTime>
         
-        <tag>php</tag>
-         
         <tag>Laravel</tag>
          
         <tag>laravel-mix</tag>
          
         <tag>webpack</tag>
+         
+        <tag>php</tag>
          
         <tag>js</tag>
          

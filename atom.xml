@@ -40,11 +40,11 @@
     
       <category term="UI" scheme="http://qwqaq.com/tags/UI/"/>
     
+      <category term="Canvas" scheme="http://qwqaq.com/tags/Canvas/"/>
+    
       <category term="HTML5" scheme="http://qwqaq.com/tags/HTML5/"/>
     
       <category term="JS" scheme="http://qwqaq.com/tags/JS/"/>
-    
-      <category term="Canvas" scheme="http://qwqaq.com/tags/Canvas/"/>
     
   </entry>
   
@@ -72,9 +72,9 @@
     
       <category term="UI" scheme="http://qwqaq.com/tags/UI/"/>
     
-      <category term="CSS" scheme="http://qwqaq.com/tags/CSS/"/>
-    
       <category term="HTML5" scheme="http://qwqaq.com/tags/HTML5/"/>
+    
+      <category term="CSS" scheme="http://qwqaq.com/tags/CSS/"/>
     
   </entry>
   
