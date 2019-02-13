@@ -1,0 +1,22 @@
+@import "normalize";
+
+body {
+  color: #565a5f;
+  background: #f3f5f7;
+  font: 14px "Helvetica Neue", "PingFangSC-Light", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  color: #03a9f4;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.main {
+  margin-left: calc(20vw + 20px);
+}
+
+@import "_variables.scss";
+@import "_partial/topbar.scss";
+@import "_partial/sidebar.scss";

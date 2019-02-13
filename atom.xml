@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qwqaq.com/"/>
-  <updated>2019-01-28T14:15:57.381Z</updated>
+  <updated>2019-02-13T17:09:07.501Z</updated>
   <id>http://qwqaq.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>送给自己的新年礼物：继续捡垃圾系列</title>
+    <link href="http://qwqaq.com/e8588299.html"/>
+    <id>http://qwqaq.com/e8588299.html</id>
+    <published>2019-02-13T15:04:00.000Z</published>
+    <updated>2019-02-13T17:09:07.501Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;新的一年，新的开始。趁我还没老（qwq 明年就 18 岁了），现在最开心的，就是能得到压岁钱吧，嘿嘿嘿.. 嘿嘿嘿，非常非常感谢亲戚朋友们的赞助（鞠躬）（awsl，居然一年比一年多）。想想该买点什么好呢？emm… 我想简单地实现自己心中一直就有但从未实现的一个小愿望… 赶快捡垃圾去吧！(/ω＼) 我已经无法接受 HD4000 核显了啊。如题 –送给自己的新年礼物：继续捡垃圾系列。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="日常" scheme="http://qwqaq.com/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+      <category term="装机" scheme="http://qwqaq.com/tags/%E8%A3%85%E6%9C%BA/"/>
+    
+      <category term="捡垃圾" scheme="http://qwqaq.com/tags/%E6%8D%A1%E5%9E%83%E5%9C%BE/"/>
+    
+      <category term="E3神教" scheme="http://qwqaq.com/tags/E3%E7%A5%9E%E6%95%99/"/>
+    
+  </entry>
   
   <entry>
     <title>HTML5 Canvas 真香！刀剑神域 HP Bar 第二弹</title>
@@ -513,29 +537,6 @@
       <category term="乱码" scheme="http://qwqaq.com/tags/%E4%B9%B1%E7%A0%81/"/>
     
       <category term="phpQuery" scheme="http://qwqaq.com/tags/phpQuery/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>0.1+0.2!=0.3 引发的思考</title>
-    <link href="http://qwqaq.com/495603c2.html"/>
-    <id>http://qwqaq.com/495603c2.html</id>
-    <published>2018-07-26T00:32:31.000Z</published>
-    <updated>2018-07-26T07:54:52.249Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;0.1+0.1==0.2 得到了 true 而 0.1+0.2==0.3 却得到 false，这是为什么？&lt;/p&gt;
-&lt;p&gt;换了好几种语言，都出现了这种情况，难道这是一个普遍存在的问题！？&lt;br&gt;
-    
-    </summary>
-    
-      <category term="日常" scheme="http://qwqaq.com/categories/%E6%97%A5%E5%B8%B8/"/>
-    
-    
-      <category term="问题" scheme="http://qwqaq.com/tags/%E9%97%AE%E9%A2%98/"/>
-    
-      <category term="精度" scheme="http://qwqaq.com/tags/%E7%B2%BE%E5%BA%A6/"/>
     
   </entry>
   
