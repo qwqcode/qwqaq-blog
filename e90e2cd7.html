@@ -6,7 +6,7 @@
     <title>纯 CSS 自写一个 刀剑神域 SAO UI 的 HP Bar | QWQAQ 的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="觉得刀剑神域序这部神番的 SAO UI 好好看呀～～ 哇哇哇～～～ 想尝试着用 CSS 自己写一个（虽然想着就麻烦），就当练习一下 CSS，看看我能不能写的出来。结果受尽折磨，虽然还有点意思。。。CSS 来做嘛，效果不是很好，仔细看能看出中间边框那里有一点点瑕疵，斜切的效果比较难搞。。特别是血量的中间部分（喷血">
-<meta name="keywords" content="刀剑神域,SAO,UI,HTML5,CSS">
+<meta name="keywords" content="刀剑神域,SAO,UI,CSS,HTML5">
 <meta property="og:type" content="article">
 <meta property="og:title" content="纯 CSS 自写一个 刀剑神域 SAO UI 的 HP Bar">
 <meta property="og:url" content="http://qwqaq.com/e90e2cd7.html">
@@ -243,7 +243,7 @@ var _hmt = _hmt || [];
 
 </aside>
 
-            <section id="main"><article id="post-纯-CSS-自写一个-刀剑神域-SAO-UI-的-HP-Bar" class="article article-type-post" itemscope="" itemprop="blogPost">
+            <section id="main"><article id="post-纯-CSS-自写一个-刀剑神域-SAO-UI-的-HP-Bar" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             
@@ -293,24 +293,24 @@ var _hmt = _hmt || [];
             <p>觉得刀剑神域序这部神番的 SAO UI 好好看呀～～ 哇哇哇～～～ 想尝试着用 CSS 自己写一个（虽然想着就麻烦），就当练习一下 CSS，看看我能不能写的出来。结果受尽折磨，虽然还有点意思。。。CSS 来做嘛，效果不是很好，仔细看能看出中间边框那里有一点点瑕疵，斜切的效果比较难搞。。特别是血量的中间部分（喷血</p>
 <a id="more"></a>
 <p>需要实现的效果，原剧截图：</p>
-<p><img src="../images/post/hp-bar-canvas-css/saoui-hp-bar-tv.jpg" alt=""></p>
+<p><img src="../images/post/hp-bar-canvas-css/saoui-hp-bar-tv.jpg" alt></p>
 <h2 id="SAO-UI-字体"><a href="#SAO-UI-字体" class="headerlink" title="SAO UI 字体"></a>SAO UI 字体</h2><p>从左往右看，首先去找 SAO UI 的字体。</p>
 <p>Google 一哈找到了 <a href="https://fontmeme.com/fonts/sao-ui-font/" target="_blank" rel="noopener">sao-ui-font</a></p>
 <h2 id="边框-两层-box-shadow"><a href="#边框-两层-box-shadow" class="headerlink" title="边框 + 两层 box-shadow"></a>边框 + 两层 box-shadow</h2><p>可以这样写：<code>box-shadow: inset 9px 0px 8px 2px rgba(125, 125, 125, 0.61), inset 0.3px 0px 0 2px rgba(0, 0, 0, 0.53);</code> （内黑边 + 内阴影）</p>
 <p>通过 <code>inset</code> 指定阴影显示在容器的 内 边缘</p>
 <p>然后再加一圈 Border：<code>border: 2px solid #d5d628;</code></p>
 <p>最终效果：</p>
-<p><img src="../images/post/hp-bar-canvas-css/css-box-shadow.png" alt=""></p>
+<p><img src="../images/post/hp-bar-canvas-css/css-box-shadow.png" alt></p>
 <h2 id="渐变背景怎么搞？"><a href="#渐变背景怎么搞？" class="headerlink" title="渐变背景怎么搞？"></a>渐变背景怎么搞？</h2><p><code>background: linear-gradient(red, green, blue);</code></p>
 <p>这种骚渐变，用来做骚网站最适合不过。</p>
-<p><img src="../images/post/hp-bar-canvas-css/css-linear-gradient.png" alt=""></p>
+<p><img src="../images/post/hp-bar-canvas-css/css-linear-gradient.png" alt></p>
 <h2 id="最麻烦的血量指示器斜切"><a href="#最麻烦的血量指示器斜切" class="headerlink" title="最麻烦的血量指示器斜切"></a>最麻烦的血量指示器斜切</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"card"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrap</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">60px</span>; <span class="comment">/* 预先设定一个 width */</span></span><br><span class="line">  <span class="attribute">height</span>: <span class="number">30px</span>;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden; <span class="comment">/* 让超出 div.wrap 的部分不显示 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.card</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">54px</span>;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">skewX</span>(-30deg); <span class="comment">/* 用 skewX 来让 div 倾斜 */</span></span><br><span class="line">  <span class="attribute">margin-left</span>: -<span class="number">8px</span>; <span class="comment">/* 将 div 往左移（结合 overflow 隐藏左侧），只显示右侧倾斜 */</span></span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#84de1c</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>实现效果：</p>
-<p><img src="../images/post/hp-bar-canvas-css/css-skew-one-side.gif" alt=""></p>
+<p><img src="../images/post/hp-bar-canvas-css/css-skew-one-side.gif" alt></p>
 <p>最后将血量拆分为 4 个 div 部分（正 + 斜 + 正 + 斜），用 <code>position: absolute</code> 的方法一个一个拼起来</p>
 <p>P.S. 其实可以拆分为 3 个部分（正 + 斜 + 斜）… 算了… 懒得改了</p>
-<p><img src="../images/post/hp-bar-canvas-css/css-hp-bar-separate.png" alt=""></p>
+<p><img src="../images/post/hp-bar-canvas-css/css-hp-bar-separate.png" alt></p>
 <p>我把边框做成单独的一层，<code>position: absolute</code>，然后 <code>z-index</code> 设置为最大（置顶），同理和血量一起倾斜</p>
 <p>HTML 结构是这样的。。。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hp-border"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hp-border-left"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hp-border-left-inner"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hp-border-left-sloping"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hp-border-left-sloping-inner"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hp-border-right"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hp-border-right-inner"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hp-border-right-sloping"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hp-border-right-sloping-inner"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hp-value-wrap"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hp-value-mask"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hp-value-left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hp-value-left-sloping"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hp-value-left-sloping-inner"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hp-value-right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hp-value-right-sloping"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hp-value-right-sloping-inner"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -323,7 +323,7 @@ var _hmt = _hmt || [];
 <p>血量上的阴影 遮罩层 <code>&lt;div class=&quot;hp-value-mask&quot;&gt;&lt;/div&gt;</code>：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.hp-value-mask</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">3</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(rgba(74, 74, 74, 0.5), <span class="built_in">rgba</span>(74, 74, 74, 0.24), <span class="built_in">rgba</span>(74, 74, 74, 0));</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">99%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">13px</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h2><p><a href="https://qwqcode.github.io/SAO-UI/SAO_HP_Bar_CSS.html" target="_blank" rel="noopener">qwqcode.github.io/SAO-UI/SAO_HP_Bar_CSS.html</a></p>
-<p><img src="../images/post/hp-bar-canvas-css/css-hp-bar.png" alt=""></p>
+<p><img src="../images/post/hp-bar-canvas-css/css-hp-bar.png" alt></p>
 <p>开了一个 GayHub 仓库 -&gt; <a href="https://github.com/qwqcode/SAO-UI" target="_blank" rel="noopener">传送门</a>，以后自写的 SAO UI 就都放这里面啦 ٩(ˊᗜˋ*)و</p>
 
         
@@ -345,7 +345,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://qwqaq.com/e90e2cd7.html" data-id="cjs43ozx8003wnrvod17pe65h" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
+    <a data-url="http://qwqaq.com/e90e2cd7.html" data-id="cjs91ovts003z90tt1l7nr5l6" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -472,7 +472,7 @@ $(document).ready(function () {
     <div class="widget-wrap">
         <h3 class="widget-title">最新文章</h3>
         <div class="widget">
-            <ul id="recent-post" class="">
+            <ul id="recent-post" class>
                 
                     <li>
                         
