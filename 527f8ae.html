@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>关于 Win10 1809 CMD/PowerShell/Bash 显示错乱问题 | QWQAQ 的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="最近升级到了 Windows 10 1809 版本，发现在 CMD/PowerShell/VSCode 终端窗口中，问题表现为任何终端在最初打开时光标都不显示，只有在执行命令后光标才会出现。">
+<meta name="keywords" content="Bash,命令行,终端,cmd,PowerShell,Win10,1809">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于 Win10 1809 CMD&#x2F;PowerShell&#x2F;Bash 显示错乱问题">
+<meta property="og:url" content="http://qwqaq.com/527f8ae.html">
+<meta property="og:site_name" content="QWQAQ 的博客">
+<meta property="og:description" content="最近升级到了 Windows 10 1809 版本，发现在 CMD/PowerShell/VSCode 终端窗口中，问题表现为任何终端在最初打开时光标都不显示，只有在执行命令后光标才会出现。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://qwqaq.com/images/post/vscode_terminal_under_1809_issue.gif">
+<meta property="og:image" content="http://qwqaq.com/images/post/vscode_terminal_under_1809_issue_2.gif">
+<meta property="og:image" content="http://qwqaq.com/images/post/vscode_terminal_under_1809_issue_3.png">
+<meta property="og:image" content="http://qwqaq.com/images/post/command-line-conpty-bridging.png">
+<meta property="og:image" content="http://qwqaq.com/images/post/vscode_terminal_under_1809_issue_4.png">
+<meta property="og:updated_time" content="2019-02-18T14:17:10.480Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于 Win10 1809 CMD&#x2F;PowerShell&#x2F;Bash 显示错乱问题">
+<meta name="twitter:description" content="最近升级到了 Windows 10 1809 版本，发现在 CMD/PowerShell/VSCode 终端窗口中，问题表现为任何终端在最初打开时光标都不显示，只有在执行命令后光标才会出现。">
+<meta name="twitter:image" content="http://qwqaq.com/images/post/vscode_terminal_under_1809_issue.gif">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="QWQAQ 的博客" type="application/atom+xml">
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/material-design-iconic-font/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?785e1cdc938039c39a3b5f792ed1e829";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+
+    <link rel="stylesheet" href="/libs/artalk/Artalk.css">
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <!--<span class="site-title">QWQAQ 的博客</span>-->
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">HOME</a>
+                
+                    <a class="main-nav-link" href="/categories">目录</a>
+                
+                    <a class="main-nav-link" href="/archives">时间轴</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/links">友链</a>
+                
+                    <a class="main-nav-link" href="/about">关于我</a>
+                
+            </nav>
+            
+            
+            <nav id="sub-nav">
+                <div class="profile" id="profile-nav">
+                    <a id="profile-anchor" href="javascript:;">
+                        <img class="avatar" src="/images/avatar.png">
+                        <i class="zmdi zmdi-caret-down"></i>
+                    </a>
+                </div>
+            </nav>
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
+            <span class="ins-close ins-selectable"><i class="zmdi zmdi-close"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">HOME</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">目录</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">时间轴</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/links">友链</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于我</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            <aside id="sidebar-left">
+
+    <div class="sidebar-fixed">
+        <div class="sidebar-fixed-inner">
+            
+
+<div id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <div class="profile-top-part">
+                <img id="avatar" src="/images/avatar.png">
+                <div class="info-inner">
+                    <h2 id="name">QWQAQ</h2>
+                    <h3 id="title">不忘初心，方得始终</h3>
+                </div>
+            </div>
+            <div class="profile-bg"></div>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                <a href="/archives">
+                    61
+                    <span>文章</span>
+                </a>
+            </div>
+            <div class="article-info-block">
+                <a href="/tags">
+                    147
+                    <span>标签</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            
+            
+            <div class="social-link-item">
+                <a href="https://github.com/qwqcode" target="_blank" title="github" class="tooltip">
+                    <i class="zmdi zmdi-github"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="https://twitter.com/Kiroey" target="_blank" title="twitter" class="tooltip">
+                    <i class="zmdi zmdi-twitter"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="/atom.xml" target="_blank" title="rss" class="tooltip">
+                    <i class="zmdi zmdi-rss"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="/about/" target="_blank" title="more" class="tooltip">
+                    <i class="zmdi zmdi-more"></i>
+                </a>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+
+            
+            <div id="article-content-index" class="anim-fade-in" style="display: none">
+    <div class="widget-wrap">
+        <h3 class="widget-title">内容索引</h3>
+        <div class="widget">
+            <div class="index-list"></div>
+        </div>
+    </div>
+</div>
+            
+        </div>
+    </div>
+
+</aside>
+
+            <section id="main"><article id="post-关于-Win10-1809-CMD-PowerShell-Bash-显示错乱问题" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+
+    
+        <h1 class="article-title" itemprop="name">
+            关于 Win10 1809 CMD/PowerShell/Bash 显示错乱问题
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="zmdi zmdi-calendar"></i>
+        <a href="/527f8ae.html">
+            <time datetime="2019-02-18T13:06:49.000Z" itemprop="datePublished">2019-02-18</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="zmdi zmdi-folder"></i>
+        <a class="article-category-link" href="/categories/开发工具/">开发工具</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            
+            <p>最近升级到了 Windows 10 1809 版本，发现在 CMD/PowerShell/VSCode 终端窗口中，问题表现为任何终端在最初打开时光标都不显示，只有在执行命令后光标才会出现。</p>
+<a id="more"></a>
+<h2 id="对问题的描述"><a href="#对问题的描述" class="headerlink" title="对问题的描述"></a>对问题的描述</h2><p>浏览 GitHub 发现有许多人也在反应这个问题：</p>
+<p><a href="https://github.com/Microsoft/vscode/issues/57803" target="_blank" rel="noopener">vscode/issues #57803: Terminal not in a good state initially on Windows Insider builds</a></p>
+<p><a href="https://github.com/rprichard/winpty/issues/156" target="_blank" rel="noopener">rprichard/winpty #156: Reducing window height on startup breaks cmd/powershell as of recent 1809 builds</a></p>
+<p><a href="https://github.com/rprichard/winpty/issues/152" target="_blank" rel="noopener">rprichard/winpty #152: Use Microsoft’s new ConPTY API on Windows versions which support it (i.e. Fall 2018 and newer)</a></p>
+<p><a href="https://github.com/Microsoft/console/issues/270" target="_blank" rel="noopener">Microsoft/console #270: Investigate apparent WinPTY issue with RS5/19H1 builds</a></p>
+<p><a href="https://github.com/Microsoft/vscode/issues/67903" target="_blank" rel="noopener">Microsoft/vscode #67903: [Windows 10][Insider build] Conpty cannot be enabled in Feb.4 Insider build</a></p>
+<blockquote>
+<p>Just another recorded gif to show the issue. (recorded before I searched for duplicates. 😄 )</p>
+<p><img src="../images/post/vscode_terminal_under_1809_issue.gif" alt="screen"></p>
+<p>I wondering, is this “really” a bug of Windows 10 - 1809? … Anyway we should handle this. Maybe by replacing all line breaks at initializing the terminal? Or just emulate the enter key to reprint the prompt? The second solution is more a workaround and a bit dirty. But should work. …</p>
+<p><a href="https://github.com/rprichard/winpty/issues/156#issuecomment-462546424" target="_blank" rel="noopener">winpty/issues/156#issuecomment-462546424</a></p>
+</blockquote>
+<blockquote>
+<p>@Tyriar, got the same issue. Same OS background. Using RS5 Insider Builds</p>
+<p><img src="../images/post/vscode_terminal_under_1809_issue_2.gif" alt></p>
+<p>The whole terminal experience in VSCode on Windows Insiders is pretty rough right now. Output Buffers overwriting and regular terminal inputs like CTRL+Backspace printing command characters… issues like that have been increasingly visible to me since RS5.</p>
+<p><a href="https://github.com/Microsoft/vscode/issues/57803#issuecomment-419664569" target="_blank" rel="noopener">vscode/issues/57803#issuecomment-419664569</a></p>
+</blockquote>
+<blockquote>
+<p>Same here on 17763.1 with VS Code 1.27.2, but has been several earlier Windows Insider builds. I usually just press enter once to see the command prompt in terminal, or lately I’ve just ignored the fact that there is no prompt and just type in the command, as it works nicely.</p>
+<p><img src="../images/post/vscode_terminal_under_1809_issue_3.png" alt></p>
+<p><a href="https://github.com/Microsoft/vscode/issues/57803#issuecomment-423547233" target="_blank" rel="noopener">vscode/issues/57803#issuecomment-423547233</a></p>
+</blockquote>
+<blockquote>
+<p>Same goes for zeit/Hyper. After the active dev windows insider ring was lifted onto 19H1, i can also report that the issue persists with the 19H1 prerelease, too.</p>
+</blockquote>
+<blockquote>
+<p>I have this issue too on my Windows 10 Pro 1809, Build 17764.1, when opening a new terminal window.</p>
+<p>Actually it depends on the size resp. height of the terminal window, whether or how the issue shows up:</p>
+<ul>
+<li>Terminal window maximized: no issue with new terminals</li>
+<li>Terminal height below around 22 lines: no cursor, when typing jumps to top with a number of spaces before it</li>
+<li>Teminal height below around 12 lines: no text and no cursor at all (cursor shortly flashes before disappearing)</li>
+</ul>
+<p>After pressing ENTER everything is ok.</p>
+</blockquote>
+<h2 id="大佬们是这样说的："><a href="#大佬们是这样说的：" class="headerlink" title="大佬们是这样说的："></a>大佬们是这样说的：</h2><blockquote>
+<p>Upstream issue: <a href="https://github.com/Microsoft/console/issues/270" target="_blank" rel="noopener">Microsoft/console#270</a></p>
+<p>For people experiencing this issue, the way I work around it in the meantime is to just press enter which shows the prompt. You can also just type a command and it will run fine, it’s just that the initial prompt doesn’t display correctly.</p>
+<p><a href="https://github.com/Microsoft/vscode/issues/57803#issuecomment-427120802" target="_blank" rel="noopener">vscode/issues/57803#issuecomment-427120802</a></p>
+</blockquote>
+<blockquote>
+<p>I can reproduce it, but I don’t know what’s going wrong yet. When I debug it by setting the <code>WINPTY_SHOW_CONSOLE=1</code> environment variable, I see the same sort of broken output in the console window that I see in the terminal window. If there’s a <code>HKCU\Console</code> entry for the path to the <code>winpty-agent.exe</code> binary, then the problem doesn’t reproduce. Somehow the lack of that entry, combined with winpty’s startup code, is leaving the console in a bad state when the cmd/powershell process starts.</p>
+<p>FWIW: I’m thinking of having winpty itself use conpty when it can: <a href="https://github.com/rprichard/winpty/issues/152" target="_blank" rel="noopener">rprichard/winpty#152</a>. I’m happy with node-pty using conpty directly, though.</p>
+<p><a href="https://github.com/Microsoft/vscode/issues/57803#issuecomment-420939885" target="_blank" rel="noopener">vscode/issues/57803#issuecomment-420939885</a></p>
+</blockquote>
+<blockquote>
+<p>ConPTY support is landing in the next Insiders build, this uses a new backend for the terminal on WIndows 10 build number 17692+, this is expected to fix many bugs in the terminal on Windows as we’re adopting Microsoft’s official pty API. For earlier versions winpty will still be used a many bugs will still remain (unless they’re fixed in that project).</p>
+<p>If you find any issues with conpty please report them to <a href="https://github.com/Microsoft/console" target="_blank" rel="noopener">https://github.com/Microsoft/console</a> (the team who own ConPTY) or this repo (if you think it’s an integration issue). You can opt out of conpty by adding this setting:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; &quot;terminal.integrated.windowsEnableConpty&quot;: false</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="目前解决方案"><a href="#目前解决方案" class="headerlink" title="目前解决方案"></a>目前解决方案</h2><h3 id="Winpty"><a href="#Winpty" class="headerlink" title="Winpty"></a>Winpty</h3><p>这是 Windows 更新导致 <a href="https://github.com/rprichard/winpty/" target="_blank" rel="noopener">Winpty</a> 不兼容的问题。</p>
+<blockquote>
+<p>Q: Winpty 是什么？</p>
+<p>A: winpty 是一个 Windows 软件包，提供了类似 Unix pty-master 一样的接口，用于实现控制台程序之间的通讯。该软件包包括一个开发库 (libwinpty) 和一个用于 ygwin 和 MSYS 的工具用于在 Cygwin/MSYS pty 下运行 Windows 控制台程序。</p>
+</blockquote>
+<p>目前 issue 已上报，见：</p>
+<p><a href="https://github.com/rprichard/winpty/issues/156" target="_blank" rel="noopener">rprichard/winpty #156: Reducing window height on startup breaks cmd/powershell as of recent 1809 builds</a></p>
+<p><a href="https://github.com/rprichard/winpty/issues/152" target="_blank" rel="noopener">rprichard/winpty #152: Use Microsoft’s new ConPTY API on Windows versions which support it (i.e. Fall 2018 and newer)</a></p>
+<blockquote>
+<p>I’m thinking of having winpty itself use conpty when it can: <a href="https://github.com/rprichard/winpty/issues/152" target="_blank" rel="noopener">rprichard/winpty#152</a>. I’m happy with node-pty using conpty directly, though.</p>
+</blockquote>
+<h3 id="ConPTY"><a href="#ConPTY" class="headerlink" title="ConPTY"></a>ConPTY</h3><blockquote>
+<p>The new Win32 ConPTY API (formal docs to follow soon) is now available in recent Windows 10 Insider builds and corresponding Windows 10 Insider Preview SDK, and will ship in the next major release of Windows 10 (due sometime in fall/winter 2018).</p>
+</blockquote>
+<blockquote>
+<p>新的 Win32 ConPTY API（即将推出的正式文档）现在可以在最近的 Windows 10 Insider 版本和相应的 Windows 10 Insider Preview SDK中使用，并将在 Windows 10 的下一个 major release（2018年秋/冬的某个时间）发布。</p>
+</blockquote>
+<p>微软已在 Windows 内部版本 18309+ 中发布了 <a href="https://github.com/microsoft/console" target="_blank" rel="noopener">ConPTY</a></p>
+<p>日后，各软件中可以直接使用 Windows 新的 <a href="https://github.com/microsoft/console" target="_blank" rel="noopener">ConPTY</a> 代替 <a href="https://github.com/rprichard/winpty/" target="_blank" rel="noopener">Winpty</a></p>
+<p><a href="https://blogs.msdn.microsoft.com/commandline/2018/08/02/windows-command-line-introducing-the-windows-pseudo-console-conpty/" target="_blank" rel="noopener">Windows 命令行：Windows 伪控制台（ConPTY）的介绍</a></p>
+<p><img src="../images/post/command-line-conpty-bridging.png" alt></p>
+<p>目前，VSCode 已更新支持 ConPTY，见 <a href="https://code.visualstudio.com/updates/v1_31" target="_blank" rel="noopener">更新日志</a>：<code>Integrated Terminal - ConPTY support on Windows, Find improvements.</code></p>
+<p>可以直接到设置里勾选开启：</p>
+<p><img src="../images/post/vscode_terminal_under_1809_issue_4.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;terminal.integrated.windowsEnableConpty&quot;: ture</span><br></pre></td></tr></table></figure>
+<p>如果你当前 Windows 的版本是 1809 (内部版本 17763.316) ，使用新的 ConPTY 用于终端进程通讯的前提是：你需要加入预览体验计划升级 Windows 到 18309+</p>
+<p>所以，如果你并不想升级到预览版的 Windows，那只有等待大佬们发布 Winpty 更新（修复这个 issue）的消息了……</p>
+
+        
+        </div>
+        
+            
+            <div class="article-copyright">本站文章除注明转载外均为原创，未经允许不要转载哇. ヾ(ﾟｰﾟヾ) http://qwqaq.com/527f8ae.html</div>
+            
+        
+<div class="article-tag-block">
+    <i class="zmdi zmdi-tag"></i>
+    <a class="tag-link" href="/tags/1809/">1809</a><a class="tag-link" href="/tags/Bash/">Bash</a><a class="tag-link" href="/tags/PowerShell/">PowerShell</a><a class="tag-link" href="/tags/Win10/">Win10</a><a class="tag-link" href="/tags/cmd/">cmd</a><a class="tag-link" href="/tags/命令行/">命令行</a><a class="tag-link" href="/tags/终端/">终端</a>
+</div>
+
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://qwqaq.com/527f8ae.html" data-id="cjsadoyjy002sa0ttn3xphcyy" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="zmdi zmdi-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="zmdi zmdi-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="zmdi zmdi-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="zmdi zmdi-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+
+        </footer>
+        
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/e8588299.html" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">送给自己的新年礼物：继续捡垃圾系列</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments"><div id="ArtalkComments"></div>
+<script>
+$(document).ready(function () {
+  var artalk = new Artalk({
+    el: '#ArtalkComments',
+    placeholder: '来啊，快活啊 (/ω＼)',
+    defaultAvatar: 'mp',
+    pageSize: 50,
+    pageKey: 'http://qwqaq.com/527f8ae.html',
+    serverUrl: 'https://qwqaq.com/Artalk/index.php'
+  });
+});
+</script>
+</section>
+    
+
+
+
+</section>
+            
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/527f8ae.html" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/开发工具/">开发工具</a></p>
+                            <p class="item-title"><a href="/527f8ae.html" class="title">关于 Win10 1809 CMD/PowerShell/Bash 显示错乱问题</a></p>
+                            <p class="item-date"><time datetime="2019-02-18T13:06:49.000Z" itemprop="datePublished">2019-02-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/e8588299.html" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/日常/">日常</a></p>
+                            <p class="item-title"><a href="/e8588299.html" class="title">送给自己的新年礼物：继续捡垃圾系列</a></p>
+                            <p class="item-date"><time datetime="2019-02-13T15:04:00.000Z" itemprop="datePublished">2019-02-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/db974054.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/banner/SAO_UI_HP_BAR_CANVAS.jpg)" alt="HTML5 Canvas 真香！刀剑神域 HP Bar 第二弹" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/前端/">前端</a><i class="zmdi zmdi-chevron-right"></i><a class="article-category-link" href="/categories/前端/Canvas/">Canvas</a></p>
+                            <p class="item-title"><a href="/db974054.html" class="title">HTML5 Canvas 真香！刀剑神域 HP Bar 第二弹</a></p>
+                            <p class="item-date"><time datetime="2019-01-23T16:43:04.000Z" itemprop="datePublished">2019-01-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/e90e2cd7.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/banner/SAO_UI_HP_BAR.jpg)" alt="纯 CSS 自写一个 刀剑神域 SAO UI 的 HP Bar" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/前端/">前端</a><i class="zmdi zmdi-chevron-right"></i><a class="article-category-link" href="/categories/前端/CSS/">CSS</a></p>
+                            <p class="item-title"><a href="/e90e2cd7.html" class="title">纯 CSS 自写一个 刀剑神域 SAO UI 的 HP Bar</a></p>
+                            <p class="item-date"><time datetime="2019-01-20T14:48:07.000Z" itemprop="datePublished">2019-01-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/fe2cece5.html" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JS/">JS</a></p>
+                            <p class="item-title"><a href="/fe2cece5.html" class="title">网易云音乐 模拟真实操作 一键清除每天 99+ 的私信角标</a></p>
+                            <p class="item-date"><time datetime="2019-01-18T11:20:00.000Z" itemprop="datePublished">2019-01-18</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CSharp/">CSharp</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-Star/">GitHub Star</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/Canvas/">Canvas</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/Vue/">Vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/">开发工具</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/Hyper/">Hyper</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/VSCode/">VSCode</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/日常/">日常</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/爬虫/">爬虫</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生产环境/">生产环境</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/生产环境/Apache/">Apache</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/硬件/">硬件</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/硬件/Arduino/">Arduino</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/项目/">项目</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/项目/Nacollector/">Nacollector</a><span class="category-list-count">2</span></li></ul></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="zmdi zmdi-chevron-up"></div>
+</aside>
+
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2019 QWQAQ<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme <a href="https://github.com/qwqcode/hexo-theme-icarus">icarus</a>
+        </div>
+    </div>
+</footer>
+
+        
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+    <script src="/libs/artalk/Artalk.js"></script>
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+</body>
+</html>
