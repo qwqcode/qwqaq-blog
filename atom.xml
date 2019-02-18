@@ -53,11 +53,11 @@
     <link href="http://qwqaq.com/3b2a4407.html"/>
     <id>http://qwqaq.com/3b2a4407.html</id>
     <published>2019-02-17T12:32:12.000Z</published>
-    <updated>2019-02-18T14:31:53.787Z</updated>
+    <updated>2019-02-18T14:33:06.539Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;这个问题出现在 MINGW64 (bash.exe) 环境下，通过 Scoop install 的 Yarn，执行命令 &lt;code&gt;yarn global add eslint&lt;/code&gt;，然后执行 &lt;code&gt;eslint&lt;/code&gt; 响应 &lt;code&gt;/bin/sh: /c/Users/mrglass/scoop/apps/yarn/current/bin/../../../../../AppData/Local/Yarn/Data/global/node_modules/.bin/eslint: No such file or directory&lt;/code&gt;，目前快速的解决方法如下：&lt;/p&gt;
+      &lt;p&gt;这个问题出现在 MINGW64 (bash.exe) 环境下，通过 Scoop install 的 Yarn，执行命令 &lt;code&gt;yarn global add eslint&lt;/code&gt;，然后执行 &lt;code&gt;eslint&lt;/code&gt; 响应 &lt;code&gt;/bin/sh: ...: No such file or directory&lt;/code&gt;，目前快速的解决方法如下：&lt;/p&gt;
     
     </summary>
     
