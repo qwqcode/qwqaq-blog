@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qwqaq.com/"/>
-  <updated>2019-02-19T14:29:01.454Z</updated>
+  <updated>2019-02-19T14:37:27.272Z</updated>
   <id>http://qwqaq.com/</id>
   
   <author>
@@ -15,32 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Windows 10 Insider Build 18290 ISO (19H1) 官方下载方法</title>
-    <link href="http://qwqaq.com/c29e2d86.html"/>
-    <id>http://qwqaq.com/c29e2d86.html</id>
-    <published>2019-12-13T14:02:33.000Z</published>
-    <updated>2019-02-19T14:29:01.454Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Microsoft 前不久发布了内部预览版本 18290 (19H1) 的 ISO，新版本包含一些改进和许多新功能，你可以按照本文方下载 ISO 文件。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Windows" scheme="http://qwqaq.com/categories/Windows/"/>
-    
-    
-      <category term="Windows 10" scheme="http://qwqaq.com/tags/Windows-10/"/>
-    
-      <category term="预览版" scheme="http://qwqaq.com/tags/%E9%A2%84%E8%A7%88%E7%89%88/"/>
-    
-      <category term="19H1" scheme="http://qwqaq.com/tags/19H1/"/>
-    
-      <category term="ISO" scheme="http://qwqaq.com/tags/ISO/"/>
-    
-  </entry>
   
   <entry>
     <title>Win10 1809 调用 CMD/PowerShell/Bash 显示错乱问题</title>
@@ -339,6 +313,32 @@
       <category term="osborn" scheme="http://qwqaq.com/tags/osborn/"/>
     
       <category term="救砖" scheme="http://qwqaq.com/tags/%E6%95%91%E7%A0%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Windows 10 Insider Build 18290 ISO (19H1) 官方下载方法</title>
+    <link href="http://qwqaq.com/c29e2d86.html"/>
+    <id>http://qwqaq.com/c29e2d86.html</id>
+    <published>2018-12-13T14:02:33.000Z</published>
+    <updated>2019-02-19T14:38:05.392Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Microsoft 前不久发布了内部预览版本 18290 (19H1) 的 ISO，新版本包含一些改进和许多新功能，你可以按照本文方下载 ISO 文件。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Windows" scheme="http://qwqaq.com/categories/Windows/"/>
+    
+    
+      <category term="Windows 10" scheme="http://qwqaq.com/tags/Windows-10/"/>
+    
+      <category term="预览版" scheme="http://qwqaq.com/tags/%E9%A2%84%E8%A7%88%E7%89%88/"/>
+    
+      <category term="19H1" scheme="http://qwqaq.com/tags/19H1/"/>
+    
+      <category term="ISO" scheme="http://qwqaq.com/tags/ISO/"/>
     
   </entry>
   
