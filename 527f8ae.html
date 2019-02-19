@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://qwqaq.com/images/post/vscode_terminal_under_1809_issue_3.png">
 <meta property="og:image" content="http://qwqaq.com/images/post/command-line-conpty-bridging.png">
 <meta property="og:image" content="http://qwqaq.com/images/post/vscode_terminal_under_1809_issue_4.png">
-<meta property="og:updated_time" content="2019-02-19T14:28:40.463Z">
+<meta property="og:updated_time" content="2019-02-19T14:30:11.165Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Win10 1809 调用 CMD&#x2F;PowerShell&#x2F;Bash 显示错乱问题">
 <meta name="twitter:description" content="最近升级到了 Windows 10 1809 版本，发现在 VSCode 终端窗口中调用 CMD/PowerShell/Bash 都有显示错乱的现象，连 Android Studio 也出现了这个问题，在部分开发工具内的终端在最初打开时光标不能正常显示，只有在执行命令后光标才会出现。">
@@ -391,7 +391,7 @@ var _hmt = _hmt || [];
 </blockquote>
 <p><a href="https://blogs.msdn.microsoft.com/commandline/2018/08/02/windows-command-line-introducing-the-windows-pseudo-console-conpty/" target="_blank" rel="noopener">Windows 命令行：Windows 伪控制台（ConPTY）的介绍</a></p>
 <p><img src="../images/post/command-line-conpty-bridging.png" alt></p>
-<p>VSCode 在 January 2019 (version 1.31) 的更新中已支持 ConPTY，见 <a href="https://code.visualstudio.com/updates/v1_31" target="_blank" rel="noopener">更新日志</a>：<code>Integrated Terminal - ConPTY support on Windows, Find improvements.</code></p>
+<p>VSCode 在 January 2019 (version 1.31) 的更新中已添加对 ConPTY 的支持，见 <a href="https://code.visualstudio.com/updates/v1_31#_conpty-support-on-windows" target="_blank" rel="noopener">更新日志</a></p>
 <p>VSCode 目前在同时使用 Winpty 和 Conpty，由于 1809 (17763.316) Win 10 似乎并没有加入 <a href="https://github.com/microsoft/console" target="_blank" rel="noopener">ConPTY</a> 的更新（在 VSCode 设置里使用 Conpty 需要内部版本 18309+ 的 Win 10）</p>
 <p>现在如果你想解决这个问题，可以加入 “加入预览体验计划升级” 并升级 Windows 到 18309+ 预览版，然后直接到设置里勾选开启：</p>
 <p><img src="../images/post/vscode_terminal_under_1809_issue_4.png" alt></p>
@@ -417,7 +417,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://qwqaq.com/527f8ae.html" data-id="cjsbv6wdr00dulctt9zdkt8qt" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
+    <a data-url="http://qwqaq.com/527f8ae.html" data-id="cjsbv7q5i00dug8ttw5ff9wq2" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
