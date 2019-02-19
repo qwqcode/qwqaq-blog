@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://qwqaq.com/images/post/vscode_terminal_under_1809_issue_3.png">
 <meta property="og:image" content="http://qwqaq.com/images/post/command-line-conpty-bridging.png">
 <meta property="og:image" content="http://qwqaq.com/images/post/vscode_terminal_under_1809_issue_4.png">
-<meta property="og:updated_time" content="2019-02-19T14:30:58.710Z">
+<meta property="og:updated_time" content="2019-02-19T14:36:41.127Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Win10 1809 调用 CMD&#x2F;PowerShell&#x2F;Bash 显示错乱问题">
 <meta name="twitter:description" content="最近升级到了 Windows 10 1809 版本，发现在 VSCode 终端窗口中调用 CMD/PowerShell/Bash 都有显示错乱的现象，连 Android Studio 也出现了这个问题，在部分开发工具内的终端在最初打开时光标不能正常显示，只有在执行命令后光标才会出现。">
@@ -369,10 +369,10 @@ var _hmt = _hmt || [];
 <p>Presumably this’ll go away when node-pty picks up conpty, so for RS4 and below they’ll still work fine, and RS5+ will get fixed by conpty. There’ll just be this awkward middle phase where RS5 is broken.</p>
 <p>I still don’t know <em>why</em> this might be happening in the first place - maybe @rprichard might know more?</p>
 </blockquote>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>然而并不了解伪终端 (Pseudo Terminal) 的工作原理</p>
-<p><a href="https://en.wikipedia.org/wiki/Pseudoterminal" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Pseudoterminal</a></p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>然而并不了解 <a href="https://en.wikipedia.org/wiki/Pseudoterminal" target="_blank" rel="noopener">伪终端 (Pseudo Terminal)</a> 的工作原理</p>
 <p>还是以后有时间慢慢补 Unix 吧…</p>
-<h3 id="Winpty"><a href="#Winpty" class="headerlink" title="Winpty"></a>Winpty</h3><p>我猜这是 Windows 更新导致 <a href="https://github.com/rprichard/winpty/" target="_blank" rel="noopener">Winpty</a> 不兼容的问题？</p>
+<h3 id="Winpty"><a href="#Winpty" class="headerlink" title="Winpty"></a>Winpty</h3><p>Windows 更新导致 <a href="https://github.com/rprichard/winpty/" target="_blank" rel="noopener">Winpty</a> 发生了奇怪的问题</p>
+<p>有许多软件目前使用的是 Winpty 做为终端的后端（例如 VSCode, bash.exe）</p>
 <blockquote>
 <p>Q: Winpty 是什么？</p>
 <p>A: winpty 是一个 Windows 软件包，提供了类似 Unix pty-master 一样的接口，用于实现控制台程序之间的通讯。该软件包包括一个开发库 (libwinpty) 和一个用于 ygwin 和 MSYS 的工具用于在 Cygwin/MSYS pty 下运行 Windows 控制台程序。</p>
@@ -392,7 +392,7 @@ var _hmt = _hmt || [];
 <p><a href="https://blogs.msdn.microsoft.com/commandline/2018/08/02/windows-command-line-introducing-the-windows-pseudo-console-conpty/" target="_blank" rel="noopener">Windows 命令行：Windows 伪控制台（ConPTY）的介绍</a></p>
 <p><img src="../images/post/command-line-conpty-bridging.png" alt></p>
 <p>VSCode 在 January 2019 (version 1.31) 的更新中已添加对 ConPTY 的支持，见 <a href="https://code.visualstudio.com/updates/v1_31#_conpty-support-on-windows" target="_blank" rel="noopener">更新日志</a></p>
-<p>VSCode 目前在同时使用 Winpty 和 Conpty，由于 1809 (17763.316) Win 10 似乎并没有加入 <a href="https://github.com/microsoft/console" target="_blank" rel="noopener">ConPTY</a> 的更新（在 VSCode 设置里使用 Conpty 需要内部版本 18309+ 的 Win 10）</p>
+<p>VSCode 目前在同时使用 Winpty 和 ConPTY，由于 1809 (17763.316) Win 10 似乎并没有加入 <a href="https://github.com/microsoft/console" target="_blank" rel="noopener">ConPTY</a> 的更新（在 VSCode 设置里使用 ConPTY 需要内部版本 18309+ 的 Win 10）</p>
 <blockquote>
 <p>This will use the ConPTY system provided by the Windows Console team as the backend for the terminal. Enabling this should fix many issues with the Windows terminal, particularly around color support, interactive applications, and shells that natively support VT sequences.</p>
 </blockquote>
@@ -400,6 +400,7 @@ var _hmt = _hmt || [];
 <p><img src="../images/post/vscode_terminal_under_1809_issue_4.png" alt></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;terminal.integrated.windowsEnableConpty&quot;: ture</span><br></pre></td></tr></table></figure>
 <p>嗯，就这样…</p>
+<p>日后，各种软件可以用 ConPTY 代替 WinPty，或等待 WinPty 的更新…</p>
 
         
         </div>
@@ -420,7 +421,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://qwqaq.com/527f8ae.html" data-id="cjsbv9opx00dtmktts7sjr6tp" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
+    <a data-url="http://qwqaq.com/527f8ae.html" data-id="cjsbvgw9400ds3ottno61uymd" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
