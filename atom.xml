@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qwqaq.com/"/>
-  <updated>2019-02-18T14:21:08.231Z</updated>
+  <updated>2019-02-19T12:32:52.622Z</updated>
   <id>http://qwqaq.com/</id>
   
   <author>
@@ -17,22 +17,26 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>关于 Win10 1809 CMD/PowerShell/Bash 显示错乱问题</title>
+    <title>Win10 1809 调用 CMD/PowerShell/Bash 显示错乱问题</title>
     <link href="http://qwqaq.com/527f8ae.html"/>
     <id>http://qwqaq.com/527f8ae.html</id>
     <published>2019-02-18T13:06:49.000Z</published>
-    <updated>2019-02-18T14:21:08.231Z</updated>
+    <updated>2019-02-19T12:32:52.622Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;最近升级到了 Windows 10 1809 版本，发现在 CMD/PowerShell/VSCode 终端窗口中，问题表现为任何终端在最初打开时光标都不显示，只有在执行命令后光标才会出现。&lt;/p&gt;
+      &lt;p&gt;最近升级到了 Windows 10 1809 版本，发现在 VSCode 终端窗口中调用 CMD/PowerShell/Bash 都有显示错乱的现象，连 Android Studio 也出现了这个问题，在部分开发工具内的终端在最初打开时光标不能正常显示，只有在执行命令后光标才会出现。&lt;/p&gt;
     
     </summary>
     
       <category term="开发工具" scheme="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
     
+      <category term="VSCode" scheme="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/VSCode/"/>
+    
     
       <category term="Bash" scheme="http://qwqaq.com/tags/Bash/"/>
+    
+      <category term="VSCode" scheme="http://qwqaq.com/tags/VSCode/"/>
     
       <category term="命令行" scheme="http://qwqaq.com/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
     

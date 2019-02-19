@@ -3,25 +3,25 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     
-    <title>关于 Win10 1809 CMD/PowerShell/Bash 显示错乱问题 | QWQAQ 的博客</title>
+    <title>Win10 1809 调用 CMD/PowerShell/Bash 显示错乱问题 | QWQAQ 的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="最近升级到了 Windows 10 1809 版本，发现在 CMD/PowerShell/VSCode 终端窗口中，问题表现为任何终端在最初打开时光标都不显示，只有在执行命令后光标才会出现。">
-<meta name="keywords" content="Bash,命令行,终端,cmd,PowerShell,Win10,1809">
+    <meta name="description" content="最近升级到了 Windows 10 1809 版本，发现在 VSCode 终端窗口中调用 CMD/PowerShell/Bash 都有显示错乱的现象，连 Android Studio 也出现了这个问题，在部分开发工具内的终端在最初打开时光标不能正常显示，只有在执行命令后光标才会出现。">
+<meta name="keywords" content="Bash,VSCode,命令行,终端,cmd,PowerShell,Win10,1809">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于 Win10 1809 CMD&#x2F;PowerShell&#x2F;Bash 显示错乱问题">
+<meta property="og:title" content="Win10 1809 调用 CMD&#x2F;PowerShell&#x2F;Bash 显示错乱问题">
 <meta property="og:url" content="http://qwqaq.com/527f8ae.html">
 <meta property="og:site_name" content="QWQAQ 的博客">
-<meta property="og:description" content="最近升级到了 Windows 10 1809 版本，发现在 CMD/PowerShell/VSCode 终端窗口中，问题表现为任何终端在最初打开时光标都不显示，只有在执行命令后光标才会出现。">
+<meta property="og:description" content="最近升级到了 Windows 10 1809 版本，发现在 VSCode 终端窗口中调用 CMD/PowerShell/Bash 都有显示错乱的现象，连 Android Studio 也出现了这个问题，在部分开发工具内的终端在最初打开时光标不能正常显示，只有在执行命令后光标才会出现。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://qwqaq.com/images/post/vscode_terminal_under_1809_issue.gif">
 <meta property="og:image" content="http://qwqaq.com/images/post/vscode_terminal_under_1809_issue_2.gif">
 <meta property="og:image" content="http://qwqaq.com/images/post/vscode_terminal_under_1809_issue_3.png">
 <meta property="og:image" content="http://qwqaq.com/images/post/command-line-conpty-bridging.png">
 <meta property="og:image" content="http://qwqaq.com/images/post/vscode_terminal_under_1809_issue_4.png">
-<meta property="og:updated_time" content="2019-02-18T14:21:08.231Z">
+<meta property="og:updated_time" content="2019-02-19T12:32:52.622Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于 Win10 1809 CMD&#x2F;PowerShell&#x2F;Bash 显示错乱问题">
-<meta name="twitter:description" content="最近升级到了 Windows 10 1809 版本，发现在 CMD/PowerShell/VSCode 终端窗口中，问题表现为任何终端在最初打开时光标都不显示，只有在执行命令后光标才会出现。">
+<meta name="twitter:title" content="Win10 1809 调用 CMD&#x2F;PowerShell&#x2F;Bash 显示错乱问题">
+<meta name="twitter:description" content="最近升级到了 Windows 10 1809 版本，发现在 VSCode 终端窗口中调用 CMD/PowerShell/Bash 都有显示错乱的现象，连 Android Studio 也出现了这个问题，在部分开发工具内的终端在最初打开时光标不能正常显示，只有在执行命令后光标才会出现。">
 <meta name="twitter:image" content="http://qwqaq.com/images/post/vscode_terminal_under_1809_issue.gif">
     
 
@@ -247,7 +247,7 @@ var _hmt = _hmt || [];
 
 </aside>
 
-            <section id="main"><article id="post-关于-Win10-1809-CMD-PowerShell-Bash-显示错乱问题" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Win10-1809-调用-CMD-PowerShell-Bash-显示错乱问题" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -256,7 +256,7 @@ var _hmt = _hmt || [];
 
     
         <h1 class="article-title" itemprop="name">
-            关于 Win10 1809 CMD/PowerShell/Bash 显示错乱问题
+            Win10 1809 调用 CMD/PowerShell/Bash 显示错乱问题
         </h1>
     
 
@@ -274,7 +274,7 @@ var _hmt = _hmt || [];
                         
     <div class="article-category">
     	<i class="zmdi zmdi-folder"></i>
-        <a class="article-category-link" href="/categories/开发工具/">开发工具</a>
+        <a class="article-category-link" href="/categories/开发工具/">开发工具</a><i class="zmdi zmdi-chevron-righ"></i><a class="article-category-link" href="/categories/开发工具/VSCode/">VSCode</a>
     </div>
 
                     </div>
@@ -286,9 +286,9 @@ var _hmt = _hmt || [];
         
             
             
-            <p>最近升级到了 Windows 10 1809 版本，发现在 CMD/PowerShell/VSCode 终端窗口中，问题表现为任何终端在最初打开时光标都不显示，只有在执行命令后光标才会出现。</p>
+            <p>最近升级到了 Windows 10 1809 版本，发现在 VSCode 终端窗口中调用 CMD/PowerShell/Bash 都有显示错乱的现象，连 Android Studio 也出现了这个问题，在部分开发工具内的终端在最初打开时光标不能正常显示，只有在执行命令后光标才会出现。</p>
 <a id="more"></a>
-<h2 id="对问题的描述"><a href="#对问题的描述" class="headerlink" title="对问题的描述"></a>对问题的描述</h2><p>浏览 GitHub 发现有许多人也在反应这个问题：</p>
+<h2 id="对问题的描述"><a href="#对问题的描述" class="headerlink" title="对问题的描述"></a>对问题的描述</h2><p>GitHub 有许多人也在反应这个问题：</p>
 <p><a href="https://github.com/Microsoft/vscode/issues/57803" target="_blank" rel="noopener">vscode/issues #57803: Terminal not in a good state initially on Windows Insider builds</a></p>
 <p><a href="https://github.com/rprichard/winpty/issues/156" target="_blank" rel="noopener">rprichard/winpty #156: Reducing window height on startup breaks cmd/powershell as of recent 1809 builds</a></p>
 <p><a href="https://github.com/rprichard/winpty/issues/152" target="_blank" rel="noopener">rprichard/winpty #152: Use Microsoft’s new ConPTY API on Windows versions which support it (i.e. Fall 2018 and newer)</a></p>
@@ -324,6 +324,9 @@ var _hmt = _hmt || [];
 </ul>
 <p>After pressing ENTER everything is ok.</p>
 </blockquote>
+<blockquote>
+<p>Guys, this may not be related to VS at all. I’m also a user of Android Studio and when I open the terminal tab in the lower panel I get the same issue.</p>
+</blockquote>
 <h2 id="大佬们是这样说的："><a href="#大佬们是这样说的：" class="headerlink" title="大佬们是这样说的："></a>大佬们是这样说的：</h2><blockquote>
 <p>Upstream issue: <a href="https://github.com/Microsoft/console/issues/270" target="_blank" rel="noopener">Microsoft/console#270</a></p>
 <p>For people experiencing this issue, the way I work around it in the meantime is to just press enter which shows the prompt. You can also just type a command and it will run fine, it’s just that the initial prompt doesn’t display correctly.</p>
@@ -335,11 +338,19 @@ var _hmt = _hmt || [];
 <p><a href="https://github.com/Microsoft/vscode/issues/57803#issuecomment-420939885" target="_blank" rel="noopener">vscode/issues/57803#issuecomment-420939885</a></p>
 </blockquote>
 <blockquote>
+<p>@Tyriar</p>
 <p>ConPTY support is landing in the next Insiders build, this uses a new backend for the terminal on WIndows 10 build number 17692+, this is expected to fix many bugs in the terminal on Windows as we’re adopting Microsoft’s official pty API. For earlier versions winpty will still be used a many bugs will still remain (unless they’re fixed in that project).</p>
 <p>If you find any issues with conpty please report them to <a href="https://github.com/Microsoft/console" target="_blank" rel="noopener">https://github.com/Microsoft/console</a> (the team who own ConPTY) or this repo (if you think it’s an integration issue). You can opt out of conpty by adding this setting:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; &quot;terminal.integrated.windowsEnableConpty&quot;: false</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
-<h2 id="目前解决方案"><a href="#目前解决方案" class="headerlink" title="目前解决方案"></a>目前解决方案</h2><h3 id="Winpty"><a href="#Winpty" class="headerlink" title="Winpty"></a>Winpty</h3><p>这是 Windows 更新导致 <a href="https://github.com/rprichard/winpty/" target="_blank" rel="noopener">Winpty</a> 不兼容的问题。</p>
+<blockquote>
+<p><a href="https://github.com/Microsoft/vscode/issues/57803#issuecomment-449495423" target="_blank" rel="noopener">vscode/issues/57803#issuecomment-449495423</a></p>
+</blockquote>
+<blockquote>
+<p>@Tyriar</p>
+<p>译：<br>ConPTY支持将在下一个Insiders构建中发布，它在WIndows 10内部版本号17692+上使用终端的新后端，预计这将修复Windows上终端中的许多错误，因为我们正在采用微软官方的pty API。对于早期版本，winpty仍然会被使用，但会留下许多错误（除非它们已在该项目中修复）。</p>
+</blockquote>
+<h2 id="目前解决方案"><a href="#目前解决方案" class="headerlink" title="目前解决方案"></a>目前解决方案</h2><h3 id="Winpty"><a href="#Winpty" class="headerlink" title="Winpty"></a>Winpty</h3><p>这是 Windows 更新导致 <a href="https://github.com/rprichard/winpty/" target="_blank" rel="noopener">Winpty</a> 不兼容的问题，等待更新解决。</p>
 <blockquote>
 <p>Q: Winpty 是什么？</p>
 <p>A: winpty 是一个 Windows 软件包，提供了类似 Unix pty-master 一样的接口，用于实现控制台程序之间的通讯。该软件包包括一个开发库 (libwinpty) 和一个用于 ygwin 和 MSYS 的工具用于在 Cygwin/MSYS pty 下运行 Windows 控制台程序。</p>
@@ -377,7 +388,7 @@ var _hmt = _hmt || [];
         
 <div class="article-tag-block">
     <i class="zmdi zmdi-tag"></i>
-    <a class="tag-link" href="/tags/1809/">1809</a><a class="tag-link" href="/tags/Bash/">Bash</a><a class="tag-link" href="/tags/PowerShell/">PowerShell</a><a class="tag-link" href="/tags/Win10/">Win10</a><a class="tag-link" href="/tags/cmd/">cmd</a><a class="tag-link" href="/tags/命令行/">命令行</a><a class="tag-link" href="/tags/终端/">终端</a>
+    <a class="tag-link" href="/tags/1809/">1809</a><a class="tag-link" href="/tags/Bash/">Bash</a><a class="tag-link" href="/tags/PowerShell/">PowerShell</a><a class="tag-link" href="/tags/VSCode/">VSCode</a><a class="tag-link" href="/tags/Win10/">Win10</a><a class="tag-link" href="/tags/cmd/">cmd</a><a class="tag-link" href="/tags/命令行/">命令行</a><a class="tag-link" href="/tags/终端/">终端</a>
 </div>
 
         <footer class="article-footer">
@@ -387,7 +398,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://qwqaq.com/527f8ae.html" data-id="cjsagxmy200dntcttqpq1lw7e" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
+    <a data-url="http://qwqaq.com/527f8ae.html" data-id="cjsbr2aqh00di88ttkfgoac8s" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -520,8 +531,8 @@ $(document).ready(function () {
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/开发工具/">开发工具</a></p>
-                            <p class="item-title"><a href="/527f8ae.html" class="title">关于 Win10 1809 CMD/PowerShell/Bash 显示错乱问题</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/开发工具/">开发工具</a><i class="zmdi zmdi-chevron-right"></i><a class="article-category-link" href="/categories/开发工具/VSCode/">VSCode</a></p>
+                            <p class="item-title"><a href="/527f8ae.html" class="title">Win10 1809 调用 CMD/PowerShell/Bash 显示错乱问题</a></p>
                             <p class="item-date"><time datetime="2019-02-18T13:06:49.000Z" itemprop="datePublished">2019-02-18</time></p>
                         </div>
                     </li>
@@ -611,7 +622,7 @@ $(document).ready(function () {
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CSharp/">CSharp</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-Star/">GitHub Star</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/Canvas/">Canvas</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/Vue/">Vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/">开发工具</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/Hyper/">Hyper</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/Scoop/">Scoop</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/VSCode/">VSCode</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/日常/">日常</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/爬虫/">爬虫</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生产环境/">生产环境</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/生产环境/Apache/">Apache</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/硬件/">硬件</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/硬件/Arduino/">Arduino</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/项目/">项目</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/项目/Nacollector/">Nacollector</a><span class="category-list-count">2</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CSharp/">CSharp</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-Star/">GitHub Star</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/Canvas/">Canvas</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/Vue/">Vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/">开发工具</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/Hyper/">Hyper</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/Scoop/">Scoop</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/VSCode/">VSCode</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/日常/">日常</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/爬虫/">爬虫</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生产环境/">生产环境</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/生产环境/Apache/">Apache</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/硬件/">硬件</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/硬件/Arduino/">Arduino</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/项目/">项目</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/项目/Nacollector/">Nacollector</a><span class="category-list-count">2</span></li></ul></li></ul>
         </div>
     </div>
 
