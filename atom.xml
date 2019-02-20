@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qwqaq.com/"/>
-  <updated>2019-02-20T04:00:25.859Z</updated>
+  <updated>2019-02-20T04:01:59.779Z</updated>
   <id>http://qwqaq.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://qwqaq.com/527f8ae.html"/>
     <id>http://qwqaq.com/527f8ae.html</id>
     <published>2019-02-18T13:06:49.000Z</published>
-    <updated>2019-02-20T04:00:25.859Z</updated>
+    <updated>2019-02-20T04:01:59.779Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,13 @@
     
     </summary>
     
-      <category term="开发工具 - VSCode - Android Studio - PhpStorm" scheme="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7-VSCode-Android-Studio-PhpStorm/"/>
+      <category term="开发工具" scheme="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="VSCode" scheme="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/VSCode/"/>
+    
+      <category term="Android Studio" scheme="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/VSCode/Android-Studio/"/>
+    
+      <category term="PhpStorm" scheme="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/VSCode/Android-Studio/PhpStorm/"/>
     
     
       <category term="Bash" scheme="http://qwqaq.com/tags/Bash/"/>
