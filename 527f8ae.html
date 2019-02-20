@@ -5,23 +5,23 @@
     
     <title>Win10 1809 调用 CMD/PowerShell/Bash 显示错乱问题 | QWQAQ 的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="最近升级到了 Windows 10 1809 版本，发现在 VSCode 终端窗口中调用 CMD/PowerShell/Bash 都有显示错乱的现象，连 Android Studio 也出现了这个问题，在部分开发工具内的终端在最初打开时光标不能正常显示，只有在执行命令后光标才会出现。">
+    <meta name="description" content="最近升级到了 Windows 10 1809 版本，发现在 VSCode, Android Studio, PhpStorm 终端窗口中的 CMD/PowerShell/Bash 都有显示错乱的现象，终端在最初打开时光标不能正常显示，只有在执行命令后光标才会出现。">
 <meta name="keywords" content="Bash,VSCode,命令行,终端,cmd,PowerShell,Win10,1809">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Win10 1809 调用 CMD&#x2F;PowerShell&#x2F;Bash 显示错乱问题">
 <meta property="og:url" content="http://qwqaq.com/527f8ae.html">
 <meta property="og:site_name" content="QWQAQ 的博客">
-<meta property="og:description" content="最近升级到了 Windows 10 1809 版本，发现在 VSCode 终端窗口中调用 CMD/PowerShell/Bash 都有显示错乱的现象，连 Android Studio 也出现了这个问题，在部分开发工具内的终端在最初打开时光标不能正常显示，只有在执行命令后光标才会出现。">
+<meta property="og:description" content="最近升级到了 Windows 10 1809 版本，发现在 VSCode, Android Studio, PhpStorm 终端窗口中的 CMD/PowerShell/Bash 都有显示错乱的现象，终端在最初打开时光标不能正常显示，只有在执行命令后光标才会出现。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://qwqaq.com/images/post/vscode_terminal_under_1809_issue.gif">
 <meta property="og:image" content="http://qwqaq.com/images/post/vscode_terminal_under_1809_issue_2.gif">
 <meta property="og:image" content="http://qwqaq.com/images/post/vscode_terminal_under_1809_issue_3.png">
 <meta property="og:image" content="http://qwqaq.com/images/post/command-line-conpty-bridging.png">
 <meta property="og:image" content="http://qwqaq.com/images/post/vscode_terminal_under_1809_issue_4.png">
-<meta property="og:updated_time" content="2019-02-19T14:37:27.272Z">
+<meta property="og:updated_time" content="2019-02-20T03:59:18.976Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Win10 1809 调用 CMD&#x2F;PowerShell&#x2F;Bash 显示错乱问题">
-<meta name="twitter:description" content="最近升级到了 Windows 10 1809 版本，发现在 VSCode 终端窗口中调用 CMD/PowerShell/Bash 都有显示错乱的现象，连 Android Studio 也出现了这个问题，在部分开发工具内的终端在最初打开时光标不能正常显示，只有在执行命令后光标才会出现。">
+<meta name="twitter:description" content="最近升级到了 Windows 10 1809 版本，发现在 VSCode, Android Studio, PhpStorm 终端窗口中的 CMD/PowerShell/Bash 都有显示错乱的现象，终端在最初打开时光标不能正常显示，只有在执行命令后光标才会出现。">
 <meta name="twitter:image" content="http://qwqaq.com/images/post/vscode_terminal_under_1809_issue.gif">
     
 
@@ -274,7 +274,7 @@ var _hmt = _hmt || [];
                         
     <div class="article-category">
     	<i class="zmdi zmdi-folder"></i>
-        <a class="article-category-link" href="/categories/开发工具/">开发工具</a><i class="zmdi zmdi-chevron-righ"></i><a class="article-category-link" href="/categories/开发工具/VSCode/">VSCode</a>
+        <a class="article-category-link" href="/categories/开发工具-VSCode-Android-Studio-PhpStorm/">开发工具 - VSCode - Android Studio - PhpStorm</a>
     </div>
 
                     </div>
@@ -286,16 +286,10 @@ var _hmt = _hmt || [];
         
             
             
-            <p>最近升级到了 Windows 10 1809 版本，发现在 VSCode 终端窗口中调用 CMD/PowerShell/Bash 都有显示错乱的现象，连 Android Studio 也出现了这个问题，在部分开发工具内的终端在最初打开时光标不能正常显示，只有在执行命令后光标才会出现。</p>
+            <p>最近升级到了 Windows 10 1809 版本，发现在 VSCode, Android Studio, PhpStorm 终端窗口中的 CMD/PowerShell/Bash 都有显示错乱的现象，终端在最初打开时光标不能正常显示，只有在执行命令后光标才会出现。</p>
 <a id="more"></a>
-<h2 id="对问题的描述"><a href="#对问题的描述" class="headerlink" title="对问题的描述"></a>对问题的描述</h2><p>GitHub 有许多人也在反应这个问题：</p>
-<p><a href="https://github.com/Microsoft/vscode/issues/57803" target="_blank" rel="noopener">vscode/issues #57803: Terminal not in a good state initially on Windows Insider builds</a></p>
-<p><a href="https://github.com/rprichard/winpty/issues/156" target="_blank" rel="noopener">rprichard/winpty #156: Reducing window height on startup breaks cmd/powershell as of recent 1809 builds</a></p>
-<p><a href="https://github.com/rprichard/winpty/issues/152" target="_blank" rel="noopener">rprichard/winpty #152: Use Microsoft’s new ConPTY API on Windows versions which support it (i.e. Fall 2018 and newer)</a></p>
-<p><a href="https://github.com/Microsoft/vscode/issues/67903" target="_blank" rel="noopener">Microsoft/vscode #67903: [Windows 10][Insider build] Conpty cannot be enabled in Feb.4 Insider build</a></p>
-<p><a href="https://github.com/Microsoft/console/issues/270" target="_blank" rel="noopener">Microsoft/console #270: Investigate apparent WinPTY issue with RS5/19H1 builds</a></p>
-<p><a href="https://github.com/Microsoft/console/issues/255" target="_blank" rel="noopener">Microsoft/console #255: SetConsoleWindowInfo + cmd/powershell yields invisible prompt</a></p>
 <blockquote>
+<p><a href="https://github.com/domske" target="_blank" rel="noopener">@domske</a></p>
 <p>Just another recorded gif to show the issue. (recorded before I searched for duplicates. 😄 )</p>
 <p><img src="../images/post/vscode_terminal_under_1809_issue.gif" alt="screen"></p>
 <p>I wondering, is this “really” a bug of Windows 10 - 1809? … Anyway we should handle this. Maybe by replacing all line breaks at initializing the terminal? Or just emulate the enter key to reprint the prompt? The second solution is more a workaround and a bit dirty. But should work. …</p>
@@ -308,6 +302,7 @@ var _hmt = _hmt || [];
 <p><a href="https://github.com/Microsoft/vscode/issues/57803#issuecomment-419664569" target="_blank" rel="noopener">vscode/issues/57803#issuecomment-419664569</a></p>
 </blockquote>
 <blockquote>
+<p><a href="https://github.com/jpalo" target="_blank" rel="noopener">@jpalo</a></p>
 <p>Same here on 17763.1 with VS Code 1.27.2, but has been several earlier Windows Insider builds. I usually just press enter once to see the command prompt in terminal, or lately I’ve just ignored the fact that there is no prompt and just type in the command, as it works nicely.</p>
 <p><img src="../images/post/vscode_terminal_under_1809_issue_3.png" alt></p>
 <p><a href="https://github.com/Microsoft/vscode/issues/57803#issuecomment-423547233" target="_blank" rel="noopener">vscode/issues/57803#issuecomment-423547233</a></p>
@@ -328,15 +323,16 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>Guys, this may not be related to VS at all. I’m also a user of Android Studio and when I open the terminal tab in the lower panel I get the same issue.</p>
 </blockquote>
-<h2 id="大佬们是这样说的："><a href="#大佬们是这样说的：" class="headerlink" title="大佬们是这样说的："></a>大佬们是这样说的：</h2><blockquote>
-<p><a href="https://github.com/Tyriar" target="_blank" rel="noopener">@Tyriar</a></p>
-<p>Upstream issue: <a href="https://github.com/Microsoft/console/issues/270" target="_blank" rel="noopener">Microsoft/console#270</a></p>
-<p>For people experiencing this issue, the way I work around it in the meantime is to just press enter which shows the prompt. You can also just type a command and it will run fine, it’s just that the initial prompt doesn’t display correctly.</p>
-</blockquote>
-<blockquote>
-<p><a href="https://github.com/rprichard" target="_blank" rel="noopener">@rprichard</a></p>
+<p><a href="https://github.com/Microsoft/vscode/issues/57803" target="_blank" rel="noopener">vscode/issues #57803: Terminal not in a good state initially on Windows Insider builds</a></p>
+<p><a href="https://github.com/rprichard/winpty/issues/156" target="_blank" rel="noopener">rprichard/winpty #156: Reducing window height on startup breaks cmd/powershell as of recent 1809 builds</a></p>
+<p><a href="https://github.com/rprichard/winpty/issues/152" target="_blank" rel="noopener">rprichard/winpty #152: Use Microsoft’s new ConPTY API on Windows versions which support it (i.e. Fall 2018 and newer)</a></p>
+<p><a href="https://github.com/Microsoft/vscode/issues/67903" target="_blank" rel="noopener">Microsoft/vscode #67903: [Windows 10][Insider build] Conpty cannot be enabled in Feb.4 Insider build</a></p>
+<p><a href="https://github.com/Microsoft/console/issues/270" target="_blank" rel="noopener">Microsoft/console #270: Investigate apparent WinPTY issue with RS5/19H1 builds</a></p>
+<p><a href="https://github.com/Microsoft/console/issues/255" target="_blank" rel="noopener">Microsoft/console #255: SetConsoleWindowInfo + cmd/powershell yields invisible prompt</a></p>
+<h2 id="大佬们是这样说的"><a href="#大佬们是这样说的" class="headerlink" title="大佬们是这样说的"></a>大佬们是这样说的</h2><blockquote>
+<p><a href="https://github.com/rprichard" target="_blank" rel="noopener">@rprichard</a> (Owner of the winpty repository)</p>
 <p>I can reproduce it, but I don’t know what’s going wrong yet. When I debug it by setting the <code>WINPTY_SHOW_CONSOLE=1</code> environment variable, I see the same sort of broken output in the console window that I see in the terminal window. If there’s a <code>HKCU\Console</code> entry for the path to the <code>winpty-agent.exe</code> binary, then the problem doesn’t reproduce. Somehow the lack of that entry, combined with winpty’s startup code, is leaving the console in a bad state when the cmd/powershell process starts.</p>
-<p>FWIW: I’m thinking of having winpty itself use conpty when it can: <a href="https://github.com/rprichard/winpty/issues/152" target="_blank" rel="noopener">rprichard/winpty#152</a>. I’m happy with node-pty using conpty directly, though.</p>
+<p><strong><em>FWIW: I’m thinking of having winpty itself use conpty when it can: <a href="https://github.com/rprichard/winpty/issues/152" target="_blank" rel="noopener">rprichard/winpty#152</a>. I’m happy with node-pty using conpty directly, though.</em></strong></p>
 </blockquote>
 <blockquote>
 <p><a href="https://github.com/rprichard" target="_blank" rel="noopener">@rprichard</a></p>
@@ -347,61 +343,59 @@ var _hmt = _hmt || [];
 <p>I also opened <a href="https://github.com/rprichard/winpty/issues/156" target="_blank" rel="noopener">rprichard/winpty#156</a> to track the problem.</p>
 </blockquote>
 <blockquote>
-<p><a href="https://github.com/Tyriar" target="_blank" rel="noopener">@Tyriar</a></p>
-<p>ConPTY support is landing in the next Insiders build, this uses a new backend for the terminal on WIndows 10 build number 17692+, this is expected to fix many bugs in the terminal on Windows as we’re adopting Microsoft’s official pty API. For earlier versions winpty will still be used a many bugs will still remain (unless they’re fixed in that project).</p>
-<p>If you find any issues with conpty please report them to <a href="https://github.com/Microsoft/console" target="_blank" rel="noopener">https://github.com/Microsoft/console</a> (the team who own ConPTY) or this repo (if you think it’s an integration issue). You can opt out of conpty by adding this setting:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; &quot;terminal.integrated.windowsEnableConpty&quot;: false</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/Tyriar" target="_blank" rel="noopener">@Tyriar</a> (Member of the Microsoft organization)</p>
+<p>Upstream issue: <a href="https://github.com/Microsoft/console/issues/270" target="_blank" rel="noopener">Microsoft/console#270</a></p>
+<p>For people experiencing this issue, the way I work around it in the meantime is to just press enter which shows the prompt. You can also just type a command and it will run fine, it’s just that the initial prompt doesn’t display correctly.</p>
 </blockquote>
 <blockquote>
+<p><a href="https://github.com/Tyriar" target="_blank" rel="noopener">@Tyriar</a></p>
+<p>ConPTY support is landing in the next Insiders build, this uses a new backend for the terminal on WIndows 10 build number 17692+, this is expected to fix many bugs in the terminal on Windows as we’re adopting Microsoft’s official pty API. For earlier versions winpty will still be used a many bugs will still remain (unless they’re fixed in that project).</p>
+<p>译：</p>
+<p>对 ConPTY 的支持会在下一个 Insiders Build 中发布，它会被用于在 Windows 10 内部版本号 17692+ 上作为终端的新后端，预计这将修复终端在 Windows 下的许多错误，我们正在适配微软官方的 pty API。对于早期版本，winpty 仍然会被使用，但会留下许多错误（除非它们已在该项目中修复）。</p>
 <p><a href="https://github.com/Microsoft/vscode/issues/57803#issuecomment-449495423" target="_blank" rel="noopener">vscode/issues/57803#issuecomment-449495423</a></p>
 </blockquote>
 <blockquote>
 <p><a href="https://github.com/Tyriar" target="_blank" rel="noopener">@Tyriar</a></p>
-<p>译：<br>ConPTY支持将在下一个Insiders构建中发布，它在WIndows 10内部版本号17692+上使用终端的新后端，预计这将修复Windows上终端中的许多错误，因为我们正在采用微软官方的pty API。对于早期版本，winpty仍然会被使用，但会留下许多错误（除非它们已在该项目中修复）。</p>
+<p>Update: Windows build number 18309+ is now required for ConPTY to be turned on as it was not stable on 17692.</p>
+<p>译：<br>(VSCode 中) 需要 Windows 内部版本号 18309+ 才能开启使用 ConPTY，因为在 17692 上 ConPTY 不稳定。</p>
+<p><a href="https://github.com/Microsoft/vscode/issues/45693#issuecomment-456937675" target="_blank" rel="noopener">vscode/issues/45693#issuecomment-456937675</a></p>
 </blockquote>
-<blockquote>
-<p><a href="https://github.com/Tyriar" target="_blank" rel="noopener">@Tyriar</a></p>
-<p>Nothing I can do on my end apart from complain more towards the Windows Console team. Pressing enter should give you a prompt.</p>
-</blockquote>
-<blockquote>
-<p><a href="/zadjii-msft">@zadjii-msft</a></p>
-<p>Yikes, that’s certainly pretty bad. No idea why that might be, and we’re too close to the final signoff on this Windows version to be able to fix that for this release :(</p>
-<p>Presumably this’ll go away when node-pty picks up conpty, so for RS4 and below they’ll still work fine, and RS5+ will get fixed by conpty. There’ll just be this awkward middle phase where RS5 is broken.</p>
-<p>I still don’t know <em>why</em> this might be happening in the first place - maybe @rprichard might know more?</p>
-</blockquote>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>然而并不了解 <a href="https://en.wikipedia.org/wiki/Pseudoterminal" target="_blank" rel="noopener">伪终端 (Pseudo Terminal)</a> 的工作原理</p>
-<p>还是以后有时间慢慢补 Unix 吧…</p>
-<h3 id="Winpty"><a href="#Winpty" class="headerlink" title="Winpty"></a>Winpty</h3><p>Windows 更新导致 <a href="https://github.com/rprichard/winpty/" target="_blank" rel="noopener">Winpty</a> 发生了奇怪的问题</p>
-<p>有许多软件目前使用的是 Winpty 做为终端的后端（例如 VSCode, bash.exe）</p>
+<p>hhh 最后将锅甩给了 Winpty</p>
+<p><a href="https://github.com/Microsoft/vscode/issues/45693" target="_blank" rel="noopener">Windows terminal issues caused by winpty #45693</a></p>
+<h2 id="Winpty"><a href="#Winpty" class="headerlink" title="Winpty"></a>Winpty</h2><p>Windows 更新导致 <a href="https://github.com/rprichard/winpty/" target="_blank" rel="noopener">Winpty</a> 发生了奇怪的问题</p>
+<p>有许多软件目前使用的是 Winpty 做为终端的后端（例如 VSCode, PhpStorm, bash.exe）</p>
 <blockquote>
 <p>Q: Winpty 是什么？</p>
 <p>A: winpty 是一个 Windows 软件包，提供了类似 Unix pty-master 一样的接口，用于实现控制台程序之间的通讯。该软件包包括一个开发库 (libwinpty) 和一个用于 ygwin 和 MSYS 的工具用于在 Cygwin/MSYS pty 下运行 Windows 控制台程序。</p>
 </blockquote>
-<p>目前已有 issue 已发起，见：</p>
 <p><a href="https://github.com/rprichard/winpty/issues/156" target="_blank" rel="noopener">rprichard/winpty #156: Reducing window height on startup breaks cmd/powershell as of recent 1809 builds</a></p>
 <p><a href="https://github.com/rprichard/winpty/issues/152" target="_blank" rel="noopener">rprichard/winpty #152: Use Microsoft’s new ConPTY API on Windows versions which support it (i.e. Fall 2018 and newer)</a></p>
 <blockquote>
-<p>I’m thinking of having winpty itself use conpty when it can: <a href="https://github.com/rprichard/winpty/issues/152" target="_blank" rel="noopener">rprichard/winpty#152</a>. I’m happy with node-pty using conpty directly, though.</p>
+<p><a href="https://github.com/rprichard" target="_blank" rel="noopener">@rprichard</a></p>
+<p><strong><em>I’m thinking of having winpty itself use conpty when it can: <a href="https://github.com/rprichard/winpty/issues/152" target="_blank" rel="noopener">rprichard/winpty#152</a>. I’m happy with node-pty using conpty directly, though.</em></strong></p>
 </blockquote>
-<h3 id="ConPTY"><a href="#ConPTY" class="headerlink" title="ConPTY"></a>ConPTY</h3><blockquote>
-<p>The new Win32 ConPTY API (formal docs to follow soon) is now available in recent Windows 10 Insider builds and corresponding Windows 10 Insider Preview SDK, and will ship in the next major release of Windows 10 (due sometime in fall/winter 2018).</p>
-</blockquote>
+<h3 id="ConPTY"><a href="#ConPTY" class="headerlink" title="ConPTY"></a>ConPTY</h3><p><a href="https://blogs.msdn.microsoft.com/commandline/2018/08/02/windows-command-line-introducing-the-windows-pseudo-console-conpty/" target="_blank" rel="noopener">Windows 命令行：Windows 伪控制台（ConPTY）的介绍</a></p>
+<p><a href="https://github.com/microsoft/console" target="_blank" rel="noopener">GitHub 仓库</a></p>
+<p><img src="../images/post/command-line-conpty-bridging.png" alt></p>
 <blockquote>
+<p>The new Win32 ConPTY API (formal docs to follow soon) is now available in recent Windows 10 Insider builds and corresponding Windows 10 Insider Preview SDK, and will ship in the next major release of Windows 10 (due sometime in fall/winter 2018).</p>
+<p>译：</p>
 <p>新的 Win32 ConPTY API（即将推出的正式文档）现在可以在最近的 Windows 10 Insider 版本和相应的 Windows 10 Insider Preview SDK中使用，并将在 Windows 10 的下一个 major release（2018年秋/冬的某个时间）发布。</p>
 </blockquote>
-<p><a href="https://blogs.msdn.microsoft.com/commandline/2018/08/02/windows-command-line-introducing-the-windows-pseudo-console-conpty/" target="_blank" rel="noopener">Windows 命令行：Windows 伪控制台（ConPTY）的介绍</a></p>
-<p><img src="../images/post/command-line-conpty-bridging.png" alt></p>
-<p>VSCode 在 January 2019 (version 1.31) 的更新中已添加对 ConPTY 的支持，见 <a href="https://code.visualstudio.com/updates/v1_31#_conpty-support-on-windows" target="_blank" rel="noopener">更新日志</a></p>
-<p>VSCode 目前在同时使用 Winpty 和 ConPTY，由于 1809 (17763.316) Win 10 似乎并没有加入 <a href="https://github.com/microsoft/console" target="_blank" rel="noopener">ConPTY</a> 的更新（在 VSCode 设置里使用 ConPTY 需要内部版本 18309+ 的 Win 10）</p>
 <blockquote>
 <p>This will use the ConPTY system provided by the Windows Console team as the backend for the terminal. Enabling this should fix many issues with the Windows terminal, particularly around color support, interactive applications, and shells that natively support VT sequences.</p>
 </blockquote>
-<p>现在如果你想解决这个问题，可以加入 “加入预览体验计划升级” 并升级 Windows 到 18309+ 预览版，然后直接到设置里勾选开启：</p>
+<p>Windows 10 1809 (内部版本号 17763.316) 已加入 ConPTY</p>
+<p>VSCode 在 January 2019 (version 1.31) 的更新中已添加对 ConPTY 的支持，见 <a href="https://code.visualstudio.com/updates/v1_31#_conpty-support-on-windows" target="_blank" rel="noopener">更新日志</a></p>
+<p>VSCode 目前在同时使用 Winpty(供旧版系统使用) 和 ConPTY，但需要 Windows 内部版本号 18309+ 才能开启使用 ConPTY，因为在 17692 上 ConPTY 并不稳定。</p>
+<p>18309+ 可以设置直接勾选使用 ConPTY：</p>
 <p><img src="../images/post/vscode_terminal_under_1809_issue_4.png" alt></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;terminal.integrated.windowsEnableConpty&quot;: ture</span><br></pre></td></tr></table></figure>
+<p>1809 版本目前就是个坑，WinPTY 有问题，ConPTY 不稳定… 可以加入 “预览体验计划” 升级 Windows 到 18309+ 来解决，或者忍，或是等……</p>
 <p>嗯，就这样…</p>
 <p>日后，各种软件可以用 ConPTY 代替 WinPty，或等待 WinPty 的更新…</p>
-<p>总之，1089 版本目前就是个坑…</p>
+<p>总之，1089 版本目前就是个坑… 等待 Windows 新的正式版发布……</p>
+<p><a href="https://en.wikipedia.org/wiki/Pseudoterminal" target="_blank" rel="noopener">伪终端 (Pseudoterminal)</a> 真有意思，有时间以后慢慢补…..</p>
 
         
         </div>
@@ -422,7 +416,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://qwqaq.com/527f8ae.html" data-id="cjsbvygem00duj4ttkeezf2jw" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
+    <a data-url="http://qwqaq.com/527f8ae.html" data-id="cjsco5ech00ds6stt440dwn7u" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -555,7 +549,7 @@ $(document).ready(function () {
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/开发工具/">开发工具</a><i class="zmdi zmdi-chevron-right"></i><a class="article-category-link" href="/categories/开发工具/VSCode/">VSCode</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/开发工具-VSCode-Android-Studio-PhpStorm/">开发工具 - VSCode - Android Studio - PhpStorm</a></p>
                             <p class="item-title"><a href="/527f8ae.html" class="title">Win10 1809 调用 CMD/PowerShell/Bash 显示错乱问题</a></p>
                             <p class="item-date"><time datetime="2019-02-18T13:06:49.000Z" itemprop="datePublished">2019-02-18</time></p>
                         </div>
@@ -646,7 +640,7 @@ $(document).ready(function () {
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CSharp/">CSharp</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-Star/">GitHub Star</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows/">Windows</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/Canvas/">Canvas</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/Vue/">Vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/">开发工具</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/Hyper/">Hyper</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/Scoop/">Scoop</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/VSCode/">VSCode</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/日常/">日常</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/爬虫/">爬虫</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生产环境/">生产环境</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/生产环境/Apache/">Apache</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/硬件/">硬件</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/硬件/Arduino/">Arduino</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/项目/">项目</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/项目/Nacollector/">Nacollector</a><span class="category-list-count">2</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CSharp/">CSharp</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-Star/">GitHub Star</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows/">Windows</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/Canvas/">Canvas</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/Vue/">Vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/">开发工具</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/Hyper/">Hyper</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/Scoop/">Scoop</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/VSCode/">VSCode</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具-VSCode-Android-Studio-PhpStorm/">开发工具 - VSCode - Android Studio - PhpStorm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/日常/">日常</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/爬虫/">爬虫</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生产环境/">生产环境</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/生产环境/Apache/">Apache</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/硬件/">硬件</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/硬件/Arduino/">Arduino</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/项目/">项目</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/项目/Nacollector/">Nacollector</a><span class="category-list-count">2</span></li></ul></li></ul>
         </div>
     </div>
 

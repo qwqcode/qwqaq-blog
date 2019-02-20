@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qwqaq.com/"/>
-  <updated>2019-02-19T14:37:27.272Z</updated>
+  <updated>2019-02-20T03:59:18.976Z</updated>
   <id>http://qwqaq.com/</id>
   
   <author>
@@ -21,17 +21,15 @@
     <link href="http://qwqaq.com/527f8ae.html"/>
     <id>http://qwqaq.com/527f8ae.html</id>
     <published>2019-02-18T13:06:49.000Z</published>
-    <updated>2019-02-19T14:37:27.272Z</updated>
+    <updated>2019-02-20T03:59:18.976Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;最近升级到了 Windows 10 1809 版本，发现在 VSCode 终端窗口中调用 CMD/PowerShell/Bash 都有显示错乱的现象，连 Android Studio 也出现了这个问题，在部分开发工具内的终端在最初打开时光标不能正常显示，只有在执行命令后光标才会出现。&lt;/p&gt;
+      &lt;p&gt;最近升级到了 Windows 10 1809 版本，发现在 VSCode, Android Studio, PhpStorm 终端窗口中的 CMD/PowerShell/Bash 都有显示错乱的现象，终端在最初打开时光标不能正常显示，只有在执行命令后光标才会出现。&lt;/p&gt;
     
     </summary>
     
-      <category term="开发工具" scheme="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="VSCode" scheme="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/VSCode/"/>
+      <category term="开发工具 - VSCode - Android Studio - PhpStorm" scheme="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7-VSCode-Android-Studio-PhpStorm/"/>
     
     
       <category term="Bash" scheme="http://qwqaq.com/tags/Bash/"/>
