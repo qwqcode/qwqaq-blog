@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qwqaq.com/"/>
-  <updated>2019-02-20T04:01:59.779Z</updated>
+  <updated>2019-03-29T16:01:46.890Z</updated>
   <id>http://qwqaq.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>假期的结束，博主的失踪</title>
+    <link href="http://qwqaq.com/61ee0065.html"/>
+    <id>http://qwqaq.com/61ee0065.html</id>
+    <published>2019-03-29T15:33:02.000Z</published>
+    <updated>2019-03-29T16:01:46.890Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I am the bone of my sword&lt;br&gt;吾为所持剑之骨&lt;br&gt;Steel is my body, and fire is my blood&lt;br&gt;钢铁为身 而火焰为血&lt;br&gt;I have created over a thousand blades&lt;br&gt;手制之剑已达千余&lt;br&gt;Unknown to Death&lt;br&gt;不为死所知&lt;br&gt;Nor known to Life&lt;br&gt;亦不为生所知&lt;br&gt;Have withstood pain to create many weapons&lt;br&gt;其常立于剑丘之巅，独醉于胜利之中&lt;br&gt;Yet, those hands will never hold anything&lt;br&gt;然而，留下的只有虚无&lt;br&gt;So as I pray, Unlim&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="日常" scheme="http://qwqaq.com/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+      <category term="日常" scheme="http://qwqaq.com/tags/%E6%97%A5%E5%B8%B8/"/>
+    
+  </entry>
   
   <entry>
     <title>Win10 1809 调用 CMD/PowerShell/Bash 显示错乱问题</title>
@@ -193,11 +213,11 @@
   </entry>
   
   <entry>
-    <title>201901 快乐寒假的作业</title>
+    <title>[已完结] 201901 快乐寒假的作业</title>
     <link href="http://qwqaq.com/5a8e07f0.html"/>
     <id>http://qwqaq.com/5a8e07f0.html</id>
     <published>2019-01-18T10:00:07.000Z</published>
-    <updated>2019-01-28T14:15:57.376Z</updated>
+    <updated>2019-03-29T15:26:12.658Z</updated>
     
     <summary type="html">
     
@@ -527,32 +547,6 @@
       <category term="VSCode" scheme="http://qwqaq.com/tags/VSCode/"/>
     
       <category term="Cpp" scheme="http://qwqaq.com/tags/Cpp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Apache 反向代理 Http+WebSocket</title>
-    <link href="http://qwqaq.com/665aacc7.html"/>
-    <id>http://qwqaq.com/665aacc7.html</id>
-    <published>2018-09-25T16:06:54.000Z</published>
-    <updated>2018-10-16T09:20:35.769Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;自从 Socket.IO 1.0 (May 2014) 开始, 所有的 Connection 都以一个 HTTP polling Request 开始 (more info &lt;a href=&quot;https://stackoverflow.com/questions/28238628/socket-io-1-x-use-websockets-only/28240802#28240802&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;here&lt;/a&gt;)&lt;/p&gt;
-&lt;p&gt;这就意味着除了转发 WebSocket 之外，你还需要转发 任何 &lt;code&gt;transport=polling&lt;/code&gt; 的 HTTP 请求。&lt;/p&gt;
-&lt;p&gt;下面的解决方案能正确地重定向所有 Socket 流量，而不会重定向其他不关于 Socket 的流量。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="生产环境" scheme="http://qwqaq.com/categories/%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83/"/>
-    
-      <category term="Apache" scheme="http://qwqaq.com/categories/%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83/Apache/"/>
-    
-    
-      <category term="反向代理" scheme="http://qwqaq.com/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/"/>
-    
-      <category term="Apache" scheme="http://qwqaq.com/tags/Apache/"/>
     
   </entry>
   
