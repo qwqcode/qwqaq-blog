@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qwqaq.com/"/>
-  <updated>2019-03-29T16:26:55.388Z</updated>
+  <updated>2019-04-29T15:58:27.000Z</updated>
   <id>http://qwqaq.com/</id>
   
   <author>
@@ -17,11 +17,41 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Rescoll 采集程序聚合平台</title>
+    <link href="http://qwqaq.com/cb95a9c8.html"/>
+    <id>http://qwqaq.com/cb95a9c8.html</id>
+    <published>2019-04-29T14:48:55.000Z</published>
+    <updated>2019-04-29T15:58:27.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Rescoll 可能是下一个我将着手去开发的项目，这将是 &lt;a href=&quot;https://github.com/qwqcode/Nacollector&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Nacollector&lt;/a&gt; 的延续。&lt;/p&gt;
+&lt;p&gt;意在构造一个 采集程序(爬虫) 的聚合平台，用户能够轻松地找到并使用爬虫，开发者也能很方便地将 Rescoll 作为框架，进行爬虫的开发。&lt;/p&gt;
+&lt;p&gt;目前，如果想找到想要的爬虫程序，可以在 GitHub 上搜索，但在使用前则需先浏览说明文档，写配置文件；不同语言编写，需准备指定的环境，以及安装依赖；采集数据格式不统一，目录结构不统一，使用数据方式不一致；更新操作繁琐……&lt;/p&gt;
+&lt;p&gt;聚合平台即是让爬虫的下载和使用，就像 Xposed, Magisk, Tampermonkey, Chrome Extension 一样方便。&lt;/p&gt;
+&lt;p&gt;以下是将来可能会做的：&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="项目" scheme="http://qwqaq.com/categories/%E9%A1%B9%E7%9B%AE/"/>
+    
+      <category term="Rescoll" scheme="http://qwqaq.com/categories/%E9%A1%B9%E7%9B%AE/Rescoll/"/>
+    
+    
+      <category term="Rescoll" scheme="http://qwqaq.com/tags/Rescoll/"/>
+    
+      <category term="采集" scheme="http://qwqaq.com/tags/%E9%87%87%E9%9B%86/"/>
+    
+      <category term="爬虫" scheme="http://qwqaq.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>假期的结束，博主的失踪</title>
     <link href="http://qwqaq.com/61ee0065.html"/>
     <id>http://qwqaq.com/61ee0065.html</id>
     <published>2019-03-29T15:33:02.000Z</published>
-    <updated>2019-03-29T16:26:55.388Z</updated>
+    <updated>2019-03-29T16:26:55.000Z</updated>
     
     <summary type="html">
     
@@ -41,7 +71,7 @@
     <link href="http://qwqaq.com/527f8ae.html"/>
     <id>http://qwqaq.com/527f8ae.html</id>
     <published>2019-02-18T13:06:49.000Z</published>
-    <updated>2019-02-20T04:01:59.779Z</updated>
+    <updated>2019-02-20T04:01:59.000Z</updated>
     
     <summary type="html">
     
@@ -81,7 +111,7 @@
     <link href="http://qwqaq.com/3b2a4407.html"/>
     <id>http://qwqaq.com/3b2a4407.html</id>
     <published>2019-02-17T12:32:12.000Z</published>
-    <updated>2019-02-18T14:33:06.539Z</updated>
+    <updated>2019-02-18T14:33:06.000Z</updated>
     
     <summary type="html">
     
@@ -107,7 +137,7 @@
     <link href="http://qwqaq.com/e8588299.html"/>
     <id>http://qwqaq.com/e8588299.html</id>
     <published>2019-02-13T15:04:00.000Z</published>
-    <updated>2019-02-20T14:51:07.041Z</updated>
+    <updated>2019-02-20T14:51:07.000Z</updated>
     
     <summary type="html">
     
@@ -131,7 +161,7 @@
     <link href="http://qwqaq.com/db974054.html"/>
     <id>http://qwqaq.com/db974054.html</id>
     <published>2019-01-23T16:43:04.000Z</published>
-    <updated>2019-01-28T14:15:57.381Z</updated>
+    <updated>2019-01-28T14:15:57.000Z</updated>
     
     <summary type="html">
     
@@ -163,7 +193,7 @@
     <link href="http://qwqaq.com/e90e2cd7.html"/>
     <id>http://qwqaq.com/e90e2cd7.html</id>
     <published>2019-01-20T14:48:07.000Z</published>
-    <updated>2019-01-31T13:24:58.279Z</updated>
+    <updated>2019-01-31T13:24:58.000Z</updated>
     
     <summary type="html">
     
@@ -193,7 +223,7 @@
     <link href="http://qwqaq.com/fe2cece5.html"/>
     <id>http://qwqaq.com/fe2cece5.html</id>
     <published>2019-01-18T11:20:00.000Z</published>
-    <updated>2019-01-28T14:15:57.429Z</updated>
+    <updated>2019-01-28T14:15:57.000Z</updated>
     
     <summary type="html">
     
@@ -217,7 +247,7 @@
     <link href="http://qwqaq.com/5a8e07f0.html"/>
     <id>http://qwqaq.com/5a8e07f0.html</id>
     <published>2019-01-18T10:00:07.000Z</published>
-    <updated>2019-03-29T15:26:12.658Z</updated>
+    <updated>2019-03-29T15:26:12.000Z</updated>
     
     <summary type="html">
     
@@ -239,7 +269,7 @@
     <link href="http://qwqaq.com/8557f9bf.html"/>
     <id>http://qwqaq.com/8557f9bf.html</id>
     <published>2018-12-31T15:59:29.000Z</published>
-    <updated>2019-01-28T14:15:57.385Z</updated>
+    <updated>2019-01-28T14:15:57.000Z</updated>
     
     <summary type="html">
     
@@ -265,7 +295,7 @@
     <link href="http://qwqaq.com/bac71dff.html"/>
     <id>http://qwqaq.com/bac71dff.html</id>
     <published>2018-12-31T15:48:11.000Z</published>
-    <updated>2019-02-19T14:46:38.142Z</updated>
+    <updated>2019-02-19T14:46:38.000Z</updated>
     
     <summary type="html">
     
@@ -289,7 +319,7 @@
     <link href="http://qwqaq.com/57a3ffd3.html"/>
     <id>http://qwqaq.com/57a3ffd3.html</id>
     <published>2018-12-30T01:52:15.000Z</published>
-    <updated>2019-01-28T14:15:57.379Z</updated>
+    <updated>2019-01-28T14:15:57.000Z</updated>
     
     <summary type="html">
     
@@ -323,7 +353,7 @@
     <link href="http://qwqaq.com/4c3dd4c7.html"/>
     <id>http://qwqaq.com/4c3dd4c7.html</id>
     <published>2018-12-16T05:12:04.000Z</published>
-    <updated>2019-01-28T14:15:57.413Z</updated>
+    <updated>2019-01-28T14:15:57.000Z</updated>
     
     <summary type="html">
     
@@ -345,7 +375,7 @@
     <link href="http://qwqaq.com/c29e2d86.html"/>
     <id>http://qwqaq.com/c29e2d86.html</id>
     <published>2018-12-13T14:02:33.000Z</published>
-    <updated>2019-02-19T14:38:05.392Z</updated>
+    <updated>2019-02-19T14:38:05.000Z</updated>
     
     <summary type="html">
     
@@ -371,7 +401,7 @@
     <link href="http://qwqaq.com/e3b3237d.html"/>
     <id>http://qwqaq.com/e3b3237d.html</id>
     <published>2018-12-13T09:19:26.000Z</published>
-    <updated>2019-01-28T14:15:57.433Z</updated>
+    <updated>2019-01-28T14:15:57.000Z</updated>
     
     <summary type="html">
     
@@ -402,7 +432,7 @@
     <link href="http://qwqaq.com/50b0de2d.html"/>
     <id>http://qwqaq.com/50b0de2d.html</id>
     <published>2018-12-01T13:05:57.000Z</published>
-    <updated>2018-12-01T13:29:35.038Z</updated>
+    <updated>2018-12-01T13:29:35.000Z</updated>
     
     <summary type="html">
     
@@ -423,7 +453,7 @@
     <link href="http://qwqaq.com/c3c8f6d1.html"/>
     <id>http://qwqaq.com/c3c8f6d1.html</id>
     <published>2018-12-01T12:46:27.000Z</published>
-    <updated>2018-12-01T13:00:24.402Z</updated>
+    <updated>2018-12-01T13:00:24.000Z</updated>
     
     <summary type="html">
     
@@ -449,7 +479,7 @@
     <link href="http://qwqaq.com/c8008149.html"/>
     <id>http://qwqaq.com/c8008149.html</id>
     <published>2018-11-30T15:42:20.000Z</published>
-    <updated>2019-01-28T14:15:57.383Z</updated>
+    <updated>2019-01-28T14:15:57.000Z</updated>
     
     <summary type="html">
     
@@ -471,7 +501,7 @@
     <link href="http://qwqaq.com/24a771e4.html"/>
     <id>http://qwqaq.com/24a771e4.html</id>
     <published>2018-11-27T09:48:27.000Z</published>
-    <updated>2018-11-27T16:32:48.044Z</updated>
+    <updated>2018-11-27T16:32:48.000Z</updated>
     
     <summary type="html">
     
@@ -502,7 +532,7 @@
     <link href="http://qwqaq.com/a845bac.html"/>
     <id>http://qwqaq.com/a845bac.html</id>
     <published>2018-11-19T17:18:39.000Z</published>
-    <updated>2018-11-27T16:37:47.679Z</updated>
+    <updated>2018-11-27T16:37:47.000Z</updated>
     
     <summary type="html">
     
@@ -522,31 +552,6 @@
       <category term="JS 混淆" scheme="http://qwqaq.com/tags/JS-%E6%B7%B7%E6%B7%86/"/>
     
       <category term="去除验证" scheme="http://qwqaq.com/tags/%E5%8E%BB%E9%99%A4%E9%AA%8C%E8%AF%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VSCode 配置不让 C++ 程序运行一闪而过</title>
-    <link href="http://qwqaq.com/4cd79212.html"/>
-    <id>http://qwqaq.com/4cd79212.html</id>
-    <published>2018-10-16T09:15:10.000Z</published>
-    <updated>2019-01-28T14:15:57.390Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;https://code.visualstudio.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Visual Studio Code&lt;/a&gt;（简称 VSCode）是由微软开发的一个轻量且强大的代码编辑器。&lt;/p&gt;
-&lt;p&gt;最近在学 C++，调试需要配置 launch.json，所以参阅相关文档配置后，发现每次调试启动 exe 都会单独打开一个窗口，每个 .cpp 文件里都要加上 &lt;code&gt;system(&amp;quot;pause&amp;quot;);&lt;/code&gt; 才能保证窗口不会一闪而过。所以… 如果能在 VSCode 自带的 Terminal 里面运行 exe 岂不是美滋滋？
-    
-    </summary>
-    
-      <category term="开发工具" scheme="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="VSCode" scheme="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/VSCode/"/>
-    
-    
-      <category term="VSCode" scheme="http://qwqaq.com/tags/VSCode/"/>
-    
-      <category term="Cpp" scheme="http://qwqaq.com/tags/Cpp/"/>
     
   </entry>
   

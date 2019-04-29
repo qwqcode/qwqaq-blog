@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>Rescoll 采集程序聚合平台 | QWQAQ 的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Rescoll 可能是下一个我将着手去开发的项目，这将是 Nacollector 的延续。 意在构造一个 采集程序(爬虫) 的聚合平台，用户能够轻松地找到并使用爬虫，开发者也能很方便地将 Rescoll 作为框架，进行爬虫的开发。 目前，如果想找到想要的爬虫程序，可以在 GitHub 上搜索，但在使用前则需先浏览说明文档，写配置文件；不同语言编写，需准备指定的环境，以及安装依赖；采集数据格式不统一">
+<meta name="keywords" content="Rescoll,采集,爬虫">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rescoll 采集程序聚合平台">
+<meta property="og:url" content="http://qwqaq.com/cb95a9c8.html">
+<meta property="og:site_name" content="QWQAQ 的博客">
+<meta property="og:description" content="Rescoll 可能是下一个我将着手去开发的项目，这将是 Nacollector 的延续。 意在构造一个 采集程序(爬虫) 的聚合平台，用户能够轻松地找到并使用爬虫，开发者也能很方便地将 Rescoll 作为框架，进行爬虫的开发。 目前，如果想找到想要的爬虫程序，可以在 GitHub 上搜索，但在使用前则需先浏览说明文档，写配置文件；不同语言编写，需准备指定的环境，以及安装依赖；采集数据格式不统一">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-29T15:58:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Rescoll 采集程序聚合平台">
+<meta name="twitter:description" content="Rescoll 可能是下一个我将着手去开发的项目，这将是 Nacollector 的延续。 意在构造一个 采集程序(爬虫) 的聚合平台，用户能够轻松地找到并使用爬虫，开发者也能很方便地将 Rescoll 作为框架，进行爬虫的开发。 目前，如果想找到想要的爬虫程序，可以在 GitHub 上搜索，但在使用前则需先浏览说明文档，写配置文件；不同语言编写，需准备指定的环境，以及安装依赖；采集数据格式不统一">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="QWQAQ 的博客" type="application/atom+xml">
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/material-design-iconic-font/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?785e1cdc938039c39a3b5f792ed1e829";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+
+    <link rel="stylesheet" href="/libs/artalk/Artalk.css">
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <!--<span class="site-title">QWQAQ 的博客</span>-->
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">HOME</a>
+                
+                    <a class="main-nav-link" href="/categories">目录</a>
+                
+                    <a class="main-nav-link" href="/archives">时间轴</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/links">友链</a>
+                
+                    <a class="main-nav-link" href="/about">关于我</a>
+                
+            </nav>
+            
+            
+            <nav id="sub-nav">
+                <div class="profile" id="profile-nav">
+                    <a id="profile-anchor" href="javascript:;">
+                        <img class="avatar" src="/images/avatar.png">
+                        <i class="zmdi zmdi-caret-down"></i>
+                    </a>
+                </div>
+            </nav>
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
+            <span class="ins-close ins-selectable"><i class="zmdi zmdi-close"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">HOME</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">目录</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">时间轴</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/links">友链</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于我</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            <aside id="sidebar-left">
+
+    <div class="sidebar-fixed">
+        <div class="sidebar-fixed-inner">
+            
+
+<div id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <div class="profile-top-part">
+                <img id="avatar" src="/images/avatar.png">
+                <div class="info-inner">
+                    <h2 id="name">QWQAQ</h2>
+                    <h3 id="title">不忘初心，方得始终</h3>
+                </div>
+            </div>
+            <div class="profile-bg"></div>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                <a href="/archives">
+                    65
+                    <span>文章</span>
+                </a>
+            </div>
+            <div class="article-info-block">
+                <a href="/tags">
+                    155
+                    <span>标签</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            
+            
+            <div class="social-link-item">
+                <a href="https://github.com/qwqcode" target="_blank" title="github" class="tooltip">
+                    <i class="zmdi zmdi-github"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="https://twitter.com/Kiroey" target="_blank" title="twitter" class="tooltip">
+                    <i class="zmdi zmdi-twitter"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="/atom.xml" target="_blank" title="rss" class="tooltip">
+                    <i class="zmdi zmdi-rss"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="/about/" target="_blank" title="more" class="tooltip">
+                    <i class="zmdi zmdi-more"></i>
+                </a>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+
+            
+            <div id="article-content-index" class="anim-fade-in" style="display: none">
+    <div class="widget-wrap">
+        <h3 class="widget-title">内容索引</h3>
+        <div class="widget">
+            <div class="index-list"></div>
+        </div>
+    </div>
+</div>
+            
+        </div>
+    </div>
+
+</aside>
+
+            <section id="main"><article id="post-Rescoll-采集程序聚合平台" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+
+    
+        <h1 class="article-title" itemprop="name">
+            Rescoll 采集程序聚合平台
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="zmdi zmdi-calendar"></i>
+        <a href="/cb95a9c8.html">
+            <time datetime="2019-04-29T14:48:55.000Z" itemprop="datePublished">2019-04-29</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="zmdi zmdi-folder"></i>
+        <a class="article-category-link" href="/categories/项目/">项目</a><i class="zmdi zmdi-chevron-righ"></i><a class="article-category-link" href="/categories/项目/Rescoll/">Rescoll</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            
+            <p>Rescoll 可能是下一个我将着手去开发的项目，这将是 <a href="https://github.com/qwqcode/Nacollector" target="_blank" rel="noopener">Nacollector</a> 的延续。</p>
+<p>意在构造一个 采集程序(爬虫) 的聚合平台，用户能够轻松地找到并使用爬虫，开发者也能很方便地将 Rescoll 作为框架，进行爬虫的开发。</p>
+<p>目前，如果想找到想要的爬虫程序，可以在 GitHub 上搜索，但在使用前则需先浏览说明文档，写配置文件；不同语言编写，需准备指定的环境，以及安装依赖；采集数据格式不统一，目录结构不统一，使用数据方式不一致；更新操作繁琐……</p>
+<p>聚合平台即是让爬虫的下载和使用，就像 Xposed, Magisk, Tampermonkey, Chrome Extension 一样方便。</p>
+<p>以下是将来可能会做的：</p>
+<a id="more"></a>
+<ol>
+<li>注册域名，新建网站 Rescoll Market</li>
+<li>简化 NacollectorFrontend 代码，做到能轻松移植，增强可拓展性（脱离后端使用）</li>
+<li>NacollectorFrontend 使用 TypeScript 编写</li>
+<li>Rescoll 将和 Nacollector 共用前端界面，需为新的后端代码提供有利条件（增强前端代码的独立性）</li>
+<li>Rescoll 官网，介绍页，爬虫下载页（类 npm.js，greasyfork），开发者后台（登录/注册/发布/更新)</li>
+<li>Task.js 之类的 原本工厂模式 return { } 改成 module require</li>
+<li>整理、分离 css 代码，整理 class 命名</li>
+<li>将 taskGen 创建表单依据 obj（原本写死在代码里）改成格式统一的 json 配置文件，单独分离</li>
+<li>思考 模块化载入 (爬虫) 如何去执行，eval? （待参考 VSCode 插件原理等）</li>
+<li>模块化载入，热加载 / 热更新</li>
+<li>如何才能平缓地，渐进式，将 C# 程序改为 JS 程序（使用 Electron.js）</li>
+<li>Electron.js API 做的下载任务管理器，和原来的 CefSharp 下载管理器怎么共用相同前端</li>
+<li>任务执行时，更多对用户更友好的 UI，如加一个列表，进度条之类的（现在只是 Terminal 实时输出执行情况）</li>
+<li>开发者写以 Rescoll 为框架的爬虫时，如何做到让编辑器能够友好地进行代码提示（autocomplete）参考 <a href="https://github.com/DefinitelyTyped/DefinitelyTyped" target="_blank" rel="noopener">DefinitelyTyped</a> / <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/lodash" target="_blank" rel="noopener">@types/lodash</a></li>
+<li>写 API 文档给开发者看</li>
+<li>i18n 多语言支持</li>
+<li>数据采集结束后 数据浏览器（用于展示采集到的数据。列表、瀑布流、统计图、播放器、加密保险箱…）</li>
+<li>用户自定义：采集目录、文件名、采集到指定位置（保存于 sql 数据库中）、文件类型（json, XML 等），影响全部下载的模块 (爬虫)</li>
+<li>开发者写模块，统一提供 json 作为 创建表单依据（见第 8 条）</li>
+<li>Cookie 获取 / 管理器</li>
+<li>完全潜行数据采集模式（做成单独模块，可供下载，可卸载，可更新）</li>
+<li>页面请求嗅探器（也是做成单独模块）</li>
+<li>POST/GET/PUT 请求模拟器（模块）</li>
+<li>多线程分段下载器，百度云盘下载（模块）调用 <a href="http://aria2.github.io/" target="_blank" rel="noopener">Aria2</a></li>
+<li>登录凭证管理器</li>
+<li>小说通用采集器（模块）</li>
+<li>是否可以实现 模块间 的耦合（互相调用，重用，数据共享…）</li>
+<li>GitHub 仓库像 <a href="https://github.com/lukesampson/scoop/wiki/Buckets" target="_blank" rel="noopener">Scoop Bucket</a> 【In Scoop, buckets are collections of apps. Or, to be more specific, a bucket is a Git repository containing JSON <a href="https://github.com/lukesampson/scoop/wiki/App-Manifests" target="_blank" rel="noopener">app manifests</a> which describe how to install an app.】一样管理模块？？？开发者发起 pull request，对自己编写的爬虫进行发布（pull request 变更内容：自己代码 git 仓库地址）。Rescoll 官网定时获取 github 仓库数据，缓存下来（解决大陆 github 访问慢问题）供用户下载使用</li>
+<li>类似 go get 的方式？从 Github 直接将远程包下载下来 import</li>
+<li>~ ~ ~</li>
+</ol>
+
+        
+        </div>
+        
+            
+            <div class="article-copyright">本站文章除注明转载外均为原创，未经允许不要转载哇. ヾ(ﾟｰﾟヾ) http://qwqaq.com/cb95a9c8.html</div>
+            
+        
+<div class="article-tag-block">
+    <i class="zmdi zmdi-tag"></i>
+    <a class="tag-link" href="/tags/Rescoll/">Rescoll</a><a class="tag-link" href="/tags/爬虫/">爬虫</a><a class="tag-link" href="/tags/采集/">采集</a>
+</div>
+
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://qwqaq.com/cb95a9c8.html" data-id="cjv2js4p2000ucawthdcvnond" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="zmdi zmdi-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="zmdi zmdi-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="zmdi zmdi-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="zmdi zmdi-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+
+        </footer>
+        
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/61ee0065.html" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">假期的结束，博主的失踪</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments"><div id="ArtalkComments"></div>
+<script>
+$(document).ready(function () {
+  var artalk = new Artalk({
+    el: '#ArtalkComments',
+    placeholder: '来啊，快活啊 (/ω＼)',
+    defaultAvatar: 'mp',
+    pageSize: 50,
+    pageKey: 'http://qwqaq.com/cb95a9c8.html',
+    serverUrl: 'https://qwqaq.com/Artalk/index.php'
+  });
+});
+</script>
+</section>
+    
+
+
+
+</section>
+            
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/cb95a9c8.html" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/项目/">项目</a><i class="zmdi zmdi-chevron-right"></i><a class="article-category-link" href="/categories/项目/Rescoll/">Rescoll</a></p>
+                            <p class="item-title"><a href="/cb95a9c8.html" class="title">Rescoll 采集程序聚合平台</a></p>
+                            <p class="item-date"><time datetime="2019-04-29T14:48:55.000Z" itemprop="datePublished">2019-04-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/61ee0065.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/banner/jqdjs_bzdsz.jpg)" alt="假期的结束，博主的失踪" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/日常/">日常</a></p>
+                            <p class="item-title"><a href="/61ee0065.html" class="title">假期的结束，博主的失踪</a></p>
+                            <p class="item-date"><time datetime="2019-03-29T15:33:02.000Z" itemprop="datePublished">2019-03-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/527f8ae.html" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/开发工具/">开发工具</a><i class="zmdi zmdi-chevron-right"></i><a class="article-category-link" href="/categories/开发工具/VSCode/">VSCode</a></p>
+                            <p class="item-title"><a href="/527f8ae.html" class="title">Win10 1809 调用 CMD/PowerShell/Bash 显示错乱问题</a></p>
+                            <p class="item-date"><time datetime="2019-02-18T13:06:49.000Z" itemprop="datePublished">2019-02-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/3b2a4407.html" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/开发工具/">开发工具</a><i class="zmdi zmdi-chevron-right"></i><a class="article-category-link" href="/categories/开发工具/Scoop/">Scoop</a></p>
+                            <p class="item-title"><a href="/3b2a4407.html" class="title">解决 Scoop 的 Yarn 无法使用 global packages 的问题</a></p>
+                            <p class="item-date"><time datetime="2019-02-17T12:32:12.000Z" itemprop="datePublished">2019-02-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/e8588299.html" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/日常/">日常</a></p>
+                            <p class="item-title"><a href="/e8588299.html" class="title">送给自己的新年礼物：继续捡垃圾系列</a></p>
+                            <p class="item-date"><time datetime="2019-02-13T15:04:00.000Z" itemprop="datePublished">2019-02-13</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CSharp/">CSharp</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-Star/">GitHub Star</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows/">Windows</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/Canvas/">Canvas</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/Vue/">Vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/">开发工具</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/Hyper/">Hyper</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/Scoop/">Scoop</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/VSCode/">VSCode</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/VSCode/Android-Studio/">Android Studio</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/VSCode/Android-Studio/PhpStorm/">PhpStorm</a><span class="category-list-count">1</span></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/日常/">日常</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/爬虫/">爬虫</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生产环境/">生产环境</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/生产环境/Apache/">Apache</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/硬件/">硬件</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/硬件/Arduino/">Arduino</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/项目/">项目</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/项目/Nacollector/">Nacollector</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/项目/Rescoll/">Rescoll</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="zmdi zmdi-chevron-up"></div>
+</aside>
+
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2019 QWQAQ<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme <a href="https://github.com/qwqcode/hexo-theme-icarus">icarus</a>
+        </div>
+    </div>
+</footer>
+
+        
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+    <script src="/libs/artalk/Artalk.js"></script>
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+</body>
+</html>
