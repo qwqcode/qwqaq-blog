@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qwqaq.com/"/>
-  <updated>2019-04-29T15:58:27.000Z</updated>
+  <updated>2019-05-03T17:00:40.650Z</updated>
   <id>http://qwqaq.com/</id>
   
   <author>
@@ -17,11 +17,68 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>CefSharp 访问嵌入的前端目录：Scheme 自定义 + 文件夹作为嵌入的资源</title>
+    <link href="http://qwqaq.com/ee43a4af.html"/>
+    <id>http://qwqaq.com/ee43a4af.html</id>
+    <published>2019-05-03T15:33:15.000Z</published>
+    <updated>2019-05-03T17:00:40.650Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://github.com/cefsharp/CefSharp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;CefSharp&lt;/a&gt; 是一个开源项目，它为 .NET 提供了嵌入式的 Chromium (CEF)，如果你想用前端技术做界面，后端采用 C# 编写，那 CefSharp 是不错的选择。&lt;/p&gt;
+&lt;p&gt;本文将讲述：CefSharp 自定义属于自己的 Scheme，将前端资源目录下的所有文件全部嵌入 .NET APP 中（即嵌入到 .exe 文件中），并且做到 已嵌入资源 可通过 URL 直接访问&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="CSharp" scheme="http://qwqaq.com/categories/CSharp/"/>
+    
+    
+      <category term="CSharp" scheme="http://qwqaq.com/tags/CSharp/"/>
+    
+      <category term="CefSharp" scheme="http://qwqaq.com/tags/CefSharp/"/>
+    
+      <category term="嵌入的资源" scheme="http://qwqaq.com/tags/%E5%B5%8C%E5%85%A5%E7%9A%84%E8%B5%84%E6%BA%90/"/>
+    
+      <category term="Scheme 自定义" scheme="http://qwqaq.com/tags/Scheme-%E8%87%AA%E5%AE%9A%E4%B9%89/"/>
+    
+      <category term="嵌入目录" scheme="http://qwqaq.com/tags/%E5%B5%8C%E5%85%A5%E7%9B%AE%E5%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C# WinForm 调用 DWMAPI.dll 实现无边框窗体 Aero 边缘阴影 DropShadow 效果</title>
+    <link href="http://qwqaq.com/5e466d74.html"/>
+    <id>http://qwqaq.com/5e466d74.html</id>
+    <published>2019-05-03T14:42:59.000Z</published>
+    <updated>2019-05-03T15:29:56.129Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;C# WinForm &lt;code&gt;FormBorderStyle.None&lt;/code&gt; 无边框窗体程序，通过调用 DWMAPI.dll 来实现 原生 Aero DropShow 边缘阴影的效果。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="CSharp" scheme="http://qwqaq.com/categories/CSharp/"/>
+    
+    
+      <category term="CSharp" scheme="http://qwqaq.com/tags/CSharp/"/>
+    
+      <category term="DWMAPI.dll" scheme="http://qwqaq.com/tags/DWMAPI-dll/"/>
+    
+      <category term="Aero" scheme="http://qwqaq.com/tags/Aero/"/>
+    
+      <category term="无边框窗体" scheme="http://qwqaq.com/tags/%E6%97%A0%E8%BE%B9%E6%A1%86%E7%AA%97%E4%BD%93/"/>
+    
+      <category term="DropShadow" scheme="http://qwqaq.com/tags/DropShadow/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Rescoll 采集程序聚合平台</title>
     <link href="http://qwqaq.com/cb95a9c8.html"/>
     <id>http://qwqaq.com/cb95a9c8.html</id>
     <published>2019-04-29T14:48:55.000Z</published>
-    <updated>2019-04-29T15:58:27.000Z</updated>
+    <updated>2019-04-29T16:04:14.232Z</updated>
     
     <summary type="html">
     
@@ -38,11 +95,11 @@
       <category term="Rescoll" scheme="http://qwqaq.com/categories/%E9%A1%B9%E7%9B%AE/Rescoll/"/>
     
     
-      <category term="Rescoll" scheme="http://qwqaq.com/tags/Rescoll/"/>
-    
       <category term="采集" scheme="http://qwqaq.com/tags/%E9%87%87%E9%9B%86/"/>
     
       <category term="爬虫" scheme="http://qwqaq.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="Rescoll" scheme="http://qwqaq.com/tags/Rescoll/"/>
     
   </entry>
   
@@ -51,7 +108,7 @@
     <link href="http://qwqaq.com/61ee0065.html"/>
     <id>http://qwqaq.com/61ee0065.html</id>
     <published>2019-03-29T15:33:02.000Z</published>
-    <updated>2019-03-29T16:26:55.000Z</updated>
+    <updated>2019-03-29T16:26:55.388Z</updated>
     
     <summary type="html">
     
@@ -71,7 +128,7 @@
     <link href="http://qwqaq.com/527f8ae.html"/>
     <id>http://qwqaq.com/527f8ae.html</id>
     <published>2019-02-18T13:06:49.000Z</published>
-    <updated>2019-02-20T04:01:59.000Z</updated>
+    <updated>2019-02-20T04:01:59.779Z</updated>
     
     <summary type="html">
     
@@ -111,7 +168,7 @@
     <link href="http://qwqaq.com/3b2a4407.html"/>
     <id>http://qwqaq.com/3b2a4407.html</id>
     <published>2019-02-17T12:32:12.000Z</published>
-    <updated>2019-02-18T14:33:06.000Z</updated>
+    <updated>2019-02-18T14:33:06.539Z</updated>
     
     <summary type="html">
     
@@ -137,7 +194,7 @@
     <link href="http://qwqaq.com/e8588299.html"/>
     <id>http://qwqaq.com/e8588299.html</id>
     <published>2019-02-13T15:04:00.000Z</published>
-    <updated>2019-02-20T14:51:07.000Z</updated>
+    <updated>2019-02-20T14:51:07.041Z</updated>
     
     <summary type="html">
     
@@ -161,7 +218,7 @@
     <link href="http://qwqaq.com/db974054.html"/>
     <id>http://qwqaq.com/db974054.html</id>
     <published>2019-01-23T16:43:04.000Z</published>
-    <updated>2019-01-28T14:15:57.000Z</updated>
+    <updated>2019-01-28T14:15:57.381Z</updated>
     
     <summary type="html">
     
@@ -193,7 +250,7 @@
     <link href="http://qwqaq.com/e90e2cd7.html"/>
     <id>http://qwqaq.com/e90e2cd7.html</id>
     <published>2019-01-20T14:48:07.000Z</published>
-    <updated>2019-01-31T13:24:58.000Z</updated>
+    <updated>2019-01-31T13:24:58.279Z</updated>
     
     <summary type="html">
     
@@ -223,7 +280,7 @@
     <link href="http://qwqaq.com/fe2cece5.html"/>
     <id>http://qwqaq.com/fe2cece5.html</id>
     <published>2019-01-18T11:20:00.000Z</published>
-    <updated>2019-01-28T14:15:57.000Z</updated>
+    <updated>2019-01-28T14:15:57.429Z</updated>
     
     <summary type="html">
     
@@ -247,7 +304,7 @@
     <link href="http://qwqaq.com/5a8e07f0.html"/>
     <id>http://qwqaq.com/5a8e07f0.html</id>
     <published>2019-01-18T10:00:07.000Z</published>
-    <updated>2019-03-29T15:26:12.000Z</updated>
+    <updated>2019-03-29T15:26:12.658Z</updated>
     
     <summary type="html">
     
@@ -269,7 +326,7 @@
     <link href="http://qwqaq.com/8557f9bf.html"/>
     <id>http://qwqaq.com/8557f9bf.html</id>
     <published>2018-12-31T15:59:29.000Z</published>
-    <updated>2019-01-28T14:15:57.000Z</updated>
+    <updated>2019-01-28T14:15:57.385Z</updated>
     
     <summary type="html">
     
@@ -295,7 +352,7 @@
     <link href="http://qwqaq.com/bac71dff.html"/>
     <id>http://qwqaq.com/bac71dff.html</id>
     <published>2018-12-31T15:48:11.000Z</published>
-    <updated>2019-02-19T14:46:38.000Z</updated>
+    <updated>2019-02-19T14:46:38.142Z</updated>
     
     <summary type="html">
     
@@ -319,7 +376,7 @@
     <link href="http://qwqaq.com/57a3ffd3.html"/>
     <id>http://qwqaq.com/57a3ffd3.html</id>
     <published>2018-12-30T01:52:15.000Z</published>
-    <updated>2019-01-28T14:15:57.000Z</updated>
+    <updated>2019-01-28T14:15:57.379Z</updated>
     
     <summary type="html">
     
@@ -353,7 +410,7 @@
     <link href="http://qwqaq.com/4c3dd4c7.html"/>
     <id>http://qwqaq.com/4c3dd4c7.html</id>
     <published>2018-12-16T05:12:04.000Z</published>
-    <updated>2019-01-28T14:15:57.000Z</updated>
+    <updated>2019-01-28T14:15:57.413Z</updated>
     
     <summary type="html">
     
@@ -375,7 +432,7 @@
     <link href="http://qwqaq.com/c29e2d86.html"/>
     <id>http://qwqaq.com/c29e2d86.html</id>
     <published>2018-12-13T14:02:33.000Z</published>
-    <updated>2019-02-19T14:38:05.000Z</updated>
+    <updated>2019-02-19T14:38:05.392Z</updated>
     
     <summary type="html">
     
@@ -401,7 +458,7 @@
     <link href="http://qwqaq.com/e3b3237d.html"/>
     <id>http://qwqaq.com/e3b3237d.html</id>
     <published>2018-12-13T09:19:26.000Z</published>
-    <updated>2019-01-28T14:15:57.000Z</updated>
+    <updated>2019-01-28T14:15:57.433Z</updated>
     
     <summary type="html">
     
@@ -432,7 +489,7 @@
     <link href="http://qwqaq.com/50b0de2d.html"/>
     <id>http://qwqaq.com/50b0de2d.html</id>
     <published>2018-12-01T13:05:57.000Z</published>
-    <updated>2018-12-01T13:29:35.000Z</updated>
+    <updated>2018-12-01T13:29:35.038Z</updated>
     
     <summary type="html">
     
@@ -453,7 +510,7 @@
     <link href="http://qwqaq.com/c3c8f6d1.html"/>
     <id>http://qwqaq.com/c3c8f6d1.html</id>
     <published>2018-12-01T12:46:27.000Z</published>
-    <updated>2018-12-01T13:00:24.000Z</updated>
+    <updated>2018-12-01T13:00:24.402Z</updated>
     
     <summary type="html">
     
@@ -479,7 +536,7 @@
     <link href="http://qwqaq.com/c8008149.html"/>
     <id>http://qwqaq.com/c8008149.html</id>
     <published>2018-11-30T15:42:20.000Z</published>
-    <updated>2019-01-28T14:15:57.000Z</updated>
+    <updated>2019-01-28T14:15:57.383Z</updated>
     
     <summary type="html">
     
@@ -493,65 +550,6 @@
       <category term="MinecraftPE" scheme="http://qwqaq.com/tags/MinecraftPE/"/>
     
       <category term="MCPE" scheme="http://qwqaq.com/tags/MCPE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JS 定义字符串，强制不处理转义字符</title>
-    <link href="http://qwqaq.com/24a771e4.html"/>
-    <id>http://qwqaq.com/24a771e4.html</id>
-    <published>2018-11-27T09:48:27.000Z</published>
-    <updated>2018-11-27T16:32:48.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;假如你想用 JS 定义一个含有路径字符串，目前在 Windows 上是用的 反斜杠 \ 作为路径分隔符，直接复制粘贴到 “ “ 内，JS 会将 \ 的部分视为转义字符，所以每次都要将 \ 替换为 \\，麻烦啊。所以，怎么才能让 JS 强制不处理转义字符呢？使用 String.raw() 即可让 “\” 在字符串当中不再起到转义特殊字符的作用。&lt;/p&gt;
-&lt;p&gt;MDN 是这样说的：String.raw() 是一个模板字符串的标签函数，它的作用类似于 Python 中的字符串前缀 r 和 C# 中的字符串前缀 @，是用来获取一个模板字符串的原始字面量值的。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="JS" scheme="http://qwqaq.com/categories/JS/"/>
-    
-    
-      <category term="ECMAScript6" scheme="http://qwqaq.com/tags/ECMAScript6/"/>
-    
-      <category term="Experimental" scheme="http://qwqaq.com/tags/Experimental/"/>
-    
-      <category term="JavaScript" scheme="http://qwqaq.com/tags/JavaScript/"/>
-    
-      <category term="Method" scheme="http://qwqaq.com/tags/Method/"/>
-    
-      <category term="String" scheme="http://qwqaq.com/tags/String/"/>
-    
-      <category term="转义字符" scheme="http://qwqaq.com/tags/%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>记录一次去除 Chrome 扩展程序激活验证的过程</title>
-    <link href="http://qwqaq.com/a845bac.html"/>
-    <id>http://qwqaq.com/a845bac.html</id>
-    <published>2018-11-19T17:18:39.000Z</published>
-    <updated>2018-11-27T16:37:47.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;某位骚年说是想喊我帮忙看看一个 Chrome 的扩展程序是否可以破解，去除激活验证。虽然这有些缺德，但是你要深深地明白穷*高中生的痛。我抱着试试看的心态，拿到了这个 crx 文件后，开始一步一步搞事情。Well, Here We Go…&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="JS" scheme="http://qwqaq.com/categories/JS/"/>
-    
-    
-      <category term="JavaScript" scheme="http://qwqaq.com/tags/JavaScript/"/>
-    
-      <category term="Chrome Extension" scheme="http://qwqaq.com/tags/Chrome-Extension/"/>
-    
-      <category term="Crack" scheme="http://qwqaq.com/tags/Crack/"/>
-    
-      <category term="JS 混淆" scheme="http://qwqaq.com/tags/JS-%E6%B7%B7%E6%B7%86/"/>
-    
-      <category term="去除验证" scheme="http://qwqaq.com/tags/%E5%8E%BB%E9%99%A4%E9%AA%8C%E8%AF%81/"/>
     
   </entry>
   

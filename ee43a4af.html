@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>CefSharp 访问嵌入的前端目录：Scheme 自定义 + 文件夹作为嵌入的资源 | QWQAQ 的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="CefSharp 是一个开源项目，它为 .NET 提供了嵌入式的 Chromium (CEF)，如果你想用前端技术做界面，后端采用 C# 编写，那 CefSharp 是不错的选择。 本文将讲述：CefSharp 自定义属于自己的 Scheme，将前端资源目录下的所有文件全部嵌入 .NET APP 中（即嵌入到 .exe 文件中），并且做到 已嵌入资源 可通过 URL 直接访问">
+<meta name="keywords" content="CSharp,CefSharp,嵌入的资源,Scheme 自定义,嵌入目录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CefSharp 访问嵌入的前端目录：Scheme 自定义 + 文件夹作为嵌入的资源">
+<meta property="og:url" content="http://qwqaq.com/ee43a4af.html">
+<meta property="og:site_name" content="QWQAQ 的博客">
+<meta property="og:description" content="CefSharp 是一个开源项目，它为 .NET 提供了嵌入式的 Chromium (CEF)，如果你想用前端技术做界面，后端采用 C# 编写，那 CefSharp 是不错的选择。 本文将讲述：CefSharp 自定义属于自己的 Scheme，将前端资源目录下的所有文件全部嵌入 .NET APP 中（即嵌入到 .exe 文件中），并且做到 已嵌入资源 可通过 URL 直接访问">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://qwqaq.com/images/banner/CefSharpEmbeddedResource.png">
+<meta property="og:updated_time" content="2019-05-03T17:00:40.650Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CefSharp 访问嵌入的前端目录：Scheme 自定义 + 文件夹作为嵌入的资源">
+<meta name="twitter:description" content="CefSharp 是一个开源项目，它为 .NET 提供了嵌入式的 Chromium (CEF)，如果你想用前端技术做界面，后端采用 C# 编写，那 CefSharp 是不错的选择。 本文将讲述：CefSharp 自定义属于自己的 Scheme，将前端资源目录下的所有文件全部嵌入 .NET APP 中（即嵌入到 .exe 文件中），并且做到 已嵌入资源 可通过 URL 直接访问">
+<meta name="twitter:image" content="http://qwqaq.com/images/banner/CefSharpEmbeddedResource.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="QWQAQ 的博客" type="application/atom+xml">
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/material-design-iconic-font/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?785e1cdc938039c39a3b5f792ed1e829";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+
+    <link rel="stylesheet" href="/libs/artalk/Artalk.css">
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <!--<span class="site-title">QWQAQ 的博客</span>-->
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">HOME</a>
+                
+                    <a class="main-nav-link" href="/categories">目录</a>
+                
+                    <a class="main-nav-link" href="/archives">时间轴</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/links">友链</a>
+                
+                    <a class="main-nav-link" href="/about">关于我</a>
+                
+            </nav>
+            
+            
+            <nav id="sub-nav">
+                <div class="profile" id="profile-nav">
+                    <a id="profile-anchor" href="javascript:;">
+                        <img class="avatar" src="/images/avatar.png">
+                        <i class="zmdi zmdi-caret-down"></i>
+                    </a>
+                </div>
+            </nav>
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
+            <span class="ins-close ins-selectable"><i class="zmdi zmdi-close"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">HOME</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">目录</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">时间轴</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/links">友链</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于我</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            <aside id="sidebar-left">
+
+    <div class="sidebar-fixed">
+        <div class="sidebar-fixed-inner">
+            
+
+<div id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <div class="profile-top-part">
+                <img id="avatar" src="/images/avatar.png">
+                <div class="info-inner">
+                    <h2 id="name">QWQAQ</h2>
+                    <h3 id="title">不忘初心，方得始终</h3>
+                </div>
+            </div>
+            <div class="profile-bg"></div>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                <a href="/archives">
+                    67
+                    <span>文章</span>
+                </a>
+            </div>
+            <div class="article-info-block">
+                <a href="/tags">
+                    162
+                    <span>标签</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            
+            
+            <div class="social-link-item">
+                <a href="https://github.com/qwqcode" target="_blank" title="github" class="tooltip">
+                    <i class="zmdi zmdi-github"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="https://twitter.com/Kiroey" target="_blank" title="twitter" class="tooltip">
+                    <i class="zmdi zmdi-twitter"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="/atom.xml" target="_blank" title="rss" class="tooltip">
+                    <i class="zmdi zmdi-rss"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="/about/" target="_blank" title="more" class="tooltip">
+                    <i class="zmdi zmdi-more"></i>
+                </a>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+
+            
+            <div id="article-content-index" class="anim-fade-in" style="display: none">
+    <div class="widget-wrap">
+        <h3 class="widget-title">内容索引</h3>
+        <div class="widget">
+            <div class="index-list"></div>
+        </div>
+    </div>
+</div>
+            
+        </div>
+    </div>
+
+</aside>
+
+            <section id="main"><article id="post-CefSharp-访问嵌入的前端目录：Scheme-自定义-文件夹作为嵌入的资源" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<img src="/images/banner/CefSharpEmbeddedResource.png" class="article-banner">
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+
+    
+        <h1 class="article-title" itemprop="name">
+            CefSharp 访问嵌入的前端目录：Scheme 自定义 + 文件夹作为嵌入的资源
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="zmdi zmdi-calendar"></i>
+        <a href="/ee43a4af.html">
+            <time datetime="2019-05-03T15:33:15.000Z" itemprop="datePublished">2019-05-03</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="zmdi zmdi-folder"></i>
+        <a class="article-category-link" href="/categories/CSharp/">CSharp</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            
+            <p><a href="https://github.com/cefsharp/CefSharp" target="_blank" rel="noopener">CefSharp</a> 是一个开源项目，它为 .NET 提供了嵌入式的 Chromium (CEF)，如果你想用前端技术做界面，后端采用 C# 编写，那 CefSharp 是不错的选择。</p>
+<p>本文将讲述：CefSharp 自定义属于自己的 Scheme，将前端资源目录下的所有文件全部嵌入 .NET APP 中（即嵌入到 .exe 文件中），并且做到 已嵌入资源 可通过 URL 直接访问</p>
+<a id="more"></a>
+<h2 id="URL-Scheme-是什么？"><a href="#URL-Scheme-是什么？" class="headerlink" title="URL Scheme 是什么？"></a>URL Scheme 是什么？</h2><p>对于 URL 我们都很熟悉，例如 <a href="https://www.google.com" target="_blank" rel="noopener">https://www.google.com</a> 就是一个 URL，我们也叫它链接或网址。</p>
+<p>可以简单理解：Schemes 表示的是 URL 中的一个位置，Schemes 是 <code>://</code> 之前的那段字符。</p>
+<p>举个栗子 <code>https://www.google.com</code> 这个 URL 的 Schemes 是 <code>https</code></p>
+<p>又例如 <code>file:///C:/Users/qwqcode/Desktop</code>，它的 Schemes 是 <code>file</code></p>
+<p>参见维基百科：<a href="https://en.wikipedia.org/wiki/List_of_URI_schemes" target="_blank" rel="noopener">List_of_URI_schemes</a> / <a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier" target="_blank" rel="noopener">Uniform_Resource_Identifier</a></p>
+<p>URL 和 URI 的关系：</p>
+<blockquote>
+<p>URL是URI的一种，不仅标识了 Web 资源，还指定了操作或者获取方式，同时指出了主要访问机制和网络位置。</p>
+</blockquote>
+<h2 id="1-嵌入前端资源目录下的所有文件"><a href="#1-嵌入前端资源目录下的所有文件" class="headerlink" title="1. 嵌入前端资源目录下的所有文件"></a>1. 嵌入前端资源目录下的所有文件</h2><p>假如有一个<strong>解决方案</strong>，待嵌入的 前端目录 相对于 这个解决方案 的路径是 <code>..\Frontend\dist</code> ，那么则在这个解决方案的 <code>.csproj</code> 文件中加入：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">EmbeddedResource</span> <span class="attr">Include</span>=<span class="string">"..\Frontend\dist\**\*.*"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Link</span>&gt;</span>html_res\%(RecursiveDir)%(Filename)%(Extension)<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">EmbeddedResource</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>实例：<a href="https://github.com/qwqcode/Nacollector/blob/b2909e11ede2c64a7ddcd210e2edb3743dd50490/Nacollector/Nacollector.csproj#L163" target="_blank" rel="noopener">/Nacollector/Nacollector.csproj#L163</a></p>
+<p><img src="../images/post/20190504004343.png" alt></p>
+<p>之后，你会发现在该解决方案的文件树列表中，出现了 <strong>html_res</strong> 文件夹，里面会包含所有前端文件，且已成为<strong>嵌入的资源</strong>。</p>
+<p><img src="../images/post/20190504004045.png" alt></p>
+<p>值得注意的是：<strong>解决方案</strong>中的目录名只能为小写字母，如 <code>html_res</code>，不能大写。</p>
+<h2 id="2-SchemeHandler"><a href="#2-SchemeHandler" class="headerlink" title="2. SchemeHandler"></a>2. SchemeHandler</h2><p>接下来，开始写 SchemeHandler 类</p>
+<p>SchemeHandler 用于处理用户对指定 Scheme 的请求，并返回响应数据</p>
+<p>ResourceSchemeHandler.cs</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> CefSharp;</span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.IO;</span><br><span class="line"><span class="keyword">using</span> System.Net;</span><br><span class="line"><span class="keyword">using</span> System.Reflection;</span><br><span class="line"><span class="keyword">using</span> System.Threading.Tasks;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ResourceSchemeHandler</span> : <span class="title">ResourceHandler</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">bool</span> <span class="title">ProcessRequestAsync</span>(<span class="params">IRequest request, ICallback callback</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">var</span> names = <span class="keyword">this</span>.GetType().Assembly.GetManifestResourceNames();</span><br><span class="line"></span><br><span class="line">        Console.WriteLine(names);</span><br><span class="line"></span><br><span class="line">        Uri u = <span class="keyword">new</span> Uri(request.Url);</span><br><span class="line">        String file = u.Authority + u.AbsolutePath; <span class="comment">// 注：目录名需全为小写字母，否则将无法得到 Resource</span></span><br><span class="line"></span><br><span class="line">        Assembly ass = Assembly.GetExecutingAssembly();</span><br><span class="line">        String resourcePath = ass.GetName().Name + <span class="string">"."</span> + file.Replace(<span class="string">"/"</span>, <span class="string">"."</span>); <span class="comment">// 你可以设置断点看看这里的值</span></span><br><span class="line"></span><br><span class="line">        Task.Run(() =&gt;</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">using</span> (callback)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (ass.GetManifestResourceInfo(resourcePath) != <span class="literal">null</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    Stream stream = ass.GetManifestResourceStream(resourcePath);</span><br><span class="line">                    <span class="keyword">string</span> mimeType = <span class="string">"application/octet-stream"</span>;</span><br><span class="line">                    <span class="keyword">switch</span> (Path.GetExtension(file))</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="keyword">case</span> <span class="string">".html"</span>:</span><br><span class="line">                            mimeType = <span class="string">"text/html"</span>;</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        <span class="keyword">case</span> <span class="string">".js"</span>:</span><br><span class="line">                            mimeType = <span class="string">"text/javascript"</span>;</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        <span class="keyword">case</span> <span class="string">".css"</span>:</span><br><span class="line">                            mimeType = <span class="string">"text/css"</span>;</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        <span class="keyword">case</span> <span class="string">".png"</span>:</span><br><span class="line">                            mimeType = <span class="string">"image/png"</span>;</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        <span class="keyword">case</span> <span class="string">".appcache"</span>:</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        <span class="keyword">case</span> <span class="string">".manifest"</span>:</span><br><span class="line">                            mimeType = <span class="string">"text/cache-manifest"</span>;</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// Reset the stream position to 0 so the stream can be copied into the underlying unmanaged buffer</span></span><br><span class="line">                    stream.Position = <span class="number">0</span>;</span><br><span class="line">                    <span class="comment">// Populate the response values - No longer need to implement GetResponseHeaders (unless you need to perform a redirect)</span></span><br><span class="line">                    ResponseLength = stream.Length;</span><br><span class="line">                    MimeType = mimeType;</span><br><span class="line">                    StatusCode = (<span class="keyword">int</span>)HttpStatusCode.OK;</span><br><span class="line">                    Stream = stream;</span><br><span class="line"></span><br><span class="line">                    callback.Continue();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    callback.Cancel();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-SchemeHandlerFactory"><a href="#3-SchemeHandlerFactory" class="headerlink" title="3. SchemeHandlerFactory"></a>3. SchemeHandlerFactory</h2><p>最后一步，写 SchemeHandlerFactory</p>
+<p>SchemeHandlerFactory 用于负责 实例化 相应的 SchemeHandler，并向外界提供 SchemeName。</p>
+<p>ResourceSchemeHandlerFactory.cs</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"><span class="keyword">using</span> System.Threading.Tasks;</span><br><span class="line"><span class="keyword">using</span> CefSharp;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">ResourceSchemeHandlerFactory</span> : <span class="title">ISchemeHandlerFactory</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> IResourceHandler <span class="title">Create</span>(<span class="params">IBrowser browser, IFrame frame, <span class="keyword">string</span> schemeName, IRequest request</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ResourceSchemeHandler();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span> SchemeName &#123;</span><br><span class="line">      <span class="keyword">get</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"nacollector"</span>; <span class="comment">// 这里我设置的 SchemeName 为 nacollector，当然你也可以改成其他的</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-注册-Scheme"><a href="#4-注册-Scheme" class="headerlink" title="4. 注册 Scheme"></a>4. 注册 Scheme</h2><p>需在调用 <code>Cef.Initialize</code> 前添加 <code>settings.RegisterScheme</code> 进行对 Scheme 的注册，如下：</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> settings = <span class="keyword">new</span> CefSettings();</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">settings.RegisterScheme(<span class="keyword">new</span> CefCustomScheme()</span><br><span class="line">&#123;</span><br><span class="line">  SchemeName = ResourceSchemeHandlerFactory.SchemeName,</span><br><span class="line">  SchemeHandlerFactory = <span class="keyword">new</span> ResourceSchemeHandlerFactory()</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">Cef.Initialize(settings, performDependencyCheck: <span class="literal">true</span>, browserProcessHandler: <span class="literal">null</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="5-完成"><a href="#5-完成" class="headerlink" title="5. 完成"></a>5. 完成</h2><p>到这一步，你就可以访问 <code>nacollector://html_res/index.html</code> 了</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> browser = <span class="keyword">new</span> ChromiumWebBrowser(<span class="string">"nacollector://html_res/index.html"</span>);</span><br></pre></td></tr></table></figure>
+
+        
+        </div>
+        
+            
+            <div class="article-copyright">本站文章除注明转载外均为原创，未经允许不要转载哇. ヾ(ﾟｰﾟヾ) http://qwqaq.com/ee43a4af.html</div>
+            
+        
+<div class="article-tag-block">
+    <i class="zmdi zmdi-tag"></i>
+    <a class="tag-link" href="/tags/CSharp/">CSharp</a><a class="tag-link" href="/tags/CefSharp/">CefSharp</a><a class="tag-link" href="/tags/Scheme-自定义/">Scheme 自定义</a><a class="tag-link" href="/tags/嵌入的资源/">嵌入的资源</a><a class="tag-link" href="/tags/嵌入目录/">嵌入目录</a>
+</div>
+
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://qwqaq.com/ee43a4af.html" data-id="cjv8c741h000wqctt2xw9af7j" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="zmdi zmdi-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="zmdi zmdi-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="zmdi zmdi-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="zmdi zmdi-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+
+        </footer>
+        
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/5e466d74.html" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">C# WinForm 调用 DWMAPI.dll 实现无边框窗体 Aero 边缘阴影 DropShadow 效果</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments"><div id="ArtalkComments"></div>
+<script>
+$(document).ready(function () {
+  var artalk = new Artalk({
+    el: '#ArtalkComments',
+    placeholder: '来啊，快活啊 (/ω＼)',
+    defaultAvatar: 'mp',
+    pageSize: 50,
+    pageKey: 'http://qwqaq.com/ee43a4af.html',
+    serverUrl: 'https://qwqaq.com/Artalk/index.php'
+  });
+});
+</script>
+</section>
+    
+
+
+
+</section>
+            
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/ee43a4af.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/banner/CefSharpEmbeddedResource.png)" alt="CefSharp 访问嵌入的前端目录：Scheme 自定义 + 文件夹作为嵌入的资源" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/CSharp/">CSharp</a></p>
+                            <p class="item-title"><a href="/ee43a4af.html" class="title">CefSharp 访问嵌入的前端目录：Scheme 自定义 + 文件夹作为嵌入的资源</a></p>
+                            <p class="item-date"><time datetime="2019-05-03T15:33:15.000Z" itemprop="datePublished">2019-05-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/5e466d74.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/banner/cs_borderless_areo_shadow.png)" alt="C# WinForm 调用 DWMAPI.dll 实现无边框窗体 Aero 边缘阴影 DropShadow 效果" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/CSharp/">CSharp</a></p>
+                            <p class="item-title"><a href="/5e466d74.html" class="title">C# WinForm 调用 DWMAPI.dll 实现无边框窗体 Aero 边缘阴影 DropShadow 效果</a></p>
+                            <p class="item-date"><time datetime="2019-05-03T14:42:59.000Z" itemprop="datePublished">2019-05-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/cb95a9c8.html" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/项目/">项目</a><i class="zmdi zmdi-chevron-right"></i><a class="article-category-link" href="/categories/项目/Rescoll/">Rescoll</a></p>
+                            <p class="item-title"><a href="/cb95a9c8.html" class="title">Rescoll 采集程序聚合平台</a></p>
+                            <p class="item-date"><time datetime="2019-04-29T14:48:55.000Z" itemprop="datePublished">2019-04-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/61ee0065.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/banner/jqdjs_bzdsz.jpg)" alt="假期的结束，博主的失踪" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/日常/">日常</a></p>
+                            <p class="item-title"><a href="/61ee0065.html" class="title">假期的结束，博主的失踪</a></p>
+                            <p class="item-date"><time datetime="2019-03-29T15:33:02.000Z" itemprop="datePublished">2019-03-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/527f8ae.html" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/开发工具/">开发工具</a><i class="zmdi zmdi-chevron-right"></i><a class="article-category-link" href="/categories/开发工具/VSCode/">VSCode</a></p>
+                            <p class="item-title"><a href="/527f8ae.html" class="title">Win10 1809 调用 CMD/PowerShell/Bash 显示错乱问题</a></p>
+                            <p class="item-date"><time datetime="2019-02-18T13:06:49.000Z" itemprop="datePublished">2019-02-18</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CSharp/">CSharp</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-Star/">GitHub Star</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows/">Windows</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/Canvas/">Canvas</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/Vue/">Vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/">开发工具</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/Hyper/">Hyper</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/Scoop/">Scoop</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/VSCode/">VSCode</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/VSCode/Android-Studio/">Android Studio</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/VSCode/Android-Studio/PhpStorm/">PhpStorm</a><span class="category-list-count">1</span></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/日常/">日常</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/爬虫/">爬虫</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生产环境/">生产环境</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/生产环境/Apache/">Apache</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/硬件/">硬件</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/硬件/Arduino/">Arduino</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/项目/">项目</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/项目/Nacollector/">Nacollector</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/项目/Rescoll/">Rescoll</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="zmdi zmdi-chevron-up"></div>
+</aside>
+
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2019 QWQAQ<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme <a href="https://github.com/qwqcode/hexo-theme-icarus">icarus</a>
+        </div>
+    </div>
+</footer>
+
+        
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+    <script src="/libs/artalk/Artalk.js"></script>
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+</body>
+</html>
