@@ -14,7 +14,7 @@
     
   </author>
   
-  <generator uri="http://hexo.io/">Hexo</generator>
+  <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
     <title>CefSharp 访问嵌入的前端目录：Scheme 自定义 + 文件夹作为嵌入的资源</title>
@@ -29,6 +29,7 @@
 &lt;p&gt;本文将讲述：CefSharp 自定义属于自己的 Scheme，将前端资源目录下的所有文件全部嵌入 .NET APP 中（即嵌入到 .exe 文件中），并且做到 已嵌入资源 可通过 URL 直接访问&lt;/p&gt;
     
     </summary>
+    
     
       <category term="CSharp" scheme="http://qwqaq.com/categories/CSharp/"/>
     
@@ -57,6 +58,7 @@
       &lt;p&gt;C# WinForm &lt;code&gt;FormBorderStyle.None&lt;/code&gt; 无边框窗体程序，通过调用 DWMAPI.dll 来实现 原生 Aero DropShow 边缘阴影的效果。&lt;/p&gt;
     
     </summary>
+    
     
       <category term="CSharp" scheme="http://qwqaq.com/categories/CSharp/"/>
     
@@ -90,6 +92,7 @@
     
     </summary>
     
+    
       <category term="项目" scheme="http://qwqaq.com/categories/%E9%A1%B9%E7%9B%AE/"/>
     
       <category term="Rescoll" scheme="http://qwqaq.com/categories/%E9%A1%B9%E7%9B%AE/Rescoll/"/>
@@ -116,6 +119,7 @@
     
     </summary>
     
+    
       <category term="日常" scheme="http://qwqaq.com/categories/%E6%97%A5%E5%B8%B8/"/>
     
     
@@ -135,6 +139,7 @@
       &lt;p&gt;最近升级到了 Windows 10 1809 版本，发现在 VSCode, Android Studio, PhpStorm 终端窗口中的 CMD/PowerShell/Bash 都有显示错乱的现象，终端在最初打开时光标不能正常显示，只有在执行命令后光标才会出现。&lt;/p&gt;
     
     </summary>
+    
     
       <category term="开发工具" scheme="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
     
@@ -176,6 +181,7 @@
     
     </summary>
     
+    
       <category term="开发工具" scheme="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
     
       <category term="Scoop" scheme="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Scoop/"/>
@@ -202,6 +208,7 @@
     
     </summary>
     
+    
       <category term="日常" scheme="http://qwqaq.com/categories/%E6%97%A5%E5%B8%B8/"/>
     
     
@@ -226,12 +233,11 @@
     
     </summary>
     
+    
       <category term="前端" scheme="http://qwqaq.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="Canvas" scheme="http://qwqaq.com/categories/%E5%89%8D%E7%AB%AF/Canvas/"/>
     
-    
-      <category term="JS" scheme="http://qwqaq.com/tags/JS/"/>
     
       <category term="刀剑神域" scheme="http://qwqaq.com/tags/%E5%88%80%E5%89%91%E7%A5%9E%E5%9F%9F/"/>
     
@@ -239,9 +245,11 @@
     
       <category term="UI" scheme="http://qwqaq.com/tags/UI/"/>
     
+      <category term="Canvas" scheme="http://qwqaq.com/tags/Canvas/"/>
+    
       <category term="HTML5" scheme="http://qwqaq.com/tags/HTML5/"/>
     
-      <category term="Canvas" scheme="http://qwqaq.com/tags/Canvas/"/>
+      <category term="JS" scheme="http://qwqaq.com/tags/JS/"/>
     
   </entry>
   
@@ -258,6 +266,7 @@
     
     </summary>
     
+    
       <category term="前端" scheme="http://qwqaq.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="CSS" scheme="http://qwqaq.com/categories/%E5%89%8D%E7%AB%AF/CSS/"/>
@@ -269,9 +278,9 @@
     
       <category term="UI" scheme="http://qwqaq.com/tags/UI/"/>
     
-      <category term="CSS" scheme="http://qwqaq.com/tags/CSS/"/>
-    
       <category term="HTML5" scheme="http://qwqaq.com/tags/HTML5/"/>
+    
+      <category term="CSS" scheme="http://qwqaq.com/tags/CSS/"/>
     
   </entry>
   
@@ -287,6 +296,7 @@
       &lt;p&gt;强迫症患者受不了每天 99+ 的角标，然而网易云音乐迟迟不做一键全部标为已读按钮，所以决定自己实现这个功能。本文将讲述：通过模拟真实操作，在云音乐网页版私信页面（使用 iframe 局部刷新的页面）连续查看私信并返回列表来实现一键清除角标的功能。&lt;/p&gt;
     
     </summary>
+    
     
       <category term="JS" scheme="http://qwqaq.com/categories/JS/"/>
     
@@ -312,6 +322,7 @@
     
     </summary>
     
+    
       <category term="日常" scheme="http://qwqaq.com/categories/%E6%97%A5%E5%B8%B8/"/>
     
     
@@ -335,6 +346,7 @@
 &lt;p&gt;&lt;a href=&quot;https://github.com/qwqcode/Nacollector/releases/tag/1.3.0.0&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;传送到 GitHub&lt;/a&gt;&lt;/p&gt;
     
     </summary>
+    
     
       <category term="项目" scheme="http://qwqaq.com/categories/%E9%A1%B9%E7%9B%AE/"/>
     
@@ -360,11 +372,12 @@
       
         
         
-          &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;330&quot; height=&quot;86&quot;
+          &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=330 height=86
         
       
     
     </summary>
+    
     
       <category term="日常" scheme="http://qwqaq.com/categories/%E6%97%A5%E5%B8%B8/"/>
     
@@ -387,6 +400,7 @@
 &lt;p&gt;如果能让 CefSharp 实现像 Electron 这样的功能，那我就能在设置了无边框的窗体上美滋滋地自定义标题栏，例如：Material Design, Fluent Design… 而不仅仅是 WinForm 自带的风格。&lt;/p&gt;
     
     </summary>
+    
     
       <category term="CSharp" scheme="http://qwqaq.com/categories/CSharp/"/>
     
@@ -418,6 +432,7 @@
     
     </summary>
     
+    
       <category term="日常" scheme="http://qwqaq.com/categories/%E6%97%A5%E5%B8%B8/"/>
     
     
@@ -439,6 +454,7 @@
       &lt;p&gt;Microsoft 前不久发布了内部预览版本 18290 (19H1) 的 ISO，新版本包含一些改进和许多新功能，你可以按照本文方下载 ISO 文件。&lt;/p&gt;
     
     </summary>
+    
     
       <category term="Windows" scheme="http://qwqaq.com/categories/Windows/"/>
     
@@ -469,6 +485,7 @@
     
     </summary>
     
+    
       <category term="开发工具" scheme="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
     
       <category term="Hyper" scheme="http://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Hyper/"/>
@@ -476,11 +493,11 @@
     
       <category term="Bash" scheme="http://qwqaq.com/tags/Bash/"/>
     
+      <category term="命令行" scheme="http://qwqaq.com/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
+    
       <category term="开发工具" scheme="http://qwqaq.com/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
     
       <category term="Hyper" scheme="http://qwqaq.com/tags/Hyper/"/>
-    
-      <category term="命令行" scheme="http://qwqaq.com/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
     
   </entry>
   
@@ -497,6 +514,7 @@
 &lt;p&gt;PHP flat-file database to store data with JSON&lt;/p&gt;
     
     </summary>
+    
     
       <category term="GitHub Star" scheme="http://qwqaq.com/categories/GitHub-Star/"/>
     
@@ -517,6 +535,7 @@
       &lt;p&gt;&lt;a href=&quot;https://github.com/iikira/BaiduPCS-Go&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;iikira/BaiduPCS-Go&lt;/a&gt; 是一款 Go 语言编写的仿 Linux shell 文件处理命令的百度网盘客户端，你可以用它来全速下载文件。除此之外，还可以上传文件、添加离线下载任务、获取下载直链、搜索文件…&lt;/p&gt;
     
     </summary>
+    
     
       <category term="GitHub Star" scheme="http://qwqaq.com/categories/GitHub-Star/"/>
     
@@ -540,9 +559,10 @@
     
     <summary type="html">
     
-      &lt;p&gt;如今 2018，光阴飞逝，可能有 4 年没关注 MCPE。还记得每次更新，Mojang 不断跳票 + Twitter 散布各种虚假新闻，贴吧疯狂找资源，破解安卓 2.3… 的那一个个日日夜夜，入坑 MCPE 那些年，欢声笑语中流逝。想回忆一下小学时的那种感jio，Google Play 买了正版。欠了多年的债，今天终于还了 #(滑稽)&lt;br&gt;
+      &lt;p&gt;如今 2018，光阴飞逝，可能有 4 年没关注 MCPE。还记得每次更新，Mojang 不断跳票 + Twitter 散布各种虚假新闻，贴吧疯狂找资源，破解安卓 2.3… 的那一个个日日夜夜，入坑 MCPE 那些年，欢声笑语中流逝。想回忆一下小学时的那种感jio，Google Play 买了正版。欠了多年的债，今天终于还了 #(滑稽)&lt;/p&gt;
     
     </summary>
+    
     
       <category term="日常" scheme="http://qwqaq.com/categories/%E6%97%A5%E5%B8%B8/"/>
     

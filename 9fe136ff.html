@@ -1,43 +1,61 @@
 <!DOCTYPE html>
-<html lang="zh">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html lang=zh>
+<head>
     <meta charset="utf-8">
     
     <title>解决 phpQuery 采集微信公众号乱码问题 | QWQAQ 的博客</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="用 phpQuery 采集微信公众号文章页的内容是乱码，然而发现这并不是编码的问题，这个网页本来就是 UTF-8，那就真是奇怪了呢… 折腾了很久，也没解决这个问题，最后去看了看网页的源码，发现了…">
-<meta name="keywords" content="采集,爬虫,微信公众号,乱码,phpQuery">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解决 phpQuery 采集微信公众号乱码问题">
 <meta property="og:url" content="http://qwqaq.com/9fe136ff.html">
 <meta property="og:site_name" content="QWQAQ 的博客">
 <meta property="og:description" content="用 phpQuery 采集微信公众号文章页的内容是乱码，然而发现这并不是编码的问题，这个网页本来就是 UTF-8，那就真是奇怪了呢… 折腾了很久，也没解决这个问题，最后去看了看网页的源码，发现了…">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-28T14:15:57.434Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-07-31T12:26:06.000Z">
+<meta property="article:modified_time" content="2019-01-28T14:15:57.434Z">
+<meta property="article:author" content="QWQAQ">
+<meta property="article:tag" content="采集">
+<meta property="article:tag" content="爬虫">
+<meta property="article:tag" content="微信公众号">
+<meta property="article:tag" content="乱码">
+<meta property="article:tag" content="phpQuery">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="解决 phpQuery 采集微信公众号乱码问题">
-<meta name="twitter:description" content="用 phpQuery 采集微信公众号文章页的内容是乱码，然而发现这并不是编码的问题，这个网页本来就是 UTF-8，那就真是奇怪了呢… 折腾了很久，也没解决这个问题，最后去看了看网页的源码，发现了…">
     
 
     
-        <link rel="alternate" href="/atom.xml" title="QWQAQ 的博客" type="application/atom+xml">
+        <link rel="alternate" href="/atom.xml" title="QWQAQ 的博客" type="application/atom+xml" />
     
 
     
 
-    <link rel="stylesheet" href="/libs/material-design-iconic-font/css/material-design-iconic-font.min.css">
-    <link rel="stylesheet" href="/libs/open-sans/styles.css">
-    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+    
+<link rel="stylesheet" href="/libs/material-design-iconic-font/css/material-design-iconic-font.min.css">
 
-    <link rel="stylesheet" href="/css/style.css">
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
 
-    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
     
     
-        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
     
     
-        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
     
     
     
@@ -56,9 +74,11 @@ var _hmt = _hmt || [];
 
 
 
-    <link rel="stylesheet" href="/libs/artalk/Artalk.css">
-</head>
-</html>
+    
+<link rel="stylesheet" href="/libs/artalk/Artalk.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
 <body>
     <div id="container">
         <header id="header">
@@ -88,7 +108,7 @@ var _hmt = _hmt || [];
             <nav id="sub-nav">
                 <div class="profile" id="profile-nav">
                     <a id="profile-anchor" href="javascript:;">
-                        <img class="avatar" src="/images/avatar.png">
+                        <img class="avatar" src="/images/avatar.png" />
                         <i class="zmdi zmdi-caret-down"></i>
                     </a>
                 </div>
@@ -96,14 +116,14 @@ var _hmt = _hmt || [];
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
             <span class="ins-close ins-selectable"><i class="zmdi zmdi-close"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -127,7 +147,9 @@ var _hmt = _hmt || [];
     window.INSIGHT_CONFIG = INSIGHT_CONFIG;
 })(window);
 </script>
+
 <script src="/js/insight.js"></script>
+
 
 </div>
         </div>
@@ -151,7 +173,7 @@ var _hmt = _hmt || [];
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
     </div>
 
                 </td>
@@ -171,7 +193,7 @@ var _hmt = _hmt || [];
     <div class="inner profile-inner">
         <div class="base-info profile-block">
             <div class="profile-top-part">
-                <img id="avatar" src="/images/avatar.png">
+                <img id="avatar" src="/images/avatar.png" />
                 <div class="info-inner">
                     <h2 id="name">QWQAQ</h2>
                     <h3 id="title">不忘初心，方得始终</h3>
@@ -198,25 +220,25 @@ var _hmt = _hmt || [];
             
             
             <div class="social-link-item">
-                <a href="https://github.com/qwqcode" target="_blank" title="github" class="tooltip">
+                <a href="https://github.com/qwqcode" target="_blank" title="github" class=tooltip>
                     <i class="zmdi zmdi-github"></i>
                 </a>
             </div>
             
             <div class="social-link-item">
-                <a href="https://twitter.com/Kiroey" target="_blank" title="twitter" class="tooltip">
+                <a href="https://twitter.com/Kiroey" target="_blank" title="twitter" class=tooltip>
                     <i class="zmdi zmdi-twitter"></i>
                 </a>
             </div>
             
             <div class="social-link-item">
-                <a href="/atom.xml" target="_blank" title="rss" class="tooltip">
+                <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
                     <i class="zmdi zmdi-rss"></i>
                 </a>
             </div>
             
             <div class="social-link-item">
-                <a href="/about/" target="_blank" title="more" class="tooltip">
+                <a href="/about/" target="_blank" title="more" class=tooltip>
                     <i class="zmdi zmdi-more"></i>
                 </a>
             </div>
@@ -268,7 +290,7 @@ var _hmt = _hmt || [];
                         
     <div class="article-category">
     	<i class="zmdi zmdi-folder"></i>
-        <a class="article-category-link" href="/categories/爬虫/">爬虫</a>
+        <a class="article-category-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a>
     </div>
 
                     </div>
@@ -282,16 +304,22 @@ var _hmt = _hmt || [];
             
             <p>用 phpQuery 采集微信公众号文章页的内容是乱码，然而发现这并不是编码的问题，这个网页本来就是 UTF-8，那就真是奇怪了呢… 折腾了很久，也没解决这个问题，最后去看了看网页的源码，发现了…</p>
 <a id="more"></a>
+
+
 <p>在源码的起始和结束位置有 <code>&lt;!--headTrap&lt;body&gt;&lt;/body&gt;&lt;head&gt;&lt;/head&gt;&lt;html&gt;&lt;/html&gt;--&gt;</code> 和<br><code>&lt;!--tailTrap&lt;body&gt;&lt;/body&gt;&lt;head&gt;&lt;/head&gt;&lt;html&gt;&lt;/html&gt;--&gt;</code>，因为觉得这很奇怪，删掉它再尝试采集，解决了这个问题，如下：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$url = <span class="string">"https://mp.weixin.qq.com/s?src=11&amp;timestamp=1533000601&amp;ver=1031&amp;signature=*LFN6KjIY93ucjNZzMBCspPXRI*0VIxcQpN8alDP5GHZRuSkdqkGT8PlR9ytsfrbLfufk4Fxy3oIWTlGuOpNcj*OjGK9Wf48nFqedKxx6pwXYfTak9*dvH8vgVC7A3xW&amp;new=1"</span>;</span><br><span class="line"></span><br><span class="line">$html = file_get_contents($url); <span class="comment">// 建议用 Curl</span></span><br><span class="line"></span><br><span class="line">$html = str_replace([<span class="string">'&lt;!--headTrap&lt;body&gt;&lt;/body&gt;&lt;head&gt;&lt;/head&gt;&lt;html&gt;&lt;/html&gt;--&gt;'</span>, <span class="string">'&lt;!--tailTrap&lt;body&gt;&lt;/body&gt;&lt;head&gt;&lt;/head&gt;&lt;html&gt;&lt;/html&gt;--&gt;'</span>], <span class="string">''</span>, $html);</span><br><span class="line"></span><br><span class="line">$ql = (<span class="keyword">new</span> QueryList())-&gt;html($html); <span class="comment">// 导入 html</span></span><br><span class="line">$data = $ql-&gt;find(<span class="string">'#activity-name'</span>)-&gt;text();</span><br><span class="line">var_dump($data);</span><br></pre></td></tr></table></figure>
+
 <p>我猜想这也许是 phpQuery 加载内容正则表达式根据 <code>&lt;head&gt;</code> 中的标签判断编码失误的问题</p>
 <p>开头结尾的 <code>&lt;!--headTrap&lt;body&gt;&lt;/body&gt;&lt;head&gt;&lt;/head&gt;&lt;html&gt;&lt;/html&gt;--&gt;</code> 和 <code>&lt;!--tailTrap&lt;body&gt;&lt;/body&gt;&lt;head&gt;&lt;/head&gt;&lt;html&gt;&lt;/html&gt;--&gt;</code> 会影响 phpQuery 判断</p>
 <p>来感受一下乱码。。。</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">array</span> (size=<span class="number">1</span>)</span><br><span class="line">  <span class="number">0</span> =&gt;</span><br><span class="line">    <span class="keyword">array</span> (size=<span class="number">1</span>)</span><br><span class="line">      <span class="string">'title'</span> =&gt; string <span class="string">'1603æ¾¶â��æ��é��å­§H370æ¸�æ¿�æ£«é��ç�³ç¡¶çº­î�¿î�»æ¾¶è¾«ä»�é�ªç�¸î��é��ç�·æ´�é��'</span> (length=<span class="number">152</span>)</span><br></pre></td></tr></table></figure>
+
 <p>关于之前遇到的 phpQuery 编码问题</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 失败的</span></span><br><span class="line">-&gt;encoding(<span class="string">'UTF-8'</span>,<span class="string">'GB2312'</span>)</span><br><span class="line"></span><br><span class="line">正常的，在结果集后</span><br><span class="line"><span class="keyword">echo</span> iconv(<span class="string">'GB2312'</span>, <span class="string">'UTF-8'</span>, $item[<span class="string">'title'</span>]);</span><br></pre></td></tr></table></figure>
+
 <p>我是这样解决的：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleGbkPage</span><span class="params">($html)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    $html = mb_convert_encoding($html, <span class="string">'UTF-8'</span>, <span class="string">'GBK'</span>);</span><br><span class="line">    $html = preg_replace(<span class="string">'/charset=(gb2312|gbk)/is'</span>, <span class="string">'charset=utf-8'</span>, $html); <span class="comment">// 必须将 &lt;meta/&gt; 中 charset=* 替换为 utf-8，不然 phpQuery 不能解析标签</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> $html;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$html = handleGbkPage($html);</span><br><span class="line">$ql = (<span class="keyword">new</span> QueryList())-&gt;html($html);</span><br></pre></td></tr></table></figure>
+
 <p>先转码 gbk 为 utf-8 再把 meta 标签 charset=* 替换为 utf-8</p>
 <p><a href="https://github.com/jae-jae/QueryList/issues/34" target="_blank" rel="noopener">https://github.com/jae-jae/QueryList/issues/34</a></p>
 
@@ -304,7 +332,7 @@ var _hmt = _hmt || [];
         
 <div class="article-tag-block">
     <i class="zmdi zmdi-tag"></i>
-    <a class="tag-link" href="/tags/phpQuery/">phpQuery</a><a class="tag-link" href="/tags/乱码/">乱码</a><a class="tag-link" href="/tags/微信公众号/">微信公众号</a><a class="tag-link" href="/tags/爬虫/">爬虫</a><a class="tag-link" href="/tags/采集/">采集</a>
+    <a class="tag-link" href="/tags/phpQuery/" rel="tag">phpQuery</a><a class="tag-link" href="/tags/%E4%B9%B1%E7%A0%81/" rel="tag">乱码</a><a class="tag-link" href="/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/" rel="tag">微信公众号</a><a class="tag-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a><a class="tag-link" href="/tags/%E9%87%87%E9%9B%86/" rel="tag">采集</a>
 </div>
 
         <footer class="article-footer">
@@ -314,7 +342,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://qwqaq.com/9fe136ff.html" data-id="cjv8c744u0055qcttcfyr2ddu" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
+    <a data-url="http://qwqaq.com/9fe136ff.html" data-id="ck5f9sdkj005e80u8h818h0q1" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -441,7 +469,7 @@ $(document).ready(function () {
     <div class="widget-wrap">
         <h3 class="widget-title">最新文章</h3>
         <div class="widget">
-            <ul id="recent-post" class>
+            <ul id="recent-post" class="">
                 
                     <li>
                         
@@ -494,7 +522,7 @@ $(document).ready(function () {
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/项目/">项目</a><i class="zmdi zmdi-chevron-right"></i><a class="article-category-link" href="/categories/项目/Rescoll/">Rescoll</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E9%A1%B9%E7%9B%AE/">项目</a><i class="zmdi zmdi-chevron-right"></i><a class="article-category-link" href="/categories/%E9%A1%B9%E7%9B%AE/Rescoll/">Rescoll</a></p>
                             <p class="item-title"><a href="/cb95a9c8.html" class="title">Rescoll 采集程序聚合平台</a></p>
                             <p class="item-date"><time datetime="2019-04-29T14:48:55.000Z" itemprop="datePublished">2019-04-29</time></p>
                         </div>
@@ -513,7 +541,7 @@ $(document).ready(function () {
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/日常/">日常</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a></p>
                             <p class="item-title"><a href="/61ee0065.html" class="title">假期的结束，博主的失踪</a></p>
                             <p class="item-date"><time datetime="2019-03-29T15:33:02.000Z" itemprop="datePublished">2019-03-29</time></p>
                         </div>
@@ -532,7 +560,7 @@ $(document).ready(function () {
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/开发工具/">开发工具</a><i class="zmdi zmdi-chevron-right"></i><a class="article-category-link" href="/categories/开发工具/VSCode/">VSCode</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><i class="zmdi zmdi-chevron-right"></i><a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/VSCode/">VSCode</a></p>
                             <p class="item-title"><a href="/527f8ae.html" class="title">Win10 1809 调用 CMD/PowerShell/Bash 显示错乱问题</a></p>
                             <p class="item-date"><time datetime="2019-02-18T13:06:49.000Z" itemprop="datePublished">2019-02-18</time></p>
                         </div>
@@ -547,7 +575,7 @@ $(document).ready(function () {
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CSharp/">CSharp</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-Star/">GitHub Star</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows/">Windows</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/Canvas/">Canvas</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/Vue/">Vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/">开发工具</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/Hyper/">Hyper</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/Scoop/">Scoop</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/VSCode/">VSCode</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/VSCode/Android-Studio/">Android Studio</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/VSCode/Android-Studio/PhpStorm/">PhpStorm</a><span class="category-list-count">1</span></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/日常/">日常</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/爬虫/">爬虫</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生产环境/">生产环境</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/生产环境/Apache/">Apache</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/硬件/">硬件</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/硬件/Arduino/">Arduino</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/项目/">项目</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/项目/Nacollector/">Nacollector</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/项目/Rescoll/">Rescoll</a><span class="category-list-count">1</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CSharp/">CSharp</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-Star/">GitHub Star</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows/">Windows</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/Canvas/">Canvas</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/Vue/">Vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Hyper/">Hyper</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Scoop/">Scoop</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/VSCode/">VSCode</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/VSCode/Android-Studio/">Android Studio</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/VSCode/Android-Studio/PhpStorm/">PhpStorm</a><span class="category-list-count">1</span></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83/">生产环境</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83/Apache/">Apache</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A1%AC%E4%BB%B6/">硬件</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A1%AC%E4%BB%B6/Arduino/">Arduino</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE/">项目</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE/Nacollector/">Nacollector</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE/Rescoll/">Rescoll</a><span class="category-list-count">1</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -568,8 +596,8 @@ $(document).ready(function () {
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2019 QWQAQ<br>
-            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme <a href="https://github.com/qwqcode/hexo-theme-icarus">icarus</a>
+            &copy; 2020 QWQAQ<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme <a href="https://github.com/qwqcode/hexo-theme-icarus" target="_blank" rel="noopener">icarus</a>
         </div>
     </div>
 </footer>
@@ -580,26 +608,50 @@ $(document).ready(function () {
 
 
     
-        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
     
     
-        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
     
     
-    <script src="/libs/artalk/Artalk.js"></script>
+    
+<script src="/libs/artalk/Artalk.js"></script>
+
 
 
 
 <!-- Custom Scripts -->
+
 <script src="/js/main.js"></script>
+
 
     </div>
     <script>
