@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://qwqaq.com/"/>
-  <updated>2019-05-03T17:00:40.650Z</updated>
+  <updated>2020-01-16T07:33:38.379Z</updated>
   <id>https://qwqaq.com/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TypeScript 实现 JSON字符串 和 实例化Class对象 之间的相互转换</title>
+    <link href="https://qwqaq.com/52433ab.html"/>
+    <id>https://qwqaq.com/52433ab.html</id>
+    <published>2020-01-16T04:11:14.000Z</published>
+    <updated>2020-01-16T07:33:38.379Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;拥有这个功能，我们可以轻松地将 已实例化类 转为 JSON 保存起来（例如使用 localStorage），在需要时（例如页面关闭后再重新打开）轻松地将 JSON 重新转为 实例化类，实现数据的持久化。在实际运用中，就可以轻松调用 Class 中的方法，对数据进行处理操作。JSON 是普通的数据，无直接处理能力，而一个 类 具有业务处理能力，实现题目的功能就好比是在两者间搭建桥梁。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="JS" scheme="https://qwqaq.com/categories/JS/"/>
+    
+      <category term="TS" scheme="https://qwqaq.com/categories/JS/TS/"/>
+    
+    
+      <category term="TypeScript" scheme="https://qwqaq.com/tags/TypeScript/"/>
+    
+      <category term="JSON" scheme="https://qwqaq.com/tags/JSON/"/>
+    
+      <category term="类型转换" scheme="https://qwqaq.com/tags/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/"/>
+    
+      <category term="JSON转类对象" scheme="https://qwqaq.com/tags/JSON%E8%BD%AC%E7%B1%BB%E5%AF%B9%E8%B1%A1/"/>
+    
+      <category term="类对象转JSON" scheme="https://qwqaq.com/tags/%E7%B1%BB%E5%AF%B9%E8%B1%A1%E8%BD%ACJSON/"/>
+    
+  </entry>
   
   <entry>
     <title>CefSharp 访问嵌入的前端目录：Scheme 自定义 + 文件夹作为嵌入的资源</title>
@@ -547,29 +578,6 @@
       <category term="百度云限速" scheme="https://qwqaq.com/tags/%E7%99%BE%E5%BA%A6%E4%BA%91%E9%99%90%E9%80%9F/"/>
     
       <category term="百度云客户端" scheme="https://qwqaq.com/tags/%E7%99%BE%E5%BA%A6%E4%BA%91%E5%AE%A2%E6%88%B7%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MinecraftPE 已入正</title>
-    <link href="https://qwqaq.com/c8008149.html"/>
-    <id>https://qwqaq.com/c8008149.html</id>
-    <published>2018-11-30T15:42:20.000Z</published>
-    <updated>2019-01-28T14:15:57.383Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;如今 2018，光阴飞逝，可能有 4 年没关注 MCPE。还记得每次更新，Mojang 不断跳票 + Twitter 散布各种虚假新闻，贴吧疯狂找资源，破解安卓 2.3… 的那一个个日日夜夜，入坑 MCPE 那些年，欢声笑语中流逝。想回忆一下小学时的那种感jio，Google Play 买了正版。欠了多年的债，今天终于还了 #(滑稽)&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="日常" scheme="https://qwqaq.com/categories/%E6%97%A5%E5%B8%B8/"/>
-    
-    
-      <category term="MinecraftPE" scheme="https://qwqaq.com/tags/MinecraftPE/"/>
-    
-      <category term="MCPE" scheme="https://qwqaq.com/tags/MCPE/"/>
     
   </entry>
   

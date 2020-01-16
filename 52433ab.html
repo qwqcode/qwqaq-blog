@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>TypeScript 实现 JSON字符串 和 实例化Class对象 之间的相互转换 | QWQAQ 的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="拥有这个功能，我们可以轻松地将 已实例化类 转为 JSON 保存起来（例如使用 localStorage），在需要时（例如页面关闭后再重新打开）轻松地将 JSON 重新转为 实例化类，实现数据的持久化。在实际运用中，就可以轻松调用 Class 中的方法，对数据进行处理操作。JSON 是普通的数据，无直接处理能力，而一个 类 具有业务处理能力，实现题目的功能就好比是在两者间搭建桥梁。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TypeScript 实现 JSON字符串 和 实例化Class对象 之间的相互转换">
+<meta property="og:url" content="https://qwqaq.com/52433ab.html">
+<meta property="og:site_name" content="QWQAQ 的博客">
+<meta property="og:description" content="拥有这个功能，我们可以轻松地将 已实例化类 转为 JSON 保存起来（例如使用 localStorage），在需要时（例如页面关闭后再重新打开）轻松地将 JSON 重新转为 实例化类，实现数据的持久化。在实际运用中，就可以轻松调用 Class 中的方法，对数据进行处理操作。JSON 是普通的数据，无直接处理能力，而一个 类 具有业务处理能力，实现题目的功能就好比是在两者间搭建桥梁。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://qwqaq.com/images/banner/TS.png">
+<meta property="article:published_time" content="2020-01-16T04:11:14.000Z">
+<meta property="article:modified_time" content="2020-01-16T07:33:38.379Z">
+<meta property="article:author" content="QWQAQ">
+<meta property="article:tag" content="TypeScript">
+<meta property="article:tag" content="JSON">
+<meta property="article:tag" content="类型转换">
+<meta property="article:tag" content="JSON转类对象">
+<meta property="article:tag" content="类对象转JSON">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://qwqaq.com/images/banner/TS.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="QWQAQ 的博客" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?785e1cdc938039c39a3b5f792ed1e829";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+
+    
+<link rel="stylesheet" href="/libs/artalk/Artalk.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <!--<span class="site-title">QWQAQ 的博客</span>-->
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">HOME</a>
+                
+                    <a class="main-nav-link" href="/categories">目录</a>
+                
+                    <a class="main-nav-link" href="/archives">时间轴</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/links">友链</a>
+                
+                    <a class="main-nav-link" href="/about">关于我</a>
+                
+            </nav>
+            
+            
+            <nav id="sub-nav">
+                <div class="profile" id="profile-nav">
+                    <a id="profile-anchor" href="javascript:;">
+                        <img class="avatar" src="/images/avatar.png" />
+                        <i class="zmdi zmdi-caret-down"></i>
+                    </a>
+                </div>
+            </nav>
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="zmdi zmdi-close"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">HOME</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">目录</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">时间轴</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/links">友链</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于我</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            <aside id="sidebar-left">
+
+    <div class="sidebar-fixed">
+        <div class="sidebar-fixed-inner">
+            
+
+<div id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <div class="profile-top-part">
+                <img id="avatar" src="/images/avatar.png" />
+                <div class="info-inner">
+                    <h2 id="name">QWQAQ</h2>
+                    <h3 id="title">不忘初心，方得始终</h3>
+                </div>
+            </div>
+            <div class="profile-bg"></div>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                <a href="/archives">
+                    68
+                    <span>文章</span>
+                </a>
+            </div>
+            <div class="article-info-block">
+                <a href="/tags">
+                    167
+                    <span>标签</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            
+            
+            <div class="social-link-item">
+                <a href="https://github.com/qwqcode" target="_blank" title="github" class=tooltip>
+                    <i class="zmdi zmdi-github"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="https://twitter.com/Kiroey" target="_blank" title="twitter" class=tooltip>
+                    <i class="zmdi zmdi-twitter"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                    <i class="zmdi zmdi-rss"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="/about/" target="_blank" title="more" class=tooltip>
+                    <i class="zmdi zmdi-more"></i>
+                </a>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+
+            
+            <div id="article-content-index" class="anim-fade-in" style="display: none">
+    <div class="widget-wrap">
+        <h3 class="widget-title">内容索引</h3>
+        <div class="widget">
+            <div class="index-list"></div>
+        </div>
+    </div>
+</div>
+            
+        </div>
+    </div>
+
+</aside>
+
+            <section id="main"><article id="post-TypeScript-实现-JSON字符串-和-实例化Class对象-之间的相互转换" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<img src="/images/banner/TS.png" class="article-banner" />
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+
+    
+        <h1 class="article-title" itemprop="name">
+            TypeScript 实现 JSON字符串 和 实例化Class对象 之间的相互转换
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="zmdi zmdi-calendar"></i>
+        <a href="/52433ab.html">
+            <time datetime="2020-01-16T04:11:14.000Z" itemprop="datePublished">2020-01-16</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="zmdi zmdi-folder"></i>
+        <a class="article-category-link" href="/categories/JS/">JS</a><i class="zmdi zmdi-chevron-righ"></i><a class="article-category-link" href="/categories/JS/TS/">TS</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            
+            <p>拥有这个功能，我们可以轻松地将 已实例化类 转为 JSON 保存起来（例如使用 localStorage），在需要时（例如页面关闭后再重新打开）轻松地将 JSON 重新转为 实例化类，实现数据的持久化。在实际运用中，就可以轻松调用 Class 中的方法，对数据进行处理操作。JSON 是普通的数据，无直接处理能力，而一个 类 具有业务处理能力，实现题目的功能就好比是在两者间搭建桥梁。</p>
+<a id="more"></a>
+
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>首先，以 Java 的 Gson 库为例，Gson 提供了 <code>fromJson()</code> 和 <code>toJson()</code> 两个方法，这正是我们想要的。</p>
+<p>在 TypeScript 中，其实已有类似的依赖：</p>
+<p><a href="https://github.com/typestack/class-transformer" target="_blank" rel="noopener">class-transformer</a> | <a href="https://github.com/typestack/class-transformer#what-is-class-transformer" target="_blank" rel="noopener">What is class-transformer</a></p>
+<p>But…</p>
+<p>如果你想自己动手，实现一个类似于 Gson 和 class-transformer 的功能。嗯，那就来搞接下来的折腾把…</p>
+<p>再说一遍：class-transformer 很香</p>
+<blockquote>
+<p>下面的方法在我写的 <a href="https://github.com/qwqcode/duty-schedule-core" target="_blank" rel="noopener">duty-schedule-core</a> 这个项目中，有较好的运用。如有好的建议或错漏之处，敬请提出或指正</p>
+</blockquote>
+<blockquote>
+<p>注：为了语言更为简短，文中所有 “JSON” 指的是 “JSON字符串”，”实例化类” 指的是 “实例化Class对象”（包含题目所述的意义）</p>
+</blockquote>
+<h2 id="核心：Model-类"><a href="#核心：Model-类" class="headerlink" title="核心：Model 类"></a>核心：Model 类</h2><p>若一个类中有一个字段，使用 <code>字段修饰符</code> 就可以得到 <code>字段名</code></p>
+<p>我们将这些 调用了 <code>字段修饰符</code> 的 <code>字段名</code> 存储起来，就可以区分出哪些字段将会被存储</p>
+<p>将这个 <code>字段修饰符</code> 命名为 <code>StoreField</code></p>
+<p><code>fromJson()</code> 实现的原理很简单就是：遍历 通过 <code>字段修饰符</code> 记录得到的存储字段名，依次判断字段的值类型，来执行对应的 导入操作；导出为 JSON 反过来同理。</p>
+<p>下面直接贴代码：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">'lodash'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/** 所有 Stored 字段的参数 */</span></span><br><span class="line"><span class="keyword">const</span> AllStoredFieldOpts: &#123; [modelName: <span class="built_in">string</span>]: &#123; [fieldName: <span class="built_in">string</span>]: FieldOpts &#125; &#125; = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Model &#123;</span><br><span class="line">  <span class="comment">/** Stored 字段的参数 */</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">get</span> StoredFieldOpts () &#123;</span><br><span class="line">    <span class="keyword">return</span> AllStoredFieldOpts[<span class="keyword">this</span>.<span class="keyword">constructor</span>.name] || &#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** Stored 字段 名称 */</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">get</span> StoredFieldNames () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.keys(AllStoredFieldOpts[<span class="keyword">this</span>.<span class="keyword">constructor</span>.name] || &#123;&#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** 导出 Stored 字段数据为 Obj */</span></span><br><span class="line">  <span class="keyword">public</span> toObj () &#123;</span><br><span class="line">    <span class="keyword">const</span> result: <span class="built_in">any</span> = &#123;&#125;</span><br><span class="line">    _.forEach(<span class="keyword">this</span>.StoredFieldOpts, <span class="function">(<span class="params">&#123; useModel: UsedModel &#125;, f</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> value = (<span class="keyword">this</span> <span class="keyword">as</span> <span class="built_in">any</span>)[f]</span><br><span class="line">      <span class="keyword">if</span> (UsedModel) &#123; <span class="comment">// 使用 Model</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(value)) &#123;</span><br><span class="line">          <span class="keyword">const</span> arr: <span class="built_in">any</span>[] = result[f] = []</span><br><span class="line">          _.forEach(value, <span class="function">(<span class="params">item: Model</span>) =&gt;</span> &#123; arr.push(item.toObj()) &#125;)</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> value === <span class="string">'object'</span> &amp;&amp; value !== <span class="literal">null</span> &amp;&amp; !(value <span class="keyword">instanceof</span> Model)) &#123;</span><br><span class="line">          <span class="keyword">const</span> obj: <span class="built_in">any</span> = result[f] = &#123;&#125;</span><br><span class="line">          _.forEach(value, <span class="function">(<span class="params">item: <span class="built_in">any</span>, key: <span class="built_in">any</span></span>) =&gt;</span> &#123; obj[key] = (item <span class="keyword">as</span> Model).toObj() &#125;)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          result[f] = value ? (value <span class="keyword">as</span> Model).toObj() : value</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        result[f] = value</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** 从对象中导入 Stored 字段数据 */</span></span><br><span class="line">  <span class="keyword">public</span> fromObj (sourceObj: <span class="built_in">any</span>) &#123;</span><br><span class="line">    _.forEach(<span class="keyword">this</span>.StoredFieldOpts, <span class="function">(<span class="params">&#123; useModel: UsedModel &#125;, f</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (!_.has(sourceObj, f) || sourceObj[f] === <span class="literal">undefined</span>) <span class="keyword">return</span> <span class="comment">// 注意：数据不会全部清除，和 Object.assign 类似</span></span><br><span class="line">      <span class="keyword">const</span> value = sourceObj[f]</span><br><span class="line">      <span class="keyword">if</span> (UsedModel) &#123; <span class="comment">// 使用 Model</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(value)) &#123;</span><br><span class="line">          <span class="keyword">const</span> arr: <span class="built_in">any</span>[] = (<span class="keyword">this</span> <span class="keyword">as</span> <span class="built_in">any</span>)[f] = []</span><br><span class="line">          _.forEach(value, <span class="function">(<span class="params">item</span>) =&gt;</span> &#123; arr.push((<span class="keyword">new</span> UsedModel() <span class="keyword">as</span> Model).fromObj(item)) &#125;)</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> value === <span class="string">'object'</span> &amp;&amp; value !== <span class="literal">null</span> &amp;&amp; !((<span class="keyword">this</span> <span class="keyword">as</span> <span class="built_in">any</span>)[f] <span class="keyword">instanceof</span> Model)) &#123;</span><br><span class="line">          <span class="comment">// 注：字段满足此判断的前提是：必须要有默认值 = &#123;&#125;</span></span><br><span class="line">          <span class="keyword">const</span> obj: <span class="built_in">any</span> = (<span class="keyword">this</span> <span class="keyword">as</span> <span class="built_in">any</span>)[f] = &#123;&#125;</span><br><span class="line">          _.forEach(value, <span class="function">(<span class="params">item, key</span>) =&gt;</span> &#123; obj[key] = (<span class="keyword">new</span> UsedModel() <span class="keyword">as</span> Model).fromObj(item) &#125;)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          (<span class="keyword">this</span> <span class="keyword">as</span> <span class="built_in">any</span>)[f] = (<span class="keyword">new</span> UsedModel() <span class="keyword">as</span> Model).fromObj(value)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        (<span class="keyword">this</span> <span class="keyword">as</span> <span class="built_in">any</span>)[f] = value</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** 导出 Stored 字段数据为 JSON */</span></span><br><span class="line">  <span class="keyword">public</span> toJSON () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">JSON</span>.stringify(<span class="keyword">this</span>.toObj())</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** 从 JSON 导入 Stored 字段数据 */</span></span><br><span class="line">  <span class="keyword">public</span> fromJSON (aJSON: <span class="built_in">string</span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.fromObj(<span class="built_in">JSON</span>.parse(aJSON))</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** Stored 字段参数 */</span></span><br><span class="line"><span class="keyword">type</span> FieldOpts = &#123;</span><br><span class="line">  <span class="comment">/** 使用 Model */</span></span><br><span class="line">  useModel?: <span class="keyword">typeof</span> Model</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 标记为 Stored 字段 */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> StoreField = <span class="function">(<span class="params">opts: FieldOpts = &#123;&#125;</span>) =&gt;</span> (&#123; <span class="keyword">constructor</span>: &#123; name: modelName &#125; &#125;: object, fieldName: <span class="built_in">string</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> modelFields = AllStoredFieldOpts[modelName] || (AllStoredFieldOpts[modelName] = &#123;&#125;)</span><br><span class="line">  <span class="keyword">if</span> (!_.has(modelFields, fieldName)) modelFields[fieldName] = opts</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>为了方便，所以引用了 lodash 依赖</p>
+<blockquote>
+<p>注：以下所有继承了 Model 的类都称之为 Model，所以下面定义的 One, Test1, Test2 都称为 Model</p>
+</blockquote>
+<h2 id="Model-字段类型标记"><a href="#Model-字段类型标记" class="headerlink" title="Model 字段类型标记"></a>Model 字段类型标记</h2><h3 id="Model中-存储字段"><a href="#Model中-存储字段" class="headerlink" title="Model中 存储字段"></a>Model中 存储字段</h3><p>用 <code>@StoreField()</code> 这个 <code>字段修饰符</code> 标记字段为 <code>存储</code> 的字段</p>
+<p>当调用 <code>toJSON()</code> 时，这些字段就会显示出来</p>
+<h3 id="Model中-包含另一个Model（层级嵌套）"><a href="#Model中-包含另一个Model（层级嵌套）" class="headerlink" title="Model中 包含另一个Model（层级嵌套）"></a>Model中 包含另一个Model（层级嵌套）</h3><p>一个 Model 中可以无限级地包含另外的 Model</p>
+<p>标记方法：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> X <span class="keyword">extends</span> Model &#123;</span><br><span class="line">  <span class="meta">@StoreField</span>(&#123;</span><br><span class="line">    useModel: 某个Model的Type</span><br><span class="line">  &#125;)</span><br><span class="line">  test!: 某个Model的Type</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如下文，定义的 <code>class One</code> 包含 <code>class Test1</code></p>
+<h2 id="Model-的定义"><a href="#Model-的定义" class="headerlink" title="Model 的定义"></a>Model 的定义</h2><p>One 类 字段：</p>
+<ul>
+<li>name，存储，无默认值，字符串</li>
+<li>name2，不存储，默认值 ‘No name’，字符串</li>
+<li>name3，存储，默认值 ‘???’，字符串</li>
+<li>test1List，包含另一个 Model 名为 Test1，存储，默认值为空数组，类型为 Array<Test1></li>
+<li>test2，包含另一个 Model 名为 Test2，存储，无默认值，类型为 Test2</li>
+</ul>
+<p>Test1 类：字段 test，存储，无默认值，字符串</p>
+<p>Test2 类：字段 hhh，存储，默认值 “23333”，字符串</p>
+<p>这三个类，都继承 Model 类，Model 类是核心（包含方法 <code>toJSON</code> 和 <code>fromJSON</code>）</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Model, &#123; StoreField &#125; <span class="keyword">from</span> <span class="string">'./_Model'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> One <span class="keyword">extends</span> Model &#123;</span><br><span class="line">  <span class="meta">@StoreField</span>()</span><br><span class="line">  name!: <span class="built_in">string</span></span><br><span class="line"></span><br><span class="line">  name2: <span class="built_in">string</span> = <span class="string">'No name'</span></span><br><span class="line"></span><br><span class="line">  <span class="meta">@StoreField</span>()</span><br><span class="line">  name3: <span class="built_in">string</span> = <span class="string">'???'</span></span><br><span class="line"></span><br><span class="line">  <span class="meta">@StoreField</span>(&#123;</span><br><span class="line">    useModel: Test1</span><br><span class="line">  &#125;)</span><br><span class="line">  test1List: Test1[] = []</span><br><span class="line"></span><br><span class="line">  <span class="meta">@StoreField</span>(&#123;</span><br><span class="line">    useModel: Test2</span><br><span class="line">  &#125;)</span><br><span class="line">  test2!: Test2</span><br><span class="line"></span><br><span class="line">  <span class="keyword">get</span> firstName () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.getFirstName()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  getFirstName () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name.split(<span class="string">' '</span>)[<span class="number">1</span>] || <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Test1 <span class="keyword">extends</span> Model &#123;</span><br><span class="line">  <span class="meta">@StoreField</span>() test!: <span class="built_in">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Test2 <span class="keyword">extends</span> Model &#123;</span><br><span class="line">  <span class="meta">@StoreField</span>() hhh: <span class="built_in">string</span> = <span class="string">"23333"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Model-中的方法"><a href="#Model-中的方法" class="headerlink" title="Model 中的方法"></a>Model 中的方法</h2><ul>
+<li><code>toJSON()</code> 将 实例化类 转为 JSON</li>
+<li><code>fromJSON()</code> 将 JSON 转为 实例化类</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> one = <span class="keyword">new</span> One()</span><br><span class="line">one.name2 <span class="comment">// "No name"</span></span><br><span class="line">one.name3 <span class="comment">// "???"</span></span><br><span class="line"></span><br><span class="line">one.name = <span class="string">'Kirigaya Kazuto'</span></span><br><span class="line">one.name2 = <span class="string">'Kirito'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> test1 = <span class="keyword">new</span> Test1()</span><br><span class="line">test1.test = <span class="string">'233'</span></span><br><span class="line">one.test1List.push(test1)</span><br><span class="line"></span><br><span class="line">one.test2 = <span class="keyword">new</span> Test2()</span><br><span class="line"></span><br><span class="line">one.toJSON() <span class="comment">// `&#123;"name":"Kirigaya Kazuto", "name3": "???", "test1List": [&#123;"test": "233"&#125;], "test2": &#123;"hhh": "23333"&#125;&#125;`</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> one = <span class="keyword">new</span> One().fromJSON(<span class="string">`&#123;"name":"Kirigaya Kazuto", "test1List":[&#123;"test":"233"&#125;]&#125;`</span>) <span class="comment">// 注：没有 name3，则为 class 中设定的默认值</span></span><br><span class="line"></span><br><span class="line">one.toJSON() <span class="comment">// `&#123;"name":"Kirigaya Kazuto", "name3": "???", "test1List":[&#123;"test":"233"&#125;]&#125;` 注：name3 默认值为 ???</span></span><br><span class="line"></span><br><span class="line">one.firstName <span class="comment">// "Kazuto"</span></span><br><span class="line">one.getFirstName() <span class="comment">// "Kazuto"</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> rawJson = <span class="string">`&#123;"name":"Kirigaya Kazuto", "name3": "Kirito", "test1List":[&#123;"test":"233"&#125;]&#125;`</span></span><br><span class="line"><span class="keyword">const</span> one2 = <span class="keyword">new</span> One().fromJSON(rawJson)</span><br><span class="line"></span><br><span class="line">one2.toJSON() === rawJson <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+        
+        </div>
+        
+            
+            <div class="article-copyright">本站文章除注明转载外均为原创，未经允许不要转载哇. ヾ(ﾟｰﾟヾ) https://qwqaq.com/52433ab.html</div>
+            
+        
+<div class="article-tag-block">
+    <i class="zmdi zmdi-tag"></i>
+    <a class="tag-link" href="/tags/JSON/" rel="tag">JSON</a><a class="tag-link" href="/tags/JSON%E8%BD%AC%E7%B1%BB%E5%AF%B9%E8%B1%A1/" rel="tag">JSON转类对象</a><a class="tag-link" href="/tags/TypeScript/" rel="tag">TypeScript</a><a class="tag-link" href="/tags/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" rel="tag">类型转换</a><a class="tag-link" href="/tags/%E7%B1%BB%E5%AF%B9%E8%B1%A1%E8%BD%ACJSON/" rel="tag">类对象转JSON</a>
+</div>
+
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://qwqaq.com/52433ab.html" data-id="ck5gf47hd00007ku8e55jbyr1" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="zmdi zmdi-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="zmdi zmdi-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="zmdi zmdi-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="zmdi zmdi-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+
+        </footer>
+        
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/ee43a4af.html" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">CefSharp 访问嵌入的前端目录：Scheme 自定义 + 文件夹作为嵌入的资源</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments"><div id="ArtalkComments"></div>
+<script>
+$(document).ready(function () {
+  var artalk = new Artalk({
+    el: '#ArtalkComments',
+    placeholder: '来啊，快活啊 (/ω＼)',
+    defaultAvatar: 'mp',
+    pageSize: 50,
+    pageKey: 'https://qwqaq.com/52433ab.html',
+    serverUrl: 'https://qwqaq.com/Artalk/index.php'
+  });
+});
+</script>
+</section>
+    
+
+
+
+</section>
+            
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/52433ab.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/banner/TS.png)" alt="TypeScript 实现 JSON字符串 和 实例化Class对象 之间的相互转换" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JS/">JS</a><i class="zmdi zmdi-chevron-right"></i><a class="article-category-link" href="/categories/JS/TS/">TS</a></p>
+                            <p class="item-title"><a href="/52433ab.html" class="title">TypeScript 实现 JSON字符串 和 实例化Class对象 之间的相互转换</a></p>
+                            <p class="item-date"><time datetime="2020-01-16T04:11:14.000Z" itemprop="datePublished">2020-01-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/ee43a4af.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/banner/CefSharpEmbeddedResource.png)" alt="CefSharp 访问嵌入的前端目录：Scheme 自定义 + 文件夹作为嵌入的资源" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/CSharp/">CSharp</a></p>
+                            <p class="item-title"><a href="/ee43a4af.html" class="title">CefSharp 访问嵌入的前端目录：Scheme 自定义 + 文件夹作为嵌入的资源</a></p>
+                            <p class="item-date"><time datetime="2019-05-03T15:33:15.000Z" itemprop="datePublished">2019-05-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/5e466d74.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/banner/cs_borderless_areo_shadow.png)" alt="C# WinForm 调用 DWMAPI.dll 实现无边框窗体 Aero 边缘阴影 DropShadow 效果" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/CSharp/">CSharp</a></p>
+                            <p class="item-title"><a href="/5e466d74.html" class="title">C# WinForm 调用 DWMAPI.dll 实现无边框窗体 Aero 边缘阴影 DropShadow 效果</a></p>
+                            <p class="item-date"><time datetime="2019-05-03T14:42:59.000Z" itemprop="datePublished">2019-05-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/cb95a9c8.html" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E9%A1%B9%E7%9B%AE/">项目</a><i class="zmdi zmdi-chevron-right"></i><a class="article-category-link" href="/categories/%E9%A1%B9%E7%9B%AE/Rescoll/">Rescoll</a></p>
+                            <p class="item-title"><a href="/cb95a9c8.html" class="title">Rescoll 采集程序聚合平台</a></p>
+                            <p class="item-date"><time datetime="2019-04-29T14:48:55.000Z" itemprop="datePublished">2019-04-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/61ee0065.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/banner/jqdjs_bzdsz.jpg)" alt="假期的结束，博主的失踪" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a></p>
+                            <p class="item-title"><a href="/61ee0065.html" class="title">假期的结束，博主的失踪</a></p>
+                            <p class="item-date"><time datetime="2019-03-29T15:33:02.000Z" itemprop="datePublished">2019-03-29</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CSharp/">CSharp</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-Star/">GitHub Star</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JS/TS/">TS</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows/">Windows</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/Canvas/">Canvas</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/Vue/">Vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Hyper/">Hyper</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Scoop/">Scoop</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/VSCode/">VSCode</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/VSCode/Android-Studio/">Android Studio</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/VSCode/Android-Studio/PhpStorm/">PhpStorm</a><span class="category-list-count">1</span></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83/">生产环境</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83/Apache/">Apache</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A1%AC%E4%BB%B6/">硬件</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A1%AC%E4%BB%B6/Arduino/">Arduino</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE/">项目</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE/Nacollector/">Nacollector</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE/Rescoll/">Rescoll</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="zmdi zmdi-chevron-up"></div>
+</aside>
+
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 QWQAQ<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme <a href="https://github.com/qwqcode/hexo-theme-icarus" target="_blank" rel="noopener">icarus</a>
+        </div>
+    </div>
+</footer>
+
+        
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+    
+<script src="/libs/artalk/Artalk.js"></script>
+
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+</body>
+</html>
