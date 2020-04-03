@@ -115,6 +115,9 @@ body,
 #container {
   height: 100%;
 }
+html {
+  filter: grayscale(100%);
+}
 body {
   color: #565a5f;
   background: #f3f5f7;
@@ -2110,20 +2113,27 @@ a.article-title:hover {
   position: relative;
   display: inline-block;
   margin-top: 95px;
-  margin-left: 113px;
+  margin-left: 108px;
+}
+#profile .inner .base-info .avatar-wrap {
+  position: absolute;
+  overflow: hidden;
+  padding: 3px;
+  background: #fff;
+  border-radius: 11px;
+  margin: 67.5px auto 0 23px;
+  width: 85px;
+  height: 85px;
 }
 #profile .inner .base-info #avatar {
-  position: absolute;
   display: block;
-  margin: 67.5px auto 0 23px;
-  width: 90px;
-  height: 90px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   color: #fff;
   border-radius: 10px;
-  border: 3px solid #fff;
+  width: 85px;
+  height: 85px;
 }
 #profile .inner .base-info #name,
 #profile .inner .base-info #title,
