@@ -1,0 +1,63 @@
+@import "normalize";
+
+body {
+  color: #565a5f;
+  background: #f3f5f7;
+  font: 14px "Helvetica Neue", "PingFangSC-Light", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  color: #03a9f4;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.main {
+  margin-left: calc(20vw + 20px);
+}
+
+@import "variables";
+@import "_partial/topbar";
+@import "_partial/sidebar";
+
+.app-body {
+  $gutter: 20px;
+  padding-top: 50px + $gutter;
+  padding-left: 340px + $gutter;
+  padding-right: $gutter;
+  padding-bottom: $gutter;
+}
+
+// Article
+.article-list {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.article-card {
+  background: #FFF;
+
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
+
+  .article-head {
+    padding: 34px 42px;
+    margin: 0;
+    text-align: center;
+
+    a {
+      font-size: 1.4em;
+      color: #565a5f;
+      font-weight: 400;
+    }
+  }
+
+  .article-date {}
+
+  .article-summary {
+    padding: 34px 42px;
+  }
+}
