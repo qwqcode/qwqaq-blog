@@ -115,9 +115,8 @@ body,
 #container {
   height: 100%;
 }
-html {
-  filter: grayscale(100%);
-}
+/* html
+  filter: grayscale(100%); */
 body {
   color: #565a5f;
   background: #f3f5f7;
