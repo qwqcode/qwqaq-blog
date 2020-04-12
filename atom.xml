@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://qwqaq.com/"/>
-  <updated>2020-04-12T15:09:18.101Z</updated>
+  <updated>2020-04-12T17:17:16.135Z</updated>
   <id>https://qwqaq.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>深夜搞机之小米 Mix 2s 电池更换</title>
+    <link href="https://qwqaq.com/584d8758.html"/>
+    <id>https://qwqaq.com/584d8758.html</id>
+    <published>2020-04-11T18:28:20.000Z</published>
+    <updated>2020-04-12T17:17:16.135Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;夜深人静，挂在天边的月，夏季池塘的蛙，以及蚊子的嗡嗡声，远处是哪户人家传来奇奇怪怪的声音？&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="日常" scheme="https://qwqaq.com/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+      <category term="搞机" scheme="https://qwqaq.com/tags/%E6%90%9E%E6%9C%BA/"/>
+    
+      <category term="换电池" scheme="https://qwqaq.com/tags/%E6%8D%A2%E7%94%B5%E6%B1%A0/"/>
+    
+      <category term="小米" scheme="https://qwqaq.com/tags/%E5%B0%8F%E7%B1%B3/"/>
+    
+      <category term="Mix 2s" scheme="https://qwqaq.com/tags/Mix-2s/"/>
+    
+  </entry>
   
   <entry>
     <title>损坏的 MP4 视频文件修复</title>
@@ -563,38 +590,6 @@
       <category term="19H1" scheme="https://qwqaq.com/tags/19H1/"/>
     
       <category term="ISO" scheme="https://qwqaq.com/tags/ISO/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决 Hyper + bash.exe 执行 clear 显示问题</title>
-    <link href="https://qwqaq.com/e3b3237d.html"/>
-    <id>https://qwqaq.com/e3b3237d.html</id>
-    <published>2018-12-13T09:19:26.000Z</published>
-    <updated>2019-01-28T14:15:57.433Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Hyper is a terminal built on web technologies. &lt;a href=&quot;https://hyper.is/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;hyper.is&lt;/a&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;in the “Clear” command does not delete the entire screen only makes it available to re-register, visually disrupting the concern&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="开发工具" scheme="https://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="Hyper" scheme="https://qwqaq.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Hyper/"/>
-    
-    
-      <category term="Bash" scheme="https://qwqaq.com/tags/Bash/"/>
-    
-      <category term="命令行" scheme="https://qwqaq.com/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
-    
-      <category term="开发工具" scheme="https://qwqaq.com/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="Hyper" scheme="https://qwqaq.com/tags/Hyper/"/>
     
   </entry>
   
