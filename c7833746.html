@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>来对腾讯课堂的操作一波 | QWQAQ 的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="COVID-19 病毒大范围流行，从二月到四月，从假期到学校开学，目前各地学校大多都以网络直播的形式授课，不少学校（例如我们学校）选择了腾讯课堂。让我来搞一波 Web 版的腾讯课堂 #(滑稽)，整上签到&#x2F;答题通知，防止在划水的时候翻船（逃。另外还有实时画面截取、快速清人、去掉水印、OBS 录屏等内容的操作分享。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="来对腾讯课堂的操作一波">
+<meta property="og:url" content="https://qwqaq.com/c7833746.html">
+<meta property="og:site_name" content="QWQAQ 的博客">
+<meta property="og:description" content="COVID-19 病毒大范围流行，从二月到四月，从假期到学校开学，目前各地学校大多都以网络直播的形式授课，不少学校（例如我们学校）选择了腾讯课堂。让我来搞一波 Web 版的腾讯课堂 #(滑稽)，整上签到&#x2F;答题通知，防止在划水的时候翻船（逃。另外还有实时画面截取、快速清人、去掉水印、OBS 录屏等内容的操作分享。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://qwqaq.com/images/banner/tencent-ke.png">
+<meta property="article:published_time" content="2020-04-05T08:33:55.000Z">
+<meta property="article:modified_time" content="2020-04-12T15:09:14.417Z">
+<meta property="article:author" content="QWQAQ">
+<meta property="article:tag" content="JS">
+<meta property="article:tag" content="腾讯课堂">
+<meta property="article:tag" content="逆向工程">
+<meta property="article:tag" content="自动签到">
+<meta property="article:tag" content="网课">
+<meta property="article:tag" content="实时画面">
+<meta property="article:tag" content="划水">
+<meta property="article:tag" content="摸鱼">
+<meta property="article:tag" content="防止翻车">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://qwqaq.com/images/banner/tencent-ke.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="QWQAQ 的博客" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?785e1cdc938039c39a3b5f792ed1e829";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+
+    
+<link rel="stylesheet" href="/libs/artalk/Artalk.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <!--<span class="site-title">QWQAQ 的博客</span>-->
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">HOME</a>
+                
+                    <a class="main-nav-link" href="/categories">目录</a>
+                
+                    <a class="main-nav-link" href="/archives">时间轴</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/links">友人帐</a>
+                
+                    <a class="main-nav-link" href="/about">关于我</a>
+                
+            </nav>
+            
+            
+            <nav id="sub-nav">
+                <div class="profile" id="profile-nav">
+                    <a id="profile-anchor" href="javascript:;">
+                        <img class="avatar" src="/images/avatar.png" />
+                        <i class="zmdi zmdi-caret-down"></i>
+                    </a>
+                </div>
+            </nav>
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="zmdi zmdi-close"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">HOME</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">目录</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">时间轴</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/links">友人帐</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于我</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            <aside id="sidebar-left">
+
+    <div class="sidebar-fixed">
+        <div class="sidebar-fixed-inner">
+            
+
+<div id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <div class="profile-top-part">
+                <div class="avatar-wrap">
+                  <img id="avatar" src="/images/avatar.png" draggable="false" />
+                </div>
+                <div class="info-inner">
+                    <h2 id="name">QWQAQ</h2>
+                    <h3 id="title">不忘初心，方得始终</h3>
+                </div>
+            </div>
+            <div class="profile-bg"></div>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                <a href="/archives">
+                    70
+                    <span>文章</span>
+                </a>
+            </div>
+            <div class="article-info-block">
+                <a href="/tags">
+                    180
+                    <span>标签</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            
+            
+            <div class="social-link-item">
+                <a href="https://github.com/qwqcode" target="_blank" title="github" class=tooltip>
+                    <i class="zmdi zmdi-github"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="https://twitter.com/Kiroey" target="_blank" title="twitter" class=tooltip>
+                    <i class="zmdi zmdi-twitter"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                    <i class="zmdi zmdi-rss"></i>
+                </a>
+            </div>
+            
+            <div class="social-link-item">
+                <a href="/about/" target="_blank" title="more" class=tooltip>
+                    <i class="zmdi zmdi-more"></i>
+                </a>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+
+            
+            <div id="article-content-index" class="anim-fade-in" style="display: none">
+    <div class="widget-wrap">
+        <h3 class="widget-title">内容索引</h3>
+        <div class="widget">
+            <div class="index-list"></div>
+        </div>
+    </div>
+</div>
+            
+        </div>
+    </div>
+
+</aside>
+
+            <section id="main"><article id="post-来对腾讯课堂的操作一波" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<img src="/images/banner/tencent-ke.png" class="article-banner" />
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+
+    
+        <h1 class="article-title" itemprop="name">
+            来对腾讯课堂的操作一波
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="zmdi zmdi-calendar"></i>
+        <a href="/c7833746.html">
+            <time datetime="2020-04-05T08:33:55.000Z" itemprop="datePublished">2020-04-05</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="zmdi zmdi-folder"></i>
+        <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            
+            <p>COVID-19 病毒大范围流行，从二月到四月，从假期到学校开学，目前各地学校大多都以网络直播的形式授课，不少学校（例如我们学校）选择了腾讯课堂。让我来搞一波 Web 版的腾讯课堂 #(滑稽)，整上签到/答题通知，防止在划水的时候翻船（逃。另外还有实时画面截取、快速清人、去掉水印、OBS 录屏等内容的操作分享。</p>
+<a id="more"></a>
+
+<p>只看成品可直接点下面：</p>
+<ul>
+<li><a href="#划水防止翻车通知">划水防止翻车通知</a></li>
+<li><a href="#JS-实时画面截取">JS 实时画面截取</a></li>
+<li><a href="#快速清人">快速清人</a></li>
+<li><a href="#去掉正在观看悬浮水印">去掉正在观看悬浮水印</a></li>
+<li><a href="#去掉其它多余元素（for-录屏）">去掉其它多余元素（for-录屏）</a></li>
+<li><a href="#OBS-录屏添加评论区">OBS 录屏添加评论区</a></li>
+</ul>
+<p>使用网页版腾讯课堂的优点：</p>
+<ol>
+<li>易搞</li>
+<li>权限低（确保不被监控屏幕，防止系统级调用）</li>
+<li>还是易搞</li>
+</ol>
+<p>P.S. 腾讯课堂在最新版的 Chrome 上似乎会遇到一些奇奇怪怪的问题，换国产浏览器后就好一些了… 上课摸鱼两不误，换一个浏览器专门上课+录屏，可以的！</p>
+<p>好的，那我们开搞…</p>
+<h2 id="开搞前"><a href="#开搞前" class="headerlink" title="开搞前"></a>开搞前</h2><blockquote>
+<p>申明：渣渣技术，纯属水文儿，若有什么可(cuo)笑(wu)之处，敬请嘲(zhi)笑(chu)</p>
+</blockquote>
+<p>先进入一个网课直播页面，直播开始播放</p>
+<p>这里从表面可以分析页面 URL：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;ke.qq.com&#x2F;webcourse&#x2F;index.html#cid&#x3D;744445&amp;term_id&#x3D;10042&amp;taid&#x3D;5128062000000000&amp;lite&#x3D;1</span><br></pre></td></tr></table></figure>
+
+<p>得到这些参数：</p>
+<ul>
+<li><code>term_id</code> 直播的房间号，不同的老师直播有不同的 term_id，<strong>这是关键的参数</strong></li>
+<li><code>cid</code> 暂不知道具体是啥，就是一个 ID 吧</li>
+<li><code>taid</code> 他ID，猜测是腾讯课堂账号的 ID</li>
+<li><code>lite</code> 不明</li>
+</ul>
+<p>然后打开 DevTools</p>
+<h2 id="流量分析"><a href="#流量分析" class="headerlink" title="流量分析"></a>流量分析</h2><p>打开 Network 选项卡，对网络流量进行分析</p>
+<p><img src="../images/post/ke-tencent/1.png" alt=""></p>
+<h3 id="report-vm"><a href="#report-vm" class="headerlink" title="report_vm"></a>report_vm</h3><p>首先看到的是对 <code>https://cgi.connect.qq.com/report/report_vm</code> 的 GET 请求，有三个参数：</p>
+<ul>
+<li><p><code>monitors</code> 它的值是一个 Array 类型中包含多个 Number，结合键和值来看，似乎是汇报当前的状态（网络状态之类的），这些 Number 是不同的状态码</p>
+</li>
+<li><p><code>t</code> 可能是和时间相关的值，结合多个 report_vm 请求来看，这个值是在变动的</p>
+</li>
+<li><p><code>_</code> 第一次请求值是 <code>,,,</code> 第二次值是 <code>,</code> 暂不明是什么东西</p>
+</li>
+</ul>
+<p><img src="../images/post/ke-tencent/2.png" alt=""></p>
+<p>结论：JS 会生成 monitors 的值（包含用户当前的一些网络信息等），对 report_vm 进行不间断请求，上报用户当前网络状态等</p>
+<h3 id="base-pull"><a href="#base-pull" class="headerlink" title="base_pull"></a>base_pull</h3><p>第二个看到的是对 <code>https://pull.ke.qq.com/base_pull</code> 的 POST 请求，同时也携带 URL 参数</p>
+<p>URL Query 为 <code>bkn=60382&amp;t=0.3868</code>，这个 <code>bkn</code> 参数每次请求的值都是固定的，就一串 Number；<code>t</code> 这个参数一看就是和时间相关的（可以防止浏览器缓存）</p>
+<p>这里的 Form Data 是一个 JSON 对象（看参数的名字，让我来猜猜是什么东西）：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"biz_id"</span>: <span class="string">"edu"</span>, <span class="comment">// 类型相关</span></span><br><span class="line">  <span class="string">"room_id"</span>: <span class="number">10042</span>, <span class="comment">// 房间号，这和当前页面 URL 参数 `term_id` 一样，∴ room_id≈term_id</span></span><br><span class="line">  <span class="string">"platform"</span>: <span class="number">3</span>, <span class="comment">// 平台类型的 ID号，腾讯课堂有几种平台 Web, App, iOS, iPad, Android</span></span><br><span class="line">  <span class="string">"version"</span>: <span class="number">0</span>, <span class="comment">// 版本号</span></span><br><span class="line">  <span class="string">"room_seq_str"</span>: <span class="string">"0"</span>, <span class="comment">// tcp 中 seq 是 Sequence 的缩写</span></span><br><span class="line">  <span class="string">"uid_str"</span>: <span class="string">"10000"</span>, <span class="comment">// User ID，这就是你的 QQ 号</span></span><br><span class="line">  <span class="string">"last_time_interval"</span>: <span class="number">10</span>, <span class="comment">// interval，和 JS 定时器相关的参数？</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 懒得猜了... 对我来说似乎也并没有什么x用</span></span><br><span class="line">  <span class="string">"room_reliable_req"</span>: &#123;</span><br><span class="line">    <span class="string">"room_reliable_seq"</span>: <span class="number">167</span>,</span><br><span class="line">    <span class="string">"req_type"</span>: <span class="number">1</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"user_reliable_req"</span>: &#123;</span><br><span class="line">    <span class="string">"user_reliable_seq"</span>: <span class="number">85</span>,</span><br><span class="line">    <span class="string">"req_type"</span>: <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结论：告知服务器此时用户正在上什么课，用什么平台上，等等</p>
+<h3 id="report"><a href="#report" class="headerlink" title="report"></a>report</h3><p>当你点击一下任意位置，就会有一个对 <code>https://tmapp.qq.com/cgi-bin/activity_platform/tdw/report</code> 的 GET 请求</p>
+<p>请求参数主要是 <code>fields</code> 和 <code>datas</code>，前者是数据的键，后者包含数据的值</p>
+<p><img src="../images/post/ke-tencent/3.png" alt=""></p>
+<p>对参数 <code>datas</code> 稍做一些处理</p>
+<p><img src="../images/post/ke-tencent/4.png" alt=""></p>
+<p>结论：通过观察，答题/签到/点击鼠标，都会走这个地址~ 你的一举一动就是从这里被观察到的哦</p>
+<p>你的指针在那个页面点了任何位置，都会报告给服务器</p>
+<p>浏览器页面失去焦距（干其他的事情去了），目前不会发送消息给服务器报告</p>
+<h3 id="web-report"><a href="#web-report" class="headerlink" title="web_report"></a>web_report</h3><p><code>https://report.edu.qq.com/data_report/web_report</code> POST 请求</p>
+<p>向服务器汇报操作结果等内容</p>
+<h3 id="gettoken"><a href="#gettoken" class="headerlink" title="gettoken"></a>gettoken</h3><p><code>https://ke.qq.com/cgi-bin/web_ke/gettoken</code> GET 请求，获取 token</p>
+<h3 id="more…"><a href="#more…" class="headerlink" title="more…"></a>more…</h3><p>此外，还有一大堆 http 请求，也有 websocket，真 tm 复杂….</p>
+<p><img src="../images/post/ke-tencent/5.png" alt=""></p>
+<p><img src="../images/post/ke-tencent/6.png" alt=""></p>
+<h2 id="代码欣赏"><a href="#代码欣赏" class="headerlink" title="代码欣赏"></a>代码欣赏</h2><p>好，接下来… 让我们来欣赏一下腾讯课堂的代码吧~</p>
+<p>首先… 来到 Console，一堆 Cross-Origin 的 Warning</p>
+<p><img src="../images/post/ke-tencent/7.png" alt=""></p>
+<p>哪位大哥是把 hook 错误拼写成了 hack 吗？</p>
+<p><img src="../images/post/ke-tencent/8.png" alt=""></p>
+<p>这个 index.html 插了一堆 <code>&lt;script&gt;</code> 里面直接写的 JS 代码，极其凌乱，有赶工的嫌疑呢 #(滑稽)</p>
+<p><img src="../images/post/ke-tencent/9.png" alt=""></p>
+<p>还有那个百度统计有点东西… 怪不得看到一堆百度 <code>favicon.ico</code> 的请求</p>
+<p><img src="../images/post/ke-tencent/10.png" alt=""></p>
+<p>转了一圈，确定腾讯课堂的 Ui 采用了 React 框架</p>
+<p><img src="../images/post/ke-tencent/11.png" alt=""></p>
+<p>这个 <code>report_vm</code> 请求的数据就是当前网络状态的一些状态码</p>
+<p>（P.S. 此处有被未格式化代码淹没的我）</p>
+<p><img src="../images/post/ke-tencent/12.png" alt=""></p>
+<p>弄一弄，找到了部分状态码的含义</p>
+<p><img src="../images/post/ke-tencent/17.png" alt=""></p>
+<p>Chrome 里面太卡，可以把 index.js 搞来本地格式化一下</p>
+<p><img src="../images/post/ke-tencent/13.png" alt=""></p>
+<p>emmm… 想要彻底搞清楚这些状态码具体是什么意思，对我来说好像不太现实… 状态码太多了…</p>
+<p><img src="../images/post/ke-tencent/14.png" alt=""></p>
+<p>这里还找到了一个 window 中的对象，可获取用户个人信息</p>
+<p><img src="../images/post/ke-tencent/18.png" alt=""></p>
+<p>断点观察，方法函数调用进进出出，上上下下，反反复复……</p>
+<p><img src="../images/post/ke-tencent/15.png" alt=""></p>
+<p>114612 行代码，在 Chrome 里面打开真的有点吃不消</p>
+<p>过程懒得写了… 总之整出了一些有参考价值的代码 ↓</p>
+<p><a href="https://gist.github.com/qwqcode/051f8398ba12bdc325a6709a27a50fd8" target="_blank" rel="noopener">https://gist.github.com/qwqcode/051f8398ba12bdc325a6709a27a50fd8</a></p>
+<h3 id="Report"><a href="#Report" class="headerlink" title="Report"></a>Report</h3><p>这就是之前看到发出 <code>tmapp.qq.com/cgi-bin/activity_platform/tdw/report</code> 请求相关的代码</p>
+<h3 id="答题卡-签到-Modal"><a href="#答题卡-签到-Modal" class="headerlink" title="答题卡/签到 Modal"></a>答题卡/签到 Modal</h3><p>由于老师迟迟不来一波签到，不太容易抓到这个元素，从而得到可以判断当前是否处于答题/签到中的 selector</p>
+<p>所以，只好看代码了… 主要是看 Render 相关的代码，就可以得到 Selector</p>
+<p>由代码可知，当开始签到/答题时，会生成一个新组件（组件名为：ImDialog），classname 分别为 <code>sign-dialog</code> 和 <code>examcard-dialog</code></p>
+<p>例如写一段 JS 通过一直查询 document 中的 <code>.examcard-dialog</code> 元素是否存在，就可以判断当前是否正在答题</p>
+<h3 id="ImDialog"><a href="#ImDialog" class="headerlink" title="ImDialog"></a>ImDialog</h3><p>腾讯课堂中经常复用的 Dialog 组件，当弹出窗口时，会有一个新的 <code>.im-dialog</code> 元素出现</p>
+<h2 id="划水防止翻车通知"><a href="#划水防止翻车通知" class="headerlink" title="划水防止翻车通知"></a>划水防止翻车通知</h2><p>腾讯课堂升级了一下，老师导出上课成员名单表格，可以看到在上课期间未点打卡的人</p>
+<p><img src="../images/post/ke-tencent/20.png" alt=""></p>
+<p>新版的腾讯课堂老师端，可以看到当前答题的详细情况，哪些人没有答题…</p>
+<p>如果老师更新了，就不敢在答题的时候摸鱼了（哼… <del>某些老师课都不备，只知道上课喊做题… 自己都要选错答案，乱qiu讲</del>）</p>
+<p><img src="../images/post/ke-tencent/19.png" alt="新版腾讯课堂可查看答题明细"></p>
+<p>实时检测是否存在 答题/签到 Dialog 元素，当元素存在时 执行通知操作</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">SEL_EXAM = <span class="string">'.examcard-dialog .dialog-body'</span>;</span><br><span class="line">SEL_SIGN = <span class="string">'.sign-dialog .dialog-body'</span>;</span><br><span class="line"></span><br><span class="line">ltExamEl = <span class="literal">null</span>; <span class="comment">// 最新的答题卡元素</span></span><br><span class="line">ltSignEl = <span class="literal">null</span>; <span class="comment">// 最新的签到元素</span></span><br><span class="line"></span><br><span class="line">setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 弹出答题窗口</span></span><br><span class="line">  <span class="keyword">const</span> examEl = <span class="built_in">document</span>.querySelector(SEL_EXAM);</span><br><span class="line">  <span class="keyword">if</span> (examEl !== <span class="literal">null</span> &amp;&amp; examEl !== ltExamEl) &#123;</span><br><span class="line">    ltExamEl = examEl;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"检测到 答题卡，开始执行发送 QQ 消息"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 弹出签到窗口</span></span><br><span class="line">  <span class="keyword">const</span> signEl = <span class="built_in">document</span>.querySelector(SEL_SIGN);</span><br><span class="line">  <span class="keyword">if</span> (signEl !== <span class="literal">null</span> &amp;&amp; signEl !== ltSignEl) &#123;</span><br><span class="line">    ltSignEl = signEl;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"检测到 签到，开始执行发送 QQ 消息"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;, <span class="number">1000</span>); <span class="comment">// 1s检测一次</span></span><br></pre></td></tr></table></figure>
+
+<p>我使用了 <a href="https://cqp.cc/" target="_blank" rel="noopener">酷Q</a> + <a href="https://cqhttp.cc/docs/4.14/#/" target="_blank" rel="noopener">CQHttp</a> 插件，在网页上和 酷Q 建立通讯，从而发送 QQ消息：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 发送私信</span></span><br><span class="line">QWQ.SendQQMsg = <span class="function">(<span class="params">qqNum, msg, name</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (!msg) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">  xhr.onreadystatechange = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState === <span class="number">4</span> &amp;&amp; xhr.status === <span class="number">200</span>)</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">`[酷Q] 发私信 NAME:<span class="subst">$&#123;name&#125;</span> QQ:<span class="subst">$&#123;qqNum&#125;</span>`</span>, <span class="built_in">JSON</span>.parse(xhr.response));</span><br><span class="line">  &#125;;</span><br><span class="line">  xhr.open(<span class="string">"get"</span>, <span class="string">`http://127.0.0.1:12307/send_private_msg_rate_limited?user_id=<span class="subst">$&#123;<span class="built_in">encodeURIComponent</span>(qqNum)&#125;</span>&amp;message=<span class="subst">$&#123;<span class="built_in">encodeURIComponent</span>(msg)&#125;</span>`</span>, <span class="literal">true</span>);</span><br><span class="line">  xhr.send(<span class="literal">null</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 发送群消息</span></span><br><span class="line">QWQ.SendGrpMsg = <span class="function">(<span class="params">grpNum, msg</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (!msg) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">  xhr.onreadystatechange = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState === <span class="number">4</span> &amp;&amp; xhr.status === <span class="number">200</span>)</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">`[酷Q] 发群消息 GRP:<span class="subst">$&#123;grpNum&#125;</span>`</span>, <span class="built_in">JSON</span>.parse(xhr.response));</span><br><span class="line">  &#125;;</span><br><span class="line">  xhr.open(<span class="string">"get"</span>, <span class="string">`http://127.0.0.1:12307/send_group_msg_rate_limited?group_id=<span class="subst">$&#123;<span class="built_in">encodeURIComponent</span>(grpNum)&#125;</span>&amp;message=<span class="subst">$&#123;<span class="built_in">encodeURIComponent</span>(msg)&#125;</span>`</span>, <span class="literal">true</span>);</span><br><span class="line">  xhr.send(<span class="literal">null</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><img src="../images/post/ke-tencent/16.png" alt=""></p>
+<p><img src="../images/post/ke-tencent/23.png" alt=""></p>
+<h2 id="JS-实时画面截取"><a href="#JS-实时画面截取" class="headerlink" title="JS 实时画面截取"></a>JS 实时画面截取</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取当前直播画面，并创建 canvas 对象来返回</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">GetVideoShotCanvas</span> (<span class="params">width, height, filter</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> video = <span class="built_in">document</span>.querySelector(<span class="string">"#main_video"</span>);</span><br><span class="line">  <span class="keyword">if</span> (video === <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">const</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">"canvas"</span>);</span><br><span class="line">  canvas.width = width || <span class="number">1280</span>;</span><br><span class="line">  canvas.height = height || <span class="number">720</span>;</span><br><span class="line">  <span class="keyword">const</span> ctx = canvas.getContext(<span class="string">"2d"</span>);</span><br><span class="line">  <span class="keyword">if</span> (filter) &#123;</span><br><span class="line">    ctx.filter = filter;</span><br><span class="line">  &#125;</span><br><span class="line">  ctx.drawImage(video, <span class="number">0</span>, <span class="number">0</span>, canvas.width, canvas.height);</span><br><span class="line">  <span class="keyword">return</span> canvas;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取当前直播画面，并返回 Base64 DataURL</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">GetVideoShotDataURL</span> (<span class="params">quality, width, height</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> quality === <span class="string">"undefined"</span>) quality = <span class="number">0.6</span>;</span><br><span class="line">  <span class="keyword">const</span> canvas = QWQ.GetVideoShotCanvas(width, height);</span><br><span class="line">  <span class="keyword">if</span> (canvas === <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">return</span> canvas.toDataURL(<span class="string">"image/jpeg"</span>, quality); <span class="comment">// Base64</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以做一个自动截图功能，对于 PPT 讲课比较友好</p>
+<p>我有一个思路：首先截取直播的一帧，间隔几秒，再截取一帧。通过对比前后两帧的相似度，相似度过小则保存前一帧即可</p>
+<p>JS 相似度对比可以使用现成的算法，这里找到了一个：</p>
+<p><a href="https://github.com/obartra/ssim" target="_blank" rel="noopener">https://github.com/obartra/ssim</a></p>
+<p><img src="../images/post/ke-tencent/21.png" alt=""></p>
+<h2 id="快速清人"><a href="#快速清人" class="headerlink" title="快速清人"></a>快速清人</h2><p>快速找出未到的成员</p>
+<p>复杂的事情为什么不交给可耐的 JS 来做呢？</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">queryList</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> elemList = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.member-list .member-item-inner'</span>);</span><br><span class="line">  <span class="keyword">const</span> nameList = [];</span><br><span class="line">  elemList.forEach(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123; nameList.push(item.innerText); &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> inHereList = [];</span><br><span class="line">  <span class="keyword">const</span> notHereList = [];</span><br><span class="line">  queryList.forEach(<span class="function">(<span class="params">name</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> isExits = <span class="literal">false</span>;</span><br><span class="line">    nameList.forEach(<span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (n.indexOf(name) !== <span class="number">-1</span>) isExits = <span class="literal">true</span>;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">if</span> (isExits) inHereList.push(name); <span class="keyword">else</span> notHereList.push(name);</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`============ <span class="subst">$&#123;<span class="keyword">new</span> <span class="built_in">Date</span>&#125;</span> ============`</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"[列表获取的成员]"</span>, nameList);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"[计算-存在的成员]"</span>, inHereList);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"[计算-不存在的成员]"</span>, notHereList);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`\n\n`</span>);</span><br><span class="line">&#125;)([<span class="string">"小A"</span>, <span class="string">"小B"</span>, <span class="string">"小C"</span>, ...]); <span class="comment">// 班上完整成员名单</span></span><br></pre></td></tr></table></figure>
+
+<p>复制粘贴，控制台敲入即可</p>
+<p><img src="../images/post/ke-tencent/24.png" alt=""></p>
+<p>P.S. 这里自动翻页没做，让我摸摸鱼吧… 你自己手动点翻页 qwq</p>
+<h2 id="去掉正在观看悬浮水印"><a href="#去掉正在观看悬浮水印" class="headerlink" title="去掉正在观看悬浮水印"></a>去掉正在观看悬浮水印</h2><p>上网课的时候，你的QQ号有时会飘来飘去，烦得要死</p>
+<p>录屏截图的时候也会泄露你的 QQ</p>
+<p><img src="../images/post/ke-tencent/25.png" alt=""></p>
+<p>复制下面的代码到<a href="https://violentmonkey.github.io/" target="_blank" rel="noopener">暴力猴</a>里就可以去掉</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ==UserScript==</span></span><br><span class="line"><span class="comment">// @icon         http://9.url.cn/edu/lego_modules/edu-ui/0.0.1/img/nohash/logo_pc_rich.png</span></span><br><span class="line"><span class="comment">// @name         腾讯课堂 去除悬浮水印</span></span><br><span class="line"><span class="comment">// @namespace    http://tampermonkey.net/</span></span><br><span class="line"><span class="comment">// @version      0.1</span></span><br><span class="line"><span class="comment">// @author       qwqcode</span></span><br><span class="line"><span class="comment">// @match        *://ke.qq.com/webcourse/index.html*</span></span><br><span class="line"><span class="comment">// @run-at       document-end</span></span><br><span class="line"><span class="comment">// ==/UserScript==</span></span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> style = <span class="built_in">document</span>.createElement(<span class="string">'style'</span>);</span><br><span class="line">  style.innerHTML = <span class="string">`#marquee &#123; opacity: 0 !important;position: absolute !important;top: '-100000px' !important; &#125;`</span>;</span><br><span class="line">  <span class="built_in">document</span>.head.appendChild(style);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+<p><img src="../images/post/ke-tencent/26.png" alt=""></p>
+<p>至于怎么安装暴力猴插件，百度 “安装暴力猴”</p>
+<h2 id="去掉其它多余元素（for-录屏）"><a href="#去掉其它多余元素（for-录屏）" class="headerlink" title="去掉其它多余元素（for 录屏）"></a>去掉其它多余元素（for 录屏）</h2><p>暴力猴代码，去掉悬浮水印、答题/签到弹窗置于右上、评论区域改造、移除可能暴露个人信息的元素：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ==UserScript==</span></span><br><span class="line"><span class="comment">// @icon         http://9.url.cn/edu/lego_modules/edu-ui/0.0.1/img/nohash/logo_pc_rich.png</span></span><br><span class="line"><span class="comment">// @name         腾讯课堂【录制专用 CSS】清除水印 去除多余元素</span></span><br><span class="line"><span class="comment">// @namespace    http://tampermonkey.net/</span></span><br><span class="line"><span class="comment">// @version      0.1</span></span><br><span class="line"><span class="comment">// @author       qwqcode</span></span><br><span class="line"><span class="comment">// @match        *://ke.qq.com/webcourse/index.html*</span></span><br><span class="line"><span class="comment">// @run-at       document-end</span></span><br><span class="line"><span class="comment">// ==/UserScript==</span></span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> style = <span class="built_in">document</span>.createElement(<span class="string">'style'</span>);</span><br><span class="line">  style.innerHTML = <span class="string">`.examcard-dialog .im-dialog&#123;transform:translate(664px,-483px) !important;width:295px !important;min-width:295px !important;&#125;.video-cont .main-video&#123;background:#434343;&#125;.im-dialog-mask&#123;background-color:transparent;&#125;.ke_overlay_content .download-tips&#123;opacity:0;&#125;#react-body .qrcode-maker&#123;opacity:0;&#125;.study-header .operations .header-item.real-name,.s-avatar .avatar-img&#123;opacity:0 !important;&#125;#marquee&#123;opacity:0 !important;position:absolute !important;top:'-100000px' !important;&#125;#react-body.web .chat-ctn .chat-wrap .member-item&#123;height:26px !important;min-height:26px !important;padding:0px 0 0px 10px !important;font-size:16px;border-left:3px solid #188eee;margin-left:-3px;&#125;.member-item-content&#123;padding-top:0px !important;&#125;#react-body.web .chat-ctn .chat-item-msg&#123;margin-top:-4px !important;background:#000 !important;font-size:16px;margin:10px;border-radius:4px;width:unset;padding:6px 0 0 0;&#125;.member-item-nickname&#123;height:26px !important;&#125;.chat-item-msg-content &gt; span&#123;color:#FFF !important;font-family:"Microsoft YaHei Light" !important;&#125;img#img_1149527164&#123;opacity:0;&#125;span.uin&#123;opacity:0;&#125;span#nick_1149527164&#123;opacity:0;&#125;span#qr_area&#123;opacity:0;&#125;div#qlogin_tips_1&#123;opacity:0;&#125;div#title_0&#123;opacity:0;&#125;div#bottom_qlogin&#123;opacity:0;&#125;.video-cont .main-video&#123;height:100%;&#125;.webrtc-ctn .video-cont .video-controls#videoControls&#123;opacity:.75;background:transparent;&#125;.study-header .operations .share.header-item&#123;display:none;&#125;.study-header .operations .mobile-watch.header-item&#123;display:none;&#125;.study-header .operations .header-item.etc&#123;display:none;&#125;.video-cont .video-controls .control-item.time&#123;border-right:0 !important;color:#000;&#125;.video-cont .video-controls .right-panel .control-item&#123;&#125;.video-cont .video-controls .control-item .icon&#123;color:#000;&#125;.vcp-panel-bg&#123;background-color:transparent;&#125;`</span>;</span><br><span class="line"><span class="built_in">document</span>.head.appendChild(style);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+<p>原始界面：</p>
+<p><img src="../images/post/ke-tencent/27.png" alt=""></p>
+<p>修改后：</p>
+<p><img src="../images/post/ke-tencent/28.png" alt=""></p>
+<p>敏感信息都没有了</p>
+<h2 id="OBS-录屏添加评论区"><a href="#OBS-录屏添加评论区" class="headerlink" title="OBS 录屏添加评论区"></a>OBS 录屏添加评论区</h2><p>这是 OBS 录屏添加右下评论区方法</p>
+<p>创建一个新的“显示器获捕”</p>
+<p>右键“滤镜”，添加“色值”</p>
+<ul>
+<li>关键颜色类型：自定义颜色</li>
+<li>关键颜色：#333333</li>
+<li>相似度：1</li>
+<li>平滑：1</li>
+<li>不透明度：42 （整来半透明）</li>
+<li>对比度：1.00</li>
+<li>亮度：-1.00</li>
+<li>伽马：0.16</li>
+</ul>
+<p><img src="../images/post/ke-tencent/29.png" alt=""></p>
+<p>右键“变换”，“编辑变换”</p>
+<p>“裁切”参数改成适合的值</p>
+<p><img src="../images/post/ke-tencent/30.png" alt=""></p>
+<p>- END -</p>
+
+        
+        </div>
+        
+            
+            <div class="article-copyright">本站文章除注明转载外均为原创，未经允许不要转载哇. ヾ(ﾟｰﾟヾ) https://qwqaq.com/c7833746.html</div>
+            
+        
+<div class="article-tag-block">
+    <i class="zmdi zmdi-tag"></i>
+    <a class="tag-link" href="/tags/JS/" rel="tag">JS</a><a class="tag-link" href="/tags/%E5%88%92%E6%B0%B4/" rel="tag">划水</a><a class="tag-link" href="/tags/%E5%AE%9E%E6%97%B6%E7%94%BB%E9%9D%A2/" rel="tag">实时画面</a><a class="tag-link" href="/tags/%E6%91%B8%E9%B1%BC/" rel="tag">摸鱼</a><a class="tag-link" href="/tags/%E7%BD%91%E8%AF%BE/" rel="tag">网课</a><a class="tag-link" href="/tags/%E8%85%BE%E8%AE%AF%E8%AF%BE%E5%A0%82/" rel="tag">腾讯课堂</a><a class="tag-link" href="/tags/%E8%87%AA%E5%8A%A8%E7%AD%BE%E5%88%B0/" rel="tag">自动签到</a><a class="tag-link" href="/tags/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/" rel="tag">逆向工程</a><a class="tag-link" href="/tags/%E9%98%B2%E6%AD%A2%E7%BF%BB%E8%BD%A6/" rel="tag">防止翻车</a>
+</div>
+
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://qwqaq.com/c7833746.html" data-id="ck8x68snr000l8gu8b3wca9f6" class="article-share-link"><i class="zmdi zmdi-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="zmdi zmdi-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="zmdi zmdi-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="zmdi zmdi-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="zmdi zmdi-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+
+        </footer>
+        
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/62774076.html" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    损坏的 MP4 视频文件修复
+                
+            </div>
+        </a>
+    
+    
+        <a href="/52433ab.html" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">TypeScript 实现 JSON字符串 和 实例化Class对象 之间的相互转换</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments"><div id="ArtalkComments"></div>
+<script>
+$(document).ready(function () {
+  var artalk = new Artalk({
+    el: '#ArtalkComments',
+    placeholder: '来啊，快活啊 (/ω＼)',
+    defaultAvatar: 'mp',
+    pageSize: 50,
+    pageKey: 'https://qwqaq.com/c7833746.html',
+    serverUrl: 'https://artalk.zeo.im'
+  });
+});
+</script>
+</section>
+    
+
+
+
+</section>
+            
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/62774076.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/banner/bad-video.png)" alt="损坏的 MP4 视频文件修复" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/GitHub-Star/">GitHub Star</a></p>
+                            <p class="item-title"><a href="/62774076.html" class="title">损坏的 MP4 视频文件修复</a></p>
+                            <p class="item-date"><time datetime="2020-04-11T05:46:29.000Z" itemprop="datePublished">2020-04-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/c7833746.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/banner/tencent-ke.png)" alt="来对腾讯课堂的操作一波" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a></p>
+                            <p class="item-title"><a href="/c7833746.html" class="title">来对腾讯课堂的操作一波</a></p>
+                            <p class="item-date"><time datetime="2020-04-05T08:33:55.000Z" itemprop="datePublished">2020-04-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/52433ab.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/banner/TS.png)" alt="TypeScript 实现 JSON字符串 和 实例化Class对象 之间的相互转换" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JS/">JS</a><i class="zmdi zmdi-chevron-right"></i><a class="article-category-link" href="/categories/JS/TS/">TS</a></p>
+                            <p class="item-title"><a href="/52433ab.html" class="title">TypeScript 实现 JSON字符串 和 实例化Class对象 之间的相互转换</a></p>
+                            <p class="item-date"><time datetime="2020-01-16T04:11:14.000Z" itemprop="datePublished">2020-01-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/ee43a4af.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/banner/CefSharpEmbeddedResource.png)" alt="CefSharp 访问嵌入的前端目录：Scheme 自定义 + 文件夹作为嵌入的资源" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/CSharp/">CSharp</a></p>
+                            <p class="item-title"><a href="/ee43a4af.html" class="title">CefSharp 访问嵌入的前端目录：Scheme 自定义 + 文件夹作为嵌入的资源</a></p>
+                            <p class="item-date"><time datetime="2019-05-03T15:33:15.000Z" itemprop="datePublished">2019-05-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/5e466d74.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/banner/cs_borderless_areo_shadow.png)" alt="C# WinForm 调用 DWMAPI.dll 实现无边框窗体 Aero 边缘阴影 DropShadow 效果" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/CSharp/">CSharp</a></p>
+                            <p class="item-title"><a href="/5e466d74.html" class="title">C# WinForm 调用 DWMAPI.dll 实现无边框窗体 Aero 边缘阴影 DropShadow 效果</a></p>
+                            <p class="item-date"><time datetime="2019-05-03T14:42:59.000Z" itemprop="datePublished">2019-05-03</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CSharp/">CSharp</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-Star/">GitHub Star</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JS/TS/">TS</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows/">Windows</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/Canvas/">Canvas</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/Vue/">Vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Hyper/">Hyper</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Scoop/">Scoop</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/VSCode/">VSCode</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/VSCode/Android-Studio/">Android Studio</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/VSCode/Android-Studio/PhpStorm/">PhpStorm</a><span class="category-list-count">1</span></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83/">生产环境</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83/Apache/">Apache</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A1%AC%E4%BB%B6/">硬件</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A1%AC%E4%BB%B6/Arduino/">Arduino</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE/">项目</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE/Nacollector/">Nacollector</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE/Rescoll/">Rescoll</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="zmdi zmdi-chevron-up"></div>
+</aside>
+
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 QWQAQ<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme <a href="https://github.com/qwqcode/hexo-theme-icarus" target="_blank" rel="noopener">icarus</a>
+        </div>
+    </div>
+</footer>
+
+        
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+    
+<script src="/libs/artalk/Artalk.js"></script>
+
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+</body>
+</html>

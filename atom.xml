@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://qwqaq.com/"/>
-  <updated>2020-04-10T00:30:44.974Z</updated>
+  <updated>2020-04-12T15:09:18.101Z</updated>
   <id>https://qwqaq.com/</id>
   
   <author>
@@ -17,34 +17,68 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>腾讯课堂 JS 逆向工程</title>
-    <link href="https://qwqaq.com/80ac8f8d.html"/>
-    <id>https://qwqaq.com/80ac8f8d.html</id>
-    <published>2020-04-05T08:33:55.000Z</published>
-    <updated>2020-04-10T00:30:44.974Z</updated>
+    <title>损坏的 MP4 视频文件修复</title>
+    <link href="https://qwqaq.com/62774076.html"/>
+    <id>https://qwqaq.com/62774076.html</id>
+    <published>2020-04-11T05:46:29.000Z</published>
+    <updated>2020-04-12T15:09:18.101Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;划水中…&lt;/p&gt;
-
-        
-      
+      &lt;p&gt;上直播课使用 OBS 对屏幕进行录制，在录制过程中难免会发生许多小意外，例如突然停电（草，一天停 4 次电），或者不小心按到关机键（草，已废掉关机键）由于录制没有执行保存操作（丢 header?），视频文件损坏…… 所以怎么修复呢？&lt;/p&gt;
     
     </summary>
     
     
-      <category term="前端" scheme="https://qwqaq.com/categories/%E5%89%8D%E7%AB%AF/"/>
+      <category term="GitHub Star" scheme="https://qwqaq.com/categories/GitHub-Star/"/>
     
+    
+      <category term="文件修复" scheme="https://qwqaq.com/tags/%E6%96%87%E4%BB%B6%E4%BF%AE%E5%A4%8D/"/>
+    
+      <category term="视频文件" scheme="https://qwqaq.com/tags/%E8%A7%86%E9%A2%91%E6%96%87%E4%BB%B6/"/>
+    
+      <category term="MP4" scheme="https://qwqaq.com/tags/MP4/"/>
+    
+      <category term="H264" scheme="https://qwqaq.com/tags/H264/"/>
+    
+      <category term="H265" scheme="https://qwqaq.com/tags/H265/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>来对腾讯课堂的操作一波</title>
+    <link href="https://qwqaq.com/c7833746.html"/>
+    <id>https://qwqaq.com/c7833746.html</id>
+    <published>2020-04-05T08:33:55.000Z</published>
+    <updated>2020-04-12T15:09:14.417Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;COVID-19 病毒大范围流行，从二月到四月，从假期到学校开学，目前各地学校大多都以网络直播的形式授课，不少学校（例如我们学校）选择了腾讯课堂。让我来搞一波 Web 版的腾讯课堂 #(滑稽)，整上签到/答题通知，防止在划水的时候翻船（逃。另外还有实时画面截取、快速清人、去掉水印、OBS 录屏等内容的操作分享。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="日常" scheme="https://qwqaq.com/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+      <category term="JS" scheme="https://qwqaq.com/tags/JS/"/>
     
       <category term="腾讯课堂" scheme="https://qwqaq.com/tags/%E8%85%BE%E8%AE%AF%E8%AF%BE%E5%A0%82/"/>
     
       <category term="逆向工程" scheme="https://qwqaq.com/tags/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/"/>
     
       <category term="自动签到" scheme="https://qwqaq.com/tags/%E8%87%AA%E5%8A%A8%E7%AD%BE%E5%88%B0/"/>
+    
+      <category term="网课" scheme="https://qwqaq.com/tags/%E7%BD%91%E8%AF%BE/"/>
+    
+      <category term="实时画面" scheme="https://qwqaq.com/tags/%E5%AE%9E%E6%97%B6%E7%94%BB%E9%9D%A2/"/>
+    
+      <category term="划水" scheme="https://qwqaq.com/tags/%E5%88%92%E6%B0%B4/"/>
+    
+      <category term="摸鱼" scheme="https://qwqaq.com/tags/%E6%91%B8%E9%B1%BC/"/>
+    
+      <category term="防止翻车" scheme="https://qwqaq.com/tags/%E9%98%B2%E6%AD%A2%E7%BF%BB%E8%BD%A6/"/>
     
   </entry>
   
@@ -561,28 +595,6 @@
       <category term="开发工具" scheme="https://qwqaq.com/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
     
       <category term="Hyper" scheme="https://qwqaq.com/tags/Hyper/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Lazer-Database PHP使用JSON文件做数据库</title>
-    <link href="https://qwqaq.com/50b0de2d.html"/>
-    <id>https://qwqaq.com/50b0de2d.html</id>
-    <published>2018-12-01T13:05:57.000Z</published>
-    <updated>2018-12-01T13:29:35.038Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;https://github.com/Greg0/Lazer-Database&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Greg0/Lazer-Database&lt;/a&gt; 是一个 PHP 库，你能将 JSON 作为数据库进行增删改查等操作，丢掉 MySQL，这对小型项目很友好。&lt;/p&gt;
-&lt;p&gt;PHP flat-file database to store data with JSON&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="GitHub Star" scheme="https://qwqaq.com/categories/GitHub-Star/"/>
-    
-    
-      <category term="GitHub Star" scheme="https://qwqaq.com/tags/GitHub-Star/"/>
     
   </entry>
   
